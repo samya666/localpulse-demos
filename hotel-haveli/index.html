@@ -3,186 +3,828 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Hotel Haveli | Premium Digital Experience by LocalPulse AI</title>
-  <meta name="description" content="A custom-built, high-converting mobile experience for Hotel Haveli, {'address': 'NH-34 (NH-12), Bhatjangla, Krishnagar, Nadia, West Bengal 741102', 'landmark': 'Southern Gateway to Krishnanagar, NH-12 Bypass Junction', 'city_zone': 'Krishnanagar / Nadia District (NH-12 Highway Corridor)'}. Powered by LocalPulse AI.">
+  <title>Hotel Haveli | Royal Stays, 14,000 Sq Ft Wedding Lawn & Dining | NH-12 Krishnanagar</title>
+  <meta name="description" content="Krishnanagar's premier 3-star hospitality landmark on NH-12 Bhatjangla. Featuring a 14,000 sq ft wedding lawn, dual AC banquet halls, luxury suites, and multi-cuisine restaurant & bar.">
+  
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Cormorant Garamond (Majestic Serif) + Nunito Sans (Clean Body) + Fira Code (Telemetry) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600;1,700&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
   <style>
     :root {
-      --primary: #B85D2A;
-      --primary-dark: #8C3B1B;
-      --dark: #1a1a1a;
-      --cream: #FAF8F5;
-      --sand: #ECE5CE;
+      --haveli-navy-dark: #0A111C;
+      --haveli-navy: #131E2E;
+      --haveli-navy-light: #1E2D42;
+      --haveli-copper: #B87333;
+      --haveli-copper-light: #D48B46;
+      --haveli-copper-dark: #8C4F1A;
+      --haveli-gold: #DDA15E;
+      --haveli-ivory: #FFFFF0;
+      --haveli-cream: #F8F6F0;
+      --haveli-charcoal: #0F1722;
     }
-    body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--cream); color: #262420; }
-    .font-editorial { font-family: 'Playfair Display', serif; }
-    .gradient-hero { background: linear-gradient(135deg, #1a1a1a 0%, #2d1810 50%, #1a1a1a 100%); }
-    .glow-btn {
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      box-shadow: 0 10px 30px -5px rgba(184,93,42,0.4);
-      transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+
+    body {
+      font-family: 'Nunito Sans', sans-serif;
+      background-color: var(--haveli-navy-dark);
+      color: var(--haveli-cream);
+      overflow-x: hidden;
     }
-    .glow-btn:hover { transform: translateY(-2px); box-shadow: 0 15px 40px -5px rgba(184,93,42,0.5); }
-    .card-hover { transition: all 0.3s ease; }
-    .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-    .stat-card { background: rgba(255,255,255,0.7); backdrop-filter: blur(10px); }
-    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-    .float { animation: float 3s ease-in-out infinite; }
+
+    .font-cormorant {
+      font-family: 'Cormorant Garamond', serif;
+      letter-spacing: 0.02em;
+    }
+
+    .font-fira {
+      font-family: 'Fira Code', monospace;
+    }
+
+    /* Haveli Arch Motif & Border */
+    .haveli-arch-border {
+      border: 1px solid rgba(184, 115, 51, 0.35);
+      position: relative;
+    }
+    .haveli-arch-border::before {
+      content: '◆ ◆ ◆ ◆ ◆';
+      position: absolute;
+      top: -9px;
+      left: 24px;
+      font-size: 7px;
+      color: var(--haveli-copper-light);
+      background: var(--haveli-navy-dark);
+      padding: 0 8px;
+      letter-spacing: 6px;
+    }
+
+    /* Glass Panels */
+    .glass-haveli {
+      background: rgba(19, 30, 46, 0.78);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(184, 115, 51, 0.28);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.65);
+    }
+
+    .glass-card {
+      background: rgba(25, 38, 56, 0.65);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(184, 115, 51, 0.22);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .glass-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(212, 139, 70, 0.6);
+      box-shadow: 0 20px 40px -10px rgba(184, 115, 51, 0.25);
+    }
+
+    /* Burnished Copper Action Buttons */
+    .copper-btn {
+      background: linear-gradient(135deg, #B87333 0%, #8C4F1A 100%);
+      color: #FFFFF0;
+      font-weight: 700;
+      box-shadow: 0 10px 25px -5px rgba(184, 115, 51, 0.45);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      border: 1px solid rgba(221, 161, 94, 0.3);
+    }
+    .copper-btn:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 16px 35px -5px rgba(212, 139, 70, 0.65);
+      background: linear-gradient(135deg, #D48B46 0%, #A65D20 100%);
+      color: #FFFFFF;
+    }
+
+    .copper-outline-btn {
+      background: rgba(184, 115, 51, 0.08);
+      color: #FFFFF0;
+      border: 1px solid rgba(184, 115, 51, 0.5);
+      transition: all 0.3s ease;
+    }
+    .copper-outline-btn:hover {
+      background: rgba(184, 115, 51, 0.2);
+      border-color: #D48B46;
+      transform: translateY(-2px);
+    }
+
+    /* Filmstrip Marquee Animation */
+    @keyframes filmstripMarquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .filmstrip-track {
+      display: flex;
+      width: max-content;
+      animation: filmstripMarquee 32s linear infinite;
+    }
+    .filmstrip-container:hover .filmstrip-track {
+      animation-play-state: paused;
+    }
+
+    /* Pulse Glow */
+    .glow-copper {
+      box-shadow: 0 0 35px -5px rgba(184, 115, 51, 0.35);
+    }
   </style>
 </head>
-<body class="antialiased">
+<body class="antialiased selection:bg-[#B87333] selection:text-white">
 
-  <!-- Hero Section -->
-  <section class="gradient-hero min-h-screen flex items-center justify-center relative overflow-hidden">
-    <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 20% 50%, rgba(184,93,42,0.3) 0%, transparent 50%), radial-gradient(circle at 80% 50%, rgba(184,93,42,0.2) 0%, transparent 50%);"></div>
-    <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
-      <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-5 py-2 mb-8">
-        <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-        <span class="text-white/80 text-sm font-medium tracking-wide">CUSTOM PREVIEW — BUILT FOR HOTEL HAVELI</span>
+  <!-- ========================================== -->
+  <!-- 🧭 FIXED NAV: BRAND IDENTITY + DIRECT CTAS -->
+  <!-- ========================================== -->
+  <nav class="fixed top-0 left-0 right-0 z-50 px-4 sm:px-8 py-3.5 flex justify-between items-center bg-gradient-to-b from-[#0A111C]/90 via-[#0A111C]/60 to-transparent pointer-events-none backdrop-blur-[2px]">
+    <!-- Brand badge -->
+    <div class="flex items-center gap-3 pointer-events-auto">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#B87333]/30 to-[#131E2E] border border-[#B87333]/50 flex items-center justify-center text-[#D48B46] shadow-lg shadow-black/40">
+        <i class="bi bi-bank text-lg"></i>
       </div>
-      <h1 class="font-editorial text-5xl md:text-7xl text-white font-bold leading-tight mb-6">
-        Hotel Haveli
-      </h1>
-      <p class="text-white/70 text-lg md:text-xl max-w-2xl mx-auto mb-4">
-        {'address': 'NH-34 (NH-12), Bhatjangla, Krishnagar, Nadia, West Bengal 741102', 'landmark': 'Southern Gateway to Krishnanagar, NH-12 Bypass Junction', 'city_zone': 'Krishnanagar / Nadia District (NH-12 Highway Corridor)'}
-      </p>
-      <p class="text-white/50 text-base max-w-xl mx-auto mb-10">
-        This is what your restaurant's digital presence could look like — built in 48 hours by LocalPulse AI.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href='https://wa.me/917407832323' target='_blank' class='glow-btn text-white px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center gap-3'><i class='bi bi-whatsapp text-2xl'></i> Book via WhatsApp</a>
-        <a href="tel:+91 74078 32323" class="bg-white/10 backdrop-blur-md border border-white/30 text-white px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center gap-3 hover:bg-white/20 transition-all">
-          <i class="bi bi-telephone-fill"></i> Call Now
-        </a>
+      <div>
+        <div class="flex items-center gap-2">
+          <span class="font-cormorant text-base sm:text-lg text-white font-bold tracking-wider leading-none">HOTEL HAVELI</span>
+          <span class="text-[9px] px-1.5 py-0.5 rounded bg-[#B87333]/20 border border-[#B87333]/40 text-[#D48B46] font-fira font-semibold">3-STAR</span>
+        </div>
+        <span class="text-[10px] text-white/60 font-fira block tracking-tight">NH-12 · BHATJANGLA · KRISHNANAGAR</span>
       </div>
     </div>
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/40 animate-bounce">
-      <i class="bi bi-chevron-double-down text-2xl"></i>
-    </div>
-  </section>
+    
+    <!-- Action buttons -->
+    <div class="flex items-center gap-2.5 pointer-events-auto">
+      <!-- Sound toggle -->
+      <button id="toggleWalkthroughSound" aria-label="Toggle Walkthrough Audio" class="hidden sm:flex px-3.5 py-1.5 rounded-full bg-black/60 border border-white/20 text-white/80 hover:text-white text-xs font-fira items-center gap-2 backdrop-blur-md transition">
+        <i class="bi bi-volume-mute-fill text-[#D48B46]"></i> <span id="soundLabel">SOUND OFF</span>
+      </button>
 
-  <!-- What We'd Build Section -->
-  <section class="py-20 px-6">
-    <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-16">
-        <span class="text-sm font-bold tracking-[0.2em] uppercase" style="color: var(--primary);">What Your Guests Would Experience</span>
-        <h2 class="font-editorial text-4xl md:text-5xl font-bold mt-4 mb-6">A Digital Experience<br>Worthy of Your Kitchen</h2>
-        <p class="text-gray-500 text-lg max-w-2xl mx-auto">Every feature below is designed to convert highway travelers and local foodies into paying guests — in one tap.</p>
-      </div>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(184,93,42,0.1);">
-            <i class="bi bi-phone text-2xl" style="color: var(--primary);"></i>
-          </div>
-          <h3 class="font-bold text-xl mb-3">Mobile-First Design</h3>
-          <p class="text-gray-500">85% of your customers search on phones. A lightning-fast mobile experience with sticky booking bar and one-tap WhatsApp reservation.</p>
-        </div>
-        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(184,93,42,0.1);">
-            <i class="bi bi-camera-reels text-2xl" style="color: var(--primary);"></i>
-          </div>
-          <h3 class="font-bold text-xl mb-3">5 Custom Video Reels</h3>
-          <p class="text-gray-500">High-retention 9:16 vertical videos of your signature dishes, ambiance, and chef specials — ready for Instagram, YouTube Shorts & Google Maps.</p>
-        </div>
-        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(184,93,42,0.1);">
-            <i class="bi bi-robot text-2xl" style="color: var(--primary);"></i>
-          </div>
-          <h3 class="font-bold text-xl mb-3">AI Digital Concierge</h3>
-          <p class="text-gray-500">A 24/7 AI assistant trained on your exact menu, pricing, and FAQs — answers customer questions instantly on WhatsApp.</p>
-        </div>
-        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(184,93,42,0.1);">
-            <i class="bi bi-calendar-event text-2xl" style="color: var(--primary);"></i>
-          </div>
-          <h3 class="font-bold text-xl mb-3">Banquet Booking Funnel</h3>
-          <p class="text-gray-500">Direct inquiry forms for weddings, birthday parties, and corporate events — no more lost leads from missed calls.</p>
-        </div>
-        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(184,93,42,0.1);">
-            <i class="bi bi-geo-alt text-2xl" style="color: var(--primary);"></i>
-          </div>
-          <h3 class="font-bold text-xl mb-3">GPS Navigation</h3>
-          <p class="text-gray-500">One-tap Google Maps routing for highway travelers. Integrated with your exact pin location and landmark references.</p>
-        </div>
-        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(184,93,42,0.1);">
-            <i class="bi bi-graph-up-arrow text-2xl" style="color: var(--primary);"></i>
-          </div>
-          <h3 class="font-bold text-xl mb-3">SEO & Google Boost</h3>
-          <p class="text-gray-500">Schema markup, local SEO optimization, and Google Business integration so you rank #1 for "Hotel Haveli" and nearby food searches.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Social Proof / Reference -->
-  <section class="py-20 px-6" style="background: var(--dark);">
-    <div class="max-w-4xl mx-auto text-center">
-      <span class="text-sm font-bold tracking-[0.2em] uppercase text-amber-400">See What We've Already Built</span>
-      <h2 class="font-editorial text-4xl md:text-5xl font-bold text-white mt-4 mb-6">Our Reference Project</h2>
-      <p class="text-white/60 text-lg mb-10">We built this complete digital experience for Mother's Hut, Krishnanagar — the 50,000 sq ft women-powered dining landmark on NH-12.</p>
-      <a href="https://samya666.github.io/mothers-hut-redesign/" target="_blank" class="glow-btn text-white px-10 py-5 rounded-full font-bold text-lg inline-flex items-center gap-3">
-        <i class="bi bi-box-arrow-up-right"></i> View Mother's Hut Experience
+      <!-- Phone quick call -->
+      <a href="tel:+917407832323" class="hidden md:inline-flex px-4 py-2 rounded-full bg-white/5 border border-white/20 text-white text-xs font-semibold hover:bg-white/10 transition items-center gap-1.5">
+        <i class="bi bi-telephone-fill text-[#D48B46] text-xs"></i> +91 74078 32323
       </a>
-      <div class="grid grid-cols-3 gap-6 mt-16">
-        <div class="stat-card rounded-2xl p-6">
-          <div class="text-3xl font-bold text-white">2.5K</div>
-          <div class="text-white/50 text-sm mt-1">Video Walkthrough</div>
+
+      <!-- WhatsApp Booking CTA -->
+      <a href="https://wa.me/917407832323?text=Namaskar%20Hotel%20Haveli%20Krishnanagar%20Team%2C%20I%20would%20like%20to%20inquire%20about%20room%20bookings%2C%20wedding%20lawn%20dates%2C%20or%20table%20reservations." 
+         target="_blank"
+         class="copper-btn px-4 sm:px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase inline-flex items-center gap-2">
+        <i class="bi bi-whatsapp text-sm"></i> <span>Reserve on WhatsApp</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- ========================================== -->
+  <!-- 🎥 SCROLL-CAMERA TRACK HERO (360vh GSAP)   -->
+  <!-- ========================================== -->
+  <section id="camera-track-container" class="relative w-full h-[360vh] bg-black">
+    <!-- Pinned Viewport Container -->
+    <div id="camera-viewport" class="sticky top-0 w-full h-screen overflow-hidden flex items-center justify-center">
+      
+      <!-- Video Element scrubbing on scroll -->
+      <video id="walkthroughVideo" 
+             class="absolute inset-0 w-full h-full object-cover opacity-75 filter brightness-[0.92] contrast-[1.06]"
+             src="assets/hero_walkthrough.mp4" 
+             poster="assets/hero_poster.webp" 
+             playsinline 
+             muted 
+             preload="auto">
+      </video>
+
+      <!-- Mughal Royal Haveli Color Grading & Vignette Overlays -->
+      <div class="absolute inset-0 bg-gradient-to-t from-[#0A111C] via-[#0A111C]/35 to-[#0A111C]/75 pointer-events-none"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_35%,rgba(10,17,28,0.85)_100%)] pointer-events-none"></div>
+
+      <!-- Telemetry Corner HUD Overlays -->
+      <div class="absolute top-20 left-6 text-[11px] font-fira text-[#D48B46]/90 pointer-events-none drop-shadow">
+        <span class="block font-semibold">LOCATION: NH-12 CORRIDOR // BHATJANGLA</span>
+        <span class="text-white/50 block">COORDINATES: 23.388° N · 88.502° E</span>
+      </div>
+      <div class="absolute top-20 right-6 text-[11px] font-fira text-[#D48B46]/90 text-right pointer-events-none drop-shadow">
+        <span class="block font-semibold">4,400+ VERIFIED GOOGLE REVIEWS (4.0★)</span>
+        <span class="text-white/50 block">CAMERA TRACK: ACTIVE VIRTUAL WALK</span>
+      </div>
+
+      <!-- Station 1: The Grand Highway Landmark (0% - 22%) -->
+      <div id="station-1" class="absolute z-20 text-center max-w-4xl px-6 flex flex-col items-center">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#B87333]/15 border border-[#B87333]/40 text-[#D48B46] font-fira text-xs uppercase mb-4 tracking-wider backdrop-blur-md">
+          <span class="w-2 h-2 rounded-full bg-[#D48B46] animate-ping"></span>
+          Southern Gateway to Krishnanagar · Right Next to Mother's Hut
         </div>
-        <div class="stat-card rounded-2xl p-6">
-          <div class="text-3xl font-bold text-white">10</div>
-          <div class="text-white/50 text-sm mt-1">Themed Dining Zones</div>
-        </div>
-        <div class="stat-card rounded-2xl p-6">
-          <div class="text-3xl font-bold text-white">48h</div>
-          <div class="text-white/50 text-sm mt-1">Delivery Time</div>
+        <h1 class="font-cormorant text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white tracking-wide leading-tight drop-shadow-2xl">
+          HOTEL HAVELI
+        </h1>
+        <p class="font-cormorant italic text-[#D48B46] text-xl sm:text-3xl mt-2 tracking-widest font-semibold">
+          Homely · Highly · Hospitably
+        </p>
+        <p class="text-white/80 max-w-2xl text-sm sm:text-base mt-4 font-light leading-relaxed">
+          Krishnanagar's celebrated 3-star hospitality landmark. Where Mughal architectural grandeur meets authentic Bengal culinary mastery on NH-12.
+        </p>
+        <div class="mt-8 flex items-center gap-2.5 text-[#D48B46] text-xs font-fira animate-bounce">
+          <i class="bi bi-chevron-double-down"></i> SCROLL DOWN TO ENTER THE HAVELI
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- Pricing CTA -->
-  <section class="py-20 px-6">
-    <div class="max-w-3xl mx-auto text-center">
-      <span class="text-sm font-bold tracking-[0.2em] uppercase" style="color: var(--primary);">Simple, Transparent Pricing</span>
-      <h2 class="font-editorial text-4xl md:text-5xl font-bold mt-4 mb-6">Get All Of This<br>For ₹24,000</h2>
-      <div class="bg-white rounded-3xl p-10 border border-gray-100 shadow-xl mb-10">
-        <ul class="text-left space-y-4 text-lg text-gray-700 mb-8">
-          <li class="flex items-start gap-3"><i class="bi bi-check-circle-fill text-green-500 mt-1"></i> Complete mobile-first website with your branding</li>
-          <li class="flex items-start gap-3"><i class="bi bi-check-circle-fill text-green-500 mt-1"></i> 5 custom 9:16 video reels (Instagram/YouTube ready)</li>
-          <li class="flex items-start gap-3"><i class="bi bi-check-circle-fill text-green-500 mt-1"></i> AI digital concierge (WhatsApp integration)</li>
-          <li class="flex items-start gap-3"><i class="bi bi-check-circle-fill text-green-500 mt-1"></i> WhatsApp one-tap booking & banquet inquiry form</li>
-          <li class="flex items-start gap-3"><i class="bi bi-check-circle-fill text-green-500 mt-1"></i> Google Maps SEO optimization</li>
-          <li class="flex items-start gap-3"><i class="bi bi-check-circle-fill text-green-500 mt-1"></i> Delivered in 48 hours</li>
-        </ul>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="https://wa.me/+918617625059?text=Hi%20Samya%2C%20I%20saw%20the%20LocalPulse%20AI%20demo%20for%20Hotel%20Haveli.%20I%20am%20interested%20in%20getting%20this%20for%20my%20restaurant." 
-             target="_blank" class="glow-btn text-white px-8 py-4 rounded-full font-bold text-lg inline-flex items-center gap-3">
-            <i class="bi bi-whatsapp text-xl"></i> Get Started — WhatsApp Samya
+      <!-- Station 2: Royal Multi-Cuisine Dining & Bar (25% - 55%) -->
+      <div id="station-2" class="absolute z-20 text-center max-w-4xl px-6 flex flex-col items-center opacity-0 scale-95 pointer-events-none">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-950/80 border border-red-500/40 text-red-200 font-fira text-xs uppercase mb-4 tracking-wider backdrop-blur-md">
+          <i class="bi bi-cup-hot-fill text-[#D48B46]"></i> MULTI-CUISINE RESTAURANT & LICENSED BAR
+        </div>
+        <h2 class="font-cormorant text-3xl sm:text-5xl md:text-6xl font-bold text-[#FFFFF0] tracking-wide leading-tight">
+          Feast Like Royalty on NH-12
+        </h2>
+        <p class="text-[#D48B46] text-base sm:text-xl font-semibold mt-1 tracking-wide">
+          Handi Specialties · Authentic Bengali Thalis · Clay Oven Tandoor
+        </p>
+        <div class="glass-haveli p-6 rounded-2xl max-w-lg mt-6 text-left">
+          <p class="text-white/80 text-sm leading-relaxed">
+            From bubbling Handi Kadhai Paneer and succulent Tandoori Chicken Tikka to Katla Kalia, Pabda Jhal, and Dhokar Dalna—experience generous portions and lightning-fast highway service in air-conditioned comfort.
+          </p>
+          <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-fira text-[#D48B46]">
+            <span>● 150+ AC Seating</span>
+            <span>● Highway Family Dining</span>
+            <span>● Open 365 Days</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Station 3: Palatial Stays & Executive Suites (58% - 80%) -->
+      <div id="station-3" class="absolute z-20 text-center max-w-4xl px-6 flex flex-col items-center opacity-0 scale-95 pointer-events-none">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-950/80 border border-blue-500/40 text-blue-200 font-fira text-xs uppercase mb-4 tracking-wider backdrop-blur-md">
+          <i class="bi bi-door-open-fill text-[#D48B46]"></i> EXECUTIVE & PREMIUM DELUXE ROOMS
+        </div>
+        <h2 class="font-cormorant text-3xl sm:text-5xl md:text-6xl font-bold text-white tracking-wide">
+          Your Highway Sanctuary
+        </h2>
+        <p class="text-[#D48B46] text-base sm:text-xl font-semibold mt-2 tracking-wide">
+          3-Star Comfort for Travelers & Pilgrims
+        </p>
+        <p class="text-white/75 max-w-xl text-sm sm:text-base mt-4 leading-relaxed">
+          Spacious king suites, plush upholstery, 24/7 power backup, high-speed Wi-Fi, and 24-hour room service. Just minutes from Krishnanagar Rajbari and Mayapur ISKCON.
+        </p>
+        <div class="mt-6 flex gap-3 text-xs font-fira text-white/70">
+          <span class="px-3 py-1 bg-black/50 rounded-lg border border-white/10">Premium Deluxe</span>
+          <span class="px-3 py-1 bg-black/50 rounded-lg border border-white/10">Executive Suite</span>
+          <span class="px-3 py-1 bg-black/50 rounded-lg border border-white/10">Family Quad</span>
+        </div>
+      </div>
+
+      <!-- Station 4: Mega Banquets & 14,000 Sq Ft Lawn (82% - 100%) -->
+      <div id="station-4" class="absolute z-20 text-center max-w-4xl px-6 flex flex-col items-center opacity-0 scale-95 pointer-events-none">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-950/80 border border-[#B87333]/60 text-amber-200 font-fira text-xs uppercase mb-4 tracking-wider backdrop-blur-md">
+          <i class="bi bi-stars text-[#D48B46]"></i> 14,000 SQ FT LAWN & 2 AC BANQUET HALLS
+        </div>
+        <h2 class="font-cormorant text-3xl sm:text-5xl md:text-6xl font-bold text-[#D48B46] tracking-wide">
+          Nadia's Most Prestigious Celebrations
+        </h2>
+        <p class="text-white/90 max-w-xl text-sm sm:text-base mt-4 font-light leading-relaxed">
+          Krishnanagar's premiere destination for lavish royal weddings, grand receptions, and corporate conferences. Host 1,500+ guests with dedicated valet parking and full in-house banquet catering.
+        </p>
+        <div class="mt-8 flex flex-col sm:flex-row gap-4">
+          <a href="https://wa.me/917407832323?text=Hi%2C%20I%20would%20like%20to%20check%20banquet%20hall%20and%20wedding%20lawn%20availability%20at%20Hotel%20Haveli." 
+             target="_blank"
+             class="copper-btn px-8 py-3.5 rounded-full text-xs font-bold tracking-widest uppercase inline-flex items-center justify-center gap-2">
+            <i class="bi bi-calendar-event"></i> Inquire Wedding Dates
+          </a>
+          <a href="tel:+919800219993"
+             class="copper-outline-btn px-8 py-3.5 rounded-full text-xs font-bold tracking-widest uppercase inline-flex items-center justify-center gap-2">
+            <i class="bi bi-telephone-outbound"></i> Call Banquet Desk
           </a>
         </div>
-        <p class="text-gray-400 text-sm mt-4">Or call: +91 8617625059 | Email: samya.pegusus@gmail.com</p>
+      </div>
+
+      <!-- Scroller Progress Bar -->
+      <div class="absolute bottom-6 left-8 right-8 sm:left-16 sm:right-16 h-1 bg-white/10 rounded-full overflow-hidden">
+        <div id="cameraProgressBar" class="h-full bg-gradient-to-r from-[#B87333] via-[#D48B46] to-[#DDA15E] w-0 transition-all duration-75"></div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="py-8 px-6 border-t border-gray-200">
-    <div class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-      <div class="text-gray-400 text-sm">
-        Custom preview by <strong class="text-gray-600">LocalPulse AI</strong> · Built for Hotel Haveli
+  <!-- ========================================== -->
+  <!-- 🏛️ THE HAVELI EXPERIENCE: 3-COLUMN SHOWCASE -->
+  <!-- ========================================== -->
+  <section class="py-24 px-6 relative bg-gradient-to-b from-[#0A111C] via-[#131E2E] to-[#0A111C] border-t border-[#B87333]/20">
+    <div class="max-w-6xl mx-auto">
+      
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-16">
+        <div>
+          <span class="font-fira text-[#D48B46] text-xs tracking-widest uppercase block mb-2 font-semibold">THE DESTINATION PROFILE</span>
+          <h2 class="font-cormorant text-4xl sm:text-5xl md:text-6xl font-bold text-white">Royalty by the Highway</h2>
+          <p class="text-white/60 text-base mt-2 max-w-xl">
+            Established on the historic NH-12 Krishnanagar arterial, Hotel Haveli harmoniously blends old-world Rajasthani-Mughal architecture with modern 3-star resort comforts.
+          </p>
+        </div>
+        <div class="haveli-arch-border p-5 rounded-2xl bg-[#0A111C]/60 backdrop-blur-md">
+          <div class="flex items-center gap-3">
+            <div class="text-3xl font-cormorant font-bold text-[#D48B46]">4.0★</div>
+            <div>
+              <span class="text-xs font-fira text-white/90 block font-semibold">4,400+ GOOGLE REVIEWS</span>
+              <span class="text-[11px] text-white/50 block">Verified NH-12 Traveler Authority</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="flex items-center gap-4 text-gray-400">
-        <a href="mailto:samya.pegusus@gmail.com" class="hover:text-gray-600 transition"><i class="bi bi-envelope-fill"></i></a>
-        <a href="https://wa.me/+918617625059" target="_blank" class="hover:text-gray-600 transition"><i class="bi bi-whatsapp"></i></a>
-        <a href="tel:+91 8617625059" class="hover:text-gray-600 transition"><i class="bi bi-telephone-fill"></i></a>
+
+      <!-- 3-Column Experience Grid -->
+      <div class="grid md:grid-cols-3 gap-8">
+        
+        <!-- Card 1: Grand Estate & Banquets -->
+        <div class="glass-card rounded-3xl p-6 group">
+          <div class="h-56 rounded-2xl overflow-hidden relative mb-6">
+            <img src="assets/shot_03.jpg" alt="Hotel Haveli Palatial Facade" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-3 left-3 bg-black/75 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-fira text-[#D48B46] border border-[#B87333]/40">
+              14,000 SQ FT LAWN & 2 HALLS
+            </div>
+          </div>
+          <h3 class="font-cormorant text-2xl font-bold text-white mb-2">Grand Celebrations & Lawns</h3>
+          <p class="text-white/65 text-sm leading-relaxed mb-4">
+            Host destination weddings, corporate galas, and anniversary banquets with up to 1,500 guests. Featuring a 14,000 sq ft manicured lawn, terracotta chhatri pavilion, and two climate-controlled indoor halls.
+          </p>
+          <div class="text-[#D48B46] font-fira text-xs font-medium">● Up to 1,500 Guests Capacity</div>
+        </div>
+
+        <!-- Card 2: Luxury Suites & Rooms -->
+        <div class="glass-card rounded-3xl p-6 group">
+          <div class="h-56 rounded-2xl overflow-hidden relative mb-6">
+            <img src="assets/room_02.jpg" alt="Hotel Haveli Premium Deluxe Room" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-3 left-3 bg-black/75 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-fira text-[#D48B46] border border-[#B87333]/40">
+              3-STAR COMFORT ACCOMMODATION
+            </div>
+          </div>
+          <h3 class="font-cormorant text-2xl font-bold text-white mb-2">Executive & Deluxe Suites</h3>
+          <p class="text-white/65 text-sm leading-relaxed mb-4">
+            Designed for highway rest and family pilgrimages. Fully air-conditioned rooms featuring plush orthopedic king mattresses, custom wooden casework, tea/coffee bar, LED entertainment, and immaculate bathrooms.
+          </p>
+          <div class="text-[#D48B46] font-fira text-xs font-medium">● 24hr Room Service & Backup</div>
+        </div>
+
+        <!-- Card 3: Authentic Multi-Cuisine Dining -->
+        <div class="glass-card rounded-3xl p-6 group">
+          <div class="h-56 rounded-2xl overflow-hidden relative mb-6">
+            <img src="assets/shot_02.jpg" alt="Hotel Haveli Signature Handi Cuisine" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-3 left-3 bg-black/75 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-fira text-[#D48B46] border border-[#B87333]/40">
+              CHEF SIGNATURE MENU & BAR
+            </div>
+          </div>
+          <h3 class="font-cormorant text-2xl font-bold text-white mb-2">Authentic Bengal & Mughlai</h3>
+          <p class="text-white/65 text-sm leading-relaxed mb-4">
+            Enjoy steaming handi curries, fresh Katla and Pomfret preparations, kebabs fresh off the tandoor, and vegetarian thalis curated with fresh Nadia farm produce. Pair with selections from our licensed bar.
+          </p>
+          <div class="text-[#D48B46] font-fira text-xs font-medium">● Multi-Cuisine Family Dining</div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 🎞️ AUTHENTIC FILMSTRIP MARQUEE             -->
+  <!-- ========================================== -->
+  <section class="py-12 bg-[#0A111C] border-y border-[#B87333]/20 overflow-hidden">
+    <div class="max-w-6xl mx-auto px-6 mb-6 flex justify-between items-center">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-[#B87333]"></span>
+        <span class="font-fira text-xs text-[#D48B46] uppercase tracking-widest font-semibold">AUTHENTIC ON-SITE FOOTAGE ARCHIVE</span>
+      </div>
+      <span class="text-white/40 text-xs font-fira hidden sm:inline">LIVE VENUE SNAPSHOTS</span>
+    </div>
+
+    <div class="filmstrip-container relative w-full overflow-hidden cursor-grab">
+      <div class="filmstrip-track flex gap-4">
+        <!-- Frame 1: Grand Arch Entrance -->
+        <div class="w-72 h-44 rounded-2xl overflow-hidden flex-shrink-0 relative border border-white/10 group">
+          <img src="assets/sample_008.jpg" alt="NH-12 Entrance Arch" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+          <div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-black/70 text-[10px] font-fira text-white/80">Highway Gateway</div>
+        </div>
+        <!-- Frame 2: Terracotta Chhatri Dome -->
+        <div class="w-72 h-44 rounded-2xl overflow-hidden flex-shrink-0 relative border border-white/10 group">
+          <img src="assets/shot_01.jpg" alt="Terracotta Chhatri" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+          <div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-black/70 text-[10px] font-fira text-white/80">Terracotta Sanctum</div>
+        </div>
+        <!-- Frame 3: Palatial Hotel Facade -->
+        <div class="w-72 h-44 rounded-2xl overflow-hidden flex-shrink-0 relative border border-white/10 group">
+          <img src="assets/shot_03.jpg" alt="Palace Building" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+          <div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-black/70 text-[10px] font-fira text-white/80">Grand Facade</div>
+        </div>
+        <!-- Frame 4: Premium Deluxe Room -->
+        <div class="w-72 h-44 rounded-2xl overflow-hidden flex-shrink-0 relative border border-white/10 group">
+          <img src="assets/room_02.jpg" alt="Premium Room Interior" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+          <div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-black/70 text-[10px] font-fira text-white/80">Premium Deluxe Suite</div>
+        </div>
+        <!-- Frame 5: Authentic Handi Special -->
+        <div class="w-72 h-44 rounded-2xl overflow-hidden flex-shrink-0 relative border border-white/10 group">
+          <img src="assets/shot_02.jpg" alt="Handi Specialties" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+          <div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-black/70 text-[10px] font-fira text-white/80">Handi Special Cuisine</div>
+        </div>
+        <!-- Frame 6: Room Living Lounge -->
+        <div class="w-72 h-44 rounded-2xl overflow-hidden flex-shrink-0 relative border border-white/10 group">
+          <img src="assets/room_04.jpg" alt="Suite Lounge" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+          <div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-black/70 text-[10px] font-fira text-white/80">Suite Sitting Area</div>
+        </div>
+        <!-- Frame 7: Chicken Tikka Tandoor -->
+        <div class="w-72 h-44 rounded-2xl overflow-hidden flex-shrink-0 relative border border-white/10 group">
+          <img src="assets/shot_05.jpg" alt="Tandoori Delicacies" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+          <div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-black/70 text-[10px] font-fira text-white/80">Tandoori Tikka Platter</div>
+        </div>
+        <!-- Frame 8: AC Restaurant Dining Room -->
+        <div class="w-72 h-44 rounded-2xl overflow-hidden flex-shrink-0 relative border border-white/10 group">
+          <img src="assets/sample_028.jpg" alt="Dining Hall" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+          <div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-black/70 text-[10px] font-fira text-white/80">AC Restaurant Hall</div>
+        </div>
+
+        <!-- REPEATED FOR SEAMLESS 100% INFINITE LOOP -->
+        <div class="w-72 h-44 rounded-2xl overflow-hidden flex-shrink-0 relative border border-white/10 group">
+          <img src="assets/sample_008.jpg" alt="NH-12 Entrance Arch" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+          <div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-black/70 text-[10px] font-fira text-white/80">Highway Gateway</div>
+        </div>
+        <div class="w-72 h-44 rounded-2xl overflow-hidden flex-shrink-0 relative border border-white/10 group">
+          <img src="assets/shot_01.jpg" alt="Terracotta Chhatri" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+          <div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-black/70 text-[10px] font-fira text-white/80">Terracotta Sanctum</div>
+        </div>
+        <div class="w-72 h-44 rounded-2xl overflow-hidden flex-shrink-0 relative border border-white/10 group">
+          <img src="assets/shot_03.jpg" alt="Palace Building" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+          <div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-black/70 text-[10px] font-fira text-white/80">Grand Facade</div>
+        </div>
+        <div class="w-72 h-44 rounded-2xl overflow-hidden flex-shrink-0 relative border border-white/10 group">
+          <img src="assets/room_02.jpg" alt="Premium Room Interior" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+          <div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-black/70 text-[10px] font-fira text-white/80">Premium Deluxe Suite</div>
+        </div>
+        <div class="w-72 h-44 rounded-2xl overflow-hidden flex-shrink-0 relative border border-white/10 group">
+          <img src="assets/shot_02.jpg" alt="Handi Specialties" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+          <div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-black/70 text-[10px] font-fira text-white/80">Handi Special Cuisine</div>
+        </div>
+        <div class="w-72 h-44 rounded-2xl overflow-hidden flex-shrink-0 relative border border-white/10 group">
+          <img src="assets/room_04.jpg" alt="Suite Lounge" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+          <div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-black/70 text-[10px] font-fira text-white/80">Suite Sitting Area</div>
+        </div>
+        <div class="w-72 h-44 rounded-2xl overflow-hidden flex-shrink-0 relative border border-white/10 group">
+          <img src="assets/shot_05.jpg" alt="Tandoori Delicacies" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+          <div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-black/70 text-[10px] font-fira text-white/80">Tandoori Tikka Platter</div>
+        </div>
+        <div class="w-72 h-44 rounded-2xl overflow-hidden flex-shrink-0 relative border border-white/10 group">
+          <img src="assets/sample_028.jpg" alt="Dining Hall" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+          <div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-black/70 text-[10px] font-fira text-white/80">AC Restaurant Hall</div>
+        </div>
       </div>
     </div>
-  </footer>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 📍 LOCATION, ACCESS & REGIONAL ITINERARY   -->
+  <!-- ========================================== -->
+  <section class="py-20 px-6 bg-gradient-to-b from-[#0A111C] to-[#131E2E] border-b border-[#B87333]/20">
+    <div class="max-w-6xl mx-auto">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="font-fira text-[#D48B46] text-xs uppercase tracking-widest block mb-2 font-semibold">PRIME HIGHWAY POSITIONING</span>
+        <h2 class="font-cormorant text-4xl sm:text-5xl font-bold text-white">Unrivaled NH-12 Connectivity</h2>
+        <p class="text-white/60 text-sm mt-3">
+          Situated at Bhatjangla, Krishnanagar, on the direct route connecting Kolkata, Ranaghat, Mayapur, and North Bengal. Right next to Mother's Hut.
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-3 gap-8 items-stretch">
+        
+        <!-- Distance Card 1: Key Regional Hubs -->
+        <div class="glass-haveli p-8 rounded-3xl flex flex-col justify-between">
+          <div>
+            <h3 class="font-cormorant text-2xl font-bold text-white mb-6 flex items-center gap-3">
+              <i class="bi bi-compass text-[#D48B46]"></i> Transit Distances
+            </h3>
+            <div class="space-y-4">
+              <div class="flex items-center justify-between pb-3 border-b border-white/10 text-sm">
+                <span class="text-white/70">Kolkata Airport (CCU)</span>
+                <span class="font-fira text-[#D48B46] font-semibold">98 km · 2.5 hrs</span>
+              </div>
+              <div class="flex items-center justify-between pb-3 border-b border-white/10 text-sm">
+                <span class="text-white/70">Krishnanagar Junction (KNJ)</span>
+                <span class="font-fira text-[#D48B46] font-semibold">3.8 km · 8 mins</span>
+              </div>
+              <div class="flex items-center justify-between pb-3 border-b border-white/10 text-sm">
+                <span class="text-white/70">Mayapur ISKCON Temple</span>
+                <span class="font-fira text-[#D48B46] font-semibold">18 km · 35 mins</span>
+              </div>
+              <div class="flex items-center justify-between pb-3 border-b border-white/10 text-sm">
+                <span class="text-white/70">Krishnanagar Rajbari</span>
+                <span class="font-fira text-[#D48B46] font-semibold">4.2 km · 10 mins</span>
+              </div>
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-white/70">Ranaghat Junction</span>
+                <span class="font-fira text-[#D48B46] font-semibold">22 km · 25 mins</span>
+              </div>
+            </div>
+          </div>
+          <div class="mt-8 pt-4 border-t border-white/10">
+            <span class="text-[11px] font-fira text-white/50 block">NEIGHBORHOOD PIN:</span>
+            <span class="text-xs text-white/80 font-medium">Adjacent to Mother's Hut, Bhatjangla More</span>
+          </div>
+        </div>
+
+        <!-- Distance Card 2: Highway Amenities -->
+        <div class="glass-haveli p-8 rounded-3xl flex flex-col justify-between">
+          <div>
+            <h3 class="font-cormorant text-2xl font-bold text-white mb-6 flex items-center gap-3">
+              <i class="bi bi-shield-check text-[#D48B46]"></i> Traveler Conveniences
+            </h3>
+            <div class="grid grid-cols-2 gap-4">
+              <div class="p-3.5 rounded-2xl bg-white/5 border border-white/5 text-center">
+                <i class="bi bi-p-square text-xl text-[#D48B46] mb-1 block"></i>
+                <span class="font-semibold text-xs text-white block">100+ Secure Parking</span>
+                <span class="text-[10px] text-white/50">Buses, SUVs, Cars</span>
+              </div>
+              <div class="p-3.5 rounded-2xl bg-white/5 border border-white/5 text-center">
+                <i class="bi bi-lightning-charge text-xl text-[#D48B46] mb-1 block"></i>
+                <span class="font-semibold text-xs text-white block">24/7 Power Gen</span>
+                <span class="text-[10px] text-white/50">100% AC Backup</span>
+              </div>
+              <div class="p-3.5 rounded-2xl bg-white/5 border border-white/5 text-center">
+                <i class="bi bi-wifi text-xl text-[#D48B46] mb-1 block"></i>
+                <span class="font-semibold text-xs text-white block">High-Speed Wi-Fi</span>
+                <span class="text-[10px] text-white/50">All Rooms & Halls</span>
+              </div>
+              <div class="p-3.5 rounded-2xl bg-white/5 border border-white/5 text-center">
+                <i class="bi bi-shield-lock text-xl text-[#D48B46] mb-1 block"></i>
+                <span class="font-semibold text-xs text-white block">CCTV Surveillance</span>
+                <span class="text-[10px] text-white/50">24hr Security Guard</span>
+              </div>
+            </div>
+          </div>
+          <div class="mt-8 flex gap-3">
+            <a href="https://maps.google.com/?q=Hotel+Haveli+Krishnanagar+NH12" 
+               target="_blank" 
+               class="copper-btn w-full py-3 rounded-xl text-xs font-bold text-center tracking-wider uppercase flex items-center justify-center gap-2">
+              <i class="bi bi-geo-alt-fill"></i> Open in Google Maps
+            </a>
+          </div>
+        </div>
+
+        <!-- Distance Card 3: Direct Inquiries & Contact -->
+        <div class="glass-haveli p-8 rounded-3xl flex flex-col justify-between">
+          <div>
+            <h3 class="font-cormorant text-2xl font-bold text-white mb-6 flex items-center gap-3">
+              <i class="bi bi-telephone-inbound text-[#D48B46]"></i> Direct Contacts
+            </h3>
+            <div class="space-y-4">
+              <div class="p-4 rounded-2xl bg-white/5 border border-white/5">
+                <span class="text-[10px] font-fira text-[#D48B46] uppercase block font-semibold mb-1">FRONT DESK & ROOM RESERVATIONS</span>
+                <a href="tel:+917407832323" class="text-base font-bold text-white hover:text-[#D48B46] transition block">
+                  +91 74078 32323
+                </a>
+              </div>
+              <div class="p-4 rounded-2xl bg-white/5 border border-white/5">
+                <span class="text-[10px] font-fira text-[#D48B46] uppercase block font-semibold mb-1">WEDDING LAWN & BANQUET DESK</span>
+                <a href="tel:+919800219993" class="text-base font-bold text-white hover:text-[#D48B46] transition block">
+                  +91 98002 19993
+                </a>
+              </div>
+              <div class="p-4 rounded-2xl bg-white/5 border border-white/5">
+                <span class="text-[10px] font-fira text-[#D48B46] uppercase block font-semibold mb-1">POSTAL ADDRESS</span>
+                <p class="text-xs text-white/70 leading-relaxed">
+                  NH-12 (Old NH-34), Bhatjangla, Krishnanagar, Nadia, West Bengal 741102
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="mt-8">
+            <a href="https://wa.me/917407832323?text=Namaskar%20Hotel%20Haveli%2C%20I%20am%20driving%20via%20NH-12%20and%20need%20assistance%20with%20table%20or%20room%20booking."
+               target="_blank"
+               class="copper-outline-btn w-full py-3 rounded-xl text-xs font-bold text-center tracking-wider uppercase flex items-center justify-center gap-2">
+              <i class="bi bi-chat-dots-fill text-[#D48B46]"></i> Message Front Desk
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 💼 LOCALPULSE AI BESPOKE PITCH MEMO        -->
+  <!-- ========================================== -->
+  <section class="py-24 px-6 relative bg-[#070C14] border-t border-[#B87333]/30">
+    <div class="max-w-4xl mx-auto glass-haveli p-8 sm:p-12 rounded-3xl border border-[#B87333]/40 relative">
+      
+      <!-- Top memo metadata header -->
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center pb-6 border-b border-white/10 gap-4 mb-8">
+        <div>
+          <span class="font-fira text-xs text-[#D48B46] uppercase tracking-widest font-semibold block mb-1">CONFIDENTIAL EXECUTIVE MEMO</span>
+          <h3 class="font-cormorant text-2xl sm:text-3xl font-bold text-white">To: Mr. Indrajit Chatterjee</h3>
+          <span class="text-xs text-white/60 font-fira">Partner / Managing Director, Hotel Haveli · HRAEI Member</span>
+        </div>
+        <div class="text-left sm:text-right font-fira text-xs text-white/50">
+          <span class="block text-[#D48B46] font-semibold">FROM: Samya (LocalPulse AI)</span>
+          <span class="block">Krishnanagar Highway Hospitality Audit</span>
+        </div>
+      </div>
+
+      <!-- Executive pitch content -->
+      <div class="text-white/80 text-sm sm:text-base leading-relaxed space-y-5 mb-10">
+        <p>
+          Dear Mr. Chatterjee,
+        </p>
+        <p>
+          Hotel Haveli is undisputedly one of the most prominent landmarks on the entire NH-12 corridor. With <strong>4,400+ Google Reviews (4.0★)</strong>, a 14,000 sq ft wedding lawn, 2 AC banquet halls, and 3-star lodging, your real-world reputation is premier.
+        </p>
+        <p>
+          However, your current digital footprint relies on an outdated, slow WordPress website burdened with heavy Slider Revolution scripts. Meanwhile, thousands of highway travelers, wedding planners, and Mayapur pilgrims search for stays on mobile devices at 60 km/h—expecting a 0.5-second instant interactive tour.
+        </p>
+        <div class="p-5 rounded-2xl bg-amber-950/40 border border-[#B87333]/40 text-amber-100 text-sm">
+          <div class="font-bold font-cormorant text-lg text-[#D48B46] mb-1 flex items-center gap-2">
+            <i class="bi bi-bell-fill"></i> Immediate Neighbor Upgrade Note:
+          </div>
+          <p class="leading-relaxed">
+            Your immediate next-door neighbor on NH-12, <strong>Mother's Hut</strong>, has already upgraded to a bespoke, ultra-fast mobile platform (<a href="https://samya666.github.io/mothers-hut-redesign/" target="_blank" class="text-[#DDA15E] underline font-semibold">review Mother's Hut live demo here</a>). Travelers are increasingly choosing where to pull over based on the visual speed and polish of mobile landing experiences.
+          </p>
+        </div>
+        <p>
+          Third-party travel aggregators (MakeMyTrip, Goibibo, OYO) currently pocket <strong>20% to 30% commission</strong> on every room and dining inquiry that ought to go directly to your front desk on WhatsApp.
+        </p>
+        <p class="text-white">
+          <strong>What LocalPulse AI builds for you in 48 hours:</strong>
+        </p>
+        <ul class="space-y-2 text-sm text-white/80 pl-2">
+          <li class="flex items-start gap-2">
+            <i class="bi bi-check2-circle text-[#D48B46] text-base mt-0.5"></i>
+            <span>This exact <strong>60fps GSAP scroll-camera track</strong> hosted on your official domain (<span class="font-fira text-[#D48B46]">havelihotel.com</span>), loading in 450 milliseconds.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <i class="bi bi-check2-circle text-[#D48B46] text-base mt-0.5"></i>
+            <span><strong>5 High-Definition cinematic vertical reels (9:16)</strong> showcasing your wedding lawn, deluxe suites, tandoor specials, and banquet capabilities.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <i class="bi bi-check2-circle text-[#D48B46] text-base mt-0.5"></i>
+            <span>Direct 1-tap WhatsApp booking pipeline straight to your manager's phone with zero middleman commissions.</span>
+          </li>
+        </ul>
+        <div class="pt-2">
+          <p class="text-[#D48B46] font-semibold text-base">
+            Complete turnkey setup: Flat one-time investment of ₹24,000 ($299). Zero recurring subscription fees.
+          </p>
+        </div>
+      </div>
+
+      <!-- Footer contact credentials -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6 pt-6 border-t border-white/10">
+        <div>
+          <div class="text-xs font-fira text-white/60">
+            Founder & Architect: <strong class="text-white">Samya</strong> (LocalPulse AI)
+          </div>
+          <div class="text-xs font-fira text-white/60 mt-1">
+            WhatsApp/Direct: <a href="https://wa.me/918617625059" target="_blank" class="text-[#D48B46] font-bold hover:underline">+91 8617625059</a> · Email: <a href="mailto:samya.pegusus@gmail.com" class="text-[#D48B46] hover:underline">samya.pegusus@gmail.com</a>
+          </div>
+        </div>
+        <a href="https://wa.me/918617625059?text=Hi%20Samya%2C%20I%20am%20Mr.%20Indrajit%20Chatterjee%20from%20Hotel%20Haveli.%20I%20reviewed%20the%20bespoke%20NH-12%20walkthrough%20demo%20and%20would%20like%20to%20discuss%20deploying%20it."
+           target="_blank"
+           class="copper-btn px-7 py-3.5 rounded-full text-xs font-bold tracking-wider uppercase inline-flex items-center gap-2 whitespace-nowrap">
+          <i class="bi bi-whatsapp text-sm"></i> WhatsApp Samya to Launch
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 📱 STICKY MOBILE BOTTOM ACTION BAR         -->
+  <!-- ========================================== -->
+  <div class="fixed bottom-4 left-4 right-4 z-40 md:hidden flex gap-2">
+    <a href="https://wa.me/917407832323?text=Namaskar%20Hotel%20Haveli%2C%20I%20would%20like%20to%20book%20a%20table%20or%20room." 
+       target="_blank" 
+       class="flex-1 copper-btn py-3.5 rounded-xl text-center font-bold text-xs shadow-2xl flex items-center justify-center gap-2">
+      <i class="bi bi-whatsapp text-sm"></i> Book on WhatsApp
+    </a>
+    <a href="tel:+917407832323" 
+       class="px-5 py-3.5 rounded-xl bg-[#0A111C]/90 backdrop-blur-md border border-[#B87333]/40 text-white font-bold text-xs flex items-center justify-center shadow-xl">
+      <i class="bi bi-telephone-fill text-[#D48B46]"></i>
+    </a>
+    <a href="https://maps.google.com/?q=Hotel+Haveli+Krishnanagar+NH12" 
+       target="_blank" 
+       class="px-5 py-3.5 rounded-xl bg-[#0A111C]/90 backdrop-blur-md border border-[#B87333]/40 text-white font-bold text-xs flex items-center justify-center shadow-xl">
+      <i class="bi bi-geo-alt-fill text-[#D48B46]"></i>
+    </a>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- 🧠 GSAP SCROLLTRIGGER ORCHESTRATION SCRIPT  -->
+  <!-- ========================================== -->
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    const video = document.getElementById('walkthroughVideo');
+    const station1 = document.getElementById('station-1');
+    const station2 = document.getElementById('station-2');
+    const station3 = document.getElementById('station-3');
+    const station4 = document.getElementById('station-4');
+    const progressBar = document.getElementById('cameraProgressBar');
+
+    let videoDuration = 25.0; // fallback duration for 25s short-GOP clip
+
+    video.addEventListener('loadedmetadata', () => {
+      videoDuration = video.duration || 25.0;
+      initScrollAnimation();
+    });
+
+    // Fallback if metadata already available
+    if (video.readyState >= 1) {
+      videoDuration = video.duration || 25.0;
+      initScrollAnimation();
+    } else {
+      setTimeout(initScrollAnimation, 400);
+    }
+
+    function initScrollAnimation() {
+      // Pinned timeline driving video currentTime and typography stages
+      ScrollTrigger.create({
+        trigger: "#camera-track-container",
+        start: "top top",
+        end: "bottom bottom",
+        scrub: 0.15, // Butter-smooth scrub physics
+        onUpdate: (self) => {
+          const progress = self.progress;
+
+          // Scrub video playback frame-accurately
+          if (video.readyState >= 2 && videoDuration) {
+            video.currentTime = Math.min(videoDuration - 0.05, Math.max(0, progress * videoDuration));
+          }
+
+          // Progress bar width
+          if (progressBar) {
+            progressBar.style.width = (progress * 100) + '%';
+          }
+
+          // Station 1: Grand Hotel Haveli Landmark (0% to 22%)
+          if (progress < 0.22) {
+            const op = gsap.utils.clamp(0, 1, (0.20 - progress) / 0.12);
+            gsap.set(station1, { opacity: op, scale: 1 - progress * 0.18, y: -progress * 50, pointerEvents: op > 0.5 ? 'auto' : 'none' });
+          } else {
+            gsap.set(station1, { opacity: 0, pointerEvents: 'none' });
+          }
+
+          // Station 2: Royal Multi-Cuisine Dining & Bar (25% to 55%)
+          if (progress >= 0.22 && progress < 0.58) {
+            let op = 0;
+            if (progress >= 0.22 && progress <= 0.36) {
+              op = (progress - 0.22) / 0.14;
+            } else if (progress > 0.36 && progress <= 0.48) {
+              op = 1;
+            } else if (progress > 0.48) {
+              op = (0.58 - progress) / 0.10;
+            }
+            op = gsap.utils.clamp(0, 1, op);
+            const scale = gsap.utils.interpolate(0.92, 1.02, (progress - 0.22) / 0.36);
+            gsap.set(station2, { opacity: op, scale: scale, pointerEvents: op > 0.5 ? 'auto' : 'none' });
+          } else {
+            gsap.set(station2, { opacity: 0, pointerEvents: 'none' });
+          }
+
+          // Station 3: Palatial Stays & Executive Suites (58% to 80%)
+          if (progress >= 0.58 && progress < 0.82) {
+            let op = 0;
+            if (progress >= 0.58 && progress <= 0.68) {
+              op = (progress - 0.58) / 0.10;
+            } else if (progress > 0.68 && progress <= 0.76) {
+              op = 1;
+            } else if (progress > 0.76) {
+              op = (0.82 - progress) / 0.06;
+            }
+            op = gsap.utils.clamp(0, 1, op);
+            gsap.set(station3, { opacity: op, scale: 1, pointerEvents: op > 0.5 ? 'auto' : 'none' });
+          } else {
+            gsap.set(station3, { opacity: 0, pointerEvents: 'none' });
+          }
+
+          // Station 4: 14,000 Sq Ft Lawn & Dual AC Banquets (82% to 100%)
+          if (progress >= 0.82) {
+            const op = gsap.utils.clamp(0, 1, (progress - 0.82) / 0.10);
+            gsap.set(station4, { opacity: op, scale: 1, pointerEvents: op > 0.5 ? 'auto' : 'none' });
+          } else {
+            gsap.set(station4, { opacity: 0, pointerEvents: 'none' });
+          }
+        }
+      });
+
+      // Sound toggle event listener
+      const soundBtn = document.getElementById('toggleWalkthroughSound');
+      const soundLabel = document.getElementById('soundLabel');
+      if (soundBtn) {
+        soundBtn.addEventListener('click', () => {
+          if (video.muted) {
+            video.muted = false;
+            soundBtn.innerHTML = '<i class="bi bi-volume-up-fill text-[#D48B46]"></i> SOUND ON';
+          } else {
+            video.muted = true;
+            soundBtn.innerHTML = '<i class="bi bi-volume-mute-fill text-[#D48B46]"></i> SOUND OFF';
+          }
+        });
+      }
+    }
+  </script>
 
 </body>
 </html>

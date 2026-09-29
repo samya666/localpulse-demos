@@ -2,187 +2,1330 @@
 <html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Kasturi Restaurant | Premium Digital Experience by LocalPulse AI</title>
-  <meta name="description" content="A custom-built, high-converting mobile experience for Kasturi Restaurant, {'address': '11A, Mustaque Ahmed Street (Free School St / Mirza Ghalib St), New Market Area, Dharmatala, Kolkata, West Bengal 700016', 'landmark': 'Near New Market & Fire Brigade HQ, Central Kolkata', 'city_zone': 'Central Kolkata Flagship (plus Ballygunge, Hatibagan, Behala, Chinar Park)'}. Powered by LocalPulse AI.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kasturi Restaurant | Iconic Dhakai Bengali Heritage | New Market & 10+ Outlets Kolkata</title>
+  <meta name="description" content="Kasturi Restaurant - Kolkata's premier Dhakai Bengali culinary destination since 1994. 10+ outlets, 180+ covers at New Market flagship, royal Kansa thalis, Kochu Pata Chingri Bhapa, Daab Chingri & Kosha Mangsho.">
+
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Lora, DM Sans, Source Code Pro, Noto Serif Bengali -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Lora:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Noto+Serif+Bengali:wght@500;600;700;800&family=Source+Code+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- GSAP 3 & ScrollTrigger -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            saffron: {
+              DEFAULT: '#CF7530',
+              light: '#E28C4B',
+              dark: '#A9581E',
+            },
+            terracotta: {
+              DEFAULT: '#C05F3C',
+              deep: '#8E381C',
+              darker: '#5F2210',
+            },
+            cream: {
+              DEFAULT: '#FFF8E7',
+              soft: '#F8F1DD',
+              dark: '#E7DCBE',
+            },
+            kansa: {
+              DEFAULT: '#D4AF37',
+              bright: '#F3D068',
+              muted: '#B08E22',
+            },
+            kasturiDark: {
+              bg: '#14100E',
+              surface: '#1E1714',
+              elevated: '#281F1A',
+              border: '#3D3028',
+            }
+          },
+          fontFamily: {
+            lora: ['Lora', 'serif'],
+            bengali: ['Noto Serif Bengali', 'Lora', 'serif'],
+            dmsans: ['DM Sans', 'sans-serif'],
+            mono: ['Source Code Pro', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
   <style>
     :root {
-      --primary: #B85D2A;
-      --primary-dark: #8C3B1B;
-      --dark: #1a1a1a;
-      --cream: #FAF8F5;
-      --sand: #ECE5CE;
+      --saffron: #CF7530;
+      --terracotta: #C05F3C;
+      --cream: #FFF8E7;
+      --kansa: #D4AF37;
+      --dark-bg: #14100E;
     }
-    body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--cream); color: #262420; }
-    .font-editorial { font-family: 'Playfair Display', serif; }
-    .gradient-hero { background: linear-gradient(135deg, #1a1a1a 0%, #2d1810 50%, #1a1a1a 100%); }
-    .glow-btn {
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      box-shadow: 0 10px 30px -5px rgba(184,93,42,0.4);
-      transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+
+    body {
+      background-color: #14100E;
+      color: #FFF8E7;
+      font-family: 'DM Sans', sans-serif;
+      overflow-x: hidden;
+      selection-background-color: #CF7530;
     }
-    .glow-btn:hover { transform: translateY(-2px); box-shadow: 0 15px 40px -5px rgba(184,93,42,0.5); }
-    .card-hover { transition: all 0.3s ease; }
-    .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-    .stat-card { background: rgba(255,255,255,0.7); backdrop-filter: blur(10px); }
-    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-    .float { animation: float 3s ease-in-out infinite; }
+
+    ::selection {
+      background: #C05F3C;
+      color: #FFF8E7;
+    }
+
+    .font-heritage {
+      font-family: 'Lora', serif;
+    }
+
+    .font-bengali-title {
+      font-family: 'Noto Serif Bengali', serif;
+    }
+
+    /* Glass Panels */
+    .glass-heritage {
+      background: rgba(30, 23, 20, 0.82);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(207, 117, 48, 0.28);
+    }
+
+    .glass-heritage-glow {
+      background: rgba(35, 27, 23, 0.88);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      box-shadow: 0 15px 35px -10px rgba(207, 117, 48, 0.25);
+    }
+
+    /* Glow CTA Buttons */
+    .btn-terracotta {
+      background: linear-gradient(135deg, #CF7530 0%, #C05F3C 50%, #8E381C 100%);
+      box-shadow: 0 8px 24px -4px rgba(207, 117, 48, 0.45);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .btn-terracotta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px -4px rgba(207, 117, 48, 0.65);
+      filter: brightness(1.08);
+    }
+
+    .btn-kansa {
+      background: linear-gradient(135deg, #D4AF37 0%, #B08E22 100%);
+      color: #14100E;
+      box-shadow: 0 8px 24px -4px rgba(212, 175, 55, 0.4);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .btn-kansa:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 32px -4px rgba(212, 175, 55, 0.6);
+      filter: brightness(1.08);
+    }
+
+    /* Card Micro-Interactions */
+    .dish-card {
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .dish-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(207, 117, 48, 0.55);
+      box-shadow: 0 20px 40px -15px rgba(207, 117, 48, 0.3);
+    }
+
+    /* Infinite Marquee Strip */
+    @keyframes marquee {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marquee 38s linear infinite;
+    }
+
+    .marquee-track:hover {
+      animation-play-state: paused;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 7px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #14100E;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #C05F3C;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #CF7530;
+    }
   </style>
 </head>
-<body class="antialiased">
+<body class="antialiased text-cream bg-kasturiDark-bg">
 
-  <!-- Hero Section -->
-  <section class="gradient-hero min-h-screen flex items-center justify-center relative overflow-hidden">
-    <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 20% 50%, rgba(184,93,42,0.3) 0%, transparent 50%), radial-gradient(circle at 80% 50%, rgba(184,93,42,0.2) 0%, transparent 50%);"></div>
-    <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
-      <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-5 py-2 mb-8">
-        <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-        <span class="text-white/80 text-sm font-medium tracking-wide">CUSTOM PREVIEW — BUILT FOR KASTURI RESTAURANT</span>
-      </div>
-      <h1 class="font-editorial text-5xl md:text-7xl text-white font-bold leading-tight mb-6">
-        Kasturi Restaurant
-      </h1>
-      <p class="text-white/70 text-lg md:text-xl max-w-2xl mx-auto mb-4">
-        {'address': '11A, Mustaque Ahmed Street (Free School St / Mirza Ghalib St), New Market Area, Dharmatala, Kolkata, West Bengal 700016', 'landmark': 'Near New Market & Fire Brigade HQ, Central Kolkata', 'city_zone': 'Central Kolkata Flagship (plus Ballygunge, Hatibagan, Behala, Chinar Park)'}
-      </p>
-      <p class="text-white/50 text-base max-w-xl mx-auto mb-10">
-        This is what your restaurant's digital presence could look like — built in 48 hours by LocalPulse AI.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href='https://wa.me/918334922221' target='_blank' class='glow-btn text-white px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center gap-3'><i class='bi bi-whatsapp text-2xl'></i> Book via WhatsApp</a>
-        <a href="tel:+91 83349 22221" class="bg-white/10 backdrop-blur-md border border-white/30 text-white px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center gap-3 hover:bg-white/20 transition-all">
-          <i class="bi bi-telephone-fill"></i> Call Now
+  <!-- ========================================== -->
+  <!-- 1. FIXED TOP NAVIGATION                   -->
+  <!-- ========================================== -->
+  <header class="fixed top-0 left-0 right-0 z-50 glass-heritage border-b border-saffron/20 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo / Identity -->
+      <a href="#camera-track-container" class="flex items-center gap-3.5 group">
+        <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-saffron via-terracotta to-terracotta-deep flex items-center justify-center text-cream shadow-md group-hover:scale-105 transition-transform">
+          <span class="font-bengali-title font-bold text-2xl leading-none">ক</span>
+        </div>
+        <div class="flex flex-col">
+          <div class="flex items-center gap-2">
+            <span class="font-heritage font-bold text-lg sm:text-xl tracking-wide text-cream group-hover:text-kansa-bright transition-colors">
+              KASTURI
+            </span>
+            <span class="font-bengali-title text-xs text-saffron font-semibold hidden sm:inline">
+              (কস্তুরী)
+            </span>
+            <span class="text-[10px] uppercase tracking-widest px-2 py-0.5 rounded-full bg-saffron/20 text-saffron font-mono border border-saffron/30">
+              Est. 1994
+            </span>
+          </div>
+          <span class="text-[11px] text-cream/60 flex items-center gap-1 font-mono">
+            <i class="bi bi-geo-alt-fill text-terracotta text-xs"></i> New Market Flagship • 10+ Kolkata Outlets
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center gap-7 text-xs uppercase tracking-widest font-mono text-cream/75">
+        <a href="#walkthrough-section" class="hover:text-kansa-bright transition-colors">Walkthrough</a>
+        <a href="#signature-dishes" class="hover:text-kansa-bright transition-colors">Dhakai Heirlooms</a>
+        <a href="#branches-directory" class="hover:text-kansa-bright transition-colors">10 Outlets</a>
+        <a href="#catering-funnel" class="hover:text-kansa-bright transition-colors">Catering</a>
+        <a href="#digital-pitch-memo" class="text-saffron-light font-semibold hover:text-white transition-colors flex items-center gap-1">
+          <span class="w-2 h-2 rounded-full bg-saffron animate-pulse"></span> Pitch Memo
+        </a>
+      </nav>
+
+      <!-- Action CTAs -->
+      <div class="flex items-center gap-3">
+        <a href="tel:+918334922221" class="hidden sm:inline-flex items-center gap-2 px-3.5 py-2 rounded-lg border border-cream/20 hover:border-kansa/50 text-xs font-mono text-cream/90 hover:text-white transition-all">
+          <i class="bi bi-telephone-fill text-saffron"></i> 83349 22221
+        </a>
+        <a href="https://wa.me/918334922221?text=Hi%20Kasturi%20Restaurant%2C%20I%20would%20like%20to%20reserve%20a%20table%20%2F%20order%20directly" 
+           target="_blank" 
+           class="btn-terracotta text-white px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold tracking-wide inline-flex items-center gap-2">
+          <i class="bi bi-whatsapp text-base text-green-300"></i>
+          <span>Reserve / Order</span>
         </a>
       </div>
-    </div>
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/40 animate-bounce">
-      <i class="bi bi-chevron-double-down text-2xl"></i>
-    </div>
-  </section>
 
-  <!-- What We'd Build Section -->
-  <section class="py-20 px-6">
-    <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-16">
-        <span class="text-sm font-bold tracking-[0.2em] uppercase" style="color: var(--primary);">What Your Guests Would Experience</span>
-        <h2 class="font-editorial text-4xl md:text-5xl font-bold mt-4 mb-6">A Digital Experience<br>Worthy of Your Kitchen</h2>
-        <p class="text-gray-500 text-lg max-w-2xl mx-auto">Every feature below is designed to convert highway travelers and local foodies into paying guests — in one tap.</p>
-      </div>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(184,93,42,0.1);">
-            <i class="bi bi-phone text-2xl" style="color: var(--primary);"></i>
-          </div>
-          <h3 class="font-bold text-xl mb-3">Mobile-First Design</h3>
-          <p class="text-gray-500">85% of your customers search on phones. A lightning-fast mobile experience with sticky booking bar and one-tap WhatsApp reservation.</p>
-        </div>
-        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(184,93,42,0.1);">
-            <i class="bi bi-camera-reels text-2xl" style="color: var(--primary);"></i>
-          </div>
-          <h3 class="font-bold text-xl mb-3">5 Custom Video Reels</h3>
-          <p class="text-gray-500">High-retention 9:16 vertical videos of your signature dishes, ambiance, and chef specials — ready for Instagram, YouTube Shorts & Google Maps.</p>
-        </div>
-        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(184,93,42,0.1);">
-            <i class="bi bi-robot text-2xl" style="color: var(--primary);"></i>
-          </div>
-          <h3 class="font-bold text-xl mb-3">AI Digital Concierge</h3>
-          <p class="text-gray-500">A 24/7 AI assistant trained on your exact menu, pricing, and FAQs — answers customer questions instantly on WhatsApp.</p>
-        </div>
-        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(184,93,42,0.1);">
-            <i class="bi bi-calendar-event text-2xl" style="color: var(--primary);"></i>
-          </div>
-          <h3 class="font-bold text-xl mb-3">Banquet Booking Funnel</h3>
-          <p class="text-gray-500">Direct inquiry forms for weddings, birthday parties, and corporate events — no more lost leads from missed calls.</p>
-        </div>
-        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(184,93,42,0.1);">
-            <i class="bi bi-geo-alt text-2xl" style="color: var(--primary);"></i>
-          </div>
-          <h3 class="font-bold text-xl mb-3">GPS Navigation</h3>
-          <p class="text-gray-500">One-tap Google Maps routing for highway travelers. Integrated with your exact pin location and landmark references.</p>
-        </div>
-        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(184,93,42,0.1);">
-            <i class="bi bi-graph-up-arrow text-2xl" style="color: var(--primary);"></i>
-          </div>
-          <h3 class="font-bold text-xl mb-3">SEO & Google Boost</h3>
-          <p class="text-gray-500">Schema markup, local SEO optimization, and Google Business integration so you rank #1 for "Kasturi Restaurant" and nearby food searches.</p>
-        </div>
-      </div>
     </div>
-  </section>
+  </header>
 
-  <!-- Social Proof / Reference -->
-  <section class="py-20 px-6" style="background: var(--dark);">
-    <div class="max-w-4xl mx-auto text-center">
-      <span class="text-sm font-bold tracking-[0.2em] uppercase text-amber-400">See What We've Already Built</span>
-      <h2 class="font-editorial text-4xl md:text-5xl font-bold text-white mt-4 mb-6">Our Reference Project</h2>
-      <p class="text-white/60 text-lg mb-10">We built this complete digital experience for Mother's Hut, Krishnanagar — the 50,000 sq ft women-powered dining landmark on NH-12.</p>
-      <a href="https://samya666.github.io/mothers-hut-redesign/" target="_blank" class="glow-btn text-white px-10 py-5 rounded-full font-bold text-lg inline-flex items-center gap-3">
-        <i class="bi bi-box-arrow-up-right"></i> View Mother's Hut Experience
-      </a>
-      <div class="grid grid-cols-3 gap-6 mt-16">
-        <div class="stat-card rounded-2xl p-6">
-          <div class="text-3xl font-bold text-white">2.5K</div>
-          <div class="text-white/50 text-sm mt-1">Video Walkthrough</div>
+  <!-- ========================================== -->
+  <!-- 2. GSAP SCROLL-CAMERA TRACK HERO (360vh)   -->
+  <!-- ========================================== -->
+  <section id="camera-track-container" class="relative w-full h-[360vh] bg-kasturiDark-bg">
+    <!-- Sticky Viewport -->
+    <div id="camera-viewport" class="sticky top-0 w-full h-screen overflow-hidden flex items-center justify-center">
+
+      <!-- Scrubbing Video Element -->
+      <video id="walkthroughVideo"
+             class="absolute inset-0 w-full h-full object-cover filter brightness-[0.88] contrast-[1.08] saturate-[1.12]"
+             src="assets/hero_walkthrough.mp4"
+             poster="assets/hero_poster.webp"
+             playsinline
+             muted
+             preload="auto">
+      </video>
+
+      <!-- Royal Dhakai Gradient & Vignette Overlay -->
+      <div class="absolute inset-0 bg-gradient-to-t from-kasturiDark-bg via-kasturiDark-bg/40 to-kasturiDark-bg/85 pointer-events-none"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_35%,rgba(20,16,14,0.92)_100%)] pointer-events-none"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-kasturiDark-bg/75 via-transparent to-kasturiDark-bg/75 pointer-events-none"></div>
+
+      <!-- HUD Telemetry Corner Overlays -->
+      <div class="absolute top-24 left-4 sm:left-8 text-[10px] sm:text-xs font-mono text-saffron/90 pointer-events-none z-30">
+        <div class="flex items-center gap-2 mb-1">
+          <span class="w-2 h-2 rounded-full bg-saffron animate-ping"></span>
+          <span class="tracking-wider uppercase font-semibold">LIVE CAMERA TRACK // 720p 60fps</span>
         </div>
-        <div class="stat-card rounded-2xl p-6">
-          <div class="text-3xl font-bold text-white">10</div>
-          <div class="text-white/50 text-sm mt-1">Themed Dining Zones</div>
+        <span class="text-cream/50 block">LOCATION: 7A MUSTAQUE AHMED ST // NEW MARKET</span>
+        <span class="text-kansa/75 block">HERITAGE ARCHIVE: DHAKAI CATERING CO.</span>
+      </div>
+
+      <div class="absolute top-24 right-4 sm:right-8 text-[10px] sm:text-xs font-mono text-right pointer-events-none z-30">
+        <span class="text-kansa-bright block font-semibold">10+ BENGAL BRANCHES</span>
+        <span class="text-cream/50 block">FLAGSHIP CAPACITY: 180+ COVERS</span>
+        <span class="text-saffron block">UNLIMITED KANSA THALIS ₹250+</span>
+      </div>
+
+      <!-- Station 1: Grand Hero Title (0% - 22%) -->
+      <div id="station-1" class="absolute z-20 text-center max-w-4xl px-6 flex flex-col items-center">
+        <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-terracotta/20 border border-saffron/40 text-saffron-light font-mono text-xs uppercase mb-5 tracking-widest backdrop-blur-md">
+          <i class="bi bi-star-fill text-kansa text-xs"></i>
+          Pioneers of Dhakai Cuisine in Kolkata • Since 1994
         </div>
-        <div class="stat-card rounded-2xl p-6">
-          <div class="text-3xl font-bold text-white">48h</div>
-          <div class="text-white/50 text-sm mt-1">Delivery Time</div>
+        
+        <h1 class="font-heritage text-4xl sm:text-6xl md:text-7xl font-bold text-cream tracking-tight leading-tight drop-shadow-2xl">
+          KASTURI RESTAURANT
+        </h1>
+        
+        <div class="mt-2 mb-4 flex items-center justify-center gap-3">
+          <span class="h-px w-10 sm:w-16 bg-gradient-to-r from-transparent to-saffron"></span>
+          <span class="font-bengali-title text-xl sm:text-2xl text-kansa font-semibold">কস্তুরী রেস্টুরেন্ট</span>
+          <span class="h-px w-10 sm:w-16 bg-gradient-to-l from-transparent to-saffron"></span>
+        </div>
+
+        <p class="font-heritage italic text-saffron-light text-base sm:text-xl max-w-2xl leading-relaxed">
+          The Unrivaled Gold Standard of Dhakai Bengali Feasts
+        </p>
+
+        <p class="text-cream/75 max-w-xl text-xs sm:text-sm mt-3 font-light leading-relaxed">
+          From the legendary Kochu Pata Chingri to authentic Dhakai Kosha Mangsho served in heirloom Kansa brass plates. Scroll down to tour our New Market flagship.
+        </p>
+
+        <div class="mt-8 flex flex-col sm:flex-row items-center gap-4">
+          <a href="https://wa.me/918334922221?text=Hi%20Kasturi%2C%20I%20want%20to%20reserve%20a%20table%20at%20New%20Market%20flagship" 
+             target="_blank" 
+             class="btn-terracotta px-7 py-3 rounded-full text-white font-semibold text-sm inline-flex items-center gap-2">
+            <i class="bi bi-calendar-check-fill text-green-300"></i> Reserve Flagship Table
+          </a>
+          <span class="text-xs font-mono text-cream/50 flex items-center gap-2">
+            <i class="bi bi-mouse text-saffron text-sm animate-bounce"></i> Scroll down to step inside
+          </span>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- Pricing CTA -->
-  <section class="py-20 px-6">
-    <div class="max-w-3xl mx-auto text-center">
-      <span class="text-sm font-bold tracking-[0.2em] uppercase" style="color: var(--primary);">Simple, Transparent Pricing</span>
-      <h2 class="font-editorial text-4xl md:text-5xl font-bold mt-4 mb-6">Get All Of This<br>For ₹24,000</h2>
-      <div class="bg-white rounded-3xl p-10 border border-gray-100 shadow-xl mb-10">
-        <ul class="text-left space-y-4 text-lg text-gray-700 mb-8">
-          <li class="flex items-start gap-3"><i class="bi bi-check-circle-fill text-green-500 mt-1"></i> Complete mobile-first website with your branding</li>
-          <li class="flex items-start gap-3"><i class="bi bi-check-circle-fill text-green-500 mt-1"></i> 5 custom 9:16 video reels (Instagram/YouTube ready)</li>
-          <li class="flex items-start gap-3"><i class="bi bi-check-circle-fill text-green-500 mt-1"></i> AI digital concierge (WhatsApp integration)</li>
-          <li class="flex items-start gap-3"><i class="bi bi-check-circle-fill text-green-500 mt-1"></i> WhatsApp one-tap booking & banquet inquiry form</li>
-          <li class="flex items-start gap-3"><i class="bi bi-check-circle-fill text-green-500 mt-1"></i> Google Maps SEO optimization</li>
-          <li class="flex items-start gap-3"><i class="bi bi-check-circle-fill text-green-500 mt-1"></i> Delivered in 48 hours</li>
-        </ul>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="https://wa.me/+918617625059?text=Hi%20Samya%2C%20I%20saw%20the%20LocalPulse%20AI%20demo%20for%20Kasturi%20Restaurant.%20I%20am%20interested%20in%20getting%20this%20for%20my%20restaurant." 
-             target="_blank" class="glow-btn text-white px-8 py-4 rounded-full font-bold text-lg inline-flex items-center gap-3">
-            <i class="bi bi-whatsapp text-xl"></i> Get Started — WhatsApp Samya
+      <!-- Station 2: Signature Culinary USP (25% - 55%) -->
+      <div id="station-2" class="absolute z-20 text-center max-w-3xl px-6 flex flex-col items-center opacity-0 scale-95 pointer-events-none">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-saffron/20 border border-saffron/40 text-kansa-bright font-mono text-xs uppercase mb-4 tracking-wider backdrop-blur-md">
+          <i class="bi bi-award-fill text-kansa"></i> Heirlooms of East Bengal
+        </div>
+        
+        <h2 class="font-heritage text-3xl sm:text-5xl md:text-6xl font-bold text-cream leading-tight">
+          Kochu Pata Chingri & Daab Chingri
+        </h2>
+        
+        <p class="font-bengali-title text-saffron-light text-lg sm:text-xl mt-2 font-medium">
+          কচু পাতা চিংড়ি ও ডাব চিংড়ি — কলকাতার অবিসংবাদিত স্বাদ
+        </p>
+
+        <div class="glass-heritage p-6 rounded-2xl max-w-xl mt-6 border border-saffron/30 text-left shadow-2xl">
+          <p class="text-cream/85 text-xs sm:text-sm leading-relaxed">
+            Every day, thousands flock to Kasturi for our signature recipe: fresh freshwater prawns steamed with velvety colocasia leaf paste, cold-pressed mustard oil, and fiery green chillies. Served on mirror-finish Kansa brass thalis lined with fresh banana leaves.
+          </p>
+          <div class="grid grid-cols-3 gap-2 mt-4 pt-4 border-t border-saffron/20 text-center font-mono text-[11px] text-kansa-bright">
+            <div class="bg-black/30 p-2 rounded-lg">
+              <span class="block text-cream font-bold">100% Kansa</span>
+              <span class="text-[9px] text-cream/50">Brass Tableware</span>
+            </div>
+            <div class="bg-black/30 p-2 rounded-lg">
+              <span class="block text-cream font-bold">Dhakai Secret</span>
+              <span class="text-[9px] text-cream/50">1994 Heirlooms</span>
+            </div>
+            <div class="bg-black/30 p-2 rounded-lg">
+              <span class="block text-cream font-bold">Unlimited</span>
+              <span class="text-[9px] text-cream/50">Thali Feasts</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Station 3: Flagship Capacity & Banquets (58% - 80%) -->
+      <div id="station-3" class="absolute z-20 text-center max-w-3xl px-6 flex flex-col items-center opacity-0 scale-95 pointer-events-none">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-terracotta/20 border border-terracotta/50 text-saffron-light font-mono text-xs uppercase mb-4 tracking-wider backdrop-blur-md">
+          <i class="bi bi-building-check text-kansa"></i> Flagship Infrastructure
+        </div>
+        
+        <h2 class="font-heritage text-3xl sm:text-5xl md:text-6xl font-bold text-cream leading-tight">
+          180+ Covers Across 2 Floors
+        </h2>
+        
+        <p class="font-heritage italic text-kansa-bright text-base sm:text-xl mt-2">
+          New Market Flagship • The Heart of Kolkata Dining
+        </p>
+
+        <div class="glass-heritage p-6 rounded-2xl max-w-xl mt-6 border border-saffron/30 text-left shadow-2xl">
+          <p class="text-cream/85 text-xs sm:text-sm leading-relaxed">
+            Located just 2 minutes from the New Market Clock Tower, our multi-floor dining haven accommodates family reunions, festive gatherings, Aaiburobhaat ceremonies, and executive lunches with unmatched speed and traditional Bengali warmth.
+          </p>
+          <div class="flex items-center justify-between mt-4 pt-3 border-t border-saffron/20 font-mono text-xs text-cream/70">
+            <span class="flex items-center gap-1.5"><i class="bi bi-clock-history text-saffron"></i> 11:00 AM – 10:30 PM</span>
+            <span class="flex items-center gap-1.5"><i class="bi bi-people-fill text-saffron"></i> Family & Group Dining</span>
+            <span class="flex items-center gap-1.5 text-kansa"><i class="bi bi-award"></i> 4.1★ (11.5K+ Reviews)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Station 4: Booking / Direct Orders (82% - 100%) -->
+      <div id="station-4" class="absolute z-20 text-center max-w-3xl px-6 flex flex-col items-center opacity-0 scale-95 pointer-events-none">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-kansa/20 border border-kansa/50 text-kansa-bright font-mono text-xs uppercase mb-4 tracking-wider backdrop-blur-md">
+          <i class="bi bi-shield-check text-green-400"></i> Direct Table & Catering Bookings
+        </div>
+        
+        <h2 class="font-heritage text-3xl sm:text-5xl md:text-6xl font-bold text-cream leading-tight">
+          Taste Bengal's Heritage Today
+        </h2>
+        
+        <p class="text-cream/80 text-sm sm:text-base max-w-lg mt-3 leading-relaxed">
+          Skip aggregator delivery delays. Book your table directly or speak with our banquet manager for weddings, birthday feasts, and office bulk catering.
+        </p>
+
+        <div class="mt-8 flex flex-col sm:flex-row items-center gap-4">
+          <a href="https://wa.me/918334922221?text=Hi%20Kasturi%2C%20I%20would%20like%20to%20reserve%20a%20table%20for%20a%20Bengali%20thali%20feast" 
+             target="_blank" 
+             class="btn-terracotta px-8 py-4 rounded-xl text-white font-bold text-base inline-flex items-center gap-3">
+            <i class="bi bi-whatsapp text-xl text-green-300"></i> Instant WhatsApp Booking
+          </a>
+          <a href="tel:+918334922221" 
+             class="px-7 py-4 rounded-xl border border-saffron/40 hover:border-kansa bg-black/40 text-cream font-mono text-sm inline-flex items-center gap-2 hover:bg-black/60 transition-all">
+            <i class="bi bi-telephone-fill text-saffron"></i> Call: +91 83349 22221
           </a>
         </div>
-        <p class="text-gray-400 text-sm mt-4">Or call: +91 8617625059 | Email: samya.pegusus@gmail.com</p>
+      </div>
+
+      <!-- Viewport Bottom Progress Bar -->
+      <div class="absolute bottom-0 left-0 right-0 h-1.5 bg-black/60 z-30">
+        <div id="cameraProgressBar" class="h-full bg-gradient-to-r from-saffron via-terracotta to-kansa transition-all duration-75 w-0"></div>
+      </div>
+
+      <!-- Viewport Bottom Status Pill -->
+      <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 font-mono text-[10px] tracking-widest uppercase text-cream/40 px-3 py-1 rounded-full bg-black/60 border border-cream/10 backdrop-blur-md">
+        Scroll To Traverse Kasturi Walkthrough
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 3. FEATURE CARDS GRID (AUTHENTIC FOOD)     -->
+  <!-- ========================================== -->
+  <section id="signature-dishes" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative">
+    
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-saffron/10 border border-saffron/30 text-saffron font-mono text-xs uppercase mb-4 tracking-widest">
+        <i class="bi bi-fire text-terracotta"></i> Authentic Heritage Kitchen
+      </div>
+      <h2 class="font-heritage text-3xl sm:text-5xl font-bold text-cream leading-tight">
+        Culinary Masterpieces That Made Kasturi A Legend
+      </h2>
+      <p class="text-cream/60 text-sm sm:text-base mt-4 font-light">
+        Real authentic frames from our kitchen and dining tables. Every recipe cooked with heirloom mustard, freshly pounded spices, and generational craft.
+      </p>
+    </div>
+
+    <!-- 6-Card Grid (3 Columns) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+
+      <!-- Card 1: Kochu Pata Chingri Bhapa -->
+      <div class="dish-card glass-heritage rounded-2xl overflow-hidden border border-saffron/25 flex flex-col group">
+        <div class="relative h-64 overflow-hidden bg-black">
+          <img src="assets/shot_05.jpg" alt="Kochu Pata Chingri Bhapa on royal Kansa thali" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-kasturiDark-surface via-transparent to-transparent"></div>
+          <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-terracotta text-white font-mono text-[11px] font-semibold tracking-wider">
+            Signature Hero
+          </span>
+          <span class="absolute bottom-3 right-4 font-bengali-title text-sm text-kansa-bright font-medium drop-shadow">
+            কচু পাতা চিংড়ি
+          </span>
+        </div>
+        <div class="p-6 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="font-heritage text-xl font-bold text-cream group-hover:text-kansa-bright transition-colors">
+              Kochu Pata Chingri Bhapa
+            </h3>
+            <p class="text-cream/70 text-xs sm:text-sm mt-2 leading-relaxed">
+              Kasturi's crown jewel. Sweet river prawns wrapped in tender steamed colocasia leaves, marinated with sharp Shorshe-Posto bata and green chillies. An unmatched delicacy since 1994.
+            </p>
+          </div>
+          <div class="mt-5 pt-4 border-t border-saffron/15 flex items-center justify-between text-xs font-mono text-saffron-light">
+            <span>Pairs with: Steaming Ghee Rice</span>
+            <span class="font-bold text-kansa">Heirloom Recipe</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Royal Daab Chingri & Kosha Mangsho -->
+      <div class="dish-card glass-heritage rounded-2xl overflow-hidden border border-saffron/25 flex flex-col group">
+        <div class="relative h-64 overflow-hidden bg-black">
+          <img src="assets/shot_06.jpg" alt="Daab Chingri in tender green coconut" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-kasturiDark-surface via-transparent to-transparent"></div>
+          <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-saffron text-white font-mono text-[11px] font-semibold tracking-wider">
+            Showstopper
+          </span>
+          <span class="absolute bottom-3 right-4 font-bengali-title text-sm text-kansa-bright font-medium drop-shadow">
+            ডাব চিংড়ি ও কষা মাংস
+          </span>
+        </div>
+        <div class="p-6 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="font-heritage text-xl font-bold text-cream group-hover:text-kansa-bright transition-colors">
+              Royal Daab Chingri & Kosha Mangsho
+            </h3>
+            <p class="text-cream/70 text-xs sm:text-sm mt-2 leading-relaxed">
+              Succulent jumbo prawns slow-baked inside a whole tender green coconut infused with creamy coconut malai and mustard paste. Paired with dark, caramelized Dhakai Mutton Kosha.
+            </p>
+          </div>
+          <div class="mt-5 pt-4 border-t border-saffron/15 flex items-center justify-between text-xs font-mono text-saffron-light">
+            <span>Whole Coconut Baking</span>
+            <span class="font-bold text-kansa">₹300 / Prawn</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Unlimited Kansa Thali Feasts -->
+      <div class="dish-card glass-heritage rounded-2xl overflow-hidden border border-saffron/25 flex flex-col group">
+        <div class="relative h-64 overflow-hidden bg-black">
+          <img src="assets/daal_rice.jpg" alt="Unlimited Bengali Thali with daal and rice on banana leaf" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-kasturiDark-surface via-transparent to-transparent"></div>
+          <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-kansa text-kasturiDark-bg font-mono text-[11px] font-bold tracking-wider">
+            Starting ₹250
+          </span>
+          <span class="absolute bottom-3 right-4 font-bengali-title text-sm text-kansa-bright font-medium drop-shadow">
+            কাঁসার থালি ভোজ
+          </span>
+        </div>
+        <div class="p-6 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="font-heritage text-xl font-bold text-cream group-hover:text-kansa-bright transition-colors">
+              Unlimited Bell Metal Thalis
+            </h3>
+            <p class="text-cream/70 text-xs sm:text-sm mt-2 leading-relaxed">
+              Unlimited fragrant steamed rice, rich sonamug daal, aloo bhaja, seasonal tarkari, chutney, and papad served on authentic Kansa brass platters with pure banana leaf lining.
+            </p>
+          </div>
+          <div class="mt-5 pt-4 border-t border-saffron/15 flex items-center justify-between text-xs font-mono text-saffron-light">
+            <span>Mon–Fri: Lunch & Dinner</span>
+            <span class="font-bold text-kansa">Unlimited Servings</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4: New Market 180-Cover Flagship Dining -->
+      <div class="dish-card glass-heritage rounded-2xl overflow-hidden border border-saffron/25 flex flex-col group">
+        <div class="relative h-64 overflow-hidden bg-black">
+          <img src="assets/shot_04.jpg" alt="Kasturi New Market dining room ambiance" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-kasturiDark-surface via-transparent to-transparent"></div>
+          <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-kasturiDark-elevated border border-cream/20 text-cream font-mono text-[11px] font-semibold tracking-wider">
+            Flagship Venue
+          </span>
+          <span class="absolute bottom-3 right-4 font-mono text-xs text-saffron font-medium">
+            2 Floors • 180+ Seats
+          </span>
+        </div>
+        <div class="p-6 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="font-heritage text-xl font-bold text-cream group-hover:text-kansa-bright transition-colors">
+              180-Cover Multi-Floor Flagship
+            </h3>
+            <p class="text-cream/70 text-xs sm:text-sm mt-2 leading-relaxed">
+              Spacious air-conditioned dining halls on Mustaque Ahmed Street in New Market. Designed for rapid turnover, family comfort, festive queues, and traditional Bengali hospitality.
+            </p>
+          </div>
+          <div class="mt-5 pt-4 border-t border-saffron/15 flex items-center justify-between text-xs font-mono text-saffron-light">
+            <span>Full Central AC</span>
+            <span class="font-bold text-kansa">Family Dining Hall</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5: Heirloom Menu Card & Dhakai Lineage -->
+      <div class="dish-card glass-heritage rounded-2xl overflow-hidden border border-saffron/25 flex flex-col group">
+        <div class="relative h-64 overflow-hidden bg-black">
+          <img src="assets/menu_card.jpg" alt="Kasturi original menu card with Dhakai dishes" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-kasturiDark-surface via-transparent to-transparent"></div>
+          <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-terracotta-deep text-white font-mono text-[11px] font-semibold tracking-wider">
+            Authentic Menu
+          </span>
+          <span class="absolute bottom-3 right-4 font-bengali-title text-sm text-kansa-bright font-medium drop-shadow">
+            ঢাকার ঘরানার রান্না
+          </span>
+        </div>
+        <div class="p-6 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="font-heritage text-xl font-bold text-cream group-hover:text-kansa-bright transition-colors">
+              Dhakai Ghoronar Maach-O-Mangsho
+            </h3>
+            <p class="text-cream/70 text-xs sm:text-sm mt-2 leading-relaxed">
+              From Chital Muitha, Ilish Begun Jhol, and pure Kolkata Bhetki Paturi to Dhakai Morog Polao, Mutton Dakbanglow, and Sheel-e-Bata delights, preserved exactly as formulated 30 years ago.
+            </p>
+          </div>
+          <div class="mt-5 pt-4 border-t border-saffron/15 flex items-center justify-between text-xs font-mono text-saffron-light">
+            <span>Pure Kolkata Bhetki</span>
+            <span class="font-bold text-kansa">30+ Fish & Meat Cuts</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 6: 10+ Outlets Tabletop Network -->
+      <div class="dish-card glass-heritage rounded-2xl overflow-hidden border border-saffron/25 flex flex-col group">
+        <div class="relative h-64 overflow-hidden bg-black">
+          <img src="assets/standee_outlets.jpg" alt="Kasturi table standee listing all outlets across Kolkata" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-kasturiDark-surface via-transparent to-transparent"></div>
+          <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-saffron text-white font-mono text-[11px] font-semibold tracking-wider">
+            Citywide Reach
+          </span>
+          <span class="absolute bottom-3 right-4 font-mono text-xs text-kansa-bright font-medium">
+            10+ Locations
+          </span>
+        </div>
+        <div class="p-6 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="font-heritage text-xl font-bold text-cream group-hover:text-kansa-bright transition-colors">
+              Bengal's Most Reliable Thali Network
+            </h3>
+            <p class="text-cream/70 text-xs sm:text-sm mt-2 leading-relaxed">
+              Strategically situated across Kolkata (New Market, Dover Lane, Hatibagan, Jadavpur, Garia, Chinar Park, Jessore Rd, Sodepur) plus regional destination outlets in Asansol and Siliguri.
+            </p>
+          </div>
+          <div class="mt-5 pt-4 border-t border-saffron/15 flex items-center justify-between text-xs font-mono text-saffron-light">
+            <span>Direct WhatsApp Routing</span>
+            <span class="font-bold text-kansa">Unified Standards</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 4. FILMSTRIP MARQUEE (AUTHENTIC STILLS)    -->
+  <!-- ========================================== -->
+  <section class="py-12 bg-kasturiDark-surface/60 border-y border-saffron/20 overflow-hidden relative">
+    <div class="max-w-7xl mx-auto px-4 mb-6 flex items-center justify-between">
+      <div class="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-saffron">
+        <i class="bi bi-film"></i> Live Visual Archive • Kasturi Restaurant Kolkata
+      </div>
+      <span class="text-[11px] font-mono text-cream/40">100% Authentic In-House Footage</span>
+    </div>
+
+    <!-- Scrolling Marquee Strip -->
+    <div class="marquee-track flex gap-6 items-center">
+      
+      <!-- Slide 1: Facade -->
+      <div class="w-80 h-52 rounded-xl overflow-hidden flex-shrink-0 border border-saffron/30 relative group shadow-lg">
+        <img src="assets/shot_01.jpg" alt="Kasturi New Market Facade" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
+          <span class="text-xs font-mono text-cream/90 font-medium">New Market Iconic Facade</span>
+        </div>
+      </div>
+
+      <!-- Slide 2: Mural -->
+      <div class="w-80 h-52 rounded-xl overflow-hidden flex-shrink-0 border border-saffron/30 relative group shadow-lg">
+        <img src="assets/shot_02.jpg" alt="Dhakai Heritage Mural" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
+          <span class="text-xs font-mono text-cream/90 font-medium">Dhaka Lineage Wall Mural</span>
+        </div>
+      </div>
+
+      <!-- Slide 3: Patachitra -->
+      <div class="w-80 h-52 rounded-xl overflow-hidden flex-shrink-0 border border-saffron/30 relative group shadow-lg">
+        <img src="assets/shot_03.jpg" alt="Kalighat Art" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
+          <span class="text-xs font-mono text-cream/90 font-medium">Kalighat Art Heritage</span>
+        </div>
+      </div>
+
+      <!-- Slide 4: Kochu Pata Chingri -->
+      <div class="w-80 h-52 rounded-xl overflow-hidden flex-shrink-0 border border-saffron/30 relative group shadow-lg">
+        <img src="assets/shot_05.jpg" alt="Kochu Pata Chingri Bhapa" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
+          <span class="text-xs font-mono text-kansa-bright font-semibold">Kochu Pata Chingri Bhapa</span>
+        </div>
+      </div>
+
+      <!-- Slide 5: Daab Chingri -->
+      <div class="w-80 h-52 rounded-xl overflow-hidden flex-shrink-0 border border-saffron/30 relative group shadow-lg">
+        <img src="assets/shot_06.jpg" alt="Daab Chingri" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
+          <span class="text-xs font-mono text-kansa-bright font-semibold">Daab Chingri in Tender Coconut</span>
+        </div>
+      </div>
+
+      <!-- Slide 6: Basanti Pulao -->
+      <div class="w-80 h-52 rounded-xl overflow-hidden flex-shrink-0 border border-saffron/30 relative group shadow-lg">
+        <img src="assets/basanti_pulao.jpg" alt="Basanti Pulao" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
+          <span class="text-xs font-mono text-cream/90 font-medium">Royal Basanti Pulao</span>
+        </div>
+      </div>
+
+      <!-- Slide 7: Daal Rice -->
+      <div class="w-80 h-52 rounded-xl overflow-hidden flex-shrink-0 border border-saffron/30 relative group shadow-lg">
+        <img src="assets/daal_rice.jpg" alt="Steaming Daal & Rice" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
+          <span class="text-xs font-mono text-cream/90 font-medium">Steaming Daal on Banana Leaf</span>
+        </div>
+      </div>
+
+      <!-- Slide 8: Dining Hall -->
+      <div class="w-80 h-52 rounded-xl overflow-hidden flex-shrink-0 border border-saffron/30 relative group shadow-lg">
+        <img src="assets/shot_04.jpg" alt="Dining Hall" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
+          <span class="text-xs font-mono text-cream/90 font-medium">180-Cover Flagship Dining</span>
+        </div>
+      </div>
+
+      <!-- DUPLICATE SET FOR INFINITE SEAMLESS LOOP -->
+      <div class="w-80 h-52 rounded-xl overflow-hidden flex-shrink-0 border border-saffron/30 relative group shadow-lg">
+        <img src="assets/shot_01.jpg" alt="Kasturi New Market Facade" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
+          <span class="text-xs font-mono text-cream/90 font-medium">New Market Iconic Facade</span>
+        </div>
+      </div>
+
+      <div class="w-80 h-52 rounded-xl overflow-hidden flex-shrink-0 border border-saffron/30 relative group shadow-lg">
+        <img src="assets/shot_02.jpg" alt="Dhakai Heritage Mural" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
+          <span class="text-xs font-mono text-cream/90 font-medium">Dhaka Lineage Wall Mural</span>
+        </div>
+      </div>
+
+      <div class="w-80 h-52 rounded-xl overflow-hidden flex-shrink-0 border border-saffron/30 relative group shadow-lg">
+        <img src="assets/shot_05.jpg" alt="Kochu Pata Chingri Bhapa" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
+          <span class="text-xs font-mono text-kansa-bright font-semibold">Kochu Pata Chingri Bhapa</span>
+        </div>
+      </div>
+
+      <div class="w-80 h-52 rounded-xl overflow-hidden flex-shrink-0 border border-saffron/30 relative group shadow-lg">
+        <img src="assets/shot_06.jpg" alt="Daab Chingri" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
+          <span class="text-xs font-mono text-kansa-bright font-semibold">Daab Chingri in Tender Coconut</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 5. WEDDING & CORPORATE CATERING FUNNEL     -->
+  <!-- ========================================== -->
+  <section id="catering-funnel" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="glass-heritage-glow rounded-3xl p-8 sm:p-12 lg:p-16 border border-kansa/40 relative overflow-hidden">
+      <div class="absolute -right-20 -bottom-20 w-96 h-96 bg-terracotta/20 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -left-20 -top-20 w-96 h-96 bg-kansa/15 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-saffron/20 border border-saffron/40 text-saffron-light font-mono text-xs uppercase mb-4 tracking-wider">
+            <i class="bi bi-stars text-kansa"></i> Wedding & Banquet Wing
+          </div>
+          <h2 class="font-heritage text-3xl sm:text-5xl font-bold text-cream leading-tight">
+            Heirloom Bengali Catering for 50 to 5,000 Guests
+          </h2>
+          <p class="text-cream/80 text-sm sm:text-base mt-4 leading-relaxed font-light">
+            Bring the legendary taste of Kasturi to your wedding reception, Aaiburobhaat, Annaprashan, or corporate symposium. Featuring live fish frying counters, whole Daab Chingri carving, and authentic brass service.
+          </p>
+
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 mt-8">
+            <div class="bg-black/40 p-4 rounded-xl border border-saffron/20">
+              <span class="block text-2xl font-bold font-heritage text-kansa">5,000+</span>
+              <span class="text-xs text-cream/60 font-mono">Max Banquet Capacity</span>
+            </div>
+            <div class="bg-black/40 p-4 rounded-xl border border-saffron/20">
+              <span class="block text-2xl font-bold font-heritage text-saffron">30 Yrs</span>
+              <span class="text-xs text-cream/60 font-mono">Catering Heritage</span>
+            </div>
+            <div class="bg-black/40 p-4 rounded-xl border border-saffron/20 col-span-2 sm:col-span-1">
+              <span class="block text-2xl font-bold font-heritage text-cream">100%</span>
+              <span class="text-xs text-cream/60 font-mono">Live Counter Quality</span>
+            </div>
+          </div>
+
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a href="https://wa.me/919836849725?text=Hi%20Kasturi%20Catering%2C%20I%20have%20an%20inquiry%20for%20a%20wedding%20%2F%20private%20event%20catering" 
+               target="_blank" 
+               class="btn-terracotta text-white px-7 py-3.5 rounded-xl font-semibold text-sm inline-flex items-center gap-2.5">
+              <i class="bi bi-whatsapp text-lg text-green-300"></i> Consult Catering Director
+            </a>
+            <a href="tel:+919836849725" 
+               class="px-6 py-3.5 rounded-xl border border-cream/30 hover:border-kansa font-mono text-sm text-cream hover:bg-white/5 transition-all inline-flex items-center gap-2">
+              <i class="bi bi-telephone text-saffron"></i> +91 98368 49725
+            </a>
+          </div>
+        </div>
+
+        <!-- Interactive Inquiry Box -->
+        <div class="glass-heritage p-8 rounded-2xl border border-saffron/30">
+          <h3 class="font-heritage text-xl font-bold text-cream mb-2 flex items-center gap-2">
+            <i class="bi bi-calendar-event text-saffron"></i> Instant Banquet Quotation
+          </h3>
+          <p class="text-xs text-cream/60 mb-6 font-mono">Direct routing to Bishal Saha's executive catering desk.</p>
+
+          <form onsubmit="event.preventDefault(); window.open('https://wa.me/918334922221?text=Event%20Catering%20Inquiry%0AName:%20' + encodeURIComponent(document.getElementById('cName').value) + '%0AGuests:%20' + encodeURIComponent(document.getElementById('cGuests').value) + '%0AOccasion:%20' + encodeURIComponent(document.getElementById('cOccasion').value), '_blank');" class="space-y-4">
+            <div>
+              <label class="block text-xs font-mono text-cream/70 uppercase mb-1">Your Full Name</label>
+              <input id="cName" type="text" placeholder="e.g. Anirban Mukherjee" required class="w-full bg-black/50 border border-saffron/30 rounded-xl px-4 py-3 text-sm text-cream placeholder-cream/30 focus:outline-none focus:border-kansa">
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-mono text-cream/70 uppercase mb-1">Estimated Guests</label>
+                <input id="cGuests" type="number" placeholder="e.g. 150" required class="w-full bg-black/50 border border-saffron/30 rounded-xl px-4 py-3 text-sm text-cream placeholder-cream/30 focus:outline-none focus:border-kansa">
+              </div>
+              <div>
+                <label class="block text-xs font-mono text-cream/70 uppercase mb-1">Occasion</label>
+                <select id="cOccasion" class="w-full bg-black/50 border border-saffron/30 rounded-xl px-4 py-3 text-sm text-cream focus:outline-none focus:border-kansa">
+                  <option class="bg-kasturiDark-bg">Wedding Reception</option>
+                  <option class="bg-kasturiDark-bg">Aaiburobhaat / Annaprashan</option>
+                  <option class="bg-kasturiDark-bg">Corporate Conference</option>
+                  <option class="bg-kasturiDark-bg">Durga Puja / Festival Feast</option>
+                  <option class="bg-kasturiDark-bg">Private Home Catering</option>
+                </select>
+              </div>
+            </div>
+            <button type="submit" class="w-full btn-terracotta text-white py-3.5 rounded-xl font-bold text-sm tracking-wide flex items-center justify-center gap-2 mt-2">
+              <i class="bi bi-send-fill text-xs"></i> Send Inquiry via WhatsApp
+            </button>
+            <p class="text-[11px] text-center text-cream/40 font-mono mt-2">Guaranteed callback within 30 minutes from our New Market office.</p>
+          </form>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="py-8 px-6 border-t border-gray-200">
-    <div class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-      <div class="text-gray-400 text-sm">
-        Custom preview by <strong class="text-gray-600">LocalPulse AI</strong> · Built for Kasturi Restaurant
+  <!-- ========================================== -->
+  <!-- 6. 10+ BRANCHES DIRECTORY & GPS SECTION    -->
+  <!-- ========================================== -->
+  <section id="branches-directory" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-saffron/10 border border-saffron/30 text-saffron font-mono text-xs uppercase mb-4 tracking-widest">
+        <i class="bi bi-geo-alt-fill text-terracotta"></i> Comprehensive City Network
       </div>
-      <div class="flex items-center gap-4 text-gray-400">
-        <a href="mailto:samya.pegusus@gmail.com" class="hover:text-gray-600 transition"><i class="bi bi-envelope-fill"></i></a>
-        <a href="https://wa.me/+918617625059" target="_blank" class="hover:text-gray-600 transition"><i class="bi bi-whatsapp"></i></a>
-        <a href="tel:+91 8617625059" class="hover:text-gray-600 transition"><i class="bi bi-telephone-fill"></i></a>
+      <h2 class="font-heritage text-3xl sm:text-5xl font-bold text-cream leading-tight">
+        Kasturi Across Bengal • 10+ Outlets
+      </h2>
+      <p class="text-cream/60 text-sm sm:text-base mt-4 font-light">
+        Authentic phone numbers verified directly from our in-restaurant directory. Call or route directions to your closest dining room.
+      </p>
+    </div>
+
+    <!-- Flagship Spotlight Hero Box -->
+    <div class="glass-heritage-glow rounded-3xl p-8 sm:p-10 mb-12 border border-kansa/50 grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+      <div class="lg:col-span-2">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-terracotta text-white font-mono text-xs font-semibold mb-4">
+          ★ FLAGSHIP HUB — 180+ COVERS
+        </div>
+        <h3 class="font-heritage text-2xl sm:text-3xl font-bold text-cream">
+          Kasturi New Market (Mirza Ghalib / Free School St)
+        </h3>
+        <p class="text-cream/80 text-sm mt-3 leading-relaxed">
+          <strong>Address:</strong> 7A, Mustaque Ahmed St (Off Free School St / Mirza Ghalib St), New Market Area, Dharmatala, Kolkata, West Bengal 700016
+        </p>
+        <div class="flex flex-wrap gap-4 mt-4 font-mono text-xs text-cream/70">
+          <span class="flex items-center gap-1.5"><i class="bi bi-signpost text-saffron"></i> 2 Mins from New Market Clock Tower</span>
+          <span class="flex items-center gap-1.5"><i class="bi bi-train-front text-saffron"></i> 5 Mins from Esplanade Metro</span>
+          <span class="flex items-center gap-1.5"><i class="bi bi-car-front text-saffron"></i> 4 Mins from Park Street</span>
+        </div>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="https://maps.google.com/?q=Kasturi+Restaurant+7A+Mustaque+Ahmed+St+New+Market+Kolkata" 
+             target="_blank" 
+             class="btn-kansa px-6 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider inline-flex items-center gap-2">
+            <i class="bi bi-geo-alt-fill"></i> Open in Google Maps
+          </a>
+          <a href="tel:+918334922221" 
+             class="px-5 py-2.5 rounded-xl border border-saffron/40 hover:border-kansa bg-black/30 font-mono text-xs text-cream inline-flex items-center gap-2">
+            <i class="bi bi-telephone text-saffron"></i> +91 83349 22221
+          </a>
+          <a href="tel:+919836849725" 
+             class="px-5 py-2.5 rounded-xl border border-saffron/40 hover:border-kansa bg-black/30 font-mono text-xs text-cream inline-flex items-center gap-2">
+            <i class="bi bi-telephone text-saffron"></i> +91 98368 49725
+          </a>
+        </div>
+      </div>
+      <div class="bg-black/50 p-6 rounded-2xl border border-saffron/30 text-center">
+        <div class="text-4xl font-bold font-heritage text-kansa mb-1">4.1 ★</div>
+        <div class="flex justify-center gap-1 text-kansa text-sm mb-2">
+          <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+        </div>
+        <div class="font-mono text-xs text-cream/80 font-semibold">11,500+ Google Reviews</div>
+        <div class="text-[11px] text-cream/50 mt-2 font-mono">Consistently Kolkata's most reviewed authentic Dhakai restaurant.</div>
+        <div class="mt-4 pt-3 border-t border-cream/10 text-xs font-mono text-saffron">
+          GSTIN: 19AAJCK4422G1ZI
+        </div>
+      </div>
+    </div>
+
+    <!-- 9 Remaining Outlets Directory Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+      <!-- Dover Lane -->
+      <div class="glass-heritage p-6 rounded-2xl border border-saffron/20 flex flex-col justify-between hover:border-saffron/50 transition-all">
+        <div>
+          <div class="flex items-center justify-between mb-2">
+            <h4 class="font-heritage font-bold text-lg text-cream">Dover Lane</h4>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-terracotta/20 text-saffron">South Kolkata</span>
+          </div>
+          <p class="text-xs text-cream/60 leading-relaxed">Near Triangular Park & Gariahat culinary belt.</p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-saffron/15 flex items-center justify-between font-mono text-xs">
+          <a href="tel:+918334922227" class="text-saffron-light hover:text-white flex items-center gap-1.5"><i class="bi bi-telephone-fill"></i> 83349 22227</a>
+          <a href="https://maps.google.com/?q=Kasturi+Restaurant+Dover+Lane+Kolkata" target="_blank" class="text-kansa hover:underline flex items-center gap-1"><i class="bi bi-compass"></i> Maps</a>
+        </div>
+      </div>
+
+      <!-- Hatibagan -->
+      <div class="glass-heritage p-6 rounded-2xl border border-saffron/20 flex flex-col justify-between hover:border-saffron/50 transition-all">
+        <div>
+          <div class="flex items-center justify-between mb-2">
+            <h4 class="font-heritage font-bold text-lg text-cream">Hatibagan</h4>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-terracotta/20 text-saffron">North Kolkata</span>
+          </div>
+          <p class="text-xs text-cream/60 leading-relaxed">Bidhan Sarani, adjacent to Star Theatre & shopping zone.</p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-saffron/15 flex items-center justify-between font-mono text-xs">
+          <a href="tel:+918340831627" class="text-saffron-light hover:text-white flex items-center gap-1.5"><i class="bi bi-telephone-fill"></i> 83408 31627</a>
+          <a href="https://maps.google.com/?q=Kasturi+Restaurant+Hatibagan+Kolkata" target="_blank" class="text-kansa hover:underline flex items-center gap-1"><i class="bi bi-compass"></i> Maps</a>
+        </div>
+      </div>
+
+      <!-- Jadavpur -->
+      <div class="glass-heritage p-6 rounded-2xl border border-saffron/20 flex flex-col justify-between hover:border-saffron/50 transition-all">
+        <div>
+          <div class="flex items-center justify-between mb-2">
+            <h4 class="font-heritage font-bold text-lg text-cream">Jadavpur</h4>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-terracotta/20 text-saffron">South Kolkata</span>
+          </div>
+          <p class="text-xs text-cream/60 leading-relaxed">Near 8B Bus Stand & Jadavpur University corridor.</p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-saffron/15 flex items-center justify-between font-mono text-xs">
+          <a href="tel:+918334922223" class="text-saffron-light hover:text-white flex items-center gap-1.5"><i class="bi bi-telephone-fill"></i> 83349 22223</a>
+          <a href="https://maps.google.com/?q=Kasturi+Restaurant+Jadavpur+Kolkata" target="_blank" class="text-kansa hover:underline flex items-center gap-1"><i class="bi bi-compass"></i> Maps</a>
+        </div>
+      </div>
+
+      <!-- Chinar Park (Rajarhat / New Town) -->
+      <div class="glass-heritage p-6 rounded-2xl border border-saffron/20 flex flex-col justify-between hover:border-saffron/50 transition-all">
+        <div>
+          <div class="flex items-center justify-between mb-2">
+            <h4 class="font-heritage font-bold text-lg text-cream">Chinar Park</h4>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-terracotta/20 text-saffron">Rajarhat / New Town</span>
+          </div>
+          <p class="text-xs text-cream/60 leading-relaxed">Major IT & residential tech corridor hub.</p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-saffron/15 flex items-center justify-between font-mono text-xs">
+          <a href="tel:+918389873583" class="text-saffron-light hover:text-white flex items-center gap-1.5"><i class="bi bi-telephone-fill"></i> 83898 73583</a>
+          <a href="https://maps.google.com/?q=Kasturi+Restaurant+Chinar+Park+Kolkata" target="_blank" class="text-kansa hover:underline flex items-center gap-1"><i class="bi bi-compass"></i> Maps</a>
+        </div>
+      </div>
+
+      <!-- Garia -->
+      <div class="glass-heritage p-6 rounded-2xl border border-saffron/20 flex flex-col justify-between hover:border-saffron/50 transition-all">
+        <div>
+          <div class="flex items-center justify-between mb-2">
+            <h4 class="font-heritage font-bold text-lg text-cream">Garia</h4>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-terracotta/20 text-saffron">Southern Gateway</span>
+          </div>
+          <p class="text-xs text-cream/60 leading-relaxed">Kavi Nazrul Metro hub & Raja SC Mullick Road.</p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-saffron/15 flex items-center justify-between font-mono text-xs">
+          <a href="tel:+918910476385" class="text-saffron-light hover:text-white flex items-center gap-1.5"><i class="bi bi-telephone-fill"></i> 89104 76385</a>
+          <a href="https://maps.google.com/?q=Kasturi+Restaurant+Garia+Kolkata" target="_blank" class="text-kansa hover:underline flex items-center gap-1"><i class="bi bi-compass"></i> Maps</a>
+        </div>
+      </div>
+
+      <!-- Jessore Road -->
+      <div class="glass-heritage p-6 rounded-2xl border border-saffron/20 flex flex-col justify-between hover:border-saffron/50 transition-all">
+        <div>
+          <div class="flex items-center justify-between mb-2">
+            <h4 class="font-heritage font-bold text-lg text-cream">Jessore Road</h4>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-terracotta/20 text-saffron">Airport Corridor</span>
+          </div>
+          <p class="text-xs text-cream/60 leading-relaxed">Dum Dum / Nagerbazar connecting route.</p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-saffron/15 flex items-center justify-between font-mono text-xs">
+          <a href="tel:+918334922224" class="text-saffron-light hover:text-white flex items-center gap-1.5"><i class="bi bi-telephone-fill"></i> 83349 22224</a>
+          <a href="https://maps.google.com/?q=Kasturi+Restaurant+Jessore+Road+Kolkata" target="_blank" class="text-kansa hover:underline flex items-center gap-1"><i class="bi bi-compass"></i> Maps</a>
+        </div>
+      </div>
+
+      <!-- Sodepur -->
+      <div class="glass-heritage p-6 rounded-2xl border border-saffron/20 flex flex-col justify-between hover:border-saffron/50 transition-all">
+        <div>
+          <div class="flex items-center justify-between mb-2">
+            <h4 class="font-heritage font-bold text-lg text-cream">Sodepur</h4>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-terracotta/20 text-saffron">BT Road Hub</span>
+          </div>
+          <p class="text-xs text-cream/60 leading-relaxed">Serving Barrackpore & North 24 Parganas diners.</p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-saffron/15 flex items-center justify-between font-mono text-xs">
+          <a href="tel:+918334922228" class="text-saffron-light hover:text-white flex items-center gap-1.5"><i class="bi bi-telephone-fill"></i> 83349 22228</a>
+          <a href="https://maps.google.com/?q=Kasturi+Restaurant+Sodepur+Kolkata" target="_blank" class="text-kansa hover:underline flex items-center gap-1"><i class="bi bi-compass"></i> Maps</a>
+        </div>
+      </div>
+
+      <!-- Asansol -->
+      <div class="glass-heritage p-6 rounded-2xl border border-saffron/20 flex flex-col justify-between hover:border-saffron/50 transition-all">
+        <div>
+          <div class="flex items-center justify-between mb-2">
+            <h4 class="font-heritage font-bold text-lg text-cream">Asansol</h4>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-terracotta/20 text-saffron">Western Bengal</span>
+          </div>
+          <p class="text-xs text-cream/60 leading-relaxed">Bringing Kolkata's royal Dhakai thali to Paschim Bardhaman.</p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-saffron/15 flex items-center justify-between font-mono text-xs">
+          <a href="tel:08293373543" class="text-saffron-light hover:text-white flex items-center gap-1.5"><i class="bi bi-telephone-fill"></i> 082933 73543</a>
+          <a href="https://maps.google.com/?q=Kasturi+Restaurant+Asansol" target="_blank" class="text-kansa hover:underline flex items-center gap-1"><i class="bi bi-compass"></i> Maps</a>
+        </div>
+      </div>
+
+      <!-- Siliguri -->
+      <div class="glass-heritage p-6 rounded-2xl border border-saffron/20 flex flex-col justify-between hover:border-saffron/50 transition-all">
+        <div>
+          <div class="flex items-center justify-between mb-2">
+            <h4 class="font-heritage font-bold text-lg text-cream">Siliguri</h4>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-terracotta/20 text-saffron">North Bengal</span>
+          </div>
+          <p class="text-xs text-cream/60 leading-relaxed">The gateway city outlet serving travelers and locals.</p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-saffron/15 flex items-center justify-between font-mono text-xs">
+          <a href="tel:08584048860" class="text-saffron-light hover:text-white flex items-center gap-1.5"><i class="bi bi-telephone-fill"></i> 085840 48860</a>
+          <a href="https://maps.google.com/?q=Kasturi+Restaurant+Siliguri" target="_blank" class="text-kansa hover:underline flex items-center gap-1"><i class="bi bi-compass"></i> Maps</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 7. LOCALPULSE AI CONFIDENTIAL PITCH MEMO   -->
+  <!-- ========================================== -->
+  <section id="digital-pitch-memo" class="py-24 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+    <div class="bg-gradient-to-b from-kasturiDark-elevated to-kasturiDark-surface rounded-3xl p-8 sm:p-12 lg:p-14 border-2 border-saffron/40 shadow-2xl relative">
+      
+      <!-- Top Secret Stamp / Header -->
+      <div class="flex flex-wrap items-center justify-between gap-4 pb-8 border-b border-saffron/25">
+        <div class="flex items-center gap-3">
+          <span class="px-3.5 py-1 rounded bg-terracotta text-white font-mono text-xs font-bold uppercase tracking-wider">
+            EXECUTIVE STRATEGY BRIEF
+          </span>
+          <span class="text-xs font-mono text-cream/50">LOCALPULSE AI × KASTURI GROUP</span>
+        </div>
+        <div class="font-mono text-xs text-saffron flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-green-400 animate-pulse"></span> COMMISSION RECOVERY AUDIT
+        </div>
+      </div>
+
+      <!-- Recipient Header -->
+      <div class="my-8">
+        <span class="text-xs font-mono uppercase tracking-widest text-kansa-bright block mb-1">STRICTLY CONFIDENTIAL • PREPARED FOR:</span>
+        <h3 class="font-heritage text-3xl sm:text-4xl font-bold text-cream">
+          Mr. Bishal Saha
+        </h3>
+        <p class="text-sm font-mono text-saffron-light mt-1">
+          2nd-Generation Proprietor & Managing Director • Kasturi Restaurant Group
+        </p>
+      </div>
+
+      <!-- Core Narrative -->
+      <div class="space-y-6 text-cream/85 text-sm sm:text-base leading-relaxed font-light">
+        <p>
+          Dear Mr. Bishal Saha,
+        </p>
+        <p>
+          Over the past three decades, Kasturi has achieved what very few culinary brands in India ever will: <strong>an unshakeable institutional reputation</strong>. With 10+ thriving branches, 180+ daily covers at your New Market flagship alone, and over 11,500 authentic 4.1★ Google reviews, Kolkata trusts your Kochu Pata Chingri Bhapa and royal Kansa thalis above all else.
+        </p>
+        <p class="p-5 rounded-2xl bg-black/50 border-l-4 border-red-500 text-cream">
+          <strong>The Critical Financial Leak:</strong> Yet today, Kasturi operates with <strong>ZERO independent branded website or direct online ordering infrastructure</strong>. Virtually 100% of your digital takeaway and home delivery business is routed through Zomato and Swiggy.
+        </p>
+      </div>
+
+      <!-- Financial Bleed Table -->
+      <div class="my-10 overflow-x-auto">
+        <table class="w-full text-left font-mono text-xs sm:text-sm border border-saffron/25 rounded-2xl overflow-hidden">
+          <thead class="bg-black/60 text-saffron border-b border-saffron/25">
+            <tr>
+              <th class="p-4">10-Outlet Delivery Metric</th>
+              <th class="p-4">Current Aggregator Model</th>
+              <th class="p-4 text-green-400">With LocalPulse Direct Portal</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-saffron/15 bg-black/30">
+            <tr>
+              <td class="p-4 font-semibold text-cream">Platform Commission</td>
+              <td class="p-4 text-red-400 font-bold">25% – 30% + 18% GST</td>
+              <td class="p-4 text-green-400 font-bold">0% Direct Commission</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-semibold text-cream">Estimated Monthly Deliveries</td>
+              <td class="p-4 text-cream/70">~₹45,00,000 across 10 Outlets</td>
+              <td class="p-4 text-cream/70">~₹45,00,000 across 10 Outlets</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-semibold text-cream">Monthly Commission Paid Out</td>
+              <td class="p-4 text-red-400 font-bold">₹11,25,000 – ₹13,50,000 / mo</td>
+              <td class="p-4 text-green-400 font-bold">₹0 (100% Retained Profit)</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-semibold text-cream">Annual Profit Lost to Platforms</td>
+              <td class="p-4 text-red-400 font-bold">₹1.35 Cr – ₹1.62 Crore / yr</td>
+              <td class="p-4 text-green-400 font-bold">Saved Straight to Your P&L</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-semibold text-cream">Customer Data Ownership</td>
+              <td class="p-4 text-red-400">0% (Masked phone numbers)</td>
+              <td class="p-4 text-green-400 font-bold">100% Direct WhatsApp CRM</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 4 Pillars of Solution -->
+      <div class="space-y-4">
+        <h4 class="font-heritage text-xl font-bold text-kansa-bright">
+          The 4-Pillar LocalPulse AI Engine Built For Kasturi:
+        </h4>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-mono">
+          <div class="p-4 rounded-xl bg-black/40 border border-saffron/20">
+            <span class="text-saffron font-bold text-sm block mb-1">1. Direct 0%-Commission Engine</span>
+            <p class="text-cream/70">Customers order their thalis directly on your branded site with instant POS & WhatsApp kitchen ticket dispatch.</p>
+          </div>
+          <div class="p-4 rounded-xl bg-black/40 border border-saffron/20">
+            <span class="text-saffron font-bold text-sm block mb-1">2. GSAP Scroll-Camera Walkthrough</span>
+            <p class="text-cream/70">The exact interactive experience you see above — converting casual Google searchers into instant dining room diners.</p>
+          </div>
+          <div class="p-4 rounded-xl bg-black/40 border border-saffron/20">
+            <span class="text-saffron font-bold text-sm block mb-1">3. High-Ticket Banquet Funnel</span>
+            <p class="text-cream/70">Automated lead routing for weddings, Aaiburobhaat, and corporate feasts directly to your executive phone.</p>
+          </div>
+          <div class="p-4 rounded-xl bg-black/40 border border-saffron/20">
+            <span class="text-saffron font-bold text-sm block mb-1">4. 10-Branch Local SEO Fortress</span>
+            <p class="text-cream/70">Guaranteed top ranking across Dover Lane, Hatibagan, Rajarhat, and Garia when diners search 'Bengali thali near me'.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Proven Reference Case Study -->
+      <div class="my-10 p-6 rounded-2xl bg-terracotta/10 border border-terracotta/40 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div>
+          <span class="text-[11px] font-mono text-saffron uppercase font-bold tracking-wider block">PROVEN REFERENCE PROJECT</span>
+          <h5 class="font-heritage text-lg font-bold text-cream mt-0.5">Mother's Hut (50,000 Sq.Ft Landmark on NH-12)</h5>
+          <p class="text-xs text-cream/70 mt-1 max-w-xl">
+            See the exact high-conversion digital transformation we deployed for Mother's Hut in Krishnanagar, which elevated their direct visitor-to-diner conversion rates across Bengal.
+          </p>
+        </div>
+        <a href="https://samya666.github.io/mothers-hut-redesign/" 
+           target="_blank" 
+           class="flex-shrink-0 px-5 py-3 rounded-xl btn-kansa font-bold text-xs uppercase tracking-wider inline-flex items-center gap-2">
+          <i class="bi bi-box-arrow-up-right"></i> View Mother's Hut Case Study
+        </a>
+      </div>
+
+      <!-- Signoff & Direct Contact -->
+      <div class="pt-8 border-t border-saffron/25 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+        <div>
+          <span class="text-xs font-mono text-cream/50 uppercase tracking-widest block">DIRECT CONSULTANT</span>
+          <span class="font-heritage font-bold text-xl text-cream block mt-0.5">Samya Pegusus</span>
+          <span class="text-xs font-mono text-saffron-light">Principal Architect, LocalPulse AI</span>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-3">
+          <a href="https://wa.me/918617625059?text=Hi%20Samya%2C%20this%20is%20Bishal%20Saha%20from%20Kasturi%20Restaurant.%20I%20reviewed%20the%20LocalPulse%20pitch%20memo%20and%20want%20to%20discuss%20commission%20savings" 
+             target="_blank" 
+             class="btn-terracotta text-white px-6 py-3 rounded-xl font-bold text-xs uppercase tracking-wider inline-flex items-center gap-2">
+            <i class="bi bi-whatsapp text-green-300 text-sm"></i> WhatsApp Samya (+91 8617625059)
+          </a>
+          <a href="mailto:samya.pegusus@gmail.com?subject=Kasturi%20Restaurant%20Direct%20Portal%20Inquiry" 
+             class="px-5 py-3 rounded-xl border border-cream/30 hover:border-kansa font-mono text-xs text-cream hover:bg-white/5 transition-all inline-flex items-center gap-2">
+            <i class="bi bi-envelope-fill text-saffron"></i> samya.pegusus@gmail.com
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 8. FOOTER                                  -->
+  <!-- ========================================== -->
+  <footer class="border-t border-saffron/20 bg-kasturiDark-bg py-16 px-4 sm:px-6 lg:px-8 text-cream/60">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-terracotta flex items-center justify-center text-cream font-bengali-title font-bold text-xl">
+          ক
+        </div>
+        <div>
+          <div class="font-heritage font-bold text-cream text-lg">Kasturi Restaurant (কস্তুরী)</div>
+          <p class="text-xs font-mono text-cream/50">Dhakai Culinary Lineage Since 1994 • 10+ Outlets in Bengal</p>
+        </div>
+      </div>
+
+      <div class="text-xs font-mono space-y-1">
+        <div>Flagship: 7A, Mustaque Ahmed St, New Market, Kolkata - 700016</div>
+        <div>Phone: +91 83349 22221 / +91 98368 49725 • GSTIN: 19AAJCK4422G1ZI</div>
+      </div>
+
+      <div class="text-xs font-mono text-cream/40">
+        Demo engineered by <a href="https://wa.me/918617625059" class="text-saffron hover:underline">LocalPulse AI</a><br>
+        Scroll-Camera Track • Authentic Venue Footage
       </div>
     </div>
   </footer>
 
+  <!-- ========================================== -->
+  <!-- 9. STICKY MOBILE BOTTOM ACTION BAR         -->
+  <!-- ========================================== -->
+  <aside aria-label="Mobile quick actions" class="fixed bottom-0 left-0 right-0 z-50 md:hidden glass-heritage-glow border-t border-saffron/30 px-3 py-2.5 flex items-center justify-around">
+    <!-- WhatsApp -->
+    <a href="https://wa.me/918334922221?text=Hi%20Kasturi%2C%20I%20would%20like%20to%20reserve%20a%20table%20or%20inquire%20about%20catering" 
+       target="_blank" 
+       class="flex-1 mr-2 btn-terracotta text-white py-2.5 rounded-xl font-bold text-xs flex items-center justify-center gap-1.5 shadow-lg">
+      <i class="bi bi-whatsapp text-sm text-green-300"></i> WhatsApp
+    </a>
+    
+    <!-- Call -->
+    <a href="tel:+918334922221" 
+       class="px-4 py-2.5 rounded-xl bg-black/60 border border-saffron/30 text-cream font-mono text-xs flex items-center justify-center gap-1.5 mr-2">
+      <i class="bi bi-telephone-fill text-saffron"></i> Call
+    </a>
+
+    <!-- Maps -->
+    <a href="https://maps.google.com/?q=Kasturi+Restaurant+7A+Mustaque+Ahmed+St+New+Market+Kolkata" 
+       target="_blank" 
+       class="px-4 py-2.5 rounded-xl bg-black/60 border border-saffron/30 text-cream font-mono text-xs flex items-center justify-center gap-1.5">
+      <i class="bi bi-compass-fill text-kansa"></i> Maps
+    </a>
+  </aside>
+
+  <!-- ========================================== -->
+  <!-- 10. GSAP SCROLLTRIGGER ENGINE              -->
+  <!-- ========================================== -->
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    const video = document.getElementById('walkthroughVideo');
+    const station1 = document.getElementById('station-1');
+    const station2 = document.getElementById('station-2');
+    const station3 = document.getElementById('station-3');
+    const station4 = document.getElementById('station-4');
+    const progressBar = document.getElementById('cameraProgressBar');
+
+    let videoDuration = 22.0;
+
+    // Detect video duration once metadata is available
+    video.addEventListener('loadedmetadata', () => {
+      videoDuration = video.duration || 22.0;
+      initScrollTrack();
+    });
+
+    if (video.readyState >= 1) {
+      videoDuration = video.duration || 22.0;
+      initScrollTrack();
+    } else {
+      setTimeout(initScrollTrack, 400);
+    }
+
+    function initScrollTrack() {
+      // Main ScrollTrigger pinned scrub timeline
+      ScrollTrigger.create({
+        trigger: "#camera-track-container",
+        start: "top top",
+        end: "bottom bottom",
+        scrub: 0.15, // Butter smooth physics
+        onUpdate: (self) => {
+          const progress = self.progress;
+
+          // Frame-accurate video scrub
+          if (video.readyState >= 2 && videoDuration) {
+            video.currentTime = Math.min(videoDuration - 0.05, Math.max(0, progress * videoDuration));
+          }
+
+          // Viewport Progress Bar
+          if (progressBar) {
+            progressBar.style.width = (progress * 100) + '%';
+          }
+
+          // Station 1: Grand Hero (0 to 0.22)
+          if (progress < 0.24) {
+            const op = gsap.utils.clamp(0, 1, (0.21 - progress) / 0.12);
+            gsap.set(station1, {
+              opacity: op,
+              scale: 1 - progress * 0.18,
+              y: -progress * 50,
+              pointerEvents: op > 0.4 ? 'auto' : 'none'
+            });
+          } else {
+            gsap.set(station1, { opacity: 0, pointerEvents: 'none' });
+          }
+
+          // Station 2: Signature Culinary USP (0.24 to 0.56)
+          if (progress >= 0.24 && progress < 0.58) {
+            let op = 0;
+            if (progress >= 0.24 && progress <= 0.36) {
+              op = (progress - 0.24) / 0.12;
+            } else if (progress > 0.36 && progress <= 0.48) {
+              op = 1;
+            } else if (progress > 0.48) {
+              op = (0.58 - progress) / 0.10;
+            }
+            op = gsap.utils.clamp(0, 1, op);
+            const sc = gsap.utils.interpolate(0.92, 1.02, (progress - 0.24) / 0.34);
+            gsap.set(station2, {
+              opacity: op,
+              scale: sc,
+              pointerEvents: op > 0.4 ? 'auto' : 'none'
+            });
+          } else {
+            gsap.set(station2, { opacity: 0, pointerEvents: 'none' });
+          }
+
+          // Station 3: Flagship Capacity & Banquets (0.58 to 0.82)
+          if (progress >= 0.58 && progress < 0.83) {
+            let op = 0;
+            if (progress >= 0.58 && progress <= 0.68) {
+              op = (progress - 0.58) / 0.10;
+            } else if (progress > 0.68 && progress <= 0.77) {
+              op = 1;
+            } else if (progress > 0.77) {
+              op = (0.83 - progress) / 0.06;
+            }
+            op = gsap.utils.clamp(0, 1, op);
+            gsap.set(station3, {
+              opacity: op,
+              scale: 1,
+              pointerEvents: op > 0.4 ? 'auto' : 'none'
+            });
+          } else {
+            gsap.set(station3, { opacity: 0, pointerEvents: 'none' });
+          }
+
+          // Station 4: Booking & Direct Ordering CTA (0.83 to 1.0)
+          if (progress >= 0.83) {
+            const op = gsap.utils.clamp(0, 1, (progress - 0.83) / 0.10);
+            gsap.set(station4, {
+              opacity: op,
+              scale: 1,
+              pointerEvents: op > 0.4 ? 'auto' : 'none'
+            });
+          } else {
+            gsap.set(station4, { opacity: 0, pointerEvents: 'none' });
+          }
+        }
+      });
+    }
+
+    // Refresh ScrollTrigger on window resize & orientation change
+    window.addEventListener('resize', () => {
+      ScrollTrigger.refresh();
+    });
+  </script>
 </body>
 </html>

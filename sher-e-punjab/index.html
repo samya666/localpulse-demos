@@ -2,187 +2,1414 @@
 <html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Sher-e-Punjab | Premium Digital Experience by LocalPulse AI</title>
-  <meta name="description" content="A custom-built, high-converting mobile experience for Sher-e-Punjab, {'address': 'NH-16 (Kolkata-Chennai Highway), Borisha, Kolaghat, Purba Medinipur, West Bengal 721134', 'landmark': 'Near Rupnarayan River Bridge, NH-16 Highway Corridor', 'city_zone': 'Kolkata Outskirts (NH-16 Corridor)'}. Powered by LocalPulse AI.">
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sher-e-Punjab Kolaghat | The Legendary NH-16 Highway King | 500+ Covers & 300-Acre Estate</title>
+  <meta name="description" content="Official bespoke digital experience for Sher-e-Punjab, Kolaghat on NH-16. 26,000+ reviews, authentic Punjabi dhaba, 500+ covers, 7+ grand banquet lawns, and 300-acre royal estate.">
+  
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;0,900;1,600;1,700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            maharaja: {
+              950: '#1a0408',
+              900: '#2b030a',
+              850: '#3e0610',
+              800: '#520714',
+              700: '#800020', // Signature Maharaja Burgundy
+              600: '#9b0f2a',
+              500: '#b81d39',
+              400: '#d73b57',
+            },
+            turmeric: {
+              600: '#b4810b',
+              500: '#daa520', // Signature Turmeric Gold
+              400: '#f59e0b',
+              300: '#fbbf24',
+              200: '#fde68a',
+              100: '#fef3c7',
+            },
+            cream: {
+              50: '#fefdfb',
+              100: '#fdfbf7',
+              200: '#f7f1e5',
+              300: '#ebdcc0',
+            }
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['"Outfit"', 'system-ui', 'sans-serif'],
+            mono: ['"Space Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
   <style>
-    :root {
-      --primary: #B85D2A;
-      --primary-dark: #8C3B1B;
-      --dark: #1a1a1a;
-      --cream: #FAF8F5;
-      --sand: #ECE5CE;
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
     }
-    body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--cream); color: #262420; }
-    .font-editorial { font-family: 'Playfair Display', serif; }
-    .gradient-hero { background: linear-gradient(135deg, #1a1a1a 0%, #2d1810 50%, #1a1a1a 100%); }
-    .glow-btn {
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      box-shadow: 0 10px 30px -5px rgba(184,93,42,0.4);
-      transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+    ::-webkit-scrollbar-track {
+      background: #1a0408;
     }
-    .glow-btn:hover { transform: translateY(-2px); box-shadow: 0 15px 40px -5px rgba(184,93,42,0.5); }
-    .card-hover { transition: all 0.3s ease; }
-    .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-    .stat-card { background: rgba(255,255,255,0.7); backdrop-filter: blur(10px); }
-    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-    .float { animation: float 3s ease-in-out infinite; }
+    ::-webkit-scrollbar-thumb {
+      background: #800020;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #daa520;
+    }
+
+    /* Filmstrip Marquee Animation */
+    @keyframes marquee {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-marquee {
+      display: flex;
+      width: max-content;
+      animation: marquee 38s linear infinite;
+    }
+    .animate-marquee:hover {
+      animation-play-state: paused;
+    }
+
+    /* Subtle shimmer effect */
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #FFE494 0%, #DAA520 50%, #F59E0B 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .burgundy-glass {
+      background: rgba(43, 3, 10, 0.78);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(218, 165, 32, 0.22);
+    }
   </style>
 </head>
-<body class="antialiased">
+<body class="bg-[#140205] text-[#f7f1e5] font-sans antialiased overflow-x-hidden selection:bg-turmeric-500 selection:text-maharaja-950">
 
-  <!-- Hero Section -->
-  <section class="gradient-hero min-h-screen flex items-center justify-center relative overflow-hidden">
-    <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 20% 50%, rgba(184,93,42,0.3) 0%, transparent 50%), radial-gradient(circle at 80% 50%, rgba(184,93,42,0.2) 0%, transparent 50%);"></div>
-    <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
-      <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-5 py-2 mb-8">
-        <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-        <span class="text-white/80 text-sm font-medium tracking-wide">CUSTOM PREVIEW — BUILT FOR SHER-E-PUNJAB</span>
-      </div>
-      <h1 class="font-editorial text-5xl md:text-7xl text-white font-bold leading-tight mb-6">
-        Sher-e-Punjab
-      </h1>
-      <p class="text-white/70 text-lg md:text-xl max-w-2xl mx-auto mb-4">
-        {'address': 'NH-16 (Kolkata-Chennai Highway), Borisha, Kolaghat, Purba Medinipur, West Bengal 721134', 'landmark': 'Near Rupnarayan River Bridge, NH-16 Highway Corridor', 'city_zone': 'Kolkata Outskirts (NH-16 Corridor)'}
-      </p>
-      <p class="text-white/50 text-base max-w-xl mx-auto mb-10">
-        This is what your restaurant's digital presence could look like — built in 48 hours by LocalPulse AI.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href='https://wa.me/919153367990' target='_blank' class='glow-btn text-white px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center gap-3'><i class='bi bi-whatsapp text-2xl'></i> Book via WhatsApp</a>
-        <a href="tel:+91 91533 67990" class="bg-white/10 backdrop-blur-md border border-white/30 text-white px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center gap-3 hover:bg-white/20 transition-all">
-          <i class="bi bi-telephone-fill"></i> Call Now
+  <!-- TOP HIGHWAY TICKER -->
+  <div class="bg-gradient-to-r from-maharaja-900 via-maharaja-800 to-maharaja-900 border-b border-turmeric-500/20 py-1.5 px-4 text-xs font-mono text-turmeric-200/90 text-center tracking-wide">
+    <div class="max-w-7xl mx-auto flex items-center justify-between flex-wrap gap-2">
+      <span class="flex items-center gap-2">
+        <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span class="font-bold text-white uppercase tracking-wider">NH-16 KM 60 • Open 24 Hours / 365 Days</span>
+      </span>
+      <span class="hidden md:inline text-turmeric-400/80">Kolkata → Kolaghat (60 km) • Digha Corridor • Ample 500+ Parking • EV Charging</span>
+      <div class="flex items-center gap-4">
+        <a href="tel:+919153367990" class="hover:text-white transition-colors flex items-center gap-1">
+          <i class="bi bi-telephone-fill text-turmeric-400 text-[10px]"></i> +91 91533 67990
+        </a>
+        <a href="https://maps.google.com/?q=Sher-e-Punjab+Kolaghat+NH16" target="_blank" class="hover:text-white transition-colors flex items-center gap-1 text-turmeric-400">
+          <i class="bi bi-geo-alt-fill text-[10px]"></i> Get GPS
         </a>
       </div>
     </div>
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/40 animate-bounce">
-      <i class="bi bi-chevron-double-down text-2xl"></i>
-    </div>
-  </section>
+  </div>
 
-  <!-- What We'd Build Section -->
-  <section class="py-20 px-6">
-    <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-16">
-        <span class="text-sm font-bold tracking-[0.2em] uppercase" style="color: var(--primary);">What Your Guests Would Experience</span>
-        <h2 class="font-editorial text-4xl md:text-5xl font-bold mt-4 mb-6">A Digital Experience<br>Worthy of Your Kitchen</h2>
-        <p class="text-gray-500 text-lg max-w-2xl mx-auto">Every feature below is designed to convert highway travelers and local foodies into paying guests — in one tap.</p>
-      </div>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(184,93,42,0.1);">
-            <i class="bi bi-phone text-2xl" style="color: var(--primary);"></i>
+  <!-- FIXED NAVIGATION -->
+  <header class="sticky top-0 z-50 burgundy-glass transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo / Identity -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-turmeric-400 via-turmeric-500 to-maharaja-700 p-0.5 shadow-lg shadow-maharaja-950/50 flex-shrink-0">
+          <div class="w-full h-full bg-maharaja-900 rounded-[10px] flex items-center justify-center text-turmeric-300 group-hover:scale-105 transition-transform">
+            <!-- Lion Crest Icon -->
+            <i class="bi bi-shield-fill-check text-2xl text-turmeric-400"></i>
           </div>
-          <h3 class="font-bold text-xl mb-3">Mobile-First Design</h3>
-          <p class="text-gray-500">85% of your customers search on phones. A lightning-fast mobile experience with sticky booking bar and one-tap WhatsApp reservation.</p>
         </div>
-        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(184,93,42,0.1);">
-            <i class="bi bi-camera-reels text-2xl" style="color: var(--primary);"></i>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-serif text-xl sm:text-2xl font-black tracking-wider text-white group-hover:text-turmeric-300 transition-colors">
+              SHER-E-PUNJAB
+            </span>
+            <span class="hidden sm:inline-block px-2 py-0.5 text-[10px] font-mono uppercase tracking-widest bg-turmeric-500/20 text-turmeric-300 rounded border border-turmeric-500/30">
+              KOLAGHAT
+            </span>
           </div>
-          <h3 class="font-bold text-xl mb-3">5 Custom Video Reels</h3>
-          <p class="text-gray-500">High-retention 9:16 vertical videos of your signature dishes, ambiance, and chef specials — ready for Instagram, YouTube Shorts & Google Maps.</p>
+          <p class="text-[11px] font-mono tracking-tight text-turmeric-200/70 flex items-center gap-2">
+            <span>26,000+ Reviews</span>
+            <span class="text-turmeric-400">★ 4.0</span>
+            <span class="hidden md:inline">• NH-16 Highway King</span>
+          </p>
         </div>
-        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(184,93,42,0.1);">
-            <i class="bi bi-robot text-2xl" style="color: var(--primary);"></i>
-          </div>
-          <h3 class="font-bold text-xl mb-3">AI Digital Concierge</h3>
-          <p class="text-gray-500">A 24/7 AI assistant trained on your exact menu, pricing, and FAQs — answers customer questions instantly on WhatsApp.</p>
-        </div>
-        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(184,93,42,0.1);">
-            <i class="bi bi-calendar-event text-2xl" style="color: var(--primary);"></i>
-          </div>
-          <h3 class="font-bold text-xl mb-3">Banquet Booking Funnel</h3>
-          <p class="text-gray-500">Direct inquiry forms for weddings, birthday parties, and corporate events — no more lost leads from missed calls.</p>
-        </div>
-        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(184,93,42,0.1);">
-            <i class="bi bi-geo-alt text-2xl" style="color: var(--primary);"></i>
-          </div>
-          <h3 class="font-bold text-xl mb-3">GPS Navigation</h3>
-          <p class="text-gray-500">One-tap Google Maps routing for highway travelers. Integrated with your exact pin location and landmark references.</p>
-        </div>
-        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(184,93,42,0.1);">
-            <i class="bi bi-graph-up-arrow text-2xl" style="color: var(--primary);"></i>
-          </div>
-          <h3 class="font-bold text-xl mb-3">SEO & Google Boost</h3>
-          <p class="text-gray-500">Schema markup, local SEO optimization, and Google Business integration so you rank #1 for "Sher-e-Punjab" and nearby food searches.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Social Proof / Reference -->
-  <section class="py-20 px-6" style="background: var(--dark);">
-    <div class="max-w-4xl mx-auto text-center">
-      <span class="text-sm font-bold tracking-[0.2em] uppercase text-amber-400">See What We've Already Built</span>
-      <h2 class="font-editorial text-4xl md:text-5xl font-bold text-white mt-4 mb-6">Our Reference Project</h2>
-      <p class="text-white/60 text-lg mb-10">We built this complete digital experience for Mother's Hut, Krishnanagar — the 50,000 sq ft women-powered dining landmark on NH-12.</p>
-      <a href="https://samya666.github.io/mothers-hut-redesign/" target="_blank" class="glow-btn text-white px-10 py-5 rounded-full font-bold text-lg inline-flex items-center gap-3">
-        <i class="bi bi-box-arrow-up-right"></i> View Mother's Hut Experience
       </a>
-      <div class="grid grid-cols-3 gap-6 mt-16">
-        <div class="stat-card rounded-2xl p-6">
-          <div class="text-3xl font-bold text-white">2.5K</div>
-          <div class="text-white/50 text-sm mt-1">Video Walkthrough</div>
-        </div>
-        <div class="stat-card rounded-2xl p-6">
-          <div class="text-3xl font-bold text-white">10</div>
-          <div class="text-white/50 text-sm mt-1">Themed Dining Zones</div>
-        </div>
-        <div class="stat-card rounded-2xl p-6">
-          <div class="text-3xl font-bold text-white">48h</div>
-          <div class="text-white/50 text-sm mt-1">Delivery Time</div>
-        </div>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden lg:flex items-center gap-7 text-sm font-medium tracking-wide">
+        <a href="#walkthrough" class="text-cream-200 hover:text-turmeric-400 transition-colors">Walkthrough</a>
+        <a href="#experience" class="text-cream-200 hover:text-turmeric-400 transition-colors">Experience</a>
+        <a href="#estate" class="text-cream-200 hover:text-turmeric-400 transition-colors">300-Acre Estate</a>
+        <a href="#menu" class="text-cream-200 hover:text-turmeric-400 transition-colors">Authentic Menu</a>
+        <a href="#location" class="text-cream-200 hover:text-turmeric-400 transition-colors">GPS Route</a>
+        <a href="#pitch" class="text-turmeric-300 hover:text-white transition-colors flex items-center gap-1.5 font-mono text-xs bg-turmeric-500/10 px-3 py-1.5 rounded-full border border-turmeric-500/30">
+          <i class="bi bi-lightning-charge-fill text-turmeric-400"></i> LocalPulse Memo
+        </a>
+      </nav>
+
+      <!-- CTA Button -->
+      <div class="flex items-center gap-3">
+        <a href="https://wa.me/919153367990?text=Hi%20Sher-e-Punjab%20Kolaghat,%20I%20would%20like%20to%20reserve%20a%20table%20/%20banquet%20hall." 
+           target="_blank"
+           class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold tracking-wide bg-gradient-to-r from-turmeric-400 via-turmeric-500 to-turmeric-600 text-maharaja-950 shadow-lg shadow-turmeric-500/20 hover:shadow-turmeric-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all">
+          <i class="bi bi-whatsapp text-base"></i>
+          <span>Book Table / Lawn</span>
+        </a>
       </div>
     </div>
-  </section>
+  </header>
 
-  <!-- Pricing CTA -->
-  <section class="py-20 px-6">
-    <div class="max-w-3xl mx-auto text-center">
-      <span class="text-sm font-bold tracking-[0.2em] uppercase" style="color: var(--primary);">Simple, Transparent Pricing</span>
-      <h2 class="font-editorial text-4xl md:text-5xl font-bold mt-4 mb-6">Get All Of This<br>For ₹24,000</h2>
-      <div class="bg-white rounded-3xl p-10 border border-gray-100 shadow-xl mb-10">
-        <ul class="text-left space-y-4 text-lg text-gray-700 mb-8">
-          <li class="flex items-start gap-3"><i class="bi bi-check-circle-fill text-green-500 mt-1"></i> Complete mobile-first website with your branding</li>
-          <li class="flex items-start gap-3"><i class="bi bi-check-circle-fill text-green-500 mt-1"></i> 5 custom 9:16 video reels (Instagram/YouTube ready)</li>
-          <li class="flex items-start gap-3"><i class="bi bi-check-circle-fill text-green-500 mt-1"></i> AI digital concierge (WhatsApp integration)</li>
-          <li class="flex items-start gap-3"><i class="bi bi-check-circle-fill text-green-500 mt-1"></i> WhatsApp one-tap booking & banquet inquiry form</li>
-          <li class="flex items-start gap-3"><i class="bi bi-check-circle-fill text-green-500 mt-1"></i> Google Maps SEO optimization</li>
-          <li class="flex items-start gap-3"><i class="bi bi-check-circle-fill text-green-500 mt-1"></i> Delivered in 48 hours</li>
-        </ul>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="https://wa.me/+918617625059?text=Hi%20Samya%2C%20I%20saw%20the%20LocalPulse%20AI%20demo%20for%20Sher-e-Punjab.%20I%20am%20interested%20in%20getting%20this%20for%20my%20restaurant." 
-             target="_blank" class="glow-btn text-white px-8 py-4 rounded-full font-bold text-lg inline-flex items-center gap-3">
-            <i class="bi bi-whatsapp text-xl"></i> Get Started — WhatsApp Samya
+  <!-- ========================================================================= -->
+  <!-- STEP 4 - SCROLL-CAMERA TRACK HERO (360vh Pinned GSAP Scrub Track) -->
+  <!-- ========================================================================= -->
+  <section id="walkthrough" class="relative w-full h-[360vh] bg-black">
+    
+    <!-- Pinned Sticky Container (100vh) -->
+    <div id="heroTrackSticky" class="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
+      
+      <!-- Video Element Scrubbed by ScrollTrigger -->
+      <video id="scrubVideo" 
+             src="assets/hero_walkthrough.mp4" 
+             poster="assets/hero_poster.webp" 
+             muted 
+             playsinline 
+             preload="auto" 
+             class="absolute inset-0 w-full h-full object-cover">
+      </video>
+
+      <!-- Multi-Layer Vignettes & Royal Gradient Overlays -->
+      <div class="absolute inset-0 bg-gradient-to-t from-black via-maharaja-950/40 to-black/60 pointer-events-none"></div>
+      <div class="absolute inset-0 bg-radial-gradient from-transparent via-black/30 to-black/80 pointer-events-none"></div>
+
+      <!-- Live Video Audio/Scrub Badge -->
+      <div class="absolute top-6 left-6 z-20 hidden sm:flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-turmeric-500/30 text-xs font-mono text-turmeric-200">
+        <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
+        <span class="tracking-wider uppercase">Scrub Camera Track • Real Venue Footage</span>
+      </div>
+
+      <!-- Station 1: Grand Hero Title (0% - 22%) -->
+      <div id="station1" class="absolute inset-0 z-10 flex flex-col items-center justify-center px-4 text-center max-w-5xl mx-auto pointer-events-none">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-maharaja-900/80 backdrop-blur-md border border-turmeric-500/40 text-turmeric-300 font-mono text-xs tracking-widest uppercase mb-4 shadow-xl">
+          <i class="bi bi-trophy-fill text-turmeric-400"></i> The Crown of NH-16 • Kolaghat, West Bengal
+        </div>
+        
+        <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white tracking-tight leading-[1.05] drop-shadow-2xl">
+          SHER-E-PUNJAB
+        </h1>
+        
+        <p class="mt-4 font-serif italic text-xl sm:text-2xl md:text-3xl text-turmeric-300 font-medium max-w-3xl drop-shadow-md">
+          “Eastern India’s Grandest Punjabi Highway Kingdom”
+        </p>
+
+        <p class="mt-4 font-sans text-sm sm:text-base md:text-lg text-cream-200/90 max-w-2xl font-normal leading-relaxed drop-shadow">
+          500+ covers across royal multi-tier AC halls, 300-acre botanical estate, thoroughbred stables, and 24/7 authentic clay-tandoor hospitality.
+        </p>
+
+        <!-- Stats Chips -->
+        <div class="mt-7 flex flex-wrap items-center justify-center gap-3 sm:gap-5 text-xs font-mono">
+          <div class="px-4 py-2 rounded-lg bg-black/60 backdrop-blur-md border border-white/10 text-white flex items-center gap-2">
+            <i class="bi bi-star-fill text-turmeric-400"></i>
+            <span class="font-bold text-turmeric-300">26,000+</span> Google Reviews
+          </div>
+          <div class="px-4 py-2 rounded-lg bg-black/60 backdrop-blur-md border border-white/10 text-white flex items-center gap-2">
+            <i class="bi bi-people-fill text-turmeric-400"></i>
+            <span class="font-bold text-turmeric-300">500+</span> Covers
+          </div>
+          <div class="px-4 py-2 rounded-lg bg-black/60 backdrop-blur-md border border-white/10 text-white flex items-center gap-2">
+            <i class="bi bi-tree-fill text-turmeric-400"></i>
+            <span class="font-bold text-turmeric-300">300-Acre</span> Estate
+          </div>
+          <div class="px-4 py-2 rounded-lg bg-black/60 backdrop-blur-md border border-white/10 text-white flex items-center gap-2">
+            <i class="bi bi-clock-history text-turmeric-400"></i>
+            <span class="font-bold text-turmeric-300">Open 24/7</span>
+          </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="mt-10 flex flex-col items-center gap-2 animate-bounce">
+          <span class="text-[11px] font-mono uppercase tracking-widest text-turmeric-300/80">Scroll to drive inside</span>
+          <i class="bi bi-chevron-down text-lg text-turmeric-400"></i>
+        </div>
+      </div>
+
+      <!-- Station 2: Signature Dhaba Experience (25% - 55%) -->
+      <div id="station2" class="absolute inset-0 z-10 flex flex-col items-center justify-center px-4 text-center max-w-4xl mx-auto opacity-0 pointer-events-none">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-turmeric-500/20 backdrop-blur-md border border-turmeric-500/40 text-turmeric-300 font-mono text-xs tracking-widest uppercase mb-4">
+          <i class="bi bi-fire text-amber-500"></i> Authentic Punjabi Culinary Heritage
+        </div>
+        
+        <h2 class="font-serif text-3xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight leading-tight">
+          Woodsmoke, Desi Ghee & Tandoor
+        </h2>
+        
+        <p class="mt-4 text-base sm:text-lg text-cream-200/90 max-w-2xl font-light leading-relaxed">
+          From slow-simmered Dal Makhani and piping-hot Butter Tarka to charcoal-charred Chicken Tandoori and seasonal Sorsoo Hilsa. Prepared fresh 24 hours a day for hungry highway road-trippers.
+        </p>
+
+        <div class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 text-left w-full max-w-2xl">
+          <div class="p-3 rounded-xl bg-maharaja-900/80 backdrop-blur border border-turmeric-500/30">
+            <div class="text-[11px] text-turmeric-400 font-mono">ICONIC TARKA</div>
+            <div class="font-semibold text-white text-sm">Dal Makhani</div>
+            <div class="text-xs text-cream-300/80 mt-0.5">₹245 • 18-hr slow cook</div>
+          </div>
+          <div class="p-3 rounded-xl bg-maharaja-900/80 backdrop-blur border border-turmeric-500/30">
+            <div class="text-[11px] text-turmeric-400 font-mono">CLAY TANDOOR</div>
+            <div class="font-semibold text-white text-sm">Tandoori Murg</div>
+            <div class="text-xs text-cream-300/80 mt-0.5">₹340 / ₹640 (Half/Full)</div>
+          </div>
+          <div class="p-3 rounded-xl bg-maharaja-900/80 backdrop-blur border border-turmeric-500/30">
+            <div class="text-[11px] text-turmeric-400 font-mono">HOUSE SPECIAL</div>
+            <div class="font-semibold text-white text-sm">Chicken Bharta</div>
+            <div class="text-xs text-cream-300/80 mt-0.5">₹335 • Cream & Egg</div>
+          </div>
+          <div class="p-3 rounded-xl bg-maharaja-900/80 backdrop-blur border border-turmeric-500/30">
+            <div class="text-[11px] text-turmeric-400 font-mono">BENGAL TOUCH</div>
+            <div class="font-semibold text-white text-sm">Vetki Butter Masala</div>
+            <div class="text-xs text-cream-300/80 mt-0.5">₹365 • Fresh local catch</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Station 3: 300-Acre Estate & Grand Lawns (58% - 80%) -->
+      <div id="station3" class="absolute inset-0 z-10 flex flex-col items-center justify-center px-4 text-center max-w-4xl mx-auto opacity-0 pointer-events-none">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/20 backdrop-blur-md border border-emerald-400/40 text-emerald-300 font-mono text-xs tracking-widest uppercase mb-4">
+          <i class="bi bi-gem"></i> Destination Weddings & Royal Retreats
+        </div>
+        
+        <h2 class="font-serif text-3xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight leading-tight">
+          300 Acres of Imperial Grandeur
+        </h2>
+        
+        <p class="mt-4 text-base sm:text-lg text-cream-200/90 max-w-2xl font-light leading-relaxed">
+          More than a dhaba: a majestic highway resort featuring thoroughbred horse stables, bird aviary, 7+ manicured wedding lawns, and sacred waterfront promenade flanked by stone lion sentinels.
+        </p>
+
+        <div class="mt-6 flex flex-wrap justify-center gap-3">
+          <span class="px-3.5 py-1.5 rounded-full bg-black/60 border border-white/20 text-xs font-mono text-turmeric-300">
+            <i class="bi bi-check-circle-fill text-emerald-400 mr-1"></i> 7+ Banquet Lawns (Up to 3,000 Guests)
+          </span>
+          <span class="px-3.5 py-1.5 rounded-full bg-black/60 border border-white/20 text-xs font-mono text-turmeric-300">
+            <i class="bi bi-check-circle-fill text-emerald-400 mr-1"></i> Purebred Horse Stables & Bird Aviary
+          </span>
+          <span class="px-3.5 py-1.5 rounded-full bg-black/60 border border-white/20 text-xs font-mono text-turmeric-300">
+            <i class="bi bi-check-circle-fill text-emerald-400 mr-1"></i> Waterfront Promenade & Mandir Complex
+          </span>
+        </div>
+      </div>
+
+      <!-- Station 4: CTA & Direct Booking (82% - 100%) -->
+      <div id="station4" class="absolute inset-0 z-10 flex flex-col items-center justify-center px-4 text-center max-w-3xl mx-auto opacity-0 pointer-events-auto">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-turmeric-500/20 backdrop-blur-md border border-turmeric-500/40 text-turmeric-300 font-mono text-xs tracking-widest uppercase mb-4">
+          <i class="bi bi-signpost-2-fill"></i> Kolkata-Digha Highway Milestone
+        </div>
+        
+        <h2 class="font-serif text-3xl sm:text-5xl md:text-6xl font-black text-white tracking-tight leading-tight">
+          Stop By or Plan Your Event
+        </h2>
+        
+        <p class="mt-4 text-base sm:text-lg text-cream-200/90 font-light leading-relaxed">
+          Whether you need a midnight tandoori pitstop, a royal family lunch, or an imperial banquet for thousands — Sukhbinder Singh & Manjit Singh welcome you to Sher-e-Punjab.
+        </p>
+
+        <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 w-full">
+          <a href="https://wa.me/919153367990?text=Hi%20Sher-e-Punjab,%20I%20am%20driving%20on%20NH-16%20and%20would%20like%20to%20order%20in%20advance%20/%20reserve%20seats." 
+             target="_blank"
+             class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl text-base font-bold bg-gradient-to-r from-emerald-500 to-emerald-600 text-white shadow-xl shadow-emerald-500/30 hover:scale-105 transition-all">
+            <i class="bi bi-whatsapp text-xl"></i>
+            <span>WhatsApp Table / Pre-Order</span>
+          </a>
+
+          <a href="tel:+919153367990" 
+             class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl text-base font-bold bg-maharaja-800/90 hover:bg-maharaja-700 text-white border border-turmeric-500/40 shadow-xl transition-all">
+            <i class="bi bi-telephone-outbound-fill text-turmeric-400"></i>
+            <span>Call +91 91533 67990</span>
           </a>
         </div>
-        <p class="text-gray-400 text-sm mt-4">Or call: +91 8617625059 | Email: samya.pegusus@gmail.com</p>
+      </div>
+
+      <!-- Scrub Track Bottom Progress Bar -->
+      <div class="absolute bottom-0 left-0 right-0 h-1.5 bg-white/10 z-30">
+        <div id="scrubProgressBar" class="h-full bg-gradient-to-r from-turmeric-400 via-amber-500 to-turmeric-300 w-full origin-left transform scale-x-0 transition-transform duration-75"></div>
+      </div>
+
+      <!-- Station Step Indicator Dots -->
+      <div class="absolute bottom-4 left-1/2 -translate-x-1/2 z-30 flex items-center gap-3 px-4 py-1.5 rounded-full bg-black/60 backdrop-blur border border-white/10 text-xs font-mono text-white/60">
+        <span id="dot1" class="w-2 h-2 rounded-full bg-turmeric-400 transition-all"></span>
+        <span id="dot2" class="w-2 h-2 rounded-full bg-white/30 transition-all"></span>
+        <span id="dot3" class="w-2 h-2 rounded-full bg-white/30 transition-all"></span>
+        <span id="dot4" class="w-2 h-2 rounded-full bg-white/30 transition-all"></span>
+        <span class="ml-2 text-[10px] text-turmeric-200/80 uppercase">Scroll Position</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- HIGHWAY STATS & LANDMARK CREDIBILITY BAR -->
+  <!-- ========================================================================= -->
+  <section class="relative z-20 -mt-1 bg-gradient-to-b from-black via-maharaja-950 to-maharaja-900 py-16 border-y border-turmeric-500/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        
+        <div class="p-6 rounded-2xl bg-black/40 border border-turmeric-500/20 hover:border-turmeric-500/50 transition-colors">
+          <div class="font-serif text-4xl sm:text-5xl font-black text-turmeric-400">26K+</div>
+          <div class="text-xs font-mono uppercase tracking-widest text-turmeric-200/80 mt-2">Verified Google Reviews</div>
+          <div class="mt-2 text-sm text-cream-300/70">Rated 4.0 ★ across 2.5 decades</div>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-black/40 border border-turmeric-500/20 hover:border-turmeric-500/50 transition-colors">
+          <div class="font-serif text-4xl sm:text-5xl font-black text-white">500+</div>
+          <div class="text-xs font-mono uppercase tracking-widest text-turmeric-200/80 mt-2">Dine-In Covers</div>
+          <div class="mt-2 text-sm text-cream-300/70">Luxury AC & Highway Verandahs</div>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-black/40 border border-turmeric-500/20 hover:border-turmeric-500/50 transition-colors">
+          <div class="font-serif text-4xl sm:text-5xl font-black text-turmeric-400">300</div>
+          <div class="text-xs font-mono uppercase tracking-widest text-turmeric-200/80 mt-2">Acres Resort Estate</div>
+          <div class="mt-2 text-sm text-cream-300/70">Stables, Aviary & Lakefront</div>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-black/40 border border-turmeric-500/20 hover:border-turmeric-500/50 transition-colors">
+          <div class="font-serif text-4xl sm:text-5xl font-black text-white">24/7</div>
+          <div class="text-xs font-mono uppercase tracking-widest text-turmeric-200/80 mt-2">Always Open On NH-16</div>
+          <div class="mt-2 text-sm text-cream-300/70">Continuous Tandoor & Security</div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="py-8 px-6 border-t border-gray-200">
-    <div class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-      <div class="text-gray-400 text-sm">
-        Custom preview by <strong class="text-gray-600">LocalPulse AI</strong> · Built for Sher-e-Punjab
+  <!-- ========================================================================= -->
+  <!-- FEATURE CARDS GRID (3 Columns with Real Authentic Photos) -->
+  <!-- ========================================================================= -->
+  <section id="experience" class="py-24 bg-[#140205] relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-mono uppercase tracking-widest text-turmeric-400 bg-turmeric-500/10 px-3.5 py-1.5 rounded-full border border-turmeric-500/20">
+          The Authentic Venue Showcase
+        </span>
+        <h2 class="font-serif text-3xl sm:text-5xl font-bold text-white tracking-tight mt-4">
+          An Imperial Landmark on NH-16
+        </h2>
+        <p class="text-base text-cream-300/80 mt-3 font-light">
+          Real photography from the grounds of Shere Punjab Inn Pvt. Ltd. in Kolaghat.
+        </p>
       </div>
-      <div class="flex items-center gap-4 text-gray-400">
-        <a href="mailto:samya.pegusus@gmail.com" class="hover:text-gray-600 transition"><i class="bi bi-envelope-fill"></i></a>
-        <a href="https://wa.me/+918617625059" target="_blank" class="hover:text-gray-600 transition"><i class="bi bi-whatsapp"></i></a>
-        <a href="tel:+91 8617625059" class="hover:text-gray-600 transition"><i class="bi bi-telephone-fill"></i></a>
+
+      <!-- Grid Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Card 1: Maharaja Dining Hall -->
+        <div class="group rounded-2xl overflow-hidden bg-maharaja-900/60 border border-turmeric-500/20 hover:border-turmeric-500/50 transition-all duration-300 hover:-translate-y-1.5 shadow-xl flex flex-col">
+          <div class="relative h-64 overflow-hidden">
+            <img src="assets/shot_02.jpg" alt="Maharaja Indoor Dining Hall" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-maharaja-950 via-transparent to-transparent"></div>
+            <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-black/70 backdrop-blur text-[11px] font-mono text-turmeric-300 border border-turmeric-500/30">
+              500+ Covers AC Hall
+            </span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-serif text-2xl font-bold text-white group-hover:text-turmeric-300 transition-colors">
+                Maharaja Dining Suites
+              </h3>
+              <p class="text-sm text-cream-200/80 mt-2 font-light leading-relaxed">
+                Handcrafted royal carved high-back chairs, ambient warm lighting, and central climate control. Swift, respectful family service designed for highway travelers.
+              </p>
+            </div>
+            <div class="mt-5 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-mono text-turmeric-400">
+              <span>Rapid Table Turnaround</span>
+              <i class="bi bi-arrow-right"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Authentic Clay Tandoor & Delicacies -->
+        <div class="group rounded-2xl overflow-hidden bg-maharaja-900/60 border border-turmeric-500/20 hover:border-turmeric-500/50 transition-all duration-300 hover:-translate-y-1.5 shadow-xl flex flex-col">
+          <div class="relative h-64 overflow-hidden">
+            <img src="assets/shot_food_crisp.jpg" alt="Authentic Punjabi Tandoori Food" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-maharaja-950 via-transparent to-transparent"></div>
+            <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-black/70 backdrop-blur text-[11px] font-mono text-turmeric-300 border border-turmeric-500/30">
+              Clay Tandoor & Desi Ghee
+            </span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-serif text-2xl font-bold text-white group-hover:text-turmeric-300 transition-colors">
+                Legendary Highway Kitchen
+              </h3>
+              <p class="text-sm text-cream-200/80 mt-2 font-light leading-relaxed">
+                Crisp foil-wrapped tandoori chicken legs, aromatic Mutton Kosha with aloo, butter garlic naans, and rich creamy Dal Makhani slow-cooked in copper vats.
+              </p>
+            </div>
+            <div class="mt-5 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-mono text-turmeric-400">
+              <span>Full authentic menu available</span>
+              <i class="bi bi-arrow-right"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: 300-Acre Thoroughbred Horse Stables -->
+        <div class="group rounded-2xl overflow-hidden bg-maharaja-900/60 border border-turmeric-500/20 hover:border-turmeric-500/50 transition-all duration-300 hover:-translate-y-1.5 shadow-xl flex flex-col">
+          <div class="relative h-64 overflow-hidden">
+            <img src="assets/shot_04.jpg" alt="Thoroughbred Horse Stables" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-maharaja-950 via-transparent to-transparent"></div>
+            <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-black/70 backdrop-blur text-[11px] font-mono text-emerald-300 border border-emerald-500/30">
+              Royal Equine Stables
+            </span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-serif text-2xl font-bold text-white group-hover:text-turmeric-300 transition-colors">
+                Royal Horse Stables & Aviary
+              </h3>
+              <p class="text-sm text-cream-200/80 mt-2 font-light leading-relaxed">
+                Sher-e-Punjab's private equine facility houses purebred horses with dedicated handlers, alongside exotic bird enclosures across manicured lawn greens.
+              </p>
+            </div>
+            <div class="mt-5 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-mono text-turmeric-400">
+              <span>Unique highway attraction</span>
+              <i class="bi bi-arrow-right"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4: Waterfront Lake & Lion Promenade -->
+        <div class="group rounded-2xl overflow-hidden bg-maharaja-900/60 border border-turmeric-500/20 hover:border-turmeric-500/50 transition-all duration-300 hover:-translate-y-1.5 shadow-xl flex flex-col">
+          <div class="relative h-64 overflow-hidden">
+            <img src="assets/shot_05.jpg" alt="Waterfront Lake & Lion Promenade" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-maharaja-950 via-transparent to-transparent"></div>
+            <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-black/70 backdrop-blur text-[11px] font-mono text-turmeric-300 border border-turmeric-500/30">
+              Waterfront Pavilion
+            </span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-serif text-2xl font-bold text-white group-hover:text-turmeric-300 transition-colors">
+                Lakefront Promenade & Mandir
+              </h3>
+              <p class="text-sm text-cream-200/80 mt-2 font-light leading-relaxed">
+                A serene lake surrounded by cast-iron antique streetlamps, a black lion monument, white marble grand staircases, and a sacred domed shrine on the property.
+              </p>
+            </div>
+            <div class="mt-5 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-mono text-turmeric-400">
+              <span>Peaceful oasis off NH-16</span>
+              <i class="bi bi-arrow-right"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5: Grand Archway Boulevard -->
+        <div class="group rounded-2xl overflow-hidden bg-maharaja-900/60 border border-turmeric-500/20 hover:border-turmeric-500/50 transition-all duration-300 hover:-translate-y-1.5 shadow-xl flex flex-col">
+          <div class="relative h-64 overflow-hidden">
+            <img src="assets/shot_01.jpg" alt="Grand Monumental Gateway" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-maharaja-950 via-transparent to-transparent"></div>
+            <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-black/70 backdrop-blur text-[11px] font-mono text-turmeric-300 border border-turmeric-500/30">
+              Monumental Arch
+            </span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-serif text-2xl font-bold text-white group-hover:text-turmeric-300 transition-colors">
+                Imperial Entry Boulevard
+              </h3>
+              <p class="text-sm text-cream-200/80 mt-2 font-light leading-relaxed">
+                Drive beneath the soaring triumphal stone gateway into a wide, tree-lined avenue designed for seamless arrival of luxury buses, VIP convoys, and road trippers.
+              </p>
+            </div>
+            <div class="mt-5 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-mono text-turmeric-400">
+              <span>500+ Car & Bus Capacity</span>
+              <i class="bi bi-arrow-right"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6: Glowing 24/7 Night Landmark -->
+        <div class="group rounded-2xl overflow-hidden bg-maharaja-900/60 border border-turmeric-500/20 hover:border-turmeric-500/50 transition-all duration-300 hover:-translate-y-1.5 shadow-xl flex flex-col">
+          <div class="relative h-64 overflow-hidden">
+            <img src="assets/shot_06.jpg" alt="Glowing Neon Landmark" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-maharaja-950 via-transparent to-transparent"></div>
+            <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-black/70 backdrop-blur text-[11px] font-mono text-red-400 border border-red-500/30">
+              Open 24 Hours / Night Pitstop
+            </span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-serif text-2xl font-bold text-white group-hover:text-turmeric-300 transition-colors">
+                The 24/7 Highway Beacon
+              </h3>
+              <p class="text-sm text-cream-200/80 mt-2 font-light leading-relaxed">
+                The iconic glowing red neon signage welcomes tired drivers night and day with spotless hygienic washrooms, gift stores, and piping hot ginger chai.
+              </p>
+            </div>
+            <div class="mt-5 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-mono text-turmeric-400">
+              <span>100% 24/7 Security</span>
+              <i class="bi bi-arrow-right"></i>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- AUTHENTIC MENU HIGHLIGHTS (Real Discovered Items & Pricing) -->
+  <!-- ========================================================================= -->
+  <section id="menu" class="py-24 bg-gradient-to-b from-[#140205] to-maharaja-950 border-t border-turmeric-500/20 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-mono uppercase tracking-widest text-turmeric-400 bg-turmeric-500/10 px-3.5 py-1.5 rounded-full border border-turmeric-500/20">
+          From The Kitchen of Sher-e-Punjab
+        </span>
+        <h2 class="font-serif text-3xl sm:text-5xl font-bold text-white tracking-tight mt-4">
+          Legendary Highway Menu
+        </h2>
+        <p class="text-base text-cream-300/80 mt-3 font-light">
+          Authentic North Indian Dhaba classics, rich tandoori grills, and Bengal seasonal seafood specialties.
+        </p>
+      </div>
+
+      <!-- Menu Categories -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Category 1: Tarka & Dal -->
+        <div class="p-8 rounded-2xl bg-black/40 border border-turmeric-500/25 relative overflow-hidden">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-xl bg-turmeric-500/20 flex items-center justify-center text-turmeric-400">
+              <i class="bi bi-egg-fried text-xl"></i>
+            </div>
+            <div>
+              <h3 class="font-serif text-xl font-bold text-white">Tarka & Dals</h3>
+              <p class="text-xs font-mono text-turmeric-300/70">Desi Ghee & Charcoal Simmered</p>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <div class="flex justify-between items-start border-b border-white/5 pb-3">
+              <div>
+                <div class="font-medium text-white text-sm">Dal Makhani</div>
+                <div class="text-xs text-cream-300/60">Black urad lentils cooked overnight with butter & cream</div>
+              </div>
+              <div class="font-mono text-turmeric-300 font-bold text-sm">₹245</div>
+            </div>
+
+            <div class="flex justify-between items-start border-b border-white/5 pb-3">
+              <div>
+                <div class="font-medium text-white text-sm">Chicken Egg Tarka (Butter)</div>
+                <div class="text-xs text-cream-300/60">Signature highway yellow lentils tossed with chicken & egg</div>
+              </div>
+              <div class="font-mono text-turmeric-300 font-bold text-sm">₹295</div>
+            </div>
+
+            <div class="flex justify-between items-start border-b border-white/5 pb-3">
+              <div>
+                <div class="font-medium text-white text-sm">Mutton Keema Butter Tarka</div>
+                <div class="text-xs text-cream-300/60">Minced mutton braised into butter-tadka lentils</div>
+              </div>
+              <div class="font-mono text-turmeric-300 font-bold text-sm">₹410</div>
+            </div>
+
+            <div class="flex justify-between items-start">
+              <div>
+                <div class="font-medium text-white text-sm">Saag Tarka (Butter)</div>
+                <div class="text-xs text-cream-300/60">Punjabi spinach greens tempered with garlic & cumin</div>
+              </div>
+              <div class="font-mono text-turmeric-300 font-bold text-sm">₹235</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category 2: Clay Tandoor & Kebabs -->
+        <div class="p-8 rounded-2xl bg-black/40 border border-turmeric-500/25 relative overflow-hidden">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-xl bg-turmeric-500/20 flex items-center justify-center text-turmeric-400">
+              <i class="bi bi-fire text-xl"></i>
+            </div>
+            <div>
+              <h3 class="font-serif text-xl font-bold text-white">Tandoori & Kebabs</h3>
+              <p class="text-xs font-mono text-turmeric-300/70">Red-Hot Charcoal Clay Ovens</p>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <div class="flex justify-between items-start border-b border-white/5 pb-3">
+              <div>
+                <div class="font-medium text-white text-sm">Chicken Tandoori</div>
+                <div class="text-xs text-cream-300/60">Marinated in Kashmiri chili, hung curd & garam masala</div>
+              </div>
+              <div class="font-mono text-turmeric-300 font-bold text-sm">₹340 / ₹640</div>
+            </div>
+
+            <div class="flex justify-between items-start border-b border-white/5 pb-3">
+              <div>
+                <div class="font-medium text-white text-sm">Chicken Reshmi Kebab</div>
+                <div class="text-xs text-cream-300/60">Melt-in-mouth chicken infused with cashew paste & cream</div>
+              </div>
+              <div class="font-mono text-turmeric-300 font-bold text-sm">₹410</div>
+            </div>
+
+            <div class="flex justify-between items-start border-b border-white/5 pb-3">
+              <div>
+                <div class="font-medium text-white text-sm">Chicken Kalmi Kebab</div>
+                <div class="text-xs text-cream-300/60">Spiced succulent chicken drumsticks chargrilled to perfection</div>
+              </div>
+              <div class="font-mono text-turmeric-300 font-bold text-sm">₹345 / ₹560</div>
+            </div>
+
+            <div class="flex justify-between items-start">
+              <div>
+                <div class="font-medium text-white text-sm">Paneer Tikka Butter Masala</div>
+                <div class="text-xs text-cream-300/60">Charred cottage cheese cubes in rich spiced gravy</div>
+              </div>
+              <div class="font-mono text-turmeric-300 font-bold text-sm">₹310</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category 3: Mutton, Chicken & Fish Gravies -->
+        <div class="p-8 rounded-2xl bg-black/40 border border-turmeric-500/25 relative overflow-hidden">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-xl bg-turmeric-500/20 flex items-center justify-center text-turmeric-400">
+              <i class="bi bi-cup-hot-fill text-xl"></i>
+            </div>
+            <div>
+              <h3 class="font-serif text-xl font-bold text-white">Curries & Seafood</h3>
+              <p class="text-xs font-mono text-turmeric-300/70">Punjabi Gravies & Local Bengal Catch</p>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <div class="flex justify-between items-start border-b border-white/5 pb-3">
+              <div>
+                <div class="font-medium text-white text-sm">Sher-e-Punjab SPL Chicken (4pc)</div>
+                <div class="text-xs text-cream-300/60">House secret gravy recipe with royal whole spices</div>
+              </div>
+              <div class="font-mono text-turmeric-300 font-bold text-sm">₹530</div>
+            </div>
+
+            <div class="flex justify-between items-start border-b border-white/5 pb-3">
+              <div>
+                <div class="font-medium text-white text-sm">Mutton Kosha / Do Pyaza</div>
+                <div class="text-xs text-cream-300/60">Slow-braised tender goat meat in rich caramelised onion gravy</div>
+              </div>
+              <div class="font-mono text-turmeric-300 font-bold text-sm">₹415</div>
+            </div>
+
+            <div class="flex justify-between items-start border-b border-white/5 pb-3">
+              <div>
+                <div class="font-medium text-white text-sm">Vetki Butter Masala (2pc)</div>
+                <div class="text-xs text-cream-300/60">Fresh Bhetki fish fillets simmered in buttery tomato velvet gravy</div>
+              </div>
+              <div class="font-mono text-turmeric-300 font-bold text-sm">₹365</div>
+            </div>
+
+            <div class="flex justify-between items-start">
+              <div>
+                <div class="font-medium text-white text-sm">Seasonal Sorsoo Hilsa (Ilish)</div>
+                <div class="text-xs text-cream-300/60">Kolaghat Rupnarayan fresh river Hilsa in pungent mustard sauce</div>
+              </div>
+              <div class="font-mono text-turmeric-300 font-bold text-sm">Seasonal</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Pre-Order WhatsApp Banner -->
+      <div class="mt-12 p-6 rounded-2xl bg-gradient-to-r from-maharaja-900 via-maharaja-850 to-maharaja-900 border border-turmeric-500/30 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4">
+          <div class="w-14 h-14 rounded-2xl bg-emerald-500/20 border border-emerald-400/30 flex items-center justify-center text-emerald-400 text-2xl flex-shrink-0">
+            <i class="bi bi-clock-fill"></i>
+          </div>
+          <div>
+            <h4 class="font-serif text-lg font-bold text-white">Driving on NH-16 right now?</h4>
+            <p class="text-xs text-cream-300/80 mt-1">
+              WhatsApp your food order 20 minutes before arriving at Kolaghat. We will have piping-hot food ready at your reserved table the moment you park!
+            </p>
+          </div>
+        </div>
+        <a href="https://wa.me/919153367990?text=Hi%20Sher-e-Punjab,%20I%20am%20driving%20on%20NH-16%20and%20will%20reach%20in%2020%20minutes.%20Here%20is%20my%20order:" 
+           target="_blank"
+           class="whitespace-nowrap px-6 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-sm shadow-lg shadow-emerald-500/20 transition-all flex items-center gap-2">
+          <i class="bi bi-whatsapp"></i>
+          <span>Order 20 Mins Ahead</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- FILMSTRIP MARQUEE (Infinite Scrolling Photo Strip) -->
+  <!-- ========================================================================= -->
+  <section class="py-14 bg-black overflow-hidden relative border-y border-turmeric-500/20">
+    <div class="px-4 mb-6 text-center">
+      <span class="text-xs font-mono uppercase tracking-widest text-turmeric-400">Authentic Visual Archive</span>
+      <h3 class="font-serif text-xl sm:text-2xl font-bold text-white mt-1">Moments at the Kingdom</h3>
+    </div>
+
+    <!-- Marquee Track -->
+    <div class="relative w-full overflow-hidden">
+      <div class="animate-marquee flex gap-6 items-center">
+        
+        <!-- Item 1 -->
+        <div class="w-80 h-52 rounded-xl overflow-hidden relative flex-shrink-0 border border-white/10 group">
+          <img src="assets/shot_01.jpg" alt="Sher-e-Punjab Grand Gateway" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4">
+            <span class="text-xs font-mono text-turmeric-300">Monumental Arch Entry</span>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="w-80 h-52 rounded-xl overflow-hidden relative flex-shrink-0 border border-white/10 group">
+          <img src="assets/shot_02.jpg" alt="Luxury Dining Hall" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4">
+            <span class="text-xs font-mono text-turmeric-300">Royal Dining Suites</span>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="w-80 h-52 rounded-xl overflow-hidden relative flex-shrink-0 border border-white/10 group">
+          <img src="assets/shot_03.jpg" alt="Punjabi Highway Thali" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4">
+            <span class="text-xs font-mono text-turmeric-300">Chicken Curry & Naan</span>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="w-80 h-52 rounded-xl overflow-hidden relative flex-shrink-0 border border-white/10 group">
+          <img src="assets/shot_04.jpg" alt="Equine Stables" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4">
+            <span class="text-xs font-mono text-turmeric-300">Purebred Thoroughbreds</span>
+          </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="w-80 h-52 rounded-xl overflow-hidden relative flex-shrink-0 border border-white/10 group">
+          <img src="assets/shot_05.jpg" alt="Lake Promenade & Lion" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4">
+            <span class="text-xs font-mono text-turmeric-300">Waterfront Lion Pavilion</span>
+          </div>
+        </div>
+
+        <!-- Item 6 -->
+        <div class="w-80 h-52 rounded-xl overflow-hidden relative flex-shrink-0 border border-white/10 group">
+          <img src="assets/shot_06.jpg" alt="Neon Sign Night View" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4">
+            <span class="text-xs font-mono text-turmeric-300">24/7 Glowing Highway Beacon</span>
+          </div>
+        </div>
+
+        <!-- Duplicate items for seamless loop -->
+        <div class="w-80 h-52 rounded-xl overflow-hidden relative flex-shrink-0 border border-white/10 group">
+          <img src="assets/walk_03.jpg" alt="Sher-e-Punjab Avenue" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4">
+            <span class="text-xs font-mono text-turmeric-300">The 300-Acre Boulevard</span>
+          </div>
+        </div>
+
+        <div class="w-80 h-52 rounded-xl overflow-hidden relative flex-shrink-0 border border-white/10 group">
+          <img src="assets/walk_04.jpg" alt="Sher-e-Punjab Inn" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4">
+            <span class="text-xs font-mono text-turmeric-300">Shere Punjab Inn Wing</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 300-ACRE ESTATE & 7+ GRAND BANQUET LAWNS -->
+  <!-- ========================================================================= -->
+  <section id="estate" class="py-24 bg-[#140205] relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left: Text Information -->
+        <div class="lg:col-span-6 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-turmeric-500/20 text-turmeric-400 font-mono text-xs border border-turmeric-500/30">
+            <i class="bi bi-buildings"></i> Shere Punjab Inn Pvt. Ltd.
+          </div>
+          
+          <h2 class="font-serif text-3xl sm:text-5xl font-black text-white leading-tight">
+            Eastern India’s Grandest Highway Destination
+          </h2>
+
+          <p class="text-base text-cream-200/90 font-light leading-relaxed">
+            Spanning over 300 expansive acres in Kolaghat, Sher-e-Punjab has grown from a humble 1980s roadside dhaba into a monumental luxury highway enclave.
+          </p>
+
+          <div class="space-y-4 pt-2">
+            <div class="flex items-start gap-3">
+              <div class="w-7 h-7 rounded-lg bg-turmeric-500/20 text-turmeric-400 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <i class="bi bi-flower1"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold text-white text-sm">7+ Manicured Banquet Lawns</h4>
+                <p class="text-xs text-cream-300/70 mt-0.5">Host 500 to 3,500+ guests for royal Punjabi and Bengali destination weddings with full on-site catering.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <div class="w-7 h-7 rounded-lg bg-turmeric-500/20 text-turmeric-400 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <i class="bi bi-heart-pulse-fill"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold text-white text-sm">Equine Sanctuary & Bird Aviary</h4>
+                <p class="text-xs text-cream-300/70 mt-0.5">A curated family paradise with trained thoroughbred horses, exotic birds, and lush walking paths.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <div class="w-7 h-7 rounded-lg bg-turmeric-500/20 text-turmeric-400 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <i class="bi bi-shield-lock-fill"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold text-white text-sm">500+ Car Parking & EV Charging</h4>
+                <p class="text-xs text-cream-300/70 mt-0.5">CCTV-monitored paved plaza, dedicated tour bus bays, fast EV charging stations, and round-the-clock security.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-4 flex flex-wrap gap-4">
+            <a href="https://wa.me/919153367990?text=Hi%20Sher-e-Punjab,%20I%20am%20planning%20a%20wedding%20/%20corporate%20banquet%20and%20would%20like%20lawn%20details." 
+               target="_blank"
+               class="px-6 py-3 rounded-xl bg-turmeric-500 hover:bg-turmeric-400 text-maharaja-950 font-bold text-sm transition-all shadow-lg shadow-turmeric-500/20 flex items-center gap-2">
+              <i class="bi bi-whatsapp"></i> Inquire for Banquets / Weddings
+            </a>
+            <a href="tel:+918293899522" 
+               class="px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-medium text-sm border border-white/20 transition-all flex items-center gap-2">
+              <i class="bi bi-telephone"></i> Banquet Desk: +91 82938 99522
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Photo Collage -->
+        <div class="lg:col-span-6 grid grid-cols-2 gap-4">
+          <div class="space-y-4">
+            <div class="rounded-2xl overflow-hidden border border-turmeric-500/30 shadow-2xl h-56">
+              <img src="assets/shot_04.jpg" alt="Thoroughbred Stable" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+            </div>
+            <div class="rounded-2xl overflow-hidden border border-turmeric-500/30 shadow-2xl h-44">
+              <img src="assets/shot_01.jpg" alt="Boulevard Arch" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+            </div>
+          </div>
+          <div class="space-y-4 pt-6">
+            <div class="rounded-2xl overflow-hidden border border-turmeric-500/30 shadow-2xl h-44">
+              <img src="assets/shot_05.jpg" alt="Waterfront Pavilion" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+            </div>
+            <div class="rounded-2xl overflow-hidden border border-turmeric-500/30 shadow-2xl h-56">
+              <img src="assets/walk_04.jpg" alt="Shere Punjab Hotel" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- LOCATION & HIGHWAY GPS ROUTE -->
+  <!-- ========================================================================= -->
+  <section id="location" class="py-24 bg-gradient-to-b from-maharaja-950 to-black border-t border-turmeric-500/20 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-mono uppercase tracking-widest text-turmeric-400 bg-turmeric-500/10 px-3.5 py-1.5 rounded-full border border-turmeric-500/20">
+          NH-16 Strategic Pitstop
+        </span>
+        <h2 class="font-serif text-3xl sm:text-5xl font-bold text-white tracking-tight mt-4">
+          Find Us on National Highway 16
+        </h2>
+        <p class="text-base text-cream-300/80 mt-3 font-light">
+          Right beside the Rupnarayan River bridge in Kolaghat, Purba Medinipur, West Bengal - 721134.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        
+        <!-- Landmark Milestones -->
+        <div class="lg:col-span-5 bg-maharaja-900/50 p-8 rounded-2xl border border-turmeric-500/30 flex flex-col justify-between">
+          <div>
+            <h3 class="font-serif text-2xl font-bold text-white mb-6 flex items-center gap-2">
+              <i class="bi bi-geo-alt-fill text-turmeric-400"></i> Highway Distance Markers
+            </h3>
+
+            <div class="space-y-5">
+              <div class="flex items-center justify-between pb-3 border-b border-white/10">
+                <div class="flex items-center gap-3">
+                  <i class="bi bi-building text-turmeric-400"></i>
+                  <div>
+                    <div class="font-medium text-white text-sm">Kolkata / Vidyasagar Setu</div>
+                    <div class="text-xs text-cream-300/60">Direct NH-16 straight run</div>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <div class="font-mono text-turmeric-300 font-bold">60 KM</div>
+                  <div class="text-[11px] text-cream-300/60">~1h 15m</div>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between pb-3 border-b border-white/10">
+                <div class="flex items-center gap-3">
+                  <i class="bi bi-water text-turmeric-400"></i>
+                  <div>
+                    <div class="font-medium text-white text-sm">Digha & Mandarmani Beach</div>
+                    <div class="text-xs text-cream-300/60">Midway refueling & meal stop</div>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <div class="font-mono text-turmeric-300 font-bold">125 KM</div>
+                  <div class="text-[11px] text-cream-300/60">~2h 30m</div>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between pb-3 border-b border-white/10">
+                <div class="flex items-center gap-3">
+                  <i class="bi bi-compass text-turmeric-400"></i>
+                  <div>
+                    <div class="font-medium text-white text-sm">IIT Kharagpur / Debra</div>
+                    <div class="text-xs text-cream-300/60">Direct western transit corridor</div>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <div class="font-mono text-turmeric-300 font-bold">58 KM</div>
+                  <div class="text-[11px] text-cream-300/60">~1h 10m</div>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <i class="bi bi-tsunami text-turmeric-400"></i>
+                  <div>
+                    <div class="font-medium text-white text-sm">Haldia Port & Petrochemicals</div>
+                    <div class="text-xs text-cream-300/60">Via NH-116 junction</div>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <div class="font-mono text-turmeric-300 font-bold">52 KM</div>
+                  <div class="text-[11px] text-cream-300/60">~1h 05m</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8 pt-6 border-t border-white/10">
+            <div class="text-xs font-mono text-turmeric-200/80 mb-2">GPS COORDINATES</div>
+            <div class="text-sm font-mono text-white bg-black/50 p-3 rounded-lg border border-white/10 flex items-center justify-between">
+              <span>22.4332° N, 87.8732° E</span>
+              <a href="https://maps.google.com/?q=Sher-e-Punjab+Kolaghat+NH16" target="_blank" class="text-turmeric-400 hover:text-white flex items-center gap-1 text-xs">
+                Open Maps <i class="bi bi-box-arrow-up-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Visual Map & Driving Directions -->
+        <div class="lg:col-span-7 bg-maharaja-900/50 p-8 rounded-2xl border border-turmeric-500/30 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <div>
+                <h3 class="font-serif text-2xl font-bold text-white">Rupnarayan Highway Corridor</h3>
+                <p class="text-xs text-cream-300/70 font-mono mt-0.5">Exit right after the Kolaghat bridge tollway</p>
+              </div>
+              <span class="px-3 py-1 rounded bg-emerald-500/20 text-emerald-400 font-mono text-xs border border-emerald-500/30">
+                Easy Direct Highway Ramp
+              </span>
+            </div>
+
+            <!-- Visual Route Diagram -->
+            <div class="p-6 rounded-xl bg-black/60 border border-white/10 space-y-4">
+              <div class="flex items-center gap-4">
+                <span class="w-8 h-8 rounded-full bg-turmeric-500/20 text-turmeric-400 flex items-center justify-center font-bold text-sm font-mono">1</span>
+                <div>
+                  <div class="text-sm font-medium text-white">Kolkata Vidyasagar Setu (Toll Plaza)</div>
+                  <div class="text-xs text-cream-300/60">Take NH-16 towards Kharagpur / Digha (Kona Expressway)</div>
+                </div>
+              </div>
+
+              <div class="w-0.5 h-6 bg-white/20 ml-4"></div>
+
+              <div class="flex items-center gap-4">
+                <span class="w-8 h-8 rounded-full bg-turmeric-500/20 text-turmeric-400 flex items-center justify-center font-bold text-sm font-mono">2</span>
+                <div>
+                  <div class="text-sm font-medium text-white">Bagnan & Deulti River Crossing</div>
+                  <div class="text-xs text-cream-300/60">Maintain steady highway speed across the Rupnarayan River bridge</div>
+                </div>
+              </div>
+
+              <div class="w-0.5 h-6 bg-white/20 ml-4"></div>
+
+              <div class="flex items-center gap-4">
+                <span class="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-sm font-mono">3</span>
+                <div>
+                  <div class="text-sm font-medium text-emerald-300 font-bold">Arrive at Sher-e-Punjab Kolaghat</div>
+                  <div class="text-xs text-cream-300/60">Prominent monumental stone archway on your left. Dedicated deceleration bay.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8 flex flex-col sm:flex-row gap-4">
+            <a href="https://maps.google.com/?q=Sher-e-Punjab+Kolaghat+NH16" 
+               target="_blank"
+               class="flex-1 py-3.5 px-6 rounded-xl bg-gradient-to-r from-turmeric-500 to-amber-600 text-maharaja-950 font-bold text-sm shadow-xl shadow-turmeric-500/20 hover:scale-[1.02] transition-all flex items-center justify-center gap-2">
+              <i class="bi bi-navigation-fill text-lg"></i>
+              <span>Launch Google Maps Route</span>
+            </a>
+            <a href="tel:+919153367990" 
+               class="py-3.5 px-6 rounded-xl bg-black/60 hover:bg-black/80 text-white font-medium text-sm border border-white/20 transition-all flex items-center justify-center gap-2">
+              <i class="bi bi-telephone-fill text-turmeric-400"></i>
+              <span>Call Reception for Landmark Assistance</span>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- LOCALPULSE AI STRATEGIC PITCH MEMO (Personalized to Owners) -->
+  <!-- ========================================================================= -->
+  <section id="pitch" class="py-24 bg-[#0e0204] relative border-t-2 border-turmeric-500/40">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Confidential Header Pill -->
+      <div class="text-center mb-10">
+        <span class="px-4 py-1.5 rounded-full bg-turmeric-500/20 border border-turmeric-500/40 font-mono text-xs tracking-widest uppercase text-turmeric-300 inline-flex items-center gap-2">
+          <i class="bi bi-shield-shaded text-turmeric-400"></i> LocalPulse AI Strategic Growth Briefing
+        </span>
+        <h2 class="font-serif text-3xl sm:text-5xl font-black text-white mt-4">
+          Digital Transformation Proposal
+        </h2>
+        <p class="text-sm font-mono text-cream-300/70 mt-2">
+          Prepared exclusively for the Directors of Shere Punjab Inn Pvt. Ltd.
+        </p>
+      </div>
+
+      <!-- Strategy Memo Card -->
+      <div class="bg-gradient-to-b from-maharaja-900/90 to-maharaja-950/90 rounded-3xl p-8 sm:p-12 border border-turmeric-500/40 shadow-2xl relative overflow-hidden">
+        
+        <!-- Watermark Crest -->
+        <div class="absolute -right-12 -bottom-12 opacity-5 pointer-events-none">
+          <i class="bi bi-shield-fill-check text-[320px] text-turmeric-500"></i>
+        </div>
+
+        <!-- Addressee Details -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pb-8 border-b border-turmeric-500/30">
+          <div>
+            <div class="text-[11px] font-mono uppercase tracking-wider text-turmeric-400">ADDRESSED TO</div>
+            <div class="font-serif text-xl sm:text-2xl font-bold text-white mt-1">Sukhbinder Singh & Manjit Singh</div>
+            <div class="text-xs text-cream-300/80 font-mono mt-0.5">Directors, Shere Punjab Inn Pvt. Ltd.</div>
+            <div class="text-xs text-cream-300/60 font-mono">NH-16, Kolaghat, Purba Medinipur, WB</div>
+          </div>
+          <div class="md:text-right">
+            <div class="text-[11px] font-mono uppercase tracking-wider text-turmeric-400">AUDIT SUMMARY</div>
+            <div class="font-mono text-sm text-white font-bold mt-1">Status: High Traffic • Zero Owned Website</div>
+            <div class="text-xs text-emerald-400 font-mono">26,000+ Reviews (4.0 ★ Google)</div>
+            <div class="text-xs text-amber-400 font-mono">Est. 40,000+ Weekly Highway Search Queries</div>
+          </div>
+        </div>
+
+        <!-- The Stark Dilemma -->
+        <div class="mt-8 space-y-6">
+          <div>
+            <h3 class="font-serif text-2xl font-bold text-turmeric-300 flex items-center gap-2">
+              <i class="bi bi-exclamation-triangle-fill text-amber-500 text-xl"></i>
+              The 26,000-Review Paradox
+            </h3>
+            <p class="text-sm sm:text-base text-cream-100 font-normal leading-relaxed mt-3">
+              With <strong>26,000+ Google Reviews</strong>, Sher-e-Punjab has more organic consumer love than 99% of 5-star hotel chains in Kolkata. You are the legendary pitstop that everyone knows by name.
+            </p>
+            <p class="text-sm sm:text-base text-cream-200/90 font-light leading-relaxed mt-2">
+              Yet today, <strong>Sher-e-Punjab has ZERO official website</strong>. When a traveler on Vidyasagar Setu or an event planner from Howrah searches Google for <em>"Sher-e-Punjab Kolaghat menu"</em>, <em>"Kolaghat banquet lawn rate"</em>, or <em>"Sher e Punjab room booking"</em>, they find outdated third-party listings, incorrect phone numbers, and competitor advertisements.
+            </p>
+          </div>
+
+          <!-- Benchmark: Mother's Hut -->
+          <div class="p-6 rounded-2xl bg-black/60 border border-turmeric-500/30 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="space-y-1">
+              <div class="text-xs font-mono text-turmeric-400 uppercase tracking-widest">Case Study Benchmark</div>
+              <h4 class="font-serif text-lg font-bold text-white">How We Upgraded Mother’s Hut</h4>
+              <p class="text-xs text-cream-300/80 max-w-xl">
+                We engineered the bespoke digital experience for another legendary Bengal highway landmark: Mother's Hut. Enabling real-time menu browsing, 1-tap WhatsApp reservations, and massive highway brand authority.
+              </p>
+            </div>
+            <a href="https://samya666.github.io/mothers-hut-redesign/" 
+               target="_blank" 
+               class="whitespace-nowrap px-5 py-2.5 rounded-xl bg-turmeric-500/20 hover:bg-turmeric-500/30 text-turmeric-300 text-xs font-mono border border-turmeric-500/40 transition-colors flex items-center gap-2">
+              <span>View Mother’s Hut Live</span>
+              <i class="bi bi-box-arrow-up-right"></i>
+            </a>
+          </div>
+
+          <!-- 3 High-Impact Growth Pillars -->
+          <div>
+            <h4 class="font-serif text-xl font-bold text-white mb-4">
+              What This Custom Digital Engine Unlocks for Sher-e-Punjab:
+            </h4>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div class="p-4 rounded-xl bg-black/40 border border-white/10">
+                <div class="w-8 h-8 rounded-lg bg-turmeric-500/20 text-turmeric-400 flex items-center justify-center font-bold text-sm mb-2">1</div>
+                <h5 class="font-semibold text-white text-sm">Pre-Arrival Highway Orders</h5>
+                <p class="text-xs text-cream-300/70 mt-1">Commuters order 20 mins before Kolaghat via WhatsApp. Zero wait time turns casual drivers into loyal weekly patrons.</p>
+              </div>
+
+              <div class="p-4 rounded-xl bg-black/40 border border-white/10">
+                <div class="w-8 h-8 rounded-lg bg-turmeric-500/20 text-turmeric-400 flex items-center justify-center font-bold text-sm mb-2">2</div>
+                <h5 class="font-semibold text-white text-sm">7-Lawn Direct Wedding Bookings</h5>
+                <p class="text-xs text-cream-300/70 mt-1">High-ticket destination wedding inquiries (₹5L - ₹30L) captured directly without middleman agents or commissions.</p>
+              </div>
+
+              <div class="p-4 rounded-xl bg-black/40 border border-white/10">
+                <div class="w-8 h-8 rounded-lg bg-turmeric-500/20 text-turmeric-400 flex items-center justify-center font-bold text-sm mb-2">3</div>
+                <h5 class="font-semibold text-white text-sm">300-Acre Resort Stays</h5>
+                <p class="text-xs text-cream-300/70 mt-1">Highlight your horse stables, bird aviary, and inn rooms. Turn a ₹400 tea stop into a ₹4,500 overnight stay.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Direct Execution Invitation -->
+          <div class="pt-6 border-t border-turmeric-500/30 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div>
+              <div class="text-xs font-mono text-turmeric-400 uppercase tracking-widest">Digital Architect</div>
+              <div class="font-serif text-lg font-bold text-white">Samya Pegusus</div>
+              <div class="text-xs text-cream-300/80">Founder, LocalPulse AI • Highway Hospitality Systems</div>
+              <div class="text-xs font-mono text-cream-300/60 mt-1">
+                WhatsApp: <a href="https://wa.me/918617625059" class="text-turmeric-300 underline">+91 8617625059</a> • Email: samya.pegusus@gmail.com
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3 w-full sm:w-auto">
+              <a href="https://wa.me/918617625059?text=Hi%20Samya,%20we%20reviewed%20the%20Sher-e-Punjab%20Kolaghat%20digital%20demo%20and%20would%20like%20to%20discuss%20deploying%20it." 
+                 target="_blank"
+                 class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-gradient-to-r from-turmeric-500 to-amber-500 text-maharaja-950 font-bold text-sm shadow-xl shadow-turmeric-500/20 hover:scale-105 transition-all text-center flex items-center justify-center gap-2">
+                <i class="bi bi-chat-quote-fill"></i>
+                <span>Discuss With Samya</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- FOOTER -->
+  <!-- ========================================================================= -->
+  <footer class="bg-black py-16 border-t border-white/10 text-cream-300/70 text-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+        
+        <div class="md:col-span-2 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-lg bg-turmeric-500/20 flex items-center justify-center text-turmeric-400">
+              <i class="bi bi-shield-fill-check text-xl"></i>
+            </div>
+            <span class="font-serif text-2xl font-black text-white tracking-wider">SHER-E-PUNJAB</span>
+          </div>
+          <p class="text-xs text-cream-300/80 max-w-md font-light leading-relaxed">
+            Shere Punjab Inn Pvt. Ltd. — Purveyors of royal Punjabi highway hospitality on National Highway 16, Kolaghat. Serving road trippers, families, and grand banquets 24 hours a day, 365 days a year.
+          </p>
+          <div class="text-xs font-mono text-turmeric-400">
+            Directors: Sukhbinder Singh & Manjit Singh
+          </div>
+        </div>
+
+        <div>
+          <h4 class="font-serif font-bold text-white text-base mb-4">Quick Navigation</h4>
+          <ul class="space-y-2 text-xs font-mono">
+            <li><a href="#walkthrough" class="hover:text-turmeric-300 transition-colors">Video Camera Track</a></li>
+            <li><a href="#experience" class="hover:text-turmeric-300 transition-colors">Royal Dining Halls</a></li>
+            <li><a href="#menu" class="hover:text-turmeric-300 transition-colors">Authentic Menu & Tarka</a></li>
+            <li><a href="#estate" class="hover:text-turmeric-300 transition-colors">300-Acre Horse Stables</a></li>
+            <li><a href="#location" class="hover:text-turmeric-300 transition-colors">GPS Route from Kolkata</a></li>
+            <li><a href="#pitch" class="hover:text-turmeric-300 transition-colors">Digital Strategy Memo</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-serif font-bold text-white text-base mb-4">24/7 Highway Helpdesk</h4>
+          <div class="space-y-2 text-xs font-mono">
+            <p><i class="bi bi-telephone-fill text-turmeric-400 mr-2"></i> +91 91533 67990</p>
+            <p><i class="bi bi-telephone-fill text-turmeric-400 mr-2"></i> +91 82938 99522</p>
+            <p><i class="bi bi-geo-alt-fill text-turmeric-400 mr-2"></i> NH-16, Kolaghat, West Bengal 721134</p>
+            <p><i class="bi bi-clock-fill text-turmeric-400 mr-2"></i> Kitchen Open 24/7/365</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-cream-300/50">
+        <p>© 2026 Shere Punjab Inn Pvt. Ltd. All rights reserved.</p>
+        <p>Engineered with GSAP ScrollTrigger by <span class="text-turmeric-400">LocalPulse AI</span></p>
       </div>
     </div>
   </footer>
 
+  <!-- ========================================================================= -->
+  <!-- STICKY MOBILE BOTTOM BAR -->
+  <!-- ========================================================================= -->
+  <div class="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-maharaja-950/95 backdrop-blur-lg border-t border-turmeric-500/30 p-2.5 px-4 flex items-center justify-between gap-3 shadow-2xl">
+    <a href="https://wa.me/919153367990?text=Hi%20Sher-e-Punjab%20Kolaghat,%20I%20am%20driving%20on%20NH-16%20and%20would%20like%20to%20reserve%20a%20table%20/%20banquet." 
+       target="_blank"
+       class="flex-1 py-3 px-2 rounded-xl bg-emerald-600 active:bg-emerald-700 text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow-lg">
+      <i class="bi bi-whatsapp text-sm"></i>
+      <span>WhatsApp</span>
+    </a>
+
+    <a href="tel:+919153367990" 
+       class="flex-1 py-3 px-2 rounded-xl bg-maharaja-800 active:bg-maharaja-700 text-white font-bold text-xs flex items-center justify-center gap-1.5 border border-turmeric-500/40">
+      <i class="bi bi-telephone-fill text-turmeric-400 text-sm"></i>
+      <span>Call Desk</span>
+    </a>
+
+    <a href="https://maps.google.com/?q=Sher-e-Punjab+Kolaghat+NH16" 
+       target="_blank"
+       class="flex-1 py-3 px-2 rounded-xl bg-turmeric-500 active:bg-turmeric-600 text-maharaja-950 font-bold text-xs flex items-center justify-center gap-1.5 shadow-lg">
+      <i class="bi bi-geo-alt-fill text-sm"></i>
+      <span>GPS Maps</span>
+    </a>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- GSAP SCROLL-CAMERA SCRUB SCRIPT -->
+  <!-- ========================================================================= -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      gsap.registerPlugin(ScrollTrigger);
+
+      const video = document.getElementById("scrubVideo");
+      const trackSticky = document.getElementById("walkthrough");
+      const progressBar = document.getElementById("scrubProgressBar");
+      const dot1 = document.getElementById("dot1");
+      const dot2 = document.getElementById("dot2");
+      const dot3 = document.getElementById("dot3");
+      const dot4 = document.getElementById("dot4");
+
+      function updateDots(progress) {
+        const activeClass = "bg-turmeric-400 scale-125";
+        const inactiveClass = "bg-white/30 scale-100";
+
+        // Dot 1: 0 - 0.22
+        // Dot 2: 0.23 - 0.55
+        // Dot 3: 0.56 - 0.80
+        // Dot 4: 0.81 - 1.0
+        dot1.className = `w-2 h-2 rounded-full transition-all ${progress < 0.23 ? activeClass : inactiveClass}`;
+        dot2.className = `w-2 h-2 rounded-full transition-all ${progress >= 0.23 && progress < 0.56 ? activeClass : inactiveClass}`;
+        dot3.className = `w-2 h-2 rounded-full transition-all ${progress >= 0.56 && progress < 0.81 ? activeClass : inactiveClass}`;
+        dot4.className = `w-2 h-2 rounded-full transition-all ${progress >= 0.81 ? activeClass : inactiveClass}`;
+      }
+
+      function initScrollCamera() {
+        if (!video || !trackSticky) return;
+
+        const duration = video.duration || 22;
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: trackSticky,
+            start: "top top",
+            end: "bottom bottom",
+            scrub: 0.4,
+            onUpdate: (self) => {
+              const progress = self.progress;
+              // Scrub video frame
+              if (video.readyState >= 1) {
+                video.currentTime = progress * duration;
+              }
+              // Progress bar fill
+              if (progressBar) {
+                progressBar.style.transform = `scaleX(${progress})`;
+              }
+              // Update station indicator dots
+              updateDots(progress);
+            }
+          }
+        });
+
+        // Station 1: (0% - 22%)
+        tl.to("#station1", {
+          opacity: 0,
+          y: -40,
+          duration: 0.20,
+          ease: "power1.in"
+        }, 0.08);
+
+        // Station 2: (25% - 55%)
+        tl.fromTo("#station2", 
+          { opacity: 0, y: 50 },
+          { opacity: 1, y: 0, duration: 0.10, ease: "power1.out" },
+          0.24
+        ).to("#station2", {
+          opacity: 0,
+          y: -40,
+          duration: 0.10,
+          ease: "power1.in"
+        }, 0.50);
+
+        // Station 3: (58% - 80%)
+        tl.fromTo("#station3",
+          { opacity: 0, y: 50 },
+          { opacity: 1, y: 0, duration: 0.10, ease: "power1.out" },
+          0.58
+        ).to("#station3", {
+          opacity: 0,
+          y: -40,
+          duration: 0.10,
+          ease: "power1.in"
+        }, 0.78);
+
+        // Station 4: (82% - 100%)
+        tl.fromTo("#station4",
+          { opacity: 0, y: 50 },
+          { opacity: 1, y: 0, duration: 0.12, ease: "power1.out" },
+          0.82
+        );
+      }
+
+      // Check if video metadata is already loaded
+      if (video.readyState >= 1) {
+        initScrollCamera();
+      } else {
+        video.addEventListener("loadedmetadata", initScrollCamera);
+        // Fallback timeout in case event already fired
+        setTimeout(initScrollCamera, 500);
+      }
+    });
+  </script>
 </body>
 </html>
