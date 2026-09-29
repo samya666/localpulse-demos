@@ -3,186 +3,1568 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Megh Bari Eco Resort | Premium Digital Experience by LocalPulse AI</title>
-  <meta name="description" content="A custom-built, high-converting mobile experience for Megh Bari Eco Resort, {'address': 'Vill-Jagadispur, P.O- Dighra, Chakdah, Nadia, West Bengal 741222', 'landmark': 'Near Chakdah, direct access off NH-12 / NH-34 Highway', 'city_zone': 'Chakdah / Nadia District (NH-12 Outskirts)'}. Powered by LocalPulse AI.">
+  <title>Megh Bari Eco Resort | Countryside Sanctuary & Lakeside Retreat | Chakdah, Nadia</title>
+  <meta name="description" content="Discover Megh Bari Eco Resort, Chakdah, Nadia. 10+ acres of rural serenity, lakeside cottages, Borsha multi-cuisine dining with traditional Bengali kashar thali, swimming pool, wedding lawns & starlit bonfires just 1 hour from Kolkata.">
+  
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Fraunces (organic serif), Nunito (warm body), Fira Code (nature coords) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Nunito:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+  <!-- Tailwind Configuration for Eco-Sanctuary Palette -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sage: {
+              50: '#F4F7F4',
+              100: '#E6EDE6',
+              200: '#CFDEC0',
+              300: '#ADC6A8',
+              400: '#8FBC8F', // Brand primary sage
+              500: '#5E8D60',
+              600: '#436B46',
+              700: '#325035',
+              800: '#233926',
+              900: '#142217',
+              950: '#0C160F',
+            },
+            wood: {
+              50: '#FAF7F3',
+              100: '#F2ECE4',
+              200: '#E3D7C8',
+              300: '#CEBDA6',
+              400: '#B09A7F',
+              500: '#8B7355', // Brand wood tone
+              600: '#735E44',
+              700: '#5A4934',
+              800: '#433626',
+              900: '#2E251A',
+            },
+            terracotta: {
+              400: '#E07A5F',
+              500: '#C25E40',
+              600: '#A3462A',
+            },
+            sky: {
+              50: '#F0F9FF',
+              100: '#E0F2FE',
+              200: '#BAE6FD',
+              300: '#87CEEB', // Sky blue
+              400: '#38BDF8',
+              500: '#0284C7',
+            },
+            linen: '#FAF7F2',
+            forestDark: '#0D1711',
+            forestCard: '#132119',
+          },
+          fontFamily: {
+            serif: ['Fraunces', 'Georgia', 'serif'],
+            sans: ['Nunito', 'sans-serif'],
+            mono: ['Fira Code', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
   <style>
     :root {
-      --primary: #B85D2A;
-      --primary-dark: #8C3B1B;
-      --dark: #1a1a1a;
-      --cream: #FAF8F5;
-      --sand: #ECE5CE;
+      --sage-primary: #8FBC8F;
+      --wood-primary: #8B7355;
+      --sky-primary: #87CEEB;
+      --bg-linen: #FAF7F2;
+      --forest-dark: #0D1711;
     }
-    body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--cream); color: #262420; }
-    .font-editorial { font-family: 'Playfair Display', serif; }
-    .gradient-hero { background: linear-gradient(135deg, #1a1a1a 0%, #2d1810 50%, #1a1a1a 100%); }
-    .glow-btn {
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      box-shadow: 0 10px 30px -5px rgba(184,93,42,0.4);
-      transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background-color: var(--bg-linen);
+      color: #1F2E24;
+      overflow-x: hidden;
     }
-    .glow-btn:hover { transform: translateY(-2px); box-shadow: 0 15px 40px -5px rgba(184,93,42,0.5); }
-    .card-hover { transition: all 0.3s ease; }
-    .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-    .stat-card { background: rgba(255,255,255,0.7); backdrop-filter: blur(10px); }
-    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-    .float { animation: float 3s ease-in-out infinite; }
+
+    .font-serif-brand {
+      font-family: 'Fraunces', serif;
+      font-variation-settings: "opsz" 36, "wght" 500;
+    }
+
+    .font-coords {
+      font-family: 'Fira Code', monospace;
+    }
+
+    /* Soft glass card */
+    .glass-dark {
+      background: rgba(13, 23, 17, 0.78);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(143, 188, 143, 0.22);
+    }
+
+    .glass-light {
+      background: rgba(250, 247, 242, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(139, 115, 85, 0.18);
+    }
+
+    /* Infinite Marquee */
+    @keyframes marqueeScroll {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .marquee-track {
+      display: flex;
+      width: 200%;
+      animation: marqueeScroll 38s linear infinite;
+    }
+
+    .marquee-track:hover {
+      animation-play-state: paused;
+    }
+
+    /* Pulse Glow */
+    @keyframes greenGlow {
+      0%, 100% { box-shadow: 0 0 15px rgba(143, 188, 143, 0.4); }
+      50% { box-shadow: 0 0 28px rgba(143, 188, 143, 0.85); }
+    }
+
+    .glow-pulse {
+      animation: greenGlow 3s ease-in-out infinite;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0D1711;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #436B46;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #8FBC8F;
+    }
   </style>
 </head>
-<body class="antialiased">
+<body class="selection:bg-sage-400 selection:text-forestDark">
 
-  <!-- Hero Section -->
-  <section class="gradient-hero min-h-screen flex items-center justify-center relative overflow-hidden">
-    <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 20% 50%, rgba(184,93,42,0.3) 0%, transparent 50%), radial-gradient(circle at 80% 50%, rgba(184,93,42,0.2) 0%, transparent 50%);"></div>
-    <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
-      <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-5 py-2 mb-8">
-        <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-        <span class="text-white/80 text-sm font-medium tracking-wide">CUSTOM PREVIEW — BUILT FOR MEGH BARI ECO RESORT</span>
-      </div>
-      <h1 class="font-editorial text-5xl md:text-7xl text-white font-bold leading-tight mb-6">
-        Megh Bari Eco Resort
-      </h1>
-      <p class="text-white/70 text-lg md:text-xl max-w-2xl mx-auto mb-4">
-        {'address': 'Vill-Jagadispur, P.O- Dighra, Chakdah, Nadia, West Bengal 741222', 'landmark': 'Near Chakdah, direct access off NH-12 / NH-34 Highway', 'city_zone': 'Chakdah / Nadia District (NH-12 Outskirts)'}
-      </p>
-      <p class="text-white/50 text-base max-w-xl mx-auto mb-10">
-        This is what your restaurant's digital presence could look like — built in 48 hours by LocalPulse AI.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href='https://wa.me/918777687968' target='_blank' class='glow-btn text-white px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center gap-3'><i class='bi bi-whatsapp text-2xl'></i> Book via WhatsApp</a>
-        <a href="tel:+91 87776 87968" class="bg-white/10 backdrop-blur-md border border-white/30 text-white px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center gap-3 hover:bg-white/20 transition-all">
-          <i class="bi bi-telephone-fill"></i> Call Now
+  <!-- ========================================================================= -->
+  <!-- 1. FIXED TOP NAVIGATION                                                   -->
+  <!-- ========================================================================= -->
+  <header id="site-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-forestDark/85 backdrop-blur-md border-b border-sage-500/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo & Brand Info -->
+        <a href="#hero-track-container" class="flex items-center gap-3 group">
+          <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-sage-500 to-sage-700 flex items-center justify-center text-white shadow-lg shadow-sage-900/40 group-hover:scale-105 transition-transform duration-300 border border-sage-300/30">
+            <i class="bi bi-cloud-sun text-2xl text-amber-200"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="font-serif-brand text-xl sm:text-2xl font-bold tracking-tight text-white group-hover:text-sage-300 transition-colors">Megh Bari</span>
+              <span class="text-xs px-2 py-0.5 rounded-full bg-sage-400/20 text-sage-300 font-mono border border-sage-400/30 font-medium">ECO RESORT</span>
+            </div>
+            <p class="text-xs text-stone-300 flex items-center gap-1.5 font-light">
+              <i class="bi bi-geo-alt-fill text-terracotta-400 text-[11px]"></i>
+              <span>Chakdah, Nadia · Off NH-12 · 1h from Kolkata</span>
+            </p>
+          </div>
         </a>
-      </div>
-    </div>
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/40 animate-bounce">
-      <i class="bi bi-chevron-double-down text-2xl"></i>
-    </div>
-  </section>
 
-  <!-- What We'd Build Section -->
-  <section class="py-20 px-6">
-    <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-16">
-        <span class="text-sm font-bold tracking-[0.2em] uppercase" style="color: var(--primary);">What Your Guests Would Experience</span>
-        <h2 class="font-editorial text-4xl md:text-5xl font-bold mt-4 mb-6">A Digital Experience<br>Worthy of Your Kitchen</h2>
-        <p class="text-gray-500 text-lg max-w-2xl mx-auto">Every feature below is designed to convert highway travelers and local foodies into paying guests — in one tap.</p>
-      </div>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(184,93,42,0.1);">
-            <i class="bi bi-phone text-2xl" style="color: var(--primary);"></i>
-          </div>
-          <h3 class="font-bold text-xl mb-3">Mobile-First Design</h3>
-          <p class="text-gray-500">85% of your customers search on phones. A lightning-fast mobile experience with sticky booking bar and one-tap WhatsApp reservation.</p>
-        </div>
-        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(184,93,42,0.1);">
-            <i class="bi bi-camera-reels text-2xl" style="color: var(--primary);"></i>
-          </div>
-          <h3 class="font-bold text-xl mb-3">5 Custom Video Reels</h3>
-          <p class="text-gray-500">High-retention 9:16 vertical videos of your signature dishes, ambiance, and chef specials — ready for Instagram, YouTube Shorts & Google Maps.</p>
-        </div>
-        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(184,93,42,0.1);">
-            <i class="bi bi-robot text-2xl" style="color: var(--primary);"></i>
-          </div>
-          <h3 class="font-bold text-xl mb-3">AI Digital Concierge</h3>
-          <p class="text-gray-500">A 24/7 AI assistant trained on your exact menu, pricing, and FAQs — answers customer questions instantly on WhatsApp.</p>
-        </div>
-        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(184,93,42,0.1);">
-            <i class="bi bi-calendar-event text-2xl" style="color: var(--primary);"></i>
-          </div>
-          <h3 class="font-bold text-xl mb-3">Banquet Booking Funnel</h3>
-          <p class="text-gray-500">Direct inquiry forms for weddings, birthday parties, and corporate events — no more lost leads from missed calls.</p>
-        </div>
-        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(184,93,42,0.1);">
-            <i class="bi bi-geo-alt text-2xl" style="color: var(--primary);"></i>
-          </div>
-          <h3 class="font-bold text-xl mb-3">GPS Navigation</h3>
-          <p class="text-gray-500">One-tap Google Maps routing for highway travelers. Integrated with your exact pin location and landmark references.</p>
-        </div>
-        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(184,93,42,0.1);">
-            <i class="bi bi-graph-up-arrow text-2xl" style="color: var(--primary);"></i>
-          </div>
-          <h3 class="font-bold text-xl mb-3">SEO & Google Boost</h3>
-          <p class="text-gray-500">Schema markup, local SEO optimization, and Google Business integration so you rank #1 for "Megh Bari Eco Resort" and nearby food searches.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+        <!-- Desktop Links -->
+        <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-stone-200">
+          <a href="#hero-track-container" class="hover:text-sage-300 transition-colors flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-sage-400"></span> Virtual Tour
+          </a>
+          <a href="#cottages-section" class="hover:text-sage-300 transition-colors">Cottages & Suites</a>
+          <a href="#borsha-dining" class="hover:text-sage-300 transition-colors">Borsha Restaurant</a>
+          <a href="#lawns-pool" class="hover:text-sage-300 transition-colors">Lawns & Pool</a>
+          <a href="#packages-calc" class="hover:text-sage-300 transition-colors">Packages</a>
+          <a href="#location-guide" class="hover:text-sage-300 transition-colors">GPS & Route</a>
+          <a href="#pitch-memo" class="text-amber-300 hover:text-amber-200 text-xs px-2.5 py-1 rounded-full bg-amber-400/10 border border-amber-400/30 transition-colors">
+            <i class="bi bi-lightbulb-fill mr-1"></i>Owner Memo
+          </a>
+        </nav>
 
-  <!-- Social Proof / Reference -->
-  <section class="py-20 px-6" style="background: var(--dark);">
-    <div class="max-w-4xl mx-auto text-center">
-      <span class="text-sm font-bold tracking-[0.2em] uppercase text-amber-400">See What We've Already Built</span>
-      <h2 class="font-editorial text-4xl md:text-5xl font-bold text-white mt-4 mb-6">Our Reference Project</h2>
-      <p class="text-white/60 text-lg mb-10">We built this complete digital experience for Mother's Hut, Krishnanagar — the 50,000 sq ft women-powered dining landmark on NH-12.</p>
-      <a href="https://samya666.github.io/mothers-hut-redesign/" target="_blank" class="glow-btn text-white px-10 py-5 rounded-full font-bold text-lg inline-flex items-center gap-3">
-        <i class="bi bi-box-arrow-up-right"></i> View Mother's Hut Experience
-      </a>
-      <div class="grid grid-cols-3 gap-6 mt-16">
-        <div class="stat-card rounded-2xl p-6">
-          <div class="text-3xl font-bold text-white">2.5K</div>
-          <div class="text-white/50 text-sm mt-1">Video Walkthrough</div>
-        </div>
-        <div class="stat-card rounded-2xl p-6">
-          <div class="text-3xl font-bold text-white">10</div>
-          <div class="text-white/50 text-sm mt-1">Themed Dining Zones</div>
-        </div>
-        <div class="stat-card rounded-2xl p-6">
-          <div class="text-3xl font-bold text-white">48h</div>
-          <div class="text-white/50 text-sm mt-1">Delivery Time</div>
-        </div>
-      </div>
-    </div>
-  </section>
+        <!-- Right Quick CTA -->
+        <div class="flex items-center gap-3">
+          <a href="tel:+918777687968" class="hidden sm:flex items-center gap-2 text-xs font-mono text-stone-300 hover:text-white px-3 py-2 rounded-xl bg-white/5 border border-white/10 transition-colors">
+            <i class="bi bi-telephone-fill text-sage-400"></i>
+            <span>+91 87776 87968</span>
+          </a>
 
-  <!-- Pricing CTA -->
-  <section class="py-20 px-6">
-    <div class="max-w-3xl mx-auto text-center">
-      <span class="text-sm font-bold tracking-[0.2em] uppercase" style="color: var(--primary);">Simple, Transparent Pricing</span>
-      <h2 class="font-editorial text-4xl md:text-5xl font-bold mt-4 mb-6">Get All Of This<br>For ₹24,000</h2>
-      <div class="bg-white rounded-3xl p-10 border border-gray-100 shadow-xl mb-10">
-        <ul class="text-left space-y-4 text-lg text-gray-700 mb-8">
-          <li class="flex items-start gap-3"><i class="bi bi-check-circle-fill text-green-500 mt-1"></i> Complete mobile-first website with your branding</li>
-          <li class="flex items-start gap-3"><i class="bi bi-check-circle-fill text-green-500 mt-1"></i> 5 custom 9:16 video reels (Instagram/YouTube ready)</li>
-          <li class="flex items-start gap-3"><i class="bi bi-check-circle-fill text-green-500 mt-1"></i> AI digital concierge (WhatsApp integration)</li>
-          <li class="flex items-start gap-3"><i class="bi bi-check-circle-fill text-green-500 mt-1"></i> WhatsApp one-tap booking & banquet inquiry form</li>
-          <li class="flex items-start gap-3"><i class="bi bi-check-circle-fill text-green-500 mt-1"></i> Google Maps SEO optimization</li>
-          <li class="flex items-start gap-3"><i class="bi bi-check-circle-fill text-green-500 mt-1"></i> Delivered in 48 hours</li>
-        </ul>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="https://wa.me/+918617625059?text=Hi%20Samya%2C%20I%20saw%20the%20LocalPulse%20AI%20demo%20for%20Megh%20Bari%20Eco%20Resort.%20I%20am%20interested%20in%20getting%20this%20for%20my%20restaurant." 
-             target="_blank" class="glow-btn text-white px-8 py-4 rounded-full font-bold text-lg inline-flex items-center gap-3">
-            <i class="bi bi-whatsapp text-xl"></i> Get Started — WhatsApp Samya
+          <a href="https://wa.me/918777687968?text=Hello%20Megh%20Bari%20Eco%20Resort%20Team,%20I%20saw%20your%20virtual%20walkthrough%20demo%20and%20would%20like%20to%20inquire%20about%20room%20availability%20and%20rates." 
+             target="_blank" 
+             rel="noopener noreferrer"
+             class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs sm:text-sm shadow-lg shadow-emerald-900/40 hover:scale-105 active:scale-95 transition-all duration-300 border border-emerald-400/30">
+            <i class="bi bi-whatsapp text-base"></i>
+            <span>WhatsApp Booking</span>
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-300 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-200"></span>
+            </span>
           </a>
         </div>
-        <p class="text-gray-400 text-sm mt-4">Or call: +91 8617625059 | Email: samya.pegusus@gmail.com</p>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- 2. SCROLL-CAMERA TRACK HERO (380vh Track, Sticky Pinned 100vh Viewport)   -->
+  <!-- ========================================================================= -->
+  <section id="hero-track-container" class="relative w-full h-[380vh] bg-forestDark">
+    
+    <!-- Sticky 100vh Viewport -->
+    <div id="hero-pinned-viewport" class="sticky top-0 left-0 w-full h-screen overflow-hidden flex items-center justify-center">
+
+      <!-- Scrubbable Video Element -->
+      <video id="hero-scrub-video"
+             class="absolute inset-0 w-full h-full object-cover z-0"
+             src="assets/hero_walkthrough.mp4"
+             poster="assets/hero_poster.webp"
+             playsinline
+             muted
+             preload="auto">
+      </video>
+
+      <!-- Vignette and Gradient Scrims for Readability -->
+      <div class="absolute inset-0 z-10 pointer-events-none bg-gradient-to-t from-forestDark via-transparent to-forestDark/80"></div>
+      <div class="absolute inset-0 z-10 pointer-events-none bg-radial from-transparent via-forestDark/30 to-forestDark/85"></div>
+
+      <!-- Top GPS & Status Pill -->
+      <div class="absolute top-24 left-1/2 -translate-x-1/2 z-20 flex items-center gap-3 px-4 py-1.5 rounded-full bg-forestDark/75 backdrop-blur-md border border-sage-500/30 text-xs font-mono text-sage-200 shadow-xl">
+        <span class="flex items-center gap-1.5">
+          <i class="bi bi-compass text-amber-400 animate-spin" style="animation-duration: 12s;"></i>
+          <span>23.0812° N, 88.5284° E</span>
+        </span>
+        <span class="w-1 h-1 rounded-full bg-sage-400"></span>
+        <span class="text-stone-300 flex items-center gap-1">
+          <i class="bi bi-shield-check text-emerald-400"></i> Authentic Aerial Footage
+        </span>
+        <span class="w-1 h-1 rounded-full bg-sage-400 hidden sm:inline"></span>
+        <span id="scrub-speed-indicator" class="text-amber-300 font-semibold hidden sm:inline">SCROLL TO FLY</span>
+      </div>
+
+      <!-- Station 1: The Grand Welcome (0% - 22%) -->
+      <div id="station-1" class="absolute inset-0 z-20 flex flex-col justify-center items-center text-center px-4 sm:px-6 pointer-events-none transition-all duration-700">
+        <div class="max-w-4xl space-y-4">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sage-500/20 border border-sage-300/40 text-sage-200 text-xs sm:text-sm font-medium backdrop-blur-md">
+            <i class="bi bi-geo-alt-fill text-terracotta-400"></i>
+            <span>Chakdah, Nadia · 1 Hour from Kolkata via NH-12</span>
+          </div>
+          
+          <h1 class="font-serif-brand text-4xl sm:text-6xl md:text-7xl font-extrabold text-white tracking-tight drop-shadow-2xl leading-[1.08]">
+            MEGH BARI <br class="hidden sm:inline">
+            <span class="italic font-normal text-amber-200">Eco Resort</span>
+          </h1>
+
+          <p class="text-stone-200 text-base sm:text-xl font-light max-w-2xl mx-auto leading-relaxed drop-shadow-md">
+            Where whispering clouds embrace rustic Bengal charm. 10+ acres of verdant lawns, tranquil duck lakes, private cottages, and authentic Borsha heritage dining.
+          </p>
+
+          <!-- Badges Bar -->
+          <div class="pt-4 flex flex-wrap items-center justify-center gap-2.5 sm:gap-4 text-xs font-mono text-stone-200">
+            <span class="px-3 py-1.5 rounded-lg bg-black/40 border border-white/10 backdrop-blur-sm flex items-center gap-1.5">
+              <i class="bi bi-star-fill text-amber-400"></i> 4.5★ (600+ Google Reviews)
+            </span>
+            <span class="px-3 py-1.5 rounded-lg bg-black/40 border border-white/10 backdrop-blur-sm flex items-center gap-1.5">
+              <i class="bi bi-water text-sky-300"></i> Natural Lake & Pool
+            </span>
+            <span class="px-3 py-1.5 rounded-lg bg-black/40 border border-white/10 backdrop-blur-sm flex items-center gap-1.5">
+              <i class="bi bi-house-heart text-emerald-400"></i> Private Veranda Cottages
+            </span>
+          </div>
+
+          <!-- Animated Scroll Cue -->
+          <div class="pt-6 flex flex-col items-center gap-2 text-stone-400 text-xs tracking-widest font-mono uppercase">
+            <span>Scroll Down to Fly Through Resort</span>
+            <div class="w-6 h-10 rounded-full border-2 border-sage-400/60 flex items-start justify-center p-1">
+              <div class="w-1.5 h-2.5 bg-sage-300 rounded-full animate-bounce"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Station 2: The Cottages & Lakeside Serenity (25% - 55%) -->
+      <div id="station-2" class="absolute inset-0 z-20 flex flex-col justify-center items-start text-left px-6 sm:px-16 md:px-24 pointer-events-none opacity-0 transition-all duration-700">
+        <div class="max-w-2xl space-y-4 bg-forestDark/80 p-6 sm:p-10 rounded-3xl border border-sage-500/30 backdrop-blur-xl shadow-2xl">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-wood-500/20 border border-wood-300/40 text-amber-200 text-xs font-mono uppercase tracking-wider">
+            <i class="bi bi-tree text-emerald-400"></i>
+            <span>Cottage Haven & Lakeside Stays</span>
+          </div>
+
+          <h2 class="font-serif-brand text-3xl sm:text-5xl font-bold text-white leading-tight">
+            Village Soul. <br>
+            <span class="italic text-sage-300 font-normal">Lakeside Elegance.</span>
+          </h2>
+
+          <p class="text-stone-300 text-sm sm:text-base leading-relaxed">
+            Wake up to soft ripples across the natural pond and morning birdsong in tree-canopied trails. Our rustic bamboo-finished eco-cottages feature private garden verandas, plush beds, and direct lake views.
+          </p>
+
+          <div class="grid grid-cols-3 gap-3 pt-2 text-center font-mono">
+            <div class="p-3 rounded-xl bg-black/40 border border-white/10">
+              <span class="block text-xl font-bold text-sage-300">10+</span>
+              <span class="text-[10px] text-stone-400 uppercase">Acres Nature</span>
+            </div>
+            <div class="p-3 rounded-xl bg-black/40 border border-white/10">
+              <span class="block text-xl font-bold text-amber-300">100%</span>
+              <span class="text-[10px] text-stone-400 uppercase">Eco Serenity</span>
+            </div>
+            <div class="p-3 rounded-xl bg-black/40 border border-white/10">
+              <span class="block text-xl font-bold text-sky-300">AC</span>
+              <span class="text-[10px] text-stone-400 uppercase">Suites & Tents</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Station 3: Borsha Multi-Cuisine & Celebrations (58% - 80%) -->
+      <div id="station-3" class="absolute inset-0 z-20 flex flex-col justify-center items-end text-right px-6 sm:px-16 md:px-24 pointer-events-none opacity-0 transition-all duration-700">
+        <div class="max-w-2xl space-y-4 bg-forestDark/80 p-6 sm:p-10 rounded-3xl border border-sage-500/30 backdrop-blur-xl shadow-2xl">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-terracotta-500/20 border border-terracotta-400/40 text-amber-200 text-xs font-mono uppercase tracking-wider">
+            <i class="bi bi-fire text-amber-400"></i>
+            <span>Borsha Dining & Starlit Gatherings</span>
+          </div>
+
+          <h2 class="font-serif-brand text-3xl sm:text-5xl font-bold text-white leading-tight">
+            Traditional Kashar Thali <br>
+            <span class="italic text-amber-200 font-normal">& Night Bonfires.</span>
+          </h2>
+
+          <p class="text-stone-300 text-sm sm:text-base leading-relaxed">
+            Feast in regal bell-metal bowls (Kashar Bati) at Borsha Restaurant — savouring fresh Katla, Bhetki, Chingri Malaikari, and Kosha Mangsho. As dusk settles, gather around roaring lawn bonfires with live acoustic chords.
+          </p>
+
+          <div class="flex flex-wrap justify-end gap-2 text-xs font-mono text-stone-300 pt-1">
+            <span class="px-2.5 py-1 rounded-md bg-white/10 border border-white/10">Traditional Bengali Feast</span>
+            <span class="px-2.5 py-1 rounded-md bg-white/10 border border-white/10">1,000+ Capacity Wedding Lawn</span>
+            <span class="px-2.5 py-1 rounded-md bg-white/10 border border-white/10">Evening Open-Sky Bonfire</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Station 4: Instant Direct Booking & WhatsApp Concierge (82% - 100%) -->
+      <div id="station-4" class="absolute inset-0 z-20 flex flex-col justify-center items-center text-center px-6 pointer-events-none opacity-0 transition-all duration-700">
+        <div class="max-w-xl space-y-6 bg-forestDark/85 p-8 sm:p-12 rounded-3xl border-2 border-emerald-500/40 backdrop-blur-xl shadow-2xl pointer-events-auto">
+          <div class="w-16 h-16 mx-auto rounded-2xl bg-emerald-600/30 border border-emerald-400/50 flex items-center justify-center text-emerald-300 text-3xl glow-pulse">
+            <i class="bi bi-calendar2-check"></i>
+          </div>
+
+          <h2 class="font-serif-brand text-3xl sm:text-5xl font-extrabold text-white leading-tight">
+            Reserve Your Sanctuary.
+          </h2>
+
+          <p class="text-stone-300 text-sm sm:text-base">
+            No broken web forms. Connect directly with the Megh Bari Resort administration on WhatsApp for real-time room availability, banquet dates, and day-outing passes.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-3 justify-center pt-2">
+            <a href="https://wa.me/918777687968?text=Hello%20Megh%20Bari%20Eco%20Resort,%20I%20am%20planning%20a%20visit.%20Please%20share%20cottage%20rates%20and%20availability." 
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm shadow-xl shadow-emerald-900/40 hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2 border border-emerald-400/40">
+              <i class="bi bi-whatsapp text-lg"></i>
+              <span>Book Cottage on WhatsApp</span>
+            </a>
+
+            <a href="tel:+918777687968" class="px-5 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-sm transition-all border border-white/20 flex items-center justify-center gap-2">
+              <i class="bi bi-telephone-fill text-sage-300"></i>
+              <span>Call: +91 87776 87968</span>
+            </a>
+          </div>
+
+          <p class="text-xs font-mono text-stone-400">
+            Check-in: 12:00 PM · Check-out: 10:00 AM · Pet-Friendly Grounds
+          </p>
+        </div>
+      </div>
+
+      <!-- Scrub Track Controller & Station Progress Bar (Bottom of Pinned Viewport) -->
+      <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 w-11/12 max-w-3xl glass-dark px-4 py-3 rounded-2xl flex flex-col gap-2">
+        <div class="flex items-center justify-between text-xs font-mono text-stone-300">
+          <div class="flex items-center gap-3">
+            <button id="toggle-autoplay-btn" class="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/10 hover:bg-white/20 text-amber-200 transition-colors">
+              <i id="autoplay-icon" class="bi bi-play-fill text-sm"></i>
+              <span id="autoplay-label">Play Tour</span>
+            </button>
+            <span class="text-stone-400 hidden sm:inline">|</span>
+            <span id="active-station-label" class="text-sage-300 font-semibold truncate max-w-[200px] sm:max-w-none">01 · Welcome to Megh Bari</span>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <span class="text-stone-400 text-[11px]">SCRUB</span>
+            <span id="scrub-percent-label" class="font-bold text-amber-300 w-10 text-right">0%</span>
+          </div>
+        </div>
+
+        <!-- Visual Progress Bar with 4 Station Pips -->
+        <div class="relative w-full h-2 rounded-full bg-white/10 overflow-hidden cursor-pointer" id="scrub-progress-clicker">
+          <div id="scrub-progress-fill" class="h-full bg-gradient-to-r from-sage-400 via-amber-300 to-emerald-400 w-0 transition-all duration-75"></div>
+        </div>
+
+        <!-- Station Dots -->
+        <div class="flex justify-between items-center px-1 text-[10px] font-mono text-stone-400">
+          <button onclick="jumpToStation(0)" class="hover:text-white transition-colors flex items-center gap-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-sage-400"></span> 01 Welcome
+          </button>
+          <button onclick="jumpToStation(0.35)" class="hover:text-white transition-colors flex items-center gap-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-wood-400"></span> 02 Cottages & Lake
+          </button>
+          <button onclick="jumpToStation(0.68)" class="hover:text-white transition-colors flex items-center gap-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span> 03 Borsha & Lawn
+          </button>
+          <button onclick="jumpToStation(0.95)" class="hover:text-white transition-colors flex items-center gap-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> 04 Direct Desk
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 3. QUICK STATS BANNER                                                     -->
+  <!-- ========================================================================= -->
+  <section class="bg-forestDark text-stone-200 border-y border-sage-500/20 py-8 px-4 sm:px-6">
+    <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+      <div class="space-y-1">
+        <p class="font-serif-brand text-3xl sm:text-4xl font-bold text-amber-200">10+ Acres</p>
+        <p class="text-xs font-mono text-stone-400 uppercase tracking-wider">Lush Rural Sanctuary</p>
+      </div>
+      <div class="space-y-1">
+        <p class="font-serif-brand text-3xl sm:text-4xl font-bold text-sage-300">600+ Reviews</p>
+        <p class="text-xs font-mono text-stone-400 uppercase tracking-wider">4.5★ Verified Rating</p>
+      </div>
+      <div class="space-y-1">
+        <p class="font-serif-brand text-3xl sm:text-4xl font-bold text-sky-300">60 Minutes</p>
+        <p class="text-xs font-mono text-stone-400 uppercase tracking-wider">Drive from Kolkata</p>
+      </div>
+      <div class="space-y-1">
+        <p class="font-serif-brand text-3xl sm:text-4xl font-bold text-emerald-400">1,000+</p>
+        <p class="text-xs font-mono text-stone-400 uppercase tracking-wider">Wedding Lawn Capacity</p>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="py-8 px-6 border-t border-gray-200">
-    <div class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-      <div class="text-gray-400 text-sm">
-        Custom preview by <strong class="text-gray-600">LocalPulse AI</strong> · Built for Megh Bari Eco Resort
+  <!-- ========================================================================= -->
+  <!-- 4. FEATURE CARDS GRID (3 Columns with Authentic Extracted Stills)         -->
+  <!-- ========================================================================= -->
+  <section id="cottages-section" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sage-100 text-sage-800 border border-sage-300 text-xs font-mono uppercase tracking-wider font-semibold">
+        <i class="bi bi-sparkles text-sage-600"></i> The Authentic Megh Bari Experience
       </div>
-      <div class="flex items-center gap-4 text-gray-400">
-        <a href="mailto:samya.pegusus@gmail.com" class="hover:text-gray-600 transition"><i class="bi bi-envelope-fill"></i></a>
-        <a href="https://wa.me/+918617625059" target="_blank" class="hover:text-gray-600 transition"><i class="bi bi-whatsapp"></i></a>
-        <a href="tel:+91 8617625059" class="hover:text-gray-600 transition"><i class="bi bi-telephone-fill"></i></a>
+      <h2 class="font-serif-brand text-3xl sm:text-5xl font-extrabold text-stone-900 tracking-tight">
+        Crafted for Soul-Soothing Escapes
+      </h2>
+      <p class="text-stone-600 text-base sm:text-lg">
+        Step into an organic blend of authentic rural Bengal ambiance and contemporary comforts. Every square foot is curated for leisurely peace.
+      </p>
+    </div>
+
+    <!-- 3 Pillars Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      
+      <!-- Card 1: Lakeside Cottages & Private Verandas -->
+      <div class="group bg-white rounded-3xl overflow-hidden shadow-xl border border-stone-200/80 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col">
+        <div class="relative h-64 overflow-hidden bg-stone-100">
+          <img src="assets/shot_02.jpg" alt="Megh Bari Eco Resort Cottages" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <div class="absolute top-4 left-4">
+            <span class="px-3 py-1 rounded-full bg-forestDark/80 backdrop-blur-md text-amber-200 text-xs font-mono font-medium border border-white/20">
+              AC Cottages & Suites
+            </span>
+          </div>
+          <div class="absolute bottom-3 right-4 text-xs font-mono text-white/90 bg-black/50 px-2 py-0.5 rounded backdrop-blur-sm">
+            Authentic Footage
+          </div>
+        </div>
+
+        <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between space-y-4">
+          <div>
+            <h3 class="font-serif-brand text-2xl font-bold text-stone-900 group-hover:text-sage-700 transition-colors">
+              Lakeside Veranda Cottages
+            </h3>
+            <p class="text-stone-600 text-sm leading-relaxed mt-2">
+              Charming terracotta-roofed cottages with hand-worked bamboo verandas, comfortable garden recliners, air-conditioned bedrooms, and tranquil views of surrounding palm trees and flora.
+            </p>
+          </div>
+
+          <div class="border-t border-stone-100 pt-4 space-y-2 text-xs font-mono text-stone-500">
+            <div class="flex items-center justify-between">
+              <span class="flex items-center gap-1.5"><i class="bi bi-check-circle-fill text-sage-600"></i> King Bed & Premium Linen</span>
+              <span class="text-stone-800 font-bold">Included</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="flex items-center gap-1.5"><i class="bi bi-check-circle-fill text-sage-600"></i> Private Sit-Out Deck</span>
+              <span class="text-stone-800 font-bold">Yes</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="flex items-center gap-1.5"><i class="bi bi-check-circle-fill text-sage-600"></i> Fast Wi-Fi & Work Desk</span>
+              <span class="text-stone-800 font-bold">Available</span>
+            </div>
+          </div>
+
+          <a href="https://wa.me/918777687968?text=Hello%20Megh%20Bari,%20I%20would%20like%20to%20know%20availability%20for%20the%20Lakeside%20Cottages." 
+             target="_blank" rel="noopener noreferrer"
+             class="mt-4 w-full py-2.5 rounded-xl bg-stone-900 hover:bg-sage-700 text-white text-xs font-bold text-center block transition-colors">
+            Inquire Cottage Rates
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 2: Borsha Restaurant & Bengali Heritage Feast -->
+      <div id="borsha-dining" class="group bg-white rounded-3xl overflow-hidden shadow-xl border border-stone-200/80 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col">
+        <div class="relative h-64 overflow-hidden bg-stone-100">
+          <img src="assets/shot_03.jpg" alt="Borsha Restaurant Traditional Bengali Feast" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <div class="absolute top-4 left-4">
+            <span class="px-3 py-1 rounded-full bg-forestDark/80 backdrop-blur-md text-amber-300 text-xs font-mono font-medium border border-white/20">
+              Borsha Multi-Cuisine
+            </span>
+          </div>
+          <div class="absolute bottom-3 right-4 text-xs font-mono text-white/90 bg-black/50 px-2 py-0.5 rounded backdrop-blur-sm">
+            Bell-Metal Kashar Thali
+          </div>
+        </div>
+
+        <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between space-y-4">
+          <div>
+            <h3 class="font-serif-brand text-2xl font-bold text-stone-900 group-hover:text-sage-700 transition-colors">
+              Borsha Heritage Dining
+            </h3>
+            <p class="text-stone-600 text-sm leading-relaxed mt-2">
+              Served in timeless brass & bell-metal tableware (Kashar Thali). Relish authentic village recipes: Bhetki Paturi, Chingri Malai Curry, Desi Murgi Jhol, Katla Kalia, paired with piping Basmati & fresh Mishti.
+            </p>
+          </div>
+
+          <div class="border-t border-stone-100 pt-4 space-y-2 text-xs font-mono text-stone-500">
+            <div class="flex items-center justify-between">
+              <span class="flex items-center gap-1.5"><i class="bi bi-check-circle-fill text-sage-600"></i> Royal Bengali Thali</span>
+              <span class="text-stone-800 font-bold">Veg & Non-Veg</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="flex items-center gap-1.5"><i class="bi bi-check-circle-fill text-sage-600"></i> Chinese & Tandoor Spec.</span>
+              <span class="text-stone-800 font-bold">A la Carte</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="flex items-center gap-1.5"><i class="bi bi-check-circle-fill text-sage-600"></i> AC Indoor & Garden Dine</span>
+              <span class="text-stone-800 font-bold">150+ Seats</span>
+            </div>
+          </div>
+
+          <a href="https://wa.me/918777687968?text=Hello%20Megh%20Bari,%20please%20share%20the%20Borsha%20Restaurant%20food%20menu%20and%20thali%20prices." 
+             target="_blank" rel="noopener noreferrer"
+             class="mt-4 w-full py-2.5 rounded-xl bg-stone-900 hover:bg-wood-600 text-white text-xs font-bold text-center block transition-colors">
+            Request Dining Menu
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 3: Grand Lawns, Bonfire Nights & Swimming Pool -->
+      <div id="lawns-pool" class="group bg-white rounded-3xl overflow-hidden shadow-xl border border-stone-200/80 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col">
+        <div class="relative h-64 overflow-hidden bg-stone-100">
+          <img src="assets/shot_06.jpg" alt="Evening Bonfire at Megh Bari Eco Resort" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <div class="absolute top-4 left-4">
+            <span class="px-3 py-1 rounded-full bg-forestDark/80 backdrop-blur-md text-sky-200 text-xs font-mono font-medium border border-white/20">
+              Lawns, Bonfire & Pool
+            </span>
+          </div>
+          <div class="absolute bottom-3 right-4 text-xs font-mono text-white/90 bg-black/50 px-2 py-0.5 rounded backdrop-blur-sm">
+            Starlit Campfire
+          </div>
+        </div>
+
+        <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between space-y-4">
+          <div>
+            <h3 class="font-serif-brand text-2xl font-bold text-stone-900 group-hover:text-sage-700 transition-colors">
+              Celebration Lawns & Pool
+            </h3>
+            <p class="text-stone-600 text-sm leading-relaxed mt-2">
+              Sprawling open-air manicured lawns fit for grand destination weddings, pre-wedding shoots, and corporate retreats. Take an afternoon dip in the swimming pool, followed by acoustic guitars around a night campfire.
+            </p>
+          </div>
+
+          <div class="border-t border-stone-100 pt-4 space-y-2 text-xs font-mono text-stone-500">
+            <div class="flex items-center justify-between">
+              <span class="flex items-center gap-1.5"><i class="bi bi-check-circle-fill text-sage-600"></i> Open-Air Lawn Capacity</span>
+              <span class="text-stone-800 font-bold">1,000+ Guests</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="flex items-center gap-1.5"><i class="bi bi-check-circle-fill text-sage-600"></i> Crystal Swimming Pool</span>
+              <span class="text-stone-800 font-bold">Filtered Daily</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="flex items-center gap-1.5"><i class="bi bi-check-circle-fill text-sage-600"></i> Starlit Bonfire Setup</span>
+              <span class="text-stone-800 font-bold">Every Evening</span>
+            </div>
+          </div>
+
+          <a href="https://wa.me/918777687968?text=Hello%20Megh%20Bari,%20I%20am%20interested%20in%20booking%20the%20lawn/pool%20for%20an%20event." 
+             target="_blank" rel="noopener noreferrer"
+             class="mt-4 w-full py-2.5 rounded-xl bg-stone-900 hover:bg-emerald-700 text-white text-xs font-bold text-center block transition-colors">
+            Inquire Event Booking
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 5. FILMSTRIP MARQUEE (Infinite Horizontal Authentic Photo Strip)         -->
+  <!-- ========================================================================= -->
+  <section class="py-14 bg-forestDark overflow-hidden border-y border-sage-500/20">
+    <div class="max-w-7xl mx-auto px-4 mb-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div>
+        <p class="text-xs font-mono uppercase tracking-widest text-amber-300">Live Lens · Unfiltered Grounds</p>
+        <h3 class="font-serif-brand text-2xl sm:text-3xl font-bold text-white">Visual Chronicle of Megh Bari</h3>
+      </div>
+      <p class="text-xs font-mono text-stone-400">
+        <i class="bi bi-hand-index mr-1"></i> Hover to pause strip
+      </p>
+    </div>
+
+    <!-- The Infinite Sliding Ribbon -->
+    <div class="relative w-full overflow-hidden">
+      <div class="marquee-track flex gap-6 py-2">
+        
+        <!-- Item 1 -->
+        <div class="flex-shrink-0 w-80 sm:w-96 rounded-2xl overflow-hidden border border-sage-500/30 bg-forestCard group">
+          <div class="relative h-52">
+            <img src="assets/shot_01.jpg" alt="Aerial Lawn and Cottages" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-forestDark/85 text-[11px] font-mono text-sage-300 border border-white/10">Aerial Overview</span>
+          </div>
+          <div class="p-4 text-xs">
+            <h4 class="font-bold text-white font-serif-brand text-sm">Resort Grounds & Cottage Line</h4>
+            <p class="text-stone-400 mt-1">10+ acres of open green lawns framed by rural foliage.</p>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="flex-shrink-0 w-80 sm:w-96 rounded-2xl overflow-hidden border border-sage-500/30 bg-forestCard group">
+          <div class="relative h-52">
+            <img src="assets/shot_02.jpg" alt="Cottage Veranda" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-forestDark/85 text-[11px] font-mono text-amber-300 border border-white/10">Eco Architecture</span>
+          </div>
+          <div class="p-4 text-xs">
+            <h4 class="font-bold text-white font-serif-brand text-sm">Garden Arch & Veranda Porch</h4>
+            <p class="text-stone-400 mt-1">Hand-worked bamboo railings and terracotta roofline.</p>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="flex-shrink-0 w-80 sm:w-96 rounded-2xl overflow-hidden border border-sage-500/30 bg-forestCard group">
+          <div class="relative h-52">
+            <img src="assets/shot_03.jpg" alt="Bengali Thali at Borsha" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-forestDark/85 text-[11px] font-mono text-terracotta-400 border border-white/10">Borsha Cuisine</span>
+          </div>
+          <div class="p-4 text-xs">
+            <h4 class="font-bold text-white font-serif-brand text-sm">Traditional Bell-Metal Feast</h4>
+            <p class="text-stone-400 mt-1">Fresh fish delicacies and fragrant Gobindobhog rice.</p>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="flex-shrink-0 w-80 sm:w-96 rounded-2xl overflow-hidden border border-sage-500/30 bg-forestCard group">
+          <div class="relative h-52">
+            <img src="assets/shot_04.jpg" alt="Ducks in Eco Lake" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-forestDark/85 text-[11px] font-mono text-sky-300 border border-white/10">Natural Sanctuary</span>
+          </div>
+          <div class="p-4 text-xs">
+            <h4 class="font-bold text-white font-serif-brand text-sm">Tranquil Duck Lake</h4>
+            <p class="text-stone-400 mt-1">Clean water reservoir hosting peaceful waterfowl & greenery.</p>
+          </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="flex-shrink-0 w-80 sm:w-96 rounded-2xl overflow-hidden border border-sage-500/30 bg-forestCard group">
+          <div class="relative h-52">
+            <img src="assets/shot_05.jpg" alt="Poolside Lounger" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-forestDark/85 text-[11px] font-mono text-emerald-400 border border-white/10">Pool Oasis</span>
+          </div>
+          <div class="p-4 text-xs">
+            <h4 class="font-bold text-white font-serif-brand text-sm">Poolside Relaxation</h4>
+            <p class="text-stone-400 mt-1">Reclining sun-loungers, fresh mocktails, and cool dips.</p>
+          </div>
+        </div>
+
+        <!-- Item 6 -->
+        <div class="flex-shrink-0 w-80 sm:w-96 rounded-2xl overflow-hidden border border-sage-500/30 bg-forestCard group">
+          <div class="relative h-52">
+            <img src="assets/shot_06.jpg" alt="Night Campfire Guitar" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-forestDark/85 text-[11px] font-mono text-amber-400 border border-white/10">Night Bonfire</span>
+          </div>
+          <div class="p-4 text-xs">
+            <h4 class="font-bold text-white font-serif-brand text-sm">Acoustic Lawn Evenings</h4>
+            <p class="text-stone-400 mt-1">Unwind under starry skies with crackling timber and songs.</p>
+          </div>
+        </div>
+
+        <!-- Duplicate Set for Seamless Loop -->
+        <div class="flex-shrink-0 w-80 sm:w-96 rounded-2xl overflow-hidden border border-sage-500/30 bg-forestCard group">
+          <div class="relative h-52">
+            <img src="assets/shot_01.jpg" alt="Aerial Lawn and Cottages" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-forestDark/85 text-[11px] font-mono text-sage-300 border border-white/10">Aerial Overview</span>
+          </div>
+          <div class="p-4 text-xs">
+            <h4 class="font-bold text-white font-serif-brand text-sm">Resort Grounds & Cottage Line</h4>
+            <p class="text-stone-400 mt-1">10+ acres of open green lawns framed by rural foliage.</p>
+          </div>
+        </div>
+
+        <div class="flex-shrink-0 w-80 sm:w-96 rounded-2xl overflow-hidden border border-sage-500/30 bg-forestCard group">
+          <div class="relative h-52">
+            <img src="assets/shot_02.jpg" alt="Cottage Veranda" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-forestDark/85 text-[11px] font-mono text-amber-300 border border-white/10">Eco Architecture</span>
+          </div>
+          <div class="p-4 text-xs">
+            <h4 class="font-bold text-white font-serif-brand text-sm">Garden Arch & Veranda Porch</h4>
+            <p class="text-stone-400 mt-1">Hand-worked bamboo railings and terracotta roofline.</p>
+          </div>
+        </div>
+
+        <div class="flex-shrink-0 w-80 sm:w-96 rounded-2xl overflow-hidden border border-sage-500/30 bg-forestCard group">
+          <div class="relative h-52">
+            <img src="assets/shot_03.jpg" alt="Bengali Thali at Borsha" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-forestDark/85 text-[11px] font-mono text-terracotta-400 border border-white/10">Borsha Cuisine</span>
+          </div>
+          <div class="p-4 text-xs">
+            <h4 class="font-bold text-white font-serif-brand text-sm">Traditional Bell-Metal Feast</h4>
+            <p class="text-stone-400 mt-1">Fresh fish delicacies and fragrant Gobindobhog rice.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 6. INTERACTIVE PACKAGE CALCULATOR & ESTIMATOR                             -->
+  <!-- ========================================================================= -->
+  <section id="packages-calc" class="py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+    <div class="bg-white rounded-3xl p-6 sm:p-12 shadow-2xl border border-stone-200">
+      
+      <div class="max-w-2xl space-y-2 mb-8">
+        <span class="text-xs font-mono text-sage-600 font-bold uppercase tracking-wider">Instant Quote Generator</span>
+        <h2 class="font-serif-brand text-3xl sm:text-4xl font-extrabold text-stone-900">
+          Calculate Your Getaway Package
+        </h2>
+        <p class="text-stone-600 text-sm">
+          Select your visit style to see estimated rates and generate a pre-filled WhatsApp booking inquiry with zero waiting.
+        </p>
+      </div>
+
+      <!-- Package Selection Tabs -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-8">
+        <button id="pkg-tab-day" onclick="selectPackage('day')" class="p-4 rounded-2xl border-2 border-sage-500 bg-sage-50 text-left transition-all">
+          <div class="flex items-center justify-between">
+            <span class="font-serif-brand font-bold text-stone-900">Day Outing Pass</span>
+            <i class="bi bi-sun text-amber-500 text-lg"></i>
+          </div>
+          <p class="text-xs text-stone-500 mt-1">10:00 AM – 6:00 PM with Lunch & Pool</p>
+          <p class="text-xs font-mono font-bold text-sage-700 mt-2">From ₹999 / person</p>
+        </button>
+
+        <button id="pkg-tab-stay" onclick="selectPackage('stay')" class="p-4 rounded-2xl border border-stone-200 bg-white hover:border-sage-300 text-left transition-all">
+          <div class="flex items-center justify-between">
+            <span class="font-serif-brand font-bold text-stone-900">Weekend Cottage</span>
+            <i class="bi bi-moon-stars text-indigo-500 text-lg"></i>
+          </div>
+          <p class="text-xs text-stone-500 mt-1">Overnight Stay + Breakfast + Pool + Bonfire</p>
+          <p class="text-xs font-mono font-bold text-stone-700 mt-2">From ₹3,499 / night</p>
+        </button>
+
+        <button id="pkg-tab-event" onclick="selectPackage('event')" class="p-4 rounded-2xl border border-stone-200 bg-white hover:border-sage-300 text-left transition-all">
+          <div class="flex items-center justify-between">
+            <span class="font-serif-brand font-bold text-stone-900">Wedding & Event Lawn</span>
+            <i class="bi bi-flower1 text-rose-500 text-lg"></i>
+          </div>
+          <p class="text-xs text-stone-500 mt-1">Full Lawn + Banquet + 10 Cottages</p>
+          <p class="text-xs font-mono font-bold text-stone-700 mt-2">Custom Group Pricing</p>
+        </button>
+      </div>
+
+      <!-- Interactive Inputs -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 p-6 rounded-2xl bg-stone-50 border border-stone-200/80 mb-8">
+        <div>
+          <label class="block text-xs font-mono uppercase text-stone-600 mb-2 font-bold">Number of Guests</label>
+          <div class="flex items-center gap-3">
+            <input type="range" id="guest-count-slider" min="1" max="50" value="4" class="w-full accent-sage-600 cursor-pointer" oninput="updateCalculation()">
+            <span id="guest-count-val" class="w-10 text-center font-mono font-bold text-stone-900 bg-white px-2 py-1 rounded-lg border border-stone-300">4</span>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-mono uppercase text-stone-600 mb-2 font-bold">Preferred Day</label>
+          <select id="visit-type-select" onchange="updateCalculation()" class="w-full bg-white border border-stone-300 rounded-xl px-3 py-2 text-sm text-stone-800 focus:outline-none focus:border-sage-500">
+            <option value="weekend">Saturday / Sunday (Peak)</option>
+            <option value="weekday">Monday – Friday (15% Off)</option>
+            <option value="holiday">Festive Holiday (Durga Puja / New Year)</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-mono uppercase text-stone-600 mb-2 font-bold">Meal Preference</label>
+          <select id="meal-type-select" onchange="updateCalculation()" class="w-full bg-white border border-stone-300 rounded-xl px-3 py-2 text-sm text-stone-800 focus:outline-none focus:border-sage-500">
+            <option value="thali-nonveg">Borsha Royal Fish & Mutton Thali</option>
+            <option value="thali-veg">Traditional Bengali Veg Thali</option>
+            <option value="alacarte">A la Carte / Custom Catering</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Price Output Box & WhatsApp Action -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6 p-6 rounded-2xl bg-forestDark text-white">
+        <div>
+          <span class="text-xs font-mono text-sage-300 uppercase tracking-widest">Estimated Package Total</span>
+          <div class="flex items-baseline gap-2 mt-1">
+            <span id="calculated-price-display" class="font-serif-brand text-3xl sm:text-4xl font-extrabold text-amber-300">₹3,996</span>
+            <span id="price-disclaimer" class="text-xs font-mono text-stone-400">(Approx. ₹999/guest for 4 guests)</span>
+          </div>
+          <p class="text-xs text-stone-300 mt-1 flex items-center gap-1.5">
+            <i class="bi bi-shield-check text-emerald-400"></i> Includes Welcome Drink, Pool Access, Buffet Lunch & Evening Tea
+          </p>
+        </div>
+
+        <a id="whatsapp-calc-btn" 
+           href="https://wa.me/918777687968?text=Hello%20Megh%20Bari%20Eco%20Resort,%20I%20would%20like%20to%20book%20a%20Day%20Outing%20Pass%20for%204%20guests."
+           target="_blank" 
+           rel="noopener noreferrer"
+           class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm shadow-lg shadow-emerald-950 flex items-center justify-center gap-2 hover:scale-105 active:scale-95 transition-all">
+          <i class="bi bi-whatsapp text-lg"></i>
+          <span>Send Inquiry via WhatsApp</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 7. CELEBRITY VISITS & GUEST TESTIMONIALS                                   -->
+  <!-- ========================================================================= -->
+  <section class="py-16 bg-stone-100 border-t border-stone-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs font-mono text-terracotta-500 uppercase font-bold tracking-widest">Celebrity Footprints</span>
+        <h3 class="font-serif-brand text-3xl font-extrabold text-stone-900 mt-1">
+          Loved by Cultural Icons & Bengal Families
+        </h3>
+        <p class="text-stone-600 text-sm mt-2">
+          Megh Bari has been warmly visited and endorsed by Bengal’s most beloved screen personalities and artists.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Celebrity Card 1 -->
+        <div class="p-6 rounded-2xl bg-white shadow-md border border-stone-200 flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="flex items-center gap-1 text-amber-400 text-sm">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+            </div>
+            <p class="text-stone-700 text-sm italic leading-relaxed">
+              “Superstar Prosenjit Chatterjee extended heartfelt gratitude to Megh Bari Eco Resort for creating such a tranquil rural haven so close to the city.”
+            </p>
+          </div>
+          <div class="pt-4 border-t border-stone-100 flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-amber-100 text-amber-800 flex items-center justify-center font-bold text-sm">PC</div>
+            <div>
+              <p class="font-bold text-xs text-stone-900">Mr. Prosenjit Chatterjee</p>
+              <p class="text-[11px] text-stone-500">Legendary Bengali Actor & Cultural Icon</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Celebrity Card 2 -->
+        <div class="p-6 rounded-2xl bg-white shadow-md border border-stone-200 flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="flex items-center gap-1 text-amber-400 text-sm">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+            </div>
+            <p class="text-stone-700 text-sm italic leading-relaxed">
+              “Renowned actor Bhaskar Banerjee appreciated the pristine village atmosphere, hospitality, and serene pond views during his visit with family.”
+            </p>
+          </div>
+          <div class="pt-4 border-t border-stone-100 flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-sage-100 text-sage-800 flex items-center justify-center font-bold text-sm">BB</div>
+            <div>
+              <p class="font-bold text-xs text-stone-900">Mr. Bhaskar Banerjee</p>
+              <p class="text-[11px] text-stone-500">Acclaimed Screen Actor</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Celebrity Card 3 -->
+        <div class="p-6 rounded-2xl bg-white shadow-md border border-stone-200 flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="flex items-center gap-1 text-amber-400 text-sm">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+            </div>
+            <p class="text-stone-700 text-sm italic leading-relaxed">
+              “Popular anchor Tamalika & actress Chaiti Ghoshal celebrated family milestones amidst the lush lawns, lake breeze, and Borsha restaurant’s thalis.”
+            </p>
+          </div>
+          <div class="pt-4 border-t border-stone-100 flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-sm">TG</div>
+            <div>
+              <p class="font-bold text-xs text-stone-900">Tamalika & Chaiti Ghoshal</p>
+              <p class="text-[11px] text-stone-500">Television Presenters & Artists</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 8. LOCATION, GPS & ROUTE DIRECTIONS GUIDE                                 -->
+  <!-- ========================================================================= -->
+  <section id="location-guide" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      
+      <!-- Left: Directions Info -->
+      <div class="space-y-6">
+        <div>
+          <span class="text-xs font-mono text-terracotta-500 uppercase font-bold tracking-wider">Effortless Highway Access</span>
+          <h2 class="font-serif-brand text-3xl sm:text-5xl font-extrabold text-stone-900 mt-1">
+            Just 60 Minutes from Kolkata Off NH-12
+          </h2>
+          <p class="text-stone-600 text-base mt-2">
+            Located in peaceful Jagadishpur (PO Dighra, Chakdah, Nadia), Megh Bari offers an effortless escape from city traffic via the smooth Kalyani Expressway / NH-12 corridor.
+          </p>
+        </div>
+
+        <!-- Coordinates Box -->
+        <div class="p-4 rounded-2xl bg-white border border-stone-200 flex items-center justify-between font-mono text-xs">
+          <div class="flex items-center gap-2 text-stone-700">
+            <i class="bi bi-geo-alt-fill text-terracotta-500 text-base"></i>
+            <span>GPS: 23.0812° N, 88.5284° E</span>
+          </div>
+          <span class="px-2.5 py-1 rounded bg-stone-100 text-stone-600 font-bold">Pin: 741222</span>
+        </div>
+
+        <!-- Distance Counters -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 font-mono text-center">
+          <div class="p-3 rounded-xl bg-white border border-stone-200">
+            <span class="block text-xl font-bold text-stone-900">62 km</span>
+            <span class="text-[10px] text-stone-500 uppercase">Kolkata Airport</span>
+          </div>
+          <div class="p-3 rounded-xl bg-white border border-stone-200">
+            <span class="block text-xl font-bold text-stone-900">18 km</span>
+            <span class="text-[10px] text-stone-500 uppercase">Kalyani City</span>
+          </div>
+          <div class="p-3 rounded-xl bg-white border border-stone-200">
+            <span class="block text-xl font-bold text-stone-900">4.5 km</span>
+            <span class="text-[10px] text-stone-500 uppercase">Chakdah Station</span>
+          </div>
+          <div class="p-3 rounded-xl bg-white border border-stone-200">
+            <span class="block text-xl font-bold text-stone-900">22 km</span>
+            <span class="text-[10px] text-stone-500 uppercase">Ranaghat</span>
+          </div>
+        </div>
+
+        <!-- Driving Steps -->
+        <div class="space-y-3 text-xs sm:text-sm text-stone-600">
+          <div class="flex items-start gap-3">
+            <span class="w-6 h-6 rounded-full bg-sage-200 text-sage-800 font-mono font-bold flex items-center justify-center flex-shrink-0 text-xs">1</span>
+            <p>Take Kalyani Expressway from Kolkata (Airport / Dunlop) directly north towards Kanchrapara & Chakdah.</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="w-6 h-6 rounded-full bg-sage-200 text-sage-800 font-mono font-bold flex items-center justify-center flex-shrink-0 text-xs">2</span>
+            <p>At Chakdah junction on NH-12, take the Jagadishpur – Dighra road (4 km smooth rural drive amidst green fields).</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="w-6 h-6 rounded-full bg-sage-200 text-sage-800 font-mono font-bold flex items-center justify-center flex-shrink-0 text-xs">3</span>
+            <p>Arrive at the grand entrance gates of Megh Bari Eco Resort with expansive dedicated car parking.</p>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap gap-3 pt-2">
+          <a href="https://maps.google.com/?q=Megh+Bari+Eco+Resort+Chakdaha+Nadia" 
+             target="_blank" rel="noopener noreferrer"
+             class="px-5 py-3 rounded-xl bg-stone-900 hover:bg-stone-800 text-white font-bold text-xs font-mono flex items-center gap-2 shadow-md">
+            <i class="bi bi-map-fill text-amber-400"></i>
+            <span>Open in Google Maps</span>
+          </a>
+
+          <a href="tel:+918777687968" class="px-5 py-3 rounded-xl bg-white border border-stone-300 hover:bg-stone-50 text-stone-800 font-bold text-xs font-mono flex items-center gap-2">
+            <i class="bi bi-telephone text-sage-600"></i>
+            <span>Resort Helpdesk: +91 87776 87968</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: Map Graphic / Card -->
+      <div class="bg-forestDark rounded-3xl p-8 text-white relative overflow-hidden border border-sage-500/30 shadow-2xl">
+        <div class="absolute -right-10 -bottom-10 w-64 h-64 rounded-full bg-sage-500/10 blur-3xl pointer-events-none"></div>
+
+        <div class="space-y-4">
+          <div class="flex items-center justify-between border-b border-white/10 pb-4">
+            <div>
+              <h4 class="font-serif-brand text-2xl font-bold">Megh Bari Eco Resort</h4>
+              <p class="text-xs font-mono text-sage-300">Vill: Jagadishpur, PO: Dighra, Chakdah, Nadia 741222</p>
+            </div>
+            <span class="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-mono border border-emerald-500/30">OPEN NOW</span>
+          </div>
+
+          <!-- Stylized Road Map Visual -->
+          <div class="h-64 rounded-2xl bg-forestCard border border-sage-500/20 relative overflow-hidden p-6 flex flex-col justify-between">
+            <div class="flex justify-between items-start">
+              <div class="flex items-center gap-2 text-xs font-mono text-stone-300">
+                <i class="bi bi-water text-sky-400 text-lg"></i>
+                <span>Lakeside Nature Sanctuary</span>
+              </div>
+              <span class="text-[11px] font-mono text-amber-300">NH-12 Connector</span>
+            </div>
+
+            <div class="space-y-2 text-center py-4">
+              <div class="w-12 h-12 mx-auto rounded-full bg-red-600/30 border border-red-500 text-red-400 flex items-center justify-center text-xl glow-pulse">
+                <i class="bi bi-geo-alt-fill"></i>
+              </div>
+              <p class="font-bold text-sm text-white">Megh Bari Eco Resort Destination</p>
+              <p class="text-xs text-stone-400 font-mono">Chakdah · Nadia · West Bengal</p>
+            </div>
+
+            <div class="flex justify-between items-center text-[11px] font-mono text-stone-400 border-t border-white/10 pt-3">
+              <span>Car Parking: Free & Secured</span>
+              <span>Driver Accommodations: Yes</span>
+            </div>
+          </div>
+
+          <!-- Direct Phone numbers -->
+          <div class="pt-2 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono text-stone-300">
+            <div>
+              <span class="text-stone-400 block text-[10px]">RESERVATION PHONES</span>
+              <span class="font-bold text-white">+91 87776 87968 / +91 98324 54233</span>
+            </div>
+            <a href="https://wa.me/918777687968?text=Hello%20Megh%20Bari,%20please%20send%20me%20your%20exact%20Google%20location%20pin." 
+               target="_blank" rel="noopener noreferrer"
+               class="px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold transition-colors flex items-center gap-1.5">
+              <i class="bi bi-whatsapp"></i> Get Location on WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 9. LOCALPULSE AI PITCH MEMO (Personalized to Resort Administration)       -->
+  <!-- ========================================================================= -->
+  <section id="pitch-memo" class="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+    <div class="bg-gradient-to-br from-stone-900 to-forestDark text-white rounded-3xl p-8 sm:p-14 shadow-2xl border-2 border-amber-400/40 relative overflow-hidden">
+      
+      <!-- Top Memo Header -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-6 mb-8">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-xl bg-amber-400/20 border border-amber-400/40 flex items-center justify-center text-amber-300 text-2xl">
+            <i class="bi bi-cpu-fill"></i>
+          </div>
+          <div>
+            <span class="text-xs font-mono uppercase tracking-widest text-amber-300 font-bold">LocalPulse AI Diagnostic Memo</span>
+            <h3 class="font-serif-brand text-2xl sm:text-3xl font-bold text-white">Private Growth Advisory for Megh Bari Eco Resort</h3>
+          </div>
+        </div>
+
+        <div class="text-right font-mono text-xs text-stone-400">
+          <span class="block">Date: September 2026</span>
+          <span class="text-emerald-400 font-bold">Status: Bespoke Prototype Ready</span>
+        </div>
+      </div>
+
+      <!-- Addressed Box -->
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-4 sm:p-6 mb-6 font-mono text-xs space-y-1">
+        <p><span class="text-stone-400">TO:</span> <span class="text-amber-200 font-bold">Resort Administration & Management Team</span>, Megh Bari Eco Resort (Founder: Smt. Mithu Ghoshal)</p>
+        <p><span class="text-stone-400">LOCATION:</span> Jagadishpur, Dighra, Chakdah, Nadia 741222 (Off NH-12)</p>
+        <p><span class="text-stone-400">SUBJECT:</span> Critical Digital Presence Upgrade & Direct WhatsApp Booking Architecture</p>
+      </div>
+
+      <!-- Memo Body Content -->
+      <div class="space-y-4 text-stone-300 text-sm sm:text-base leading-relaxed">
+        <p>
+          <strong class="text-white">Dear Resort Administration,</strong>
+        </p>
+
+        <p>
+          Megh Bari Eco Resort possesses everything urban travelers crave: authentic rural green acreage, tranquil duck lakes, red-roofed cottages with private verandas, swimming pool relaxation, and Borsha Restaurant’s magnificent traditional Bengali thali served in regal brassware. Your 600+ Google Reviews (4.5★) and celebrity endorsements from superstars like Prosenjit Chatterjee prove your remarkable hospitality.
+        </p>
+
+        <!-- Problem Highlight Box -->
+        <div class="p-5 rounded-2xl bg-red-950/40 border border-red-500/40 space-y-2">
+          <div class="flex items-center gap-2 text-red-300 font-bold font-mono text-xs uppercase">
+            <i class="bi bi-exclamation-triangle-fill text-amber-400"></i>
+            <span>The High-Cost Friction Point Detected</span>
+          </div>
+          <p class="text-stone-300 text-xs sm:text-sm">
+            When prospective guests from Kolkata, Salt Lake, and New Town search for your official web portal today, your server returns <strong>HTTP 406 Not Acceptable errors</strong>, leaving visitors stranded with no room photos, no transparent package rates, and zero instant booking options. Hundreds of high-ticket weekend cottage bookings and wedding inquiries slip away every month simply because Kolkata guests cannot preview the property interactively.
+          </p>
+        </div>
+
+        <p>
+          <strong class="text-white">The Solution We Built For You:</strong> We created this high-performance, GSAP-powered scroll-camera track demo using authentic video footage of your lawns, cottages, pool, and Borsha thali. Rather than passive static pages, guests physically glide through your resort with each scroll — leading straight to a 1-tap WhatsApp booking concierge that lands directly on your reservation desk.
+        </p>
+
+        <!-- Benchmark Reference -->
+        <div class="p-5 rounded-2xl bg-amber-950/30 border border-amber-400/40 space-y-2 font-mono text-xs">
+          <div class="flex items-center gap-2 text-amber-300 font-bold uppercase">
+            <i class="bi bi-trophy-fill text-amber-400"></i>
+            <span>Verified Benchmark — Mother's Hut Krishnanagar (NH-12)</span>
+          </div>
+          <p class="text-stone-300">
+            We implemented a similar digital experience for Mother's Hut Krishnanagar on the same NH-12 highway corridor. You can inspect that live benchmark here:
+          </p>
+          <a href="https://samya666.github.io/mothers-hut-redesign/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-amber-300 underline font-bold hover:text-amber-200">
+            <span>https://samya666.github.io/mothers-hut-redesign/</span>
+            <i class="bi bi-box-arrow-up-right text-[11px]"></i>
+          </a>
+        </div>
+
+        <p>
+          We would love to hand over this complete interactive experience, custom-tailored to your exact tariff sheets and seasonal packages, with zero downtime.
+        </p>
+      </div>
+
+      <!-- Samya Contact Box -->
+      <div class="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+        <div>
+          <p class="font-serif-brand text-lg font-bold text-white">Samya pegusus</p>
+          <p class="text-xs font-mono text-stone-400">Lead Architect · LocalPulse AI Restaurant & Resort Digital Engine</p>
+          <div class="flex items-center gap-4 mt-2 text-xs font-mono text-stone-300">
+            <span class="flex items-center gap-1.5"><i class="bi bi-telephone-fill text-sage-400"></i> +91 8617625059</span>
+            <span class="flex items-center gap-1.5"><i class="bi bi-envelope-fill text-amber-400"></i> samya.pegusus@gmail.com</span>
+          </div>
+        </div>
+
+        <a href="https://wa.me/918617625059?text=Hello%20Samya,%20we%20reviewed%20the%20Megh%20Bari%20Eco%20Resort%20interactive%20demo%20and%20would%20like%20to%20discuss%20deploying%20it." 
+           target="_blank" rel="noopener noreferrer"
+           class="px-6 py-3.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-stone-900 font-bold text-xs font-mono flex items-center gap-2 shadow-xl hover:scale-105 active:scale-95 transition-all">
+          <i class="bi bi-chat-dots-fill text-base"></i>
+          <span>Discuss Deployment on WhatsApp</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 10. FAQ SECTION                                                           -->
+  <!-- ========================================================================= -->
+  <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+    <div class="text-center mb-10 space-y-2">
+      <span class="text-xs font-mono text-sage-600 font-bold uppercase tracking-wider">Help & Guest Guidelines</span>
+      <h3 class="font-serif-brand text-3xl font-extrabold text-stone-900">Frequently Asked Questions</h3>
+    </div>
+
+    <div class="space-y-4">
+      
+      <details class="group bg-white rounded-2xl border border-stone-200 p-5 shadow-sm [&_summary::-webkit-details-marker]:hidden">
+        <summary class="flex items-center justify-between cursor-pointer font-serif-brand font-bold text-stone-900 text-lg">
+          <span>What are the check-in and check-out timings for cottages?</span>
+          <span class="transition duration-300 group-open:-rotate-180">
+            <i class="bi bi-chevron-down text-stone-400 text-sm"></i>
+          </span>
+        </summary>
+        <p class="mt-3 text-stone-600 text-sm leading-relaxed border-t border-stone-100 pt-3">
+          Check-in is at 12:00 PM and check-out is at 10:00 AM. Early check-in or late check-out is subject to availability and can be arranged in advance via our WhatsApp reservation desk.
+        </p>
+      </details>
+
+      <details class="group bg-white rounded-2xl border border-stone-200 p-5 shadow-sm [&_summary::-webkit-details-marker]:hidden">
+        <summary class="flex items-center justify-between cursor-pointer font-serif-brand font-bold text-stone-900 text-lg">
+          <span>Is swimming pool access included with Day Outing and Cottage bookings?</span>
+          <span class="transition duration-300 group-open:-rotate-180">
+            <i class="bi bi-chevron-down text-stone-400 text-sm"></i>
+          </span>
+        </summary>
+        <p class="mt-3 text-stone-600 text-sm leading-relaxed border-t border-stone-100 pt-3">
+          Yes! Swimming pool access with reclining sun-loungers is complimentary for overnight cottage guests and Day Outing package holders. Proper nylon swimwear is required.
+        </p>
+      </details>
+
+      <details class="group bg-white rounded-2xl border border-stone-200 p-5 shadow-sm [&_summary::-webkit-details-marker]:hidden">
+        <summary class="flex items-center justify-between cursor-pointer font-serif-brand font-bold text-stone-900 text-lg">
+          <span>What culinary options are offered at Borsha Restaurant?</span>
+          <span class="transition duration-300 group-open:-rotate-180">
+            <i class="bi bi-chevron-down text-stone-400 text-sm"></i>
+          </span>
+        </summary>
+        <p class="mt-3 text-stone-600 text-sm leading-relaxed border-t border-stone-100 pt-3">
+          Borsha Restaurant specializes in authentic Bengali thalis served in traditional Kashar tableware (featuring freshwater Katla, Bhetki Paturi, Golda Chingri, and Kosha Mangsho) along with North Indian, Tandoor, and popular Chinese favorites. Pure vegetarian thalis are also prepared with dedicated purity.
+        </p>
+      </details>
+
+      <details class="group bg-white rounded-2xl border border-stone-200 p-5 shadow-sm [&_summary::-webkit-details-marker]:hidden">
+        <summary class="flex items-center justify-between cursor-pointer font-serif-brand font-bold text-stone-900 text-lg">
+          <span>Can we host destination weddings, pre-wedding shoots, or corporate offsites?</span>
+          <span class="transition duration-300 group-open:-rotate-180">
+            <i class="bi bi-chevron-down text-stone-400 text-sm"></i>
+          </span>
+        </summary>
+        <p class="mt-3 text-stone-600 text-sm leading-relaxed border-t border-stone-100 pt-3">
+          Yes! Our expansive open-air celebration lawns can host over 1,000 guests, complete with indoor banquet facilities, stage setups, sound systems, lawn lighting, and full cottage buyouts for weddings and team offsites.
+        </p>
+      </details>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 11. FOOTER                                                                -->
+  <!-- ========================================================================= -->
+  <footer class="bg-forestDark text-stone-400 pt-16 pb-24 sm:pb-16 border-t border-sage-500/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+        
+        <!-- Col 1 -->
+        <div class="space-y-4 md:col-span-2">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-sage-600 flex items-center justify-center text-white">
+              <i class="bi bi-cloud-sun text-xl"></i>
+            </div>
+            <span class="font-serif-brand text-2xl font-bold text-white">Megh Bari Eco Resort</span>
+          </div>
+          <p class="text-sm text-stone-300 max-w-md leading-relaxed">
+            A serene eco-tourism sanctuary in Chakdah, Nadia. 10+ acres of rural peace, private veranda cottages, Borsha heritage dining, starlit bonfires, and crystal swimming pools just one hour drive from Kolkata.
+          </p>
+          <div class="flex items-center gap-3 text-sm font-mono text-sage-300">
+            <i class="bi bi-star-fill text-amber-400"></i>
+            <span>600+ Google Reviews (4.5★)</span>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div class="space-y-3">
+          <h4 class="font-mono text-xs uppercase text-amber-300 font-bold tracking-wider">Quick Navigation</h4>
+          <ul class="space-y-2 text-xs font-mono text-stone-300">
+            <li><a href="#hero-track-container" class="hover:text-sage-300 transition-colors">Virtual Drone Tour</a></li>
+            <li><a href="#cottages-section" class="hover:text-sage-300 transition-colors">Lakeside Cottages</a></li>
+            <li><a href="#borsha-dining" class="hover:text-sage-300 transition-colors">Borsha Restaurant</a></li>
+            <li><a href="#lawns-pool" class="hover:text-sage-300 transition-colors">Wedding Lawns & Pool</a></li>
+            <li><a href="#packages-calc" class="hover:text-sage-300 transition-colors">Rate Calculator</a></li>
+            <li><a href="#location-guide" class="hover:text-sage-300 transition-colors">GPS & Route Directions</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Direct Contacts -->
+        <div class="space-y-3">
+          <h4 class="font-mono text-xs uppercase text-amber-300 font-bold tracking-wider">Resort Contacts</h4>
+          <div class="space-y-2 text-xs font-mono text-stone-300">
+            <p class="flex items-center gap-2">
+              <i class="bi bi-telephone-fill text-sage-400"></i>
+              <span>+91 87776 87968</span>
+            </p>
+            <p class="flex items-center gap-2">
+              <i class="bi bi-telephone text-sage-400"></i>
+              <span>+91 98324 54233</span>
+            </p>
+            <p class="flex items-center gap-2">
+              <i class="bi bi-whatsapp text-emerald-400"></i>
+              <span>+91 70297 11653</span>
+            </p>
+            <p class="flex items-start gap-2 pt-1 text-stone-400">
+              <i class="bi bi-geo-alt-fill text-terracotta-400 flex-shrink-0"></i>
+              <span>Vill: Jagadishpur, PO: Dighra, Chakdah, Nadia 741222</span>
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-stone-400">
+        <p>© 2026 Megh Bari Eco Resort. All Rights Reserved.</p>
+        <p class="text-stone-400 flex items-center gap-1.5">
+          <span>Engineered by</span>
+          <a href="#pitch-memo" class="text-sage-300 font-bold hover:underline">LocalPulse AI</a>
+          <span>· GSAP Camera-Track Architecture</span>
+        </p>
       </div>
     </div>
   </footer>
 
+  <!-- ========================================================================= -->
+  <!-- 12. STICKY MOBILE BOTTOM BAR (WhatsApp, Call, Maps)                       -->
+  <!-- ========================================================================= -->
+  <div class="sm:hidden fixed bottom-0 left-0 right-0 z-50 bg-forestDark/95 backdrop-blur-lg border-t border-sage-500/30 px-3 py-2.5 flex items-center justify-around gap-2 shadow-2xl">
+    <a href="https://wa.me/918777687968?text=Hello%20Megh%20Bari%20Eco%20Resort,%20I%20would%20like%20to%20inquire%20about%20cottage%20booking." 
+       target="_blank" rel="noopener noreferrer"
+       class="flex-1 py-2.5 px-3 rounded-xl bg-emerald-600 text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow-lg active:scale-95 transition-transform">
+      <i class="bi bi-whatsapp text-base"></i>
+      <span>WhatsApp</span>
+    </a>
+
+    <a href="tel:+918777687968" 
+       class="flex-1 py-2.5 px-3 rounded-xl bg-white/10 border border-white/20 text-white font-bold text-xs flex items-center justify-center gap-1.5 active:scale-95 transition-transform">
+      <i class="bi bi-telephone-fill text-sage-300 text-sm"></i>
+      <span>Call Desk</span>
+    </a>
+
+    <a href="https://maps.google.com/?q=Megh+Bari+Eco+Resort+Chakdaha+Nadia" 
+       target="_blank" rel="noopener noreferrer"
+       class="py-2.5 px-3 rounded-xl bg-white/10 border border-white/20 text-white font-bold text-xs flex items-center justify-center gap-1.5 active:scale-95 transition-transform">
+      <i class="bi bi-map-fill text-amber-400 text-sm"></i>
+      <span>Maps</span>
+    </a>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- 13. GSAP SCROLLTRIGGER SCRIPT & INTERACTION ENGINE                        -->
+  <!-- ========================================================================= -->
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    const video = document.getElementById('hero-scrub-video');
+    const station1 = document.getElementById('station-1');
+    const station2 = document.getElementById('station-2');
+    const station3 = document.getElementById('station-3');
+    const station4 = document.getElementById('station-4');
+
+    const progressFill = document.getElementById('scrub-progress-fill');
+    const percentLabel = document.getElementById('scrub-percent-label');
+    const stationLabel = document.getElementById('active-station-label');
+    const autoplayBtn = document.getElementById('toggle-autoplay-btn');
+    const autoplayIcon = document.getElementById('autoplay-icon');
+    const autoplayLabel = document.getElementById('autoplay-label');
+
+    let videoDuration = 22.0;
+    let targetVideoTime = 0;
+    let isAutoplayActive = false;
+    let autoplayInterval = null;
+
+    // Load video metadata
+    video.addEventListener('loadedmetadata', () => {
+      if (video.duration && !isNaN(video.duration)) {
+        videoDuration = video.duration;
+      }
+    });
+
+    // Station descriptions
+    const stationNames = [
+      { max: 0.23, text: '01 · Welcome to Megh Bari' },
+      { max: 0.56, text: '02 · Lakeside Veranda Cottages' },
+      { max: 0.81, text: '03 · Borsha Dining & Lawns' },
+      { max: 1.00, text: '04 · Direct Reservation Desk' }
+    ];
+
+    function updateHeroStations(p) {
+      // 1. Station 1 (0% to 22%)
+      if (p <= 0.22) {
+        const opacity = 1 - (p / 0.22);
+        station1.style.opacity = opacity;
+        station1.style.transform = `translateY(-${p * 50}px)`;
+        station1.style.pointerEvents = opacity > 0.4 ? 'auto' : 'none';
+      } else {
+        station1.style.opacity = '0';
+        station1.style.pointerEvents = 'none';
+      }
+
+      // 2. Station 2 (25% to 55%)
+      if (p >= 0.25 && p <= 0.55) {
+        let opacity = 0;
+        if (p < 0.35) opacity = (p - 0.25) / 0.10;
+        else if (p > 0.45) opacity = 1 - (p - 0.45) / 0.10;
+        else opacity = 1;
+
+        station2.style.opacity = Math.max(0, Math.min(1, opacity));
+        station2.style.transform = `translateY(${(0.40 - p) * 35}px)`;
+        station2.style.pointerEvents = opacity > 0.5 ? 'auto' : 'none';
+      } else {
+        station2.style.opacity = '0';
+        station2.style.pointerEvents = 'none';
+      }
+
+      // 3. Station 3 (58% to 80%)
+      if (p >= 0.58 && p <= 0.80) {
+        let opacity = 0;
+        if (p < 0.65) opacity = (p - 0.58) / 0.07;
+        else if (p > 0.73) opacity = 1 - (p - 0.73) / 0.07;
+        else opacity = 1;
+
+        station3.style.opacity = Math.max(0, Math.min(1, opacity));
+        station3.style.transform = `translateY(${(0.69 - p) * 35}px)`;
+        station3.style.pointerEvents = opacity > 0.5 ? 'auto' : 'none';
+      } else {
+        station3.style.opacity = '0';
+        station3.style.pointerEvents = 'none';
+      }
+
+      // 4. Station 4 (82% to 100%)
+      if (p >= 0.82) {
+        const opacity = Math.min(1, (p - 0.82) / 0.08);
+        station4.style.opacity = opacity;
+        station4.style.transform = `translateY(${(1 - p) * 20}px)`;
+        station4.style.pointerEvents = opacity > 0.5 ? 'auto' : 'none';
+      } else {
+        station4.style.opacity = '0';
+        station4.style.pointerEvents = 'none';
+      }
+
+      // Update scrub bar and label
+      const pct = Math.round(p * 100);
+      progressFill.style.width = `${pct}%`;
+      percentLabel.innerText = `${pct}%`;
+
+      for (let s of stationNames) {
+        if (p <= s.max) {
+          stationLabel.innerText = s.text;
+          break;
+        }
+      }
+    }
+
+    // ScrollTrigger creation
+    const heroScrollTrigger = ScrollTrigger.create({
+      trigger: '#hero-track-container',
+      start: 'top top',
+      end: 'bottom bottom',
+      scrub: 0.25,
+      onUpdate: (self) => {
+        if (!isAutoplayActive) {
+          const p = Math.max(0, Math.min(1, self.progress));
+          targetVideoTime = p * Math.max(0, videoDuration - 0.1);
+          updateHeroStations(p);
+        }
+      }
+    });
+
+    // Smooth Lerp loop for silky scrubbing without video stall
+    function smoothVideoScrubLoop() {
+      if (!isAutoplayActive && video.readyState >= 2) {
+        const diff = targetVideoTime - video.currentTime;
+        if (Math.abs(diff) > 0.02) {
+          video.currentTime += diff * 0.35;
+        }
+      }
+      requestAnimationFrame(smoothVideoScrubLoop);
+    }
+    requestAnimationFrame(smoothVideoScrubLoop);
+
+    // Jump to specific station
+    window.jumpToStation = function(fraction) {
+      if (isAutoplayActive) toggleAutoplay();
+      const track = document.getElementById('hero-track-container');
+      const targetScroll = track.offsetTop + fraction * (track.offsetHeight - window.innerHeight);
+      window.scrollTo({ top: targetScroll, behavior: 'smooth' });
+    };
+
+    // Click on progress bar to seek
+    const progressClicker = document.getElementById('scrub-progress-clicker');
+    progressClicker.addEventListener('click', (e) => {
+      const rect = progressClicker.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      const frac = Math.max(0, Math.min(1, clickX / rect.width));
+      jumpToStation(frac);
+    });
+
+    // Autoplay feature
+    function toggleAutoplay() {
+      isAutoplayActive = !isAutoplayActive;
+      if (isAutoplayActive) {
+        video.play();
+        autoplayIcon.className = 'bi bi-pause-fill text-sm';
+        autoplayLabel.innerText = 'Pause Tour';
+        autoplayInterval = setInterval(() => {
+          if (video.duration) {
+            const p = video.currentTime / video.duration;
+            updateHeroStations(p);
+            if (p >= 0.98) {
+              video.currentTime = 0;
+            }
+          }
+        }, 100);
+      } else {
+        video.pause();
+        clearInterval(autoplayInterval);
+        autoplayIcon.className = 'bi bi-play-fill text-sm';
+        autoplayLabel.innerText = 'Play Tour';
+      }
+    }
+    autoplayBtn.addEventListener('click', toggleAutoplay);
+
+    // Dynamic Package Calculator Logic
+    let currentPkgType = 'day';
+
+    window.selectPackage = function(type) {
+      currentPkgType = type;
+      ['day', 'stay', 'event'].forEach(t => {
+        const tab = document.getElementById(`pkg-tab-${t}`);
+        if (t === type) {
+          tab.className = 'p-4 rounded-2xl border-2 border-sage-500 bg-sage-50 text-left transition-all';
+        } else {
+          tab.className = 'p-4 rounded-2xl border border-stone-200 bg-white hover:border-sage-300 text-left transition-all';
+        }
+      });
+      updateCalculation();
+    };
+
+    window.updateCalculation = function() {
+      const guestCount = parseInt(document.getElementById('guest-count-slider').value);
+      document.getElementById('guest-count-val').innerText = guestCount;
+      const visitType = document.getElementById('visit-type-select').value;
+      const mealType = document.getElementById('meal-type-select').value;
+
+      let basePrice = 0;
+      let disclaimer = '';
+      let packageTitle = '';
+
+      if (currentPkgType === 'day') {
+        packageTitle = 'Day Outing Pass';
+        let perHead = 999;
+        if (mealType === 'thali-veg') perHead = 849;
+        if (mealType === 'alacarte') perHead = 699;
+        if (visitType === 'weekday') perHead = Math.round(perHead * 0.85);
+
+        basePrice = perHead * guestCount;
+        disclaimer = `(Approx. ₹${perHead}/guest for ${guestCount} guests)`;
+      } else if (currentPkgType === 'stay') {
+        packageTitle = 'Weekend Cottage Stay';
+        const cottageCount = Math.max(1, Math.ceil(guestCount / 2));
+        let cottageRate = 3499;
+        if (visitType === 'weekday') cottageRate = 2999;
+        if (visitType === 'holiday') cottageRate = 4199;
+
+        let mealAddon = 0;
+        if (mealType === 'thali-nonveg') mealAddon = 550 * guestCount;
+        if (mealType === 'thali-veg') mealAddon = 400 * guestCount;
+
+        basePrice = (cottageRate * cottageCount) + mealAddon;
+        disclaimer = `(${cottageCount} Cottage(s) + breakfast for ${guestCount} guests)`;
+      } else {
+        packageTitle = 'Grand Celebration & Lawn Booking';
+        basePrice = 45000 + (guestCount * 450);
+        disclaimer = `(Full lawn buyout + basic decor + catering estimate)`;
+      }
+
+      document.getElementById('calculated-price-display').innerText = `₹${basePrice.toLocaleString('en-IN')}`;
+      document.getElementById('price-disclaimer').innerText = disclaimer;
+
+      // Update WhatsApp URL
+      const text = `Hello Megh Bari Eco Resort! I calculated an estimate for ${packageTitle} for ${guestCount} guests (${visitType}, ${mealType}) with total approx ₹${basePrice.toLocaleString('en-IN')}. Please confirm availability and booking procedure.`;
+      document.getElementById('whatsapp-calc-btn').href = `https://wa.me/918777687968?text=${encodeURIComponent(text)}`;
+    };
+
+    // Initial run
+    updateCalculation();
+  </script>
 </body>
 </html>

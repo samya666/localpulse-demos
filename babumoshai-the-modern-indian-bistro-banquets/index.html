@@ -2,187 +2,1490 @@
 <html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Babumoshai - The Modern Indian Bistro & Banquets | Premium Digital Experience by LocalPulse AI</title>
-  <meta name="description" content="A custom-built, high-converting mobile experience for Babumoshai - The Modern Indian Bistro & Banquets, {'address': '1518, The Last Metro, Garia Main Road, Beside Kavi Nazrul Metro Station, Barhans, Garia, Kolkata, West Bengal 700084', 'landmark': 'Lohar Bridge, Beside Kavi Nazrul Metro Station', 'city_zone': 'South Kolkata (Garia Corridor)'}. Powered by LocalPulse AI.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Babumoshai | Modern Indian Bistro & Banquets – Garia, Kolkata</title>
+  <meta name="description" content="Experience Babumoshai: South Kolkata's celebrated modern Indian bistro and premier Aiburobhat banquet venue at Kavi Nazrul Metro Corridor, Garia. Authentic heritage Bengali soul with contemporary flair.">
+  <meta name="keywords" content="Babumoshai Kolkata, Babumoshai Garia, Aiburobhat banquet Kolkata, Modern Indian Bistro Garia, Kolkata Fish Fry, Kosha Mangsho, Kavi Nazrul metro restaurant">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Babumoshai | The Modern Indian Bistro & Banquets">
+  <meta property="og:description" content="A 25-year culinary heritage re-imagined. South Kolkata's premier bistro & banquet destination right beside Kavi Nazrul Metro Station, Garia.">
+  <meta property="og:image" content="assets/shot_01.jpg">
+  <meta property="og:type" content="restaurant">
+
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            plum: {
+              900: '#1b051e',
+              800: '#2b0930',
+              700: '#3c0d43',
+              600: '#4a0e4e',
+              500: '#641b69',
+              400: '#83288a',
+            },
+            rosegold: {
+              100: '#fbf0f2',
+              200: '#f5d6ce',
+              300: '#e7adb6',
+              400: '#d48894',
+              500: '#b76e79',
+              600: '#9d5661',
+            },
+            midnight: {
+              950: '#0a0812',
+              900: '#0f0c1b',
+              850: '#141024',
+              800: '#1a1a2e',
+              700: '#24223d',
+            },
+            champagne: {
+              400: '#f0c78a',
+              500: '#dfad64',
+              600: '#c59349',
+            }
+          },
+          fontFamily: {
+            display: ['Syne', 'sans-serif'],
+            sans: ['Jost', 'sans-serif'],
+            mono: ['"Space Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts: Syne (modern display) + Jost (geometric body) + Space Mono (code/coordinates) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- GSAP 3 & ScrollTrigger -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
   <style>
-    :root {
-      --primary: #B85D2A;
-      --primary-dark: #8C3B1B;
-      --dark: #1a1a1a;
-      --cream: #FAF8F5;
-      --sand: #ECE5CE;
+    /* Custom Smooth Scroll & Backdrop Filter Fixes */
+    html {
+      scroll-behavior: smooth;
+      background-color: #0a0812;
+      color: #f5d6ce;
     }
-    body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--cream); color: #262420; }
-    .font-editorial { font-family: 'Playfair Display', serif; }
-    .gradient-hero { background: linear-gradient(135deg, #1a1a1a 0%, #2d1810 50%, #1a1a1a 100%); }
-    .glow-btn {
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      box-shadow: 0 10px 30px -5px rgba(184,93,42,0.4);
-      transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+    
+    ::selection {
+      background: #b76e79;
+      color: #0a0812;
     }
-    .glow-btn:hover { transform: translateY(-2px); box-shadow: 0 15px 40px -5px rgba(184,93,42,0.5); }
-    .card-hover { transition: all 0.3s ease; }
-    .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-    .stat-card { background: rgba(255,255,255,0.7); backdrop-filter: blur(10px); }
-    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-    .float { animation: float 3s ease-in-out infinite; }
+
+    /* Glass card effects with deep plum tint */
+    .glass-plum {
+      background: rgba(43, 9, 48, 0.65);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(183, 110, 121, 0.22);
+    }
+    
+    .glass-dark {
+      background: rgba(15, 12, 27, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(183, 110, 121, 0.16);
+    }
+
+    .glass-pill {
+      background: rgba(74, 14, 78, 0.45);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(183, 110, 121, 0.3);
+    }
+
+    /* Text gradient rose gold */
+    .text-rosegold-gradient {
+      background: linear-gradient(135deg, #ffffff 0%, #f5d6ce 45%, #b76e79 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .text-champagne-gradient {
+      background: linear-gradient(135deg, #fff3e0 0%, #f0c78a 50%, #c59349 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Subtle glowing border */
+    .border-glow-rosegold {
+      box-shadow: 0 0 25px -5px rgba(183, 110, 121, 0.35);
+    }
+
+    /* Marquee animation */
+    @keyframes marqueeHorizontal {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .animate-marquee {
+      display: flex;
+      width: 200%;
+      animation: marqueeHorizontal 32s linear infinite;
+    }
+
+    .animate-marquee:hover {
+      animation-play-state: paused;
+    }
+
+    /* Hide scrollbars but keep functionality */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
   </style>
 </head>
-<body class="antialiased">
 
-  <!-- Hero Section -->
-  <section class="gradient-hero min-h-screen flex items-center justify-center relative overflow-hidden">
-    <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 20% 50%, rgba(184,93,42,0.3) 0%, transparent 50%), radial-gradient(circle at 80% 50%, rgba(184,93,42,0.2) 0%, transparent 50%);"></div>
-    <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
-      <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-5 py-2 mb-8">
-        <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-        <span class="text-white/80 text-sm font-medium tracking-wide">CUSTOM PREVIEW — BUILT FOR BABUMOSHAI - THE MODERN INDIAN BISTRO & BANQUETS</span>
-      </div>
-      <h1 class="font-editorial text-5xl md:text-7xl text-white font-bold leading-tight mb-6">
-        Babumoshai - The Modern Indian Bistro & Banquets
-      </h1>
-      <p class="text-white/70 text-lg md:text-xl max-w-2xl mx-auto mb-4">
-        {'address': '1518, The Last Metro, Garia Main Road, Beside Kavi Nazrul Metro Station, Barhans, Garia, Kolkata, West Bengal 700084', 'landmark': 'Lohar Bridge, Beside Kavi Nazrul Metro Station', 'city_zone': 'South Kolkata (Garia Corridor)'}
-      </p>
-      <p class="text-white/50 text-base max-w-xl mx-auto mb-10">
-        This is what your restaurant's digital presence could look like — built in 48 hours by LocalPulse AI.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href='https://wa.me/918240633379' target='_blank' class='glow-btn text-white px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center gap-3'><i class='bi bi-whatsapp text-2xl'></i> Book via WhatsApp</a>
-        <a href="tel:+91 82406 33379" class="bg-white/10 backdrop-blur-md border border-white/30 text-white px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center gap-3 hover:bg-white/20 transition-all">
-          <i class="bi bi-telephone-fill"></i> Call Now
+<body class="font-sans bg-midnight-950 text-rosegold-200 antialiased selection:bg-rosegold-500 selection:text-white">
+
+  <!-- ================= TOP NOTICE BAR ================= -->
+  <div class="bg-plum-900/90 border-b border-rosegold-500/20 text-xs py-2 px-4 text-center tracking-wide text-rosegold-300 flex items-center justify-center gap-3">
+    <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+    <span class="font-medium">South Kolkata’s Celebrated Bistro & Aiburobhat Banquet Destination</span>
+    <span class="hidden md:inline text-rosegold-500">•</span>
+    <span class="hidden md:inline font-mono text-[11px] text-champagne-400">Beside Kavi Nazrul Metro • Since 1999</span>
+    <span class="hidden lg:inline text-rosegold-500">•</span>
+    <a href="#pitch-memo" class="hidden lg:inline underline hover:text-white transition-colors text-rosegold-200">LocalPulse AI Architecture Memo ↓</a>
+  </div>
+
+  <!-- ================= FIXED NAVIGATION ================= -->
+  <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="mainHeader">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+      <nav class="glass-plum rounded-2xl px-5 py-3 flex items-center justify-between shadow-2xl">
+        
+        <!-- Brand / Identity -->
+        <a href="#hero" class="flex items-center gap-3 group">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-plum-600 to-rosegold-500 flex items-center justify-center text-white shadow-lg shadow-plum-600/30 group-hover:scale-105 transition-transform">
+            <span class="font-display font-bold text-xl tracking-tighter">B</span>
+          </div>
+          <div>
+            <div class="font-display font-extrabold text-lg tracking-wider text-white flex items-center gap-2">
+              BABUMOSHAI
+              <span class="text-[9px] font-mono uppercase px-1.5 py-0.5 rounded bg-rosegold-500/20 text-rosegold-300 border border-rosegold-500/30">Bistro</span>
+            </div>
+            <p class="text-[10px] font-mono tracking-widest text-rosegold-300/80 uppercase">Modern Indian & Banquets</p>
+          </div>
         </a>
-      </div>
-    </div>
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/40 animate-bounce">
-      <i class="bi bi-chevron-double-down text-2xl"></i>
-    </div>
-  </section>
 
-  <!-- What We'd Build Section -->
-  <section class="py-20 px-6">
-    <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-16">
-        <span class="text-sm font-bold tracking-[0.2em] uppercase" style="color: var(--primary);">What Your Guests Would Experience</span>
-        <h2 class="font-editorial text-4xl md:text-5xl font-bold mt-4 mb-6">A Digital Experience<br>Worthy of Your Kitchen</h2>
-        <p class="text-gray-500 text-lg max-w-2xl mx-auto">Every feature below is designed to convert highway travelers and local foodies into paying guests — in one tap.</p>
-      </div>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(184,93,42,0.1);">
-            <i class="bi bi-phone text-2xl" style="color: var(--primary);"></i>
-          </div>
-          <h3 class="font-bold text-xl mb-3">Mobile-First Design</h3>
-          <p class="text-gray-500">85% of your customers search on phones. A lightning-fast mobile experience with sticky booking bar and one-tap WhatsApp reservation.</p>
-        </div>
-        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(184,93,42,0.1);">
-            <i class="bi bi-camera-reels text-2xl" style="color: var(--primary);"></i>
-          </div>
-          <h3 class="font-bold text-xl mb-3">5 Custom Video Reels</h3>
-          <p class="text-gray-500">High-retention 9:16 vertical videos of your signature dishes, ambiance, and chef specials — ready for Instagram, YouTube Shorts & Google Maps.</p>
-        </div>
-        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(184,93,42,0.1);">
-            <i class="bi bi-robot text-2xl" style="color: var(--primary);"></i>
-          </div>
-          <h3 class="font-bold text-xl mb-3">AI Digital Concierge</h3>
-          <p class="text-gray-500">A 24/7 AI assistant trained on your exact menu, pricing, and FAQs — answers customer questions instantly on WhatsApp.</p>
-        </div>
-        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(184,93,42,0.1);">
-            <i class="bi bi-calendar-event text-2xl" style="color: var(--primary);"></i>
-          </div>
-          <h3 class="font-bold text-xl mb-3">Banquet Booking Funnel</h3>
-          <p class="text-gray-500">Direct inquiry forms for weddings, birthday parties, and corporate events — no more lost leads from missed calls.</p>
-        </div>
-        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(184,93,42,0.1);">
-            <i class="bi bi-geo-alt text-2xl" style="color: var(--primary);"></i>
-          </div>
-          <h3 class="font-bold text-xl mb-3">GPS Navigation</h3>
-          <p class="text-gray-500">One-tap Google Maps routing for highway travelers. Integrated with your exact pin location and landmark references.</p>
-        </div>
-        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(184,93,42,0.1);">
-            <i class="bi bi-graph-up-arrow text-2xl" style="color: var(--primary);"></i>
-          </div>
-          <h3 class="font-bold text-xl mb-3">SEO & Google Boost</h3>
-          <p class="text-gray-500">Schema markup, local SEO optimization, and Google Business integration so you rank #1 for "Babumoshai - The Modern Indian Bistro & Banquets" and nearby food searches.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Social Proof / Reference -->
-  <section class="py-20 px-6" style="background: var(--dark);">
-    <div class="max-w-4xl mx-auto text-center">
-      <span class="text-sm font-bold tracking-[0.2em] uppercase text-amber-400">See What We've Already Built</span>
-      <h2 class="font-editorial text-4xl md:text-5xl font-bold text-white mt-4 mb-6">Our Reference Project</h2>
-      <p class="text-white/60 text-lg mb-10">We built this complete digital experience for Mother's Hut, Krishnanagar — the 50,000 sq ft women-powered dining landmark on NH-12.</p>
-      <a href="https://samya666.github.io/mothers-hut-redesign/" target="_blank" class="glow-btn text-white px-10 py-5 rounded-full font-bold text-lg inline-flex items-center gap-3">
-        <i class="bi bi-box-arrow-up-right"></i> View Mother's Hut Experience
-      </a>
-      <div class="grid grid-cols-3 gap-6 mt-16">
-        <div class="stat-card rounded-2xl p-6">
-          <div class="text-3xl font-bold text-white">2.5K</div>
-          <div class="text-white/50 text-sm mt-1">Video Walkthrough</div>
-        </div>
-        <div class="stat-card rounded-2xl p-6">
-          <div class="text-3xl font-bold text-white">10</div>
-          <div class="text-white/50 text-sm mt-1">Themed Dining Zones</div>
-        </div>
-        <div class="stat-card rounded-2xl p-6">
-          <div class="text-3xl font-bold text-white">48h</div>
-          <div class="text-white/50 text-sm mt-1">Delivery Time</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Pricing CTA -->
-  <section class="py-20 px-6">
-    <div class="max-w-3xl mx-auto text-center">
-      <span class="text-sm font-bold tracking-[0.2em] uppercase" style="color: var(--primary);">Simple, Transparent Pricing</span>
-      <h2 class="font-editorial text-4xl md:text-5xl font-bold mt-4 mb-6">Get All Of This<br>For ₹24,000</h2>
-      <div class="bg-white rounded-3xl p-10 border border-gray-100 shadow-xl mb-10">
-        <ul class="text-left space-y-4 text-lg text-gray-700 mb-8">
-          <li class="flex items-start gap-3"><i class="bi bi-check-circle-fill text-green-500 mt-1"></i> Complete mobile-first website with your branding</li>
-          <li class="flex items-start gap-3"><i class="bi bi-check-circle-fill text-green-500 mt-1"></i> 5 custom 9:16 video reels (Instagram/YouTube ready)</li>
-          <li class="flex items-start gap-3"><i class="bi bi-check-circle-fill text-green-500 mt-1"></i> AI digital concierge (WhatsApp integration)</li>
-          <li class="flex items-start gap-3"><i class="bi bi-check-circle-fill text-green-500 mt-1"></i> WhatsApp one-tap booking & banquet inquiry form</li>
-          <li class="flex items-start gap-3"><i class="bi bi-check-circle-fill text-green-500 mt-1"></i> Google Maps SEO optimization</li>
-          <li class="flex items-start gap-3"><i class="bi bi-check-circle-fill text-green-500 mt-1"></i> Delivered in 48 hours</li>
-        </ul>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="https://wa.me/+918617625059?text=Hi%20Samya%2C%20I%20saw%20the%20LocalPulse%20AI%20demo%20for%20Babumoshai%20-%20The%20Modern%20Indian%20Bistro%20%26%20Banquets.%20I%20am%20interested%20in%20getting%20this%20for%20my%20restaurant." 
-             target="_blank" class="glow-btn text-white px-8 py-4 rounded-full font-bold text-lg inline-flex items-center gap-3">
-            <i class="bi bi-whatsapp text-xl"></i> Get Started — WhatsApp Samya
+        <!-- Desktop Navigation Links -->
+        <div class="hidden md:flex items-center gap-6 text-sm font-medium tracking-wide">
+          <a href="#experience" class="text-rosegold-200/80 hover:text-white transition-colors hover:scale-105">Experience</a>
+          <a href="#menu-highlights" class="text-rosegold-200/80 hover:text-white transition-colors hover:scale-105">Menu</a>
+          <a href="#banquets" class="text-rosegold-200/80 hover:text-white transition-colors hover:scale-105">Aiburobhat & Events</a>
+          <a href="#location" class="text-rosegold-200/80 hover:text-white transition-colors hover:scale-105">Find Us</a>
+          <a href="#pitch-memo" class="text-champagne-400 hover:text-champagne-300 transition-colors font-mono text-xs flex items-center gap-1">
+            <i class="bi bi-shield-check"></i> Owner Memo
           </a>
         </div>
-        <p class="text-gray-400 text-sm mt-4">Or call: +91 8617625059 | Email: samya.pegusus@gmail.com</p>
+
+        <!-- Action CTAs -->
+        <div class="flex items-center gap-3">
+          <a href="tel:+918240633379" class="hidden sm:flex items-center gap-1.5 text-xs font-mono text-rosegold-300 hover:text-white px-3 py-2 rounded-lg bg-plum-800/60 border border-rosegold-500/20 transition-all">
+            <i class="bi bi-telephone-fill text-rosegold-400"></i>
+            <span>+91 82406 33379</span>
+          </a>
+          <a href="https://wa.me/918240633379?text=Hello%20Babumoshai%20Team,%20I%20would%20like%20to%20reserve%20a%20table%20/%20inquire%20for%20a%20banquet%20event." target="_blank" rel="noopener noreferrer" 
+             class="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 text-white font-medium text-xs sm:text-sm tracking-wide shadow-lg shadow-emerald-950/40 hover:shadow-emerald-600/30 transition-all hover:scale-[1.02]">
+            <i class="bi bi-whatsapp"></i>
+            <span>Reserve Table</span>
+          </a>
+        </div>
+
+      </nav>
+    </div>
+  </header>
+
+  <!-- ================= SCROLL-CAMERA TRACK HERO (360vh) ================= -->
+  <!-- Parent pin track container -->
+  <section id="heroPinTrack" class="relative w-full" style="height: 360vh;">
+    
+    <!-- Pinned Viewport (100vh Sticky) -->
+    <div id="heroStickyViewport" class="sticky top-0 left-0 w-full h-screen overflow-hidden bg-midnight-950 flex flex-col justify-between">
+      
+      <!-- Video Element with short-GOP scrub capability -->
+      <div class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
+        <video 
+          id="scrubVideo"
+          class="w-full h-full object-cover object-center filter brightness-[0.78] contrast-[1.06]"
+          muted 
+          playsinline 
+          preload="auto"
+          poster="assets/hero_poster.webp"
+          src="assets/hero_walkthrough.mp4">
+        </video>
+        
+        <!-- Multi-layer Vignette Gradients for Luxury Bengal Mood -->
+        <div class="absolute inset-0 bg-gradient-to-t from-midnight-950 via-plum-950/40 to-midnight-950/80"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-midnight-950/85 via-transparent to-midnight-950/85"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_40%,rgba(10,8,18,0.7)_100%)]"></div>
+      </div>
+
+      <!-- HUD Top Badges -->
+      <div class="relative z-10 pt-24 sm:pt-28 px-6 max-w-7xl mx-auto w-full flex items-center justify-between">
+        <div class="glass-pill px-3.5 py-1.5 rounded-full flex items-center gap-2 text-xs font-mono text-rosegold-300 shadow-xl">
+          <span class="w-2 h-2 rounded-full bg-rosegold-400 animate-ping"></span>
+          <span>AUTHENTIC VENUE FOOTAGE • GARIA METRO</span>
+        </div>
+        <div class="hidden sm:flex items-center gap-2 text-xs font-mono text-rosegold-400/80">
+          <i class="bi bi-mouse text-rosegold-300"></i>
+          <span>SCROLL TO WALK THROUGH</span>
+        </div>
+      </div>
+
+      <!-- Center Dynamic Stations Overlay -->
+      <div class="relative z-10 max-w-5xl mx-auto px-6 w-full flex-1 flex items-center justify-center my-auto">
+        
+        <!-- Station 1: Grand Hero Title (0% - 22%) -->
+        <div id="station1" class="text-center transition-all duration-300 w-full max-w-4xl py-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-plum-900/80 border border-rosegold-500/30 text-champagne-400 font-mono text-xs tracking-widest uppercase mb-4 shadow-lg">
+            <i class="bi bi-geo-alt-fill text-rosegold-400"></i>
+            Kolkata Metro Corridor • Kavi Nazrul Metro
+          </div>
+          <h1 class="font-display font-extrabold text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight text-white mb-4 drop-shadow-2xl">
+            <span class="text-rosegold-gradient">BABUMOSHAI</span>
+          </h1>
+          <p class="font-display text-lg sm:text-2xl md:text-3xl text-rosegold-200 font-medium tracking-wide mb-6 max-w-3xl mx-auto">
+            The Modern Indian Bistro & Royal Banquets
+          </p>
+          <p class="text-sm sm:text-base text-rosegold-300/90 max-w-2xl mx-auto font-light leading-relaxed mb-8">
+            South Kolkata’s 25-year culinary landmark. A timeless symphony of authentic Bengal heritage, charcoal-clay tandoor, and floor-to-ceiling metro boulevard views.
+          </p>
+          <div class="flex flex-wrap items-center justify-center gap-4">
+            <a href="https://wa.me/918240633379?text=Hello%20Babumoshai,%20I%20would%20like%20to%20book%20a%20table%20at%20your%20bistro." target="_blank" rel="noopener noreferrer"
+               class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-plum-600 via-rosegold-500 to-plum-600 hover:brightness-110 text-white font-medium text-sm tracking-wider uppercase shadow-xl shadow-plum-950/60 border border-rosegold-300/30 transition-all flex items-center gap-2 group">
+              <span>Book Table</span>
+              <i class="bi bi-arrow-right group-hover:translate-x-1 transition-transform"></i>
+            </a>
+            <a href="#menu-highlights" class="px-6 py-3.5 rounded-xl glass-plum hover:bg-plum-800/60 text-rosegold-200 font-medium text-sm tracking-wide transition-all border border-rosegold-500/30">
+              Explore Menu
+            </a>
+          </div>
+        </div>
+
+        <!-- Station 2: Signature Bistro Atmosphere (25% - 55%) -->
+        <div id="station2" class="text-center opacity-0 pointer-events-none transition-all duration-300 w-full max-w-3xl py-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-plum-900/80 border border-rosegold-500/30 text-rosegold-300 font-mono text-xs tracking-widest uppercase mb-4 shadow-lg">
+            <i class="bi bi-stars text-champagne-400"></i>
+            Artisanal Dining Ambience
+          </div>
+          <h2 class="font-display font-extrabold text-3xl sm:text-5xl md:text-6xl text-white mb-4">
+            Vintage Soul.<br>
+            <span class="text-rosegold-gradient">Metropolitan Elegance.</span>
+          </h2>
+          <p class="text-base sm:text-lg text-rosegold-200/90 leading-relaxed font-light mb-6 max-w-2xl mx-auto">
+            Handcrafted cane wicker chairs, mosaic tiles, custom chakla-belan wall installations, and plush plum velvet booths overlooking the gliding trains of Kolkata Metro.
+          </p>
+          <div class="grid grid-cols-3 gap-3 max-w-lg mx-auto text-left font-mono text-xs">
+            <div class="glass-plum p-3 rounded-xl border border-rosegold-500/20 text-center">
+              <span class="block text-champagne-400 font-bold text-lg">1,600+</span>
+              <span class="text-[10px] text-rosegold-300 uppercase">Google Reviews</span>
+            </div>
+            <div class="glass-plum p-3 rounded-xl border border-rosegold-500/20 text-center">
+              <span class="block text-champagne-400 font-bold text-lg">4.1 ★</span>
+              <span class="text-[10px] text-rosegold-300 uppercase">South Cal Favorite</span>
+            </div>
+            <div class="glass-plum p-3 rounded-xl border border-rosegold-500/20 text-center">
+              <span class="block text-champagne-400 font-bold text-lg">Est. 1999</span>
+              <span class="text-[10px] text-rosegold-300 uppercase">25+ Year Legacy</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Station 3: Aiburobhat & Banquets (58% - 80%) -->
+        <div id="station3" class="text-center opacity-0 pointer-events-none transition-all duration-300 w-full max-w-3xl py-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-plum-900/80 border border-rosegold-500/30 text-champagne-400 font-mono text-xs tracking-widest uppercase mb-4 shadow-lg">
+            <i class="bi bi-heart-pulse-fill text-rosegold-400"></i>
+            South Kolkata’s Celebrated Banquet Venue
+          </div>
+          <h2 class="font-display font-extrabold text-3xl sm:text-5xl md:text-6xl text-white mb-4">
+            The Royal <span class="text-rosegold-gradient">Aiburobhat</span> & Celebrations
+          </h2>
+          <p class="text-base sm:text-lg text-rosegold-200/90 leading-relaxed font-light mb-6 max-w-2xl mx-auto">
+            Kolkata’s premier venue for traditional Bengali wedding eve feasts, ring ceremonies, anniversary soirees, and corporate banquets. Multi-level event halls accommodating 50 to 300+ guests.
+          </p>
+          <div class="flex flex-wrap items-center justify-center gap-3">
+            <span class="glass-pill px-3 py-1 rounded-lg text-xs font-mono text-rosegold-200">✨ Traditional Kansa / Silver Thali</span>
+            <span class="glass-pill px-3 py-1 rounded-lg text-xs font-mono text-rosegold-200">🎵 Dedicated Audio & Stage</span>
+            <span class="glass-pill px-3 py-1 rounded-lg text-xs font-mono text-rosegold-200">🍷 Full Beverage Bar</span>
+          </div>
+          <div class="mt-6">
+            <a href="https://wa.me/918240633379?text=Hello%20Babumoshai%20Banquets,%20I%20am%20inquiring%20about%20booking%20an%20Aiburobhat%20/%20Banquet%20hall." target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-rosegold-500 hover:bg-rosegold-400 text-midnight-950 font-semibold text-xs tracking-wider uppercase transition-all shadow-lg shadow-rosegold-500/20">
+              <i class="bi bi-calendar-event"></i>
+              <span>Inquire For Banquet Dates</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Station 4: VIP Concierge & Booking (82% - 100%) -->
+        <div id="station4" class="text-center opacity-0 pointer-events-none transition-all duration-300 w-full max-w-3xl py-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-plum-900/80 border border-emerald-500/40 text-emerald-300 font-mono text-xs tracking-widest uppercase mb-4 shadow-lg">
+            <i class="bi bi-check-circle-fill text-emerald-400"></i>
+            Instant Direct Reservations
+          </div>
+          <h2 class="font-display font-extrabold text-3xl sm:text-5xl md:text-6xl text-white mb-4">
+            Reserve Your Table at <span class="text-rosegold-gradient">Babumoshai</span>
+          </h2>
+          <p class="text-base sm:text-lg text-rosegold-200/90 leading-relaxed font-light mb-6 max-w-xl mx-auto">
+            Avoid wait times during peak dinner and weekend hours. Speak directly with our restaurant manager or banquet coordinator via WhatsApp.
+          </p>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto">
+            <a href="https://wa.me/918240633379?text=Hello%20Babumoshai,%20I%20would%20like%20to%20reserve%20a%20table%20today." target="_blank" rel="noopener noreferrer"
+               class="w-full sm:w-auto px-8 py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-display font-bold text-sm tracking-wider uppercase shadow-xl shadow-emerald-950/60 transition-all flex items-center justify-center gap-2 group">
+              <i class="bi bi-whatsapp text-lg"></i>
+              <span>WhatsApp Direct Booking</span>
+            </a>
+            <a href="tel:+918240633379" class="w-full sm:w-auto px-6 py-4 rounded-xl glass-plum hover:bg-plum-800/80 text-rosegold-100 font-display font-bold text-sm tracking-wider uppercase transition-all flex items-center justify-center gap-2 border border-rosegold-500/30">
+              <i class="bi bi-telephone text-lg text-rosegold-400"></i>
+              <span>Call: 82406 33379</span>
+            </a>
+          </div>
+          <p class="text-xs font-mono text-rosegold-400/80 mt-4">
+            Open 12:00 PM – 11:00 PM Daily • Valet & Metro Gate Access
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Bottom Interactive HUD: Station Dots & Progress Bar -->
+      <div class="relative z-10 pb-6 px-6 max-w-7xl mx-auto w-full flex flex-col gap-3">
+        <div class="flex items-center justify-between text-xs font-mono text-rosegold-400">
+          <div class="flex items-center gap-2">
+            <span class="text-champagne-400 font-bold">01</span>
+            <span class="text-rosegold-500">/</span>
+            <span>04 STATIONS</span>
+          </div>
+          <div class="flex items-center gap-4">
+            <span id="scrubProgressText" class="text-[11px] text-rosegold-300 font-mono">SCROLL CAMERA: 0%</span>
+          </div>
+        </div>
+
+        <!-- Progress Bar Track -->
+        <div class="w-full h-1.5 bg-plum-950/80 rounded-full overflow-hidden border border-rosegold-500/20 backdrop-blur-md">
+          <div id="heroProgressBar" class="h-full bg-gradient-to-r from-plum-600 via-rosegold-500 to-champagne-400 w-0 transition-all duration-75"></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= QUICK STATS BANNER ================= -->
+  <section class="relative z-20 -mt-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="glass-plum rounded-2xl p-6 sm:p-8 border border-rosegold-500/30 shadow-2xl">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center divide-y md:divide-y-0 md:divide-x divide-rosegold-500/20">
+        
+        <div class="pt-4 md:pt-0">
+          <div class="text-3xl sm:text-4xl font-display font-extrabold text-rosegold-gradient">4.1 ★</div>
+          <p class="text-xs font-mono text-rosegold-300 mt-1 uppercase tracking-wider">1,600+ Google Reviews</p>
+          <p class="text-[11px] text-rosegold-400/80 mt-0.5">Top Rated Garia Dining</p>
+        </div>
+
+        <div class="pt-4 md:pt-0 md:px-4">
+          <div class="text-3xl sm:text-4xl font-display font-extrabold text-champagne-400">1999</div>
+          <p class="text-xs font-mono text-rosegold-300 mt-1 uppercase tracking-wider">25 Years of Culinary Art</p>
+          <p class="text-[11px] text-rosegold-400/80 mt-0.5">Aditya Super Bazar Pvt. Ltd.</p>
+        </div>
+
+        <div class="pt-4 md:pt-0 md:px-4">
+          <div class="text-3xl sm:text-4xl font-display font-extrabold text-rosegold-gradient">300+</div>
+          <p class="text-xs font-mono text-rosegold-300 mt-1 uppercase tracking-wider">Banquet Guest Capacity</p>
+          <p class="text-[11px] text-rosegold-400/80 mt-0.5">Aiburobhat, Weddings, Corporate</p>
+        </div>
+
+        <div class="pt-4 md:pt-0 md:px-4">
+          <div class="text-3xl sm:text-4xl font-display font-extrabold text-emerald-400">0 min</div>
+          <p class="text-xs font-mono text-rosegold-300 mt-1 uppercase tracking-wider">Kavi Nazrul Metro</p>
+          <p class="text-[11px] text-rosegold-400/80 mt-0.5">Direct Corridor Connection</p>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="py-8 px-6 border-t border-gray-200">
-    <div class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-      <div class="text-gray-400 text-sm">
-        Custom preview by <strong class="text-gray-600">LocalPulse AI</strong> · Built for Babumoshai - The Modern Indian Bistro & Banquets
+  <!-- ================= SECTION: THE BABUMOSHAI EXPERIENCE ================= -->
+  <section id="experience" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-plum-900/60 border border-rosegold-500/30 text-champagne-400 font-mono text-xs tracking-widest uppercase mb-3">
+        <i class="bi bi-compass text-rosegold-400"></i> Curated Dining Experience
       </div>
-      <div class="flex items-center gap-4 text-gray-400">
-        <a href="mailto:samya.pegusus@gmail.com" class="hover:text-gray-600 transition"><i class="bi bi-envelope-fill"></i></a>
-        <a href="https://wa.me/+918617625059" target="_blank" class="hover:text-gray-600 transition"><i class="bi bi-whatsapp"></i></a>
-        <a href="tel:+91 8617625059" class="hover:text-gray-600 transition"><i class="bi bi-telephone-fill"></i></a>
+      <h2 class="font-display font-extrabold text-3xl sm:text-5xl text-white tracking-tight mb-4">
+        Where South Kolkata Comes Together to Feast
+      </h2>
+      <p class="text-base text-rosegold-200/80 font-light leading-relaxed">
+        From family Sunday lunches over fragrant Kolkata Biryani to grand pre-wedding celebrations in our banquet suites, Babumoshai provides an unforgettable colonial-contemporary sanctuary.
+      </p>
+    </div>
+
+    <!-- 3-Column Feature Cards Grid using Authentic Stills -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      
+      <!-- Card 1: Dining Room & Ambiance -->
+      <div class="glass-dark rounded-2xl overflow-hidden border border-rosegold-500/20 hover:border-rosegold-500/50 transition-all duration-300 group flex flex-col">
+        <div class="relative h-64 overflow-hidden">
+          <img src="assets/shot_01.jpg" alt="Babumoshai Interior Dining Hall" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-midnight-950 via-transparent to-transparent"></div>
+          <span class="absolute top-4 right-4 bg-midnight-950/80 border border-rosegold-500/30 text-[11px] font-mono text-rosegold-300 px-2.5 py-1 rounded-full backdrop-blur-md">
+            The Main Bistro
+          </span>
+        </div>
+        <div class="p-6 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="font-display font-bold text-xl text-white mb-2">Heritage Meets Contemporary Chic</h3>
+            <p class="text-sm text-rosegold-300/80 leading-relaxed font-light mb-4">
+              Handcrafted terrazzo tables, cane wicker seating, black-and-white checkered flooring, and a bespoke wooden chakla-belan wall installation reminiscent of old Bengal culinary craftsmanship.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-rosegold-500/10 flex items-center justify-between text-xs font-mono text-champagne-400">
+            <span>Air Conditioned Comfort</span>
+            <span>Spacious Booths</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Sizzling Clay-Oven & Kebab Starters -->
+      <div class="glass-dark rounded-2xl overflow-hidden border border-rosegold-500/20 hover:border-rosegold-500/50 transition-all duration-300 group flex flex-col">
+        <div class="relative h-64 overflow-hidden">
+          <img src="assets/shot_02.jpg" alt="Tangdi Kebab & Char-grilled Fish Tikka" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-midnight-950 via-transparent to-transparent"></div>
+          <span class="absolute top-4 right-4 bg-midnight-950/80 border border-rosegold-500/30 text-[11px] font-mono text-rosegold-300 px-2.5 py-1 rounded-full backdrop-blur-md">
+            Charcoal Tandoor
+          </span>
+        </div>
+        <div class="p-6 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="font-display font-bold text-xl text-white mb-2">Live Clay Oven Kebabs & Starters</h3>
+            <p class="text-sm text-rosegold-300/80 leading-relaxed font-light mb-4">
+              Authentic clay oven char-grilled delicacies including foil-wrapped Tangdi Kebabs, flaky Fish Lahori Tikka, Gandharaj Chicken Pakoras, and crispy golden Posto Bora.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-rosegold-500/10 flex items-center justify-between text-xs font-mono text-champagne-400">
+            <span>Chef's Secret Marinades</span>
+            <span>Mint Chutney Dips</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Royal Kolkata Biryani & Feasts -->
+      <div class="glass-dark rounded-2xl overflow-hidden border border-rosegold-500/20 hover:border-rosegold-500/50 transition-all duration-300 group flex flex-col">
+        <div class="relative h-64 overflow-hidden">
+          <img src="assets/shot_03.jpg" alt="Kolkata Mutton Biryani Dum Handi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-midnight-950 via-transparent to-transparent"></div>
+          <span class="absolute top-4 right-4 bg-midnight-950/80 border border-rosegold-500/30 text-[11px] font-mono text-rosegold-300 px-2.5 py-1 rounded-full backdrop-blur-md">
+            Royal Dum Handi
+          </span>
+        </div>
+        <div class="p-6 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="font-display font-bold text-xl text-white mb-2">Kolkata Mutton Dum Biryani</h3>
+            <p class="text-sm text-rosegold-300/80 leading-relaxed font-light mb-4">
+              Slow-cooked in copper handis with fragrant long-grain aged basmati rice, tender pieces of bone-in mutton, and the iconic Kolkata golden saffron potato melting with aromatic ghee.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-rosegold-500/10 flex items-center justify-between text-xs font-mono text-champagne-400">
+            <span>Copper Handi Dum</span>
+            <span>Iconic Golden Aloo</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Secondary Row: Metro View & Heritage Wall -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+      
+      <!-- Card 4: Panoramic Metro Corridor View -->
+      <div class="glass-dark rounded-2xl p-6 sm:p-8 border border-rosegold-500/20 flex flex-col sm:flex-row items-center gap-6">
+        <div class="w-full sm:w-1/2 h-52 rounded-xl overflow-hidden relative">
+          <img src="assets/shot_05.jpg" alt="South Kolkata Metro View Table" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-midnight-950/60 to-transparent"></div>
+        </div>
+        <div class="w-full sm:w-1/2">
+          <span class="text-[11px] font-mono text-champagne-400 uppercase tracking-widest block mb-1">Unique Urban Panorama</span>
+          <h4 class="font-display font-bold text-xl text-white mb-2">Dine Beside the Metro Sky-Track</h4>
+          <p class="text-xs sm:text-sm text-rosegold-300/80 leading-relaxed font-light mb-4">
+            Floor-to-ceiling windows looking directly over Kavi Nazrul elevated station. Watch the Metro trains glide by as you sip artisanal coolers and savor Kolkata classics.
+          </p>
+          <a href="https://wa.me/918240633379?text=Hello,%20I%20would%20like%20to%20reserve%20a%20window%20table%20with%20Metro%20view%20at%20Babumoshai." target="_blank" class="text-xs font-mono text-rosegold-400 hover:text-white inline-flex items-center gap-1.5 transition-colors">
+            Request Metro Window Table <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 5: Authentic 25-Year Menu Legacy -->
+      <div class="glass-dark rounded-2xl p-6 sm:p-8 border border-rosegold-500/20 flex flex-col sm:flex-row items-center gap-6">
+        <div class="w-full sm:w-1/2 h-52 rounded-xl overflow-hidden relative">
+          <img src="assets/shot_06.jpg" alt="Vintage Babumoshai Heritage Menu" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-midnight-950/60 to-transparent"></div>
+        </div>
+        <div class="w-full sm:w-1/2">
+          <span class="text-[11px] font-mono text-champagne-400 uppercase tracking-widest block mb-1">Since 1999 Heritage</span>
+          <h4 class="font-display font-bold text-xl text-white mb-2">Authentic Bengal & Mughlai Recipes</h4>
+          <p class="text-xs sm:text-sm text-rosegold-300/80 leading-relaxed font-light mb-4">
+            Over a quarter century of perfected family recipes. From authentic Ghare (home-style) Suktoni and Posto Bora to Bairey (regal) Kosha Mangsho and Bhatti Ka Murg.
+          </p>
+          <a href="#menu-highlights" class="text-xs font-mono text-rosegold-400 hover:text-white inline-flex items-center gap-1.5 transition-colors">
+            View Complete Menu Selections <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= SECTION: FILMSTRIP MARQUEE ================= -->
+  <section class="py-12 bg-midnight-900/50 border-y border-rosegold-500/15 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 mb-6 flex items-center justify-between text-xs font-mono text-rosegold-400">
+      <div class="flex items-center gap-2">
+        <i class="bi bi-camera-reels text-rosegold-400"></i>
+        <span>AUTHENTIC PHOTO REEL • CAPTURED ON-SITE AT BABUMOSHAI</span>
+      </div>
+      <span class="text-[11px] text-rosegold-500">LIVE VENUE IMMERSION</span>
+    </div>
+
+    <!-- Infinite Scrolling Filmstrip Track -->
+    <div class="relative w-full overflow-hidden">
+      <div class="animate-marquee gap-6 items-center">
+        
+        <!-- Set 1 -->
+        <div class="w-72 h-44 flex-shrink-0 rounded-xl overflow-hidden glass-plum border border-rosegold-500/30 relative group">
+          <img src="assets/shot_01.jpg" alt="Dining Hall" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <span class="absolute bottom-2 left-2 bg-midnight-950/80 text-[10px] font-mono px-2 py-0.5 rounded text-rosegold-200">Bistro Interior</span>
+        </div>
+        <div class="w-72 h-44 flex-shrink-0 rounded-xl overflow-hidden glass-plum border border-rosegold-500/30 relative group">
+          <img src="assets/shot_02.jpg" alt="Tandoori Starters" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <span class="absolute bottom-2 left-2 bg-midnight-950/80 text-[10px] font-mono px-2 py-0.5 rounded text-rosegold-200">Tangdi & Fish Tikka</span>
+        </div>
+        <div class="w-72 h-44 flex-shrink-0 rounded-xl overflow-hidden glass-plum border border-rosegold-500/30 relative group">
+          <img src="assets/shot_03.jpg" alt="Dum Biryani" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <span class="absolute bottom-2 left-2 bg-midnight-950/80 text-[10px] font-mono px-2 py-0.5 rounded text-rosegold-200">Mutton Dum Biryani</span>
+        </div>
+        <div class="w-72 h-44 flex-shrink-0 rounded-xl overflow-hidden glass-plum border border-rosegold-500/30 relative group">
+          <img src="assets/shot_04.jpg" alt="Heritage Menu" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <span class="absolute bottom-2 left-2 bg-midnight-950/80 text-[10px] font-mono px-2 py-0.5 rounded text-rosegold-200">Kosha Mangsho Platters</span>
+        </div>
+        <div class="w-72 h-44 flex-shrink-0 rounded-xl overflow-hidden glass-plum border border-rosegold-500/30 relative group">
+          <img src="assets/shot_05.jpg" alt="Metro Skyview" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <span class="absolute bottom-2 left-2 bg-midnight-950/80 text-[10px] font-mono px-2 py-0.5 rounded text-rosegold-200">Kavi Nazrul Metro View</span>
+        </div>
+        <div class="w-72 h-44 flex-shrink-0 rounded-xl overflow-hidden glass-plum border border-rosegold-500/30 relative group">
+          <img src="assets/shot_06.jpg" alt="Vintage Cover" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <span class="absolute bottom-2 left-2 bg-midnight-950/80 text-[10px] font-mono px-2 py-0.5 rounded text-rosegold-200">Since 1999 Menu Art</span>
+        </div>
+
+        <!-- Set 2 (Duplicate for continuous seamless loop) -->
+        <div class="w-72 h-44 flex-shrink-0 rounded-xl overflow-hidden glass-plum border border-rosegold-500/30 relative group">
+          <img src="assets/shot_01.jpg" alt="Dining Hall" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <span class="absolute bottom-2 left-2 bg-midnight-950/80 text-[10px] font-mono px-2 py-0.5 rounded text-rosegold-200">Bistro Interior</span>
+        </div>
+        <div class="w-72 h-44 flex-shrink-0 rounded-xl overflow-hidden glass-plum border border-rosegold-500/30 relative group">
+          <img src="assets/shot_02.jpg" alt="Tandoori Starters" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <span class="absolute bottom-2 left-2 bg-midnight-950/80 text-[10px] font-mono px-2 py-0.5 rounded text-rosegold-200">Tangdi & Fish Tikka</span>
+        </div>
+        <div class="w-72 h-44 flex-shrink-0 rounded-xl overflow-hidden glass-plum border border-rosegold-500/30 relative group">
+          <img src="assets/shot_03.jpg" alt="Dum Biryani" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <span class="absolute bottom-2 left-2 bg-midnight-950/80 text-[10px] font-mono px-2 py-0.5 rounded text-rosegold-200">Mutton Dum Biryani</span>
+        </div>
+        <div class="w-72 h-44 flex-shrink-0 rounded-xl overflow-hidden glass-plum border border-rosegold-500/30 relative group">
+          <img src="assets/shot_04.jpg" alt="Heritage Menu" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <span class="absolute bottom-2 left-2 bg-midnight-950/80 text-[10px] font-mono px-2 py-0.5 rounded text-rosegold-200">Kosha Mangsho Platters</span>
+        </div>
+        <div class="w-72 h-44 flex-shrink-0 rounded-xl overflow-hidden glass-plum border border-rosegold-500/30 relative group">
+          <img src="assets/shot_05.jpg" alt="Metro Skyview" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <span class="absolute bottom-2 left-2 bg-midnight-950/80 text-[10px] font-mono px-2 py-0.5 rounded text-rosegold-200">Kavi Nazrul Metro View</span>
+        </div>
+        <div class="w-72 h-44 flex-shrink-0 rounded-xl overflow-hidden glass-plum border border-rosegold-500/30 relative group">
+          <img src="assets/shot_06.jpg" alt="Vintage Cover" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <span class="absolute bottom-2 left-2 bg-midnight-950/80 text-[10px] font-mono px-2 py-0.5 rounded text-rosegold-200">Since 1999 Menu Art</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SECTION: AUTHENTIC MENU HIGHLIGHTS ================= -->
+  <section id="menu-highlights" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-plum-900/60 border border-rosegold-500/30 text-champagne-400 font-mono text-xs tracking-widest uppercase mb-3">
+        <i class="bi bi-book-half text-rosegold-400"></i> Authentic Physical Menu
+      </div>
+      <h2 class="font-display font-extrabold text-3xl sm:text-5xl text-white tracking-tight mb-4">
+        Signature Culinary Repertoire
+      </h2>
+      <p class="text-base text-rosegold-200/80 font-light leading-relaxed">
+        Directly transcribed from Babumoshai's genuine dining menu. Prepared fresh daily by master chefs honoring authentic Kolkata flavors.
+      </p>
+    </div>
+
+    <!-- Category Tabs Navigation -->
+    <div class="flex flex-wrap items-center justify-center gap-2 mb-12">
+      <button onclick="switchTab('ghare')" id="tab-ghare" class="menu-tab-btn active px-5 py-2.5 rounded-xl font-medium text-xs tracking-wider uppercase transition-all bg-rosegold-500 text-midnight-950 font-semibold shadow-lg shadow-rosegold-500/20">
+        ঘরে / Ghare (Bengal Classics)
+      </button>
+      <button onclick="switchTab('bairey')" id="tab-bairey" class="menu-tab-btn px-5 py-2.5 rounded-xl font-medium text-xs tracking-wider uppercase transition-all glass-plum text-rosegold-200 hover:text-white border border-rosegold-500/20">
+        বাইরে / Bairey (Tandoor & Mughlai)
+      </button>
+      <button onclick="switchTab('biryani')" id="tab-biryani" class="menu-tab-btn px-5 py-2.5 rounded-xl font-medium text-xs tracking-wider uppercase transition-all glass-plum text-rosegold-200 hover:text-white border border-rosegold-500/20">
+        Biryani & Curries
+      </button>
+      <button onclick="switchTab('aiburobhat-menu')" id="tab-aiburobhat-menu" class="menu-tab-btn px-5 py-2.5 rounded-xl font-medium text-xs tracking-wider uppercase transition-all glass-plum text-champagne-400 hover:text-champagne-300 border border-champagne-500/30">
+        Aiburobhat Mahabhoj
+      </button>
+    </div>
+
+    <!-- Tab 1: Ghare (Bengal Heritage) -->
+    <div id="content-ghare" class="menu-tab-content grid grid-cols-1 md:grid-cols-2 gap-6">
+      
+      <div class="glass-dark p-6 rounded-2xl border border-rosegold-500/20 hover:border-rosegold-500/40 transition-all flex justify-between items-start">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+            <h4 class="font-display font-bold text-lg text-white">Posto Bora (4 pcs)</h4>
+          </div>
+          <p class="text-xs text-rosegold-300/80 mt-1 leading-relaxed">
+            Ground pure poppy seeds blended with diced shallots, green chilies, fried into golden discs with a crisp exterior and silken center.
+          </p>
+          <span class="inline-block mt-3 text-[11px] font-mono text-champagne-400 bg-plum-900/60 px-2 py-0.5 rounded">Chef's Heritage Star</span>
+        </div>
+        <span class="font-mono font-bold text-lg text-champagne-400 pl-4 whitespace-nowrap">₹299</span>
+      </div>
+
+      <div class="glass-dark p-6 rounded-2xl border border-rosegold-500/20 hover:border-rosegold-500/40 transition-all flex justify-between items-start">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span>
+            <h4 class="font-display font-bold text-lg text-white">Diamond Bhetki Fish Fry (2 pcs)</h4>
+          </div>
+          <p class="text-xs text-rosegold-300/80 mt-1 leading-relaxed">
+            Prime diamond-cut Calcutta Bhetki fillet marinated in coriander-kasundi green marinade, panko crumbed and fried crisp. Served with mustard kasundi and salad.
+          </p>
+          <span class="inline-block mt-3 text-[11px] font-mono text-rosegold-300 bg-plum-900/60 px-2 py-0.5 rounded">Authentic Bhetki</span>
+        </div>
+        <span class="font-mono font-bold text-lg text-champagne-400 pl-4 whitespace-nowrap">₹325</span>
+      </div>
+
+      <div class="glass-dark p-6 rounded-2xl border border-rosegold-500/20 hover:border-rosegold-500/40 transition-all flex justify-between items-start">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span>
+            <h4 class="font-display font-bold text-lg text-white">Fish Kabiraji (2 pcs)</h4>
+          </div>
+          <p class="text-xs text-rosegold-300/80 mt-1 leading-relaxed">
+            Calcutta colonial heritage delicacy. Spiced Bhetki cutlet enveloped in an intricate, golden web of aerated egg floss lace.
+          </p>
+        </div>
+        <span class="font-mono font-bold text-lg text-champagne-400 pl-4 whitespace-nowrap">₹275</span>
+      </div>
+
+      <div class="glass-dark p-6 rounded-2xl border border-rosegold-500/20 hover:border-rosegold-500/40 transition-all flex justify-between items-start">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span>
+            <h4 class="font-display font-bold text-lg text-white">Gandharaj Chicken Pakora</h4>
+          </div>
+          <p class="text-xs text-rosegold-300/80 mt-1 leading-relaxed">
+            Succulent chicken morsels infused with fragrant Kolkata Gandharaj lime zest, green chilies, and light tempura-style crunch.
+          </p>
+        </div>
+        <span class="font-mono font-bold text-lg text-champagne-400 pl-4 whitespace-nowrap">₹275</span>
+      </div>
+
+      <div class="glass-dark p-6 rounded-2xl border border-rosegold-500/20 hover:border-rosegold-500/40 transition-all flex justify-between items-start">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+            <h4 class="font-display font-bold text-lg text-white">Dhokar Dalna (5 pcs)</h4>
+          </div>
+          <p class="text-xs text-rosegold-300/80 mt-1 leading-relaxed">
+            Steamed and fried chana dal lentil cakes simmered in a slow-reduced ginger, cumin, hing, and garam masala gravy.
+          </p>
+        </div>
+        <span class="font-mono font-bold text-lg text-champagne-400 pl-4 whitespace-nowrap">₹340</span>
+      </div>
+
+      <div class="glass-dark p-6 rounded-2xl border border-rosegold-500/20 hover:border-rosegold-500/40 transition-all flex justify-between items-start">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+            <h4 class="font-display font-bold text-lg text-white">Suktoni & Jhuri Jhuri Aloo Bhaja</h4>
+          </div>
+          <p class="text-xs text-rosegold-300/80 mt-1 leading-relaxed">
+            Traditional homestyle Bengali bitter-gourd and root vegetable stew cooked with radhuni seeds and milk, paired with matchstick crisped potatoes.
+          </p>
+        </div>
+        <span class="font-mono font-bold text-lg text-champagne-400 pl-4 whitespace-nowrap">₹250</span>
+      </div>
+
+    </div>
+
+    <!-- Tab 2: Bairey (Tandoor & Mughlai) -->
+    <div id="content-bairey" class="menu-tab-content hidden grid grid-cols-1 md:grid-cols-2 gap-6">
+      
+      <div class="glass-dark p-6 rounded-2xl border border-rosegold-500/20 hover:border-rosegold-500/40 transition-all flex justify-between items-start">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span>
+            <h4 class="font-display font-bold text-lg text-white">Babumoshai Non-Veg Tandoori Platter</h4>
+          </div>
+          <p class="text-xs text-rosegold-300/80 mt-1 leading-relaxed">
+            Lavish banquet assortment of Chicken Tikka, Fish Tikka, Tandoori Prawns, and tender Mutton Seekh Kebabs with laccha onions.
+          </p>
+          <span class="inline-block mt-3 text-[11px] font-mono text-champagne-400 bg-plum-900/60 px-2 py-0.5 rounded">Signature Platter for 2-3</span>
+        </div>
+        <span class="font-mono font-bold text-lg text-champagne-400 pl-4 whitespace-nowrap">₹695</span>
+      </div>
+
+      <div class="glass-dark p-6 rounded-2xl border border-rosegold-500/20 hover:border-rosegold-500/40 transition-all flex justify-between items-start">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span>
+            <h4 class="font-display font-bold text-lg text-white">Bhatti Ka Murg</h4>
+          </div>
+          <p class="text-xs text-rosegold-300/80 mt-1 leading-relaxed">
+            Baby chicken marinated in cracked coriander, roasted cumin, and black cardamom, charred over glowing coals in our traditional tandoor.
+          </p>
+        </div>
+        <span class="font-mono font-bold text-lg text-champagne-400 pl-4 whitespace-nowrap">₹395 / ₹790</span>
+      </div>
+
+      <div class="glass-dark p-6 rounded-2xl border border-rosegold-500/20 hover:border-rosegold-500/40 transition-all flex justify-between items-start">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span>
+            <h4 class="font-display font-bold text-lg text-white">Tandoori Spiced Grilled Bhetki</h4>
+          </div>
+          <p class="text-xs text-rosegold-300/80 mt-1 leading-relaxed">
+            Fresh river Bhetki marinated in chef's special yogurt, yellow chili and mustard glaze, skewered and flame-grilled.
+          </p>
+        </div>
+        <span class="font-mono font-bold text-lg text-champagne-400 pl-4 whitespace-nowrap">₹495</span>
+      </div>
+
+      <div class="glass-dark p-6 rounded-2xl border border-rosegold-500/20 hover:border-rosegold-500/40 transition-all flex justify-between items-start">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span>
+            <h4 class="font-display font-bold text-lg text-white">Chicken Reshmi Kebab & Mentha Kalmi</h4>
+          </div>
+          <p class="text-xs text-rosegold-300/80 mt-1 leading-relaxed">
+            Velvety skewers of minced and marinated chicken bathed in cashew paste, fresh malai cream, and mint leaf infusion.
+          </p>
+        </div>
+        <span class="font-mono font-bold text-lg text-champagne-400 pl-4 whitespace-nowrap">₹375</span>
+      </div>
+
+      <div class="glass-dark p-6 rounded-2xl border border-rosegold-500/20 hover:border-rosegold-500/40 transition-all flex justify-between items-start">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+            <h4 class="font-display font-bold text-lg text-white">Babumoshai Veg Tandoori Platter</h4>
+          </div>
+          <p class="text-xs text-rosegold-300/80 mt-1 leading-relaxed">
+            Paneer Tikka, stuffed Aloo Nazakat, char-roasted mushrooms, and tandoori spiced gobi florets.
+          </p>
+        </div>
+        <span class="font-mono font-bold text-lg text-champagne-400 pl-4 whitespace-nowrap">₹495</span>
+      </div>
+
+      <div class="glass-dark p-6 rounded-2xl border border-rosegold-500/20 hover:border-rosegold-500/40 transition-all flex justify-between items-start">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span>
+            <h4 class="font-display font-bold text-lg text-white">Mutton Burra Kebab</h4>
+          </div>
+          <p class="text-xs text-rosegold-300/80 mt-1 leading-relaxed">
+            Tender mutton ribs soaked in raw papaya, brown onion paste, and tandoori spices, char-grilled till succulent.
+          </p>
+        </div>
+        <span class="font-mono font-bold text-lg text-champagne-400 pl-4 whitespace-nowrap">₹495</span>
+      </div>
+
+    </div>
+
+    <!-- Tab 3: Biryani & Curries -->
+    <div id="content-biryani" class="menu-tab-content hidden grid grid-cols-1 md:grid-cols-2 gap-6">
+      
+      <div class="glass-dark p-6 rounded-2xl border border-rosegold-500/20 hover:border-rosegold-500/40 transition-all flex justify-between items-start">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span>
+            <h4 class="font-display font-bold text-lg text-white">Kolkata Mutton Dum Biryani</h4>
+          </div>
+          <p class="text-xs text-rosegold-300/80 mt-1 leading-relaxed">
+            Aged long-grain basmati sealed in copper handi with slow-cooked mutton, saffron milk, meetha ittar, and the legendary soft golden Kolkata potato.
+          </p>
+          <span class="inline-block mt-3 text-[11px] font-mono text-champagne-400 bg-plum-900/60 px-2 py-0.5 rounded">South Kolkata Favorite</span>
+        </div>
+        <span class="font-mono font-bold text-lg text-champagne-400 pl-4 whitespace-nowrap">₹395</span>
+      </div>
+
+      <div class="glass-dark p-6 rounded-2xl border border-rosegold-500/20 hover:border-rosegold-500/40 transition-all flex justify-between items-start">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span>
+            <h4 class="font-display font-bold text-lg text-white">Chingri Malai Curry</h4>
+          </div>
+          <p class="text-xs text-rosegold-300/80 mt-1 leading-relaxed">
+            Jumbo tiger prawns simmered in freshly squeezed coconut milk, whole aromatic spices, and a hint of green chili warmth.
+          </p>
+        </div>
+        <span class="font-mono font-bold text-lg text-champagne-400 pl-4 whitespace-nowrap">₹495</span>
+      </div>
+
+      <div class="glass-dark p-6 rounded-2xl border border-rosegold-500/20 hover:border-rosegold-500/40 transition-all flex justify-between items-start">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span>
+            <h4 class="font-display font-bold text-lg text-white">Mutton Kosha / Rogan Josh</h4>
+          </div>
+          <p class="text-xs text-rosegold-300/80 mt-1 leading-relaxed">
+            Rich, dark, caramelized goat mutton slow-braised for hours with ginger, garlic, mustard oil, and whole garam masala in bronze cookware.
+          </p>
+        </div>
+        <span class="font-mono font-bold text-lg text-champagne-400 pl-4 whitespace-nowrap">₹545</span>
+      </div>
+
+      <div class="glass-dark p-6 rounded-2xl border border-rosegold-500/20 hover:border-rosegold-500/40 transition-all flex justify-between items-start">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span>
+            <h4 class="font-display font-bold text-lg text-white">Chicken Bharta & Reshmi Butter Masala</h4>
+          </div>
+          <p class="text-xs text-rosegold-300/80 mt-1 leading-relaxed">
+            Shredded tandoori chicken cooked with egg ribbons, cashew cream, and aromatic spices in a velvety smooth Kolkata bistro gravy.
+          </p>
+        </div>
+        <span class="font-mono font-bold text-lg text-champagne-400 pl-4 whitespace-nowrap">₹395</span>
+      </div>
+
+      <div class="glass-dark p-6 rounded-2xl border border-rosegold-500/20 hover:border-rosegold-500/40 transition-all flex justify-between items-start">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+            <h4 class="font-display font-bold text-lg text-white">Basanti Pulao</h4>
+          </div>
+          <p class="text-xs text-rosegold-300/80 mt-1 leading-relaxed">
+            Sweet fragrant yellow Gobindobhog rice tempered in pure desi ghee with cashews, raisins, and saffron strands.
+          </p>
+        </div>
+        <span class="font-mono font-bold text-lg text-champagne-400 pl-4 whitespace-nowrap">₹285</span>
+      </div>
+
+      <div class="glass-dark p-6 rounded-2xl border border-rosegold-500/20 hover:border-rosegold-500/40 transition-all flex justify-between items-start">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+            <h4 class="font-display font-bold text-lg text-white">Masala Kulcha & Garlic Naan</h4>
+          </div>
+          <p class="text-xs text-rosegold-300/80 mt-1 leading-relaxed">
+            Freshly pulled from clay oven, brushed with cultured butter, fresh minced garlic, and coriander leaves.
+          </p>
+        </div>
+        <span class="font-mono font-bold text-lg text-champagne-400 pl-4 whitespace-nowrap">₹155</span>
+      </div>
+
+    </div>
+
+    <!-- Tab 4: Aiburobhat Mahabhoj (Banquet Thali) -->
+    <div id="content-aiburobhat-menu" class="menu-tab-content hidden">
+      <div class="glass-plum rounded-2xl p-8 border border-champagne-500/40 shadow-2xl">
+        <div class="max-w-3xl mx-auto text-center mb-8">
+          <span class="text-xs font-mono uppercase tracking-widest text-champagne-400">Traditional Bengali Pre-Wedding Feasting</span>
+          <h3 class="font-display font-extrabold text-2xl sm:text-4xl text-white mt-2 mb-3">
+            The Royal Aiburobhat Mahabhoj Thali
+          </h3>
+          <p class="text-sm text-rosegold-200/90 leading-relaxed font-light">
+            Designed specifically for bride & groom pre-wedding celebrations. Served in ceremonial bell-metal (Kansa) or royal silver platters with five kinds of traditional bhaja, fish heads, and bespoke sweets.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
+          
+          <div class="glass-dark p-5 rounded-xl border border-rosegold-500/20">
+            <h4 class="font-display font-bold text-champagne-400 mb-2 flex items-center gap-2">
+              <i class="bi bi-flower1"></i> 1. The Auspicious Shuru
+            </h4>
+            <ul class="space-y-1.5 text-xs text-rosegold-300/90">
+              <li>• Gondhoraj Lebu & Kancha Lanka</li>
+              <li>• Jhuri Jhuri Aloo Bhaja & Begun Bhaja</li>
+              <li>• Crispy Posto Bora & Potol Bhaja</li>
+              <li>• Shukto with Bori & Bitter Gourd</li>
+              <li>• Sonamug Dal with Macher Matha</li>
+            </ul>
+          </div>
+
+          <div class="glass-dark p-5 rounded-xl border border-rosegold-500/20">
+            <h4 class="font-display font-bold text-champagne-400 mb-2 flex items-center gap-2">
+              <i class="bi bi-fire"></i> 2. The Royal Mains
+            </h4>
+            <ul class="space-y-1.5 text-xs text-rosegold-300/90">
+              <li>• Diamond Bhetki Paturi in Banana Leaf</li>
+              <li>• Golda Chingri Malai Curry</li>
+              <li>• Shorshe Ilish (Seasonal) or Katla Kalia</li>
+              <li>• Traditional Golbari-Style Kosha Mangsho</li>
+              <li>• Fragrant Ghee Basanti Pulao</li>
+            </ul>
+          </div>
+
+          <div class="glass-dark p-5 rounded-xl border border-rosegold-500/20">
+            <h4 class="font-display font-bold text-champagne-400 mb-2 flex items-center gap-2">
+              <i class="bi bi-cake2"></i> 3. The Sweet Finale
+            </h4>
+            <ul class="space-y-1.5 text-xs text-rosegold-300/90">
+              <li>• Amer Chatni / Plastic Chatni</li>
+              <li>• Crisp Papad Bhaja</li>
+              <li>• Heritage Nolen Gurer Rosogolla</li>
+              <li>• Baked Mihidana / Mishti Doi</li>
+              <li>• Royal Banarasi Meetha Paan</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <div class="mt-8 pt-6 border-t border-rosegold-500/20 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div class="text-center sm:text-left">
+            <span class="text-xs font-mono text-rosegold-300">Custom packages from ₹850 – ₹1,850 per guest</span>
+            <p class="text-[11px] text-rosegold-400/80">Includes decorated bridal throne, sound setup, and dedicated server attendants.</p>
+          </div>
+          <a href="https://wa.me/918240633379?text=Hello%20Babumoshai,%20I%20want%20to%20plan%20an%20Aiburobhat%20Mahabhoj%20for%20our%20family." target="_blank" rel="noopener noreferrer"
+             class="px-6 py-3 rounded-xl bg-gradient-to-r from-champagne-500 to-champagne-400 text-midnight-950 font-bold text-xs uppercase tracking-wider hover:brightness-110 transition-all shadow-lg shadow-champagne-500/20 flex items-center gap-2">
+            <i class="bi bi-whatsapp"></i> Inquire for Aiburobhat Dates
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ================= SECTION: AIBUROBHAT & PRIVATE BANQUETS ================= -->
+  <section id="banquets" class="py-24 bg-midnight-900/60 border-t border-rosegold-500/20 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-6 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-plum-900/80 border border-rosegold-500/30 text-champagne-400 font-mono text-xs tracking-widest uppercase shadow-lg">
+            <i class="bi bi-stars"></i> Banquets & Celebrations
+          </div>
+          <h2 class="font-display font-extrabold text-3xl sm:text-5xl text-white tracking-tight leading-tight">
+            South Kolkata’s Most Sought-After Venue for <span class="text-rosegold-gradient">Wedding Eve & Banquets</span>
+          </h2>
+          <p class="text-base text-rosegold-200/90 font-light leading-relaxed">
+            In Bengali culture, the <strong>Aiburobhat</strong> is more than a pre-wedding meal — it is an emotional family celebration of blessing, love, and indulgence. At Babumoshai, we provide dedicated banquet halls tailored to this sacred milestone.
+          </p>
+
+          <div class="space-y-4 pt-2">
+            
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-plum-700/80 border border-rosegold-500/30 flex items-center justify-center flex-shrink-0 text-champagne-400">
+                <i class="bi bi-people-fill text-lg"></i>
+              </div>
+              <div>
+                <h4 class="font-display font-bold text-white text-base">Flexible Capacity: 50 to 300+ Guests</h4>
+                <p class="text-xs text-rosegold-300/80 leading-relaxed mt-0.5">
+                  Partitionable spaces for intimate 50-guest family gatherings or full-floor 300-guest receptions with central buffet counters.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-plum-700/80 border border-rosegold-500/30 flex items-center justify-center flex-shrink-0 text-champagne-400">
+                <i class="bi bi-cup-straw text-lg"></i>
+              </div>
+              <div>
+                <h4 class="font-display font-bold text-white text-base">Full Bar & Beverage License</h4>
+                <p class="text-xs text-rosegold-300/80 leading-relaxed mt-0.5">
+                  Host cocktail receptions and corporate networking with our comprehensive spirits, wine, and handcrafted mocktail menus.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-plum-700/80 border border-rosegold-500/30 flex items-center justify-center flex-shrink-0 text-champagne-400">
+                <i class="bi bi-train-front-fill text-lg"></i>
+              </div>
+              <div>
+                <h4 class="font-display font-bold text-white text-base">Zero Transit Friction for Kolkata Guests</h4>
+                <p class="text-xs text-rosegold-300/80 leading-relaxed mt-0.5">
+                  Step straight off Kavi Nazrul Metro Station into our air-conditioned foyer. Guests from Dum Dum, Esplanade, and Tollygunge arrive effortlessly.
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="pt-4 flex flex-wrap items-center gap-4">
+            <a href="https://wa.me/918240633379?text=Hello%20Babumoshai%20Banquets,%20I%20would%20like%20to%20receive%20the%20banquet%20brochure%20and%20rates." target="_blank" rel="noopener noreferrer"
+               class="px-6 py-3.5 rounded-xl bg-rosegold-500 hover:bg-rosegold-400 text-midnight-950 font-bold text-xs uppercase tracking-wider transition-all shadow-xl shadow-rosegold-500/20 flex items-center gap-2">
+              <i class="bi bi-file-earmark-pdf"></i>
+              <span>Download Banquet Kit (WhatsApp)</span>
+            </a>
+            <a href="tel:+919330800619" class="px-5 py-3.5 rounded-xl glass-plum text-rosegold-200 hover:text-white text-xs font-mono border border-rosegold-500/30 transition-all flex items-center gap-2">
+              <i class="bi bi-telephone"></i>
+              <span>Direct Banquet Desk: 93308 00619</span>
+            </a>
+          </div>
+
+        </div>
+
+        <div class="lg:col-span-6 relative">
+          <!-- Multi-frame visual collage -->
+          <div class="relative mx-auto max-w-lg">
+            <div class="rounded-3xl overflow-hidden border border-rosegold-500/30 shadow-2xl glass-plum p-2">
+              <img src="assets/shot_04.jpg" alt="Babumoshai Banquet Feast" class="w-full h-80 object-cover rounded-2xl">
+            </div>
+            
+            <div class="absolute -bottom-8 -left-6 w-56 rounded-2xl overflow-hidden border border-champagne-500/40 shadow-2xl glass-plum p-1.5 hidden sm:block">
+              <img src="assets/shot_02.jpg" alt="Appetizers" class="w-full h-32 object-cover rounded-xl">
+              <div class="p-2 text-[10px] font-mono text-champagne-300">Live Appetizer Passes</div>
+            </div>
+
+            <div class="absolute -top-6 -right-6 glass-plum px-4 py-3 rounded-2xl border border-rosegold-500/30 shadow-xl hidden sm:block">
+              <span class="block text-champagne-400 font-bold text-lg font-mono">100% Custom</span>
+              <span class="text-[10px] text-rosegold-300 font-mono uppercase">Bengali & Tandoori Menus</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= SECTION: LOCATION & GPS GUIDE ================= -->
+  <section id="location" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-plum-900/60 border border-rosegold-500/30 text-champagne-400 font-mono text-xs tracking-widest uppercase mb-3">
+        <i class="bi bi-map text-rosegold-400"></i> Location & Transit
+      </div>
+      <h2 class="font-display font-extrabold text-3xl sm:text-5xl text-white tracking-tight mb-4">
+        Beside Kavi Nazrul Metro Station
+      </h2>
+      <p class="text-base text-rosegold-200/80 font-light leading-relaxed">
+        Strategically located at Lohar Bridge along the Garia Main Road corridor. Unbeatable accessibility across South and Central Kolkata.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+      
+      <!-- Address & Transit Card -->
+      <div class="lg:col-span-5 glass-plum rounded-2xl p-8 border border-rosegold-500/30 flex flex-col justify-between shadow-2xl">
+        <div>
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 rounded-xl bg-plum-700/80 border border-rosegold-500/30 flex items-center justify-center text-rosegold-300">
+              <i class="bi bi-geo-alt-fill text-2xl text-champagne-400"></i>
+            </div>
+            <div>
+              <h3 class="font-display font-bold text-xl text-white">Babumoshai</h3>
+              <p class="text-xs font-mono text-rosegold-300">The Modern Indian Bistro & Banquets</p>
+            </div>
+          </div>
+
+          <div class="space-y-4 text-sm text-rosegold-200/90 font-light">
+            <div class="flex items-start gap-3">
+              <i class="bi bi-pin-map text-champagne-400 mt-0.5"></i>
+              <p>
+                <strong>Address:</strong><br>
+                Lohar Bridge, 1518, Garia Main Rd,<br>
+                beside Kavi Nazrul Metro Station, Barhans,<br>
+                Garia, Rajpur Sonarpur, Kolkata, West Bengal 700084
+              </p>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <i class="bi bi-clock text-champagne-400"></i>
+              <p><strong>Operating Hours:</strong> 12:00 PM – 11:00 PM (Daily)</p>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <i class="bi bi-telephone text-champagne-400"></i>
+              <p><strong>Phones:</strong> +91 82406 33379 / +91 93308 00619</p>
+            </div>
+          </div>
+
+          <!-- Transit Distances -->
+          <div class="mt-8 pt-6 border-t border-rosegold-500/20 space-y-2.5 font-mono text-xs">
+            <div class="flex justify-between items-center text-rosegold-300">
+              <span>🚇 Kavi Nazrul Metro Station</span>
+              <span class="text-emerald-400 font-bold">1 Min Walk (50m)</span>
+            </div>
+            <div class="flex justify-between items-center text-rosegold-300">
+              <span>🚖 Garia Bus Stand & More</span>
+              <span class="text-rosegold-200">4 Mins Drive</span>
+            </div>
+            <div class="flex justify-between items-center text-rosegold-300">
+              <span>🛣️ EM Bypass / Patuli Connector</span>
+              <span class="text-rosegold-200">8 Mins Drive</span>
+            </div>
+            <div class="flex justify-between items-center text-rosegold-300">
+              <span>🏙️ Tollygunge Metro Hub</span>
+              <span class="text-rosegold-200">12 Mins Direct Metro</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-8 flex flex-col sm:flex-row gap-3">
+          <a href="https://maps.google.com/?q=Babumoshai+Restaurant+Garia+Kolkata" target="_blank" rel="noopener noreferrer"
+             class="flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-plum-600 to-rosegold-500 hover:brightness-110 text-white font-medium text-xs tracking-wider uppercase text-center transition-all shadow-lg flex items-center justify-center gap-2">
+            <i class="bi bi-signpost-2"></i>
+            <span>Google Maps Directions</span>
+          </a>
+          <a href="tel:+918240633379" class="py-3 px-4 rounded-xl glass-dark hover:bg-plum-800/60 text-rosegold-200 text-xs font-mono text-center border border-rosegold-500/20 flex items-center justify-center gap-1.5">
+            <i class="bi bi-telephone-outbound"></i>
+            <span>Call Desk</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Stylized Interactive Map Preview Card -->
+      <div class="lg:col-span-7 glass-dark rounded-2xl overflow-hidden border border-rosegold-500/20 relative min-h-[380px] flex flex-col justify-between">
+        
+        <!-- Ambient Map Graphic Background with Pins -->
+        <div class="absolute inset-0 bg-[#120d20] flex items-center justify-center overflow-hidden">
+          
+          <!-- Subtle Grid Lines -->
+          <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(#b76e79 1px, transparent 1px); background-size: 24px 24px;"></div>
+          
+          <!-- Visual Route Overlay -->
+          <div class="relative z-10 w-full p-8 text-center max-w-md">
+            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-plum-600 to-rosegold-500 flex items-center justify-center text-white mx-auto shadow-2xl mb-4 animate-bounce">
+              <i class="bi bi-geo-alt-fill text-2xl"></i>
+            </div>
+            <h4 class="font-display font-bold text-xl text-white mb-2">Prime Kavi Nazrul Metro Location</h4>
+            <p class="text-xs text-rosegold-300 leading-relaxed font-light mb-6">
+              Located right beside Kavi Nazrul Metro entrance at Lohar Bridge. The most accessible landmark restaurant in South Kolkata for guests coming from all metro lines.
+            </p>
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-plum-900/90 border border-rosegold-500/30 text-champagne-400 font-mono text-xs">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+              <span>GPS: 22.4645° N, 88.3812° E (Garia Main Rd)</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Floating Quick Action Bar over Map -->
+        <div class="relative z-10 p-6 bg-gradient-to-t from-midnight-950 via-midnight-950/80 to-transparent flex items-center justify-between text-xs font-mono">
+          <span class="text-rosegold-300">Aditya Super Bazar Pvt. Ltd.</span>
+          <a href="https://maps.google.com/?q=Babumoshai+Restaurant+Garia+Kolkata" target="_blank" rel="noopener noreferrer"
+             class="text-champagne-400 hover:text-white underline flex items-center gap-1">
+            Open in Google Maps App <i class="bi bi-box-arrow-up-right"></i>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= SECTION: LOCALPULSE AI PITCH MEMO ================= -->
+  <section id="pitch-memo" class="py-24 bg-gradient-to-b from-midnight-950 via-plum-950/40 to-midnight-950 border-t border-rosegold-500/30 relative">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Executive Dossier Memo Container -->
+      <div class="glass-plum rounded-3xl p-8 sm:p-12 border-2 border-rosegold-500/40 shadow-2xl relative overflow-hidden border-glow-rosegold">
+        
+        <!-- Watermark / Stamp -->
+        <div class="absolute -right-12 -top-12 opacity-10 pointer-events-none select-none text-rosegold-400 font-display font-extrabold text-9xl">
+          AI
+        </div>
+
+        <!-- Memo Header -->
+        <div class="border-b border-rosegold-500/30 pb-8 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <div class="flex items-center gap-2 font-mono text-xs text-champagne-400 uppercase tracking-widest mb-1">
+              <i class="bi bi-cpu-fill text-rosegold-400"></i>
+              <span>LocalPulse AI • Executive Digital Audit</span>
+            </div>
+            <h3 class="font-display font-extrabold text-2xl sm:text-3xl text-white">
+              Digital Transformation Strategy
+            </h3>
+            <p class="text-xs font-mono text-rosegold-300 mt-1">
+              Prepared for: <strong>Operations Management (Aditya Super Bazar Pvt. Ltd.)</strong>
+            </p>
+          </div>
+
+          <div class="text-left sm:text-right font-mono text-xs text-rosegold-400">
+            <span class="px-3 py-1 rounded-full bg-rose-950/80 border border-rose-500/40 text-rose-300 block mb-1">CRITICAL AUDIT NOTICE</span>
+            <span>Date: September 2026</span>
+          </div>
+        </div>
+
+        <!-- The Problem Statement -->
+        <div class="space-y-6 text-sm text-rosegold-200/90 leading-relaxed font-light">
+          
+          <div class="glass-dark p-5 rounded-2xl border border-rose-500/30 bg-rose-950/20">
+            <h4 class="font-display font-bold text-rose-300 text-base mb-1.5 flex items-center gap-2">
+              <i class="bi bi-exclamation-triangle-fill text-rose-400"></i>
+              The Current Challenge: A Broken WordPress Footprint
+            </h4>
+            <p class="text-xs sm:text-sm text-rosegold-200/80 leading-relaxed">
+              Babumoshai commands one of South Kolkata's most loyal patron bases with <strong>1,600+ Google Reviews (4.1★)</strong> and over 25 years of excellence. However, your existing WordPress website currently suffers from disabled scripts, broken interactive elements, and unformatted placeholder text. When families search online to book high-ticket <strong>Aiburobhat banquets</strong> or celebratory dinners, they encounter a dead interface that fails to represent the luxury of your dining hall.
+            </p>
+          </div>
+
+          <div class="space-y-3">
+            <h4 class="font-display font-bold text-white text-lg">What This LocalPulse AI Prototype Delivers:</h4>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
+              
+              <div class="glass-dark p-4 rounded-xl border border-rosegold-500/20">
+                <span class="text-champagne-400 font-bold block mb-1 text-sm">1. Scroll-Camera Walkthrough</span>
+                <p class="text-xs text-rosegold-300/80">
+                  Transports prospective diners through your actual bistro, panoramic metro-view tables, and clay tandoor sizzle in sub-second 60fps response.
+                </p>
+              </div>
+
+              <div class="glass-dark p-4 rounded-xl border border-rosegold-500/20">
+                <span class="text-champagne-400 font-bold block mb-1 text-sm">2. Dedicated Aiburobhat Funnel</span>
+                <p class="text-xs text-rosegold-300/80">
+                  Pre-configured WhatsApp and phone pipelines capturing wedding eve and corporate banquet leads directly into your management WhatsApp.
+                </p>
+              </div>
+
+              <div class="glass-dark p-4 rounded-xl border border-rosegold-500/20">
+                <span class="text-champagne-400 font-bold block mb-1 text-sm">3. Zero Maintenance Serverless</span>
+                <p class="text-xs text-rosegold-300/80">
+                  No WordPress plugins to crash, no database security vulnerabilities, 100/100 Google Lighthouse mobile speed score.
+                </p>
+              </div>
+
+              <div class="glass-dark p-4 rounded-xl border border-rosegold-500/20">
+                <span class="text-champagne-400 font-bold block mb-1 text-sm">4. Proven Restaurant Pedigree</span>
+                <p class="text-xs text-rosegold-300/80">
+                  Built on the exact high-conversion framework we deployed for prestigious West Bengal venues like <a href="https://samya666.github.io/mothers-hut-redesign/" target="_blank" class="underline text-champagne-300 hover:text-white">Mother's Hut Redesign</a>.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Mother's Hut Case Study Reference -->
+          <div class="glass-dark p-5 rounded-2xl border border-champagne-500/30 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>
+              <span class="text-[11px] font-mono text-champagne-400 uppercase tracking-widest block">Live Production Case Study</span>
+              <h5 class="font-display font-bold text-white text-base mt-0.5">Mother's Hut Bengal Redesign</h5>
+              <p class="text-xs text-rosegold-300/80 mt-1">See how authentic video scrubbing drove massive banquet and highway diner engagement.</p>
+            </div>
+            <a href="https://samya666.github.io/mothers-hut-redesign/" target="_blank" rel="noopener noreferrer"
+               class="px-5 py-2.5 rounded-xl bg-plum-800 hover:bg-plum-700 text-champagne-300 text-xs font-mono border border-champagne-500/30 transition-all whitespace-nowrap flex items-center gap-1.5">
+              <span>View Live Case Study</span>
+              <i class="bi bi-box-arrow-up-right"></i>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Founder Signature & Direct Action Channels -->
+        <div class="mt-8 pt-8 border-t border-rosegold-500/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+          <div>
+            <p class="text-xs font-mono text-rosegold-300">Direct Contact with LocalPulse AI Founder:</p>
+            <h5 class="font-display font-bold text-lg text-white mt-1">Samya Pegusus</h5>
+            <p class="text-xs text-rosegold-400 font-mono">Specialist in High-Conversion Hospitality Web Systems</p>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-3 w-full sm:w-auto">
+            <a href="https://wa.me/918617625059?text=Hello%20Samya,%20we%20reviewed%20the%20Babumoshai%20LocalPulse%20AI%20demo%20and%20would%20like%20to%20discuss%20launching%20it." target="_blank" rel="noopener noreferrer"
+               class="flex-1 sm:flex-none px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-xs font-mono tracking-wide transition-all shadow-lg flex items-center justify-center gap-2">
+              <i class="bi bi-whatsapp"></i>
+              <span>WhatsApp: +91 8617625059</span>
+            </a>
+            <a href="mailto:samya.pegusus@gmail.com?subject=Babumoshai%20Website%20Upgrade%20Discussion" 
+               class="flex-1 sm:flex-none px-5 py-3 rounded-xl glass-dark hover:bg-plum-800 text-rosegold-200 text-xs font-mono border border-rosegold-500/30 transition-all flex items-center justify-center gap-2">
+              <i class="bi bi-envelope-fill"></i>
+              <span>samya.pegusus@gmail.com</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-midnight-950 border-t border-rosegold-500/20 py-12 text-xs font-light text-rosegold-400/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+        
+        <div>
+          <div class="font-display font-bold text-white text-base">BABUMOSHAI</div>
+          <p class="text-[11px] font-mono text-rosegold-400 mt-0.5">The Modern Indian Bistro & Banquets • Aditya Super Bazar Pvt. Ltd.</p>
+          <p class="text-[11px] text-rosegold-500 mt-1">Lohar Bridge, Garia Main Road, beside Kavi Nazrul Metro, Kolkata 700084</p>
+        </div>
+
+        <div class="flex items-center gap-6 font-mono text-xs">
+          <a href="#hero" class="hover:text-white transition-colors">Top</a>
+          <a href="#experience" class="hover:text-white transition-colors">Experience</a>
+          <a href="#menu-highlights" class="hover:text-white transition-colors">Menu</a>
+          <a href="#banquets" class="hover:text-white transition-colors">Aiburobhat</a>
+          <a href="#location" class="hover:text-white transition-colors">Location</a>
+          <a href="#pitch-memo" class="text-champagne-400 hover:text-white transition-colors">Memo</a>
+        </div>
+
+        <div class="text-[11px] font-mono text-rosegold-500">
+          Crafted with GSAP Scroll-Camera Engine by LocalPulse AI © 2026
+        </div>
+
       </div>
     </div>
   </footer>
+
+  <!-- ================= STICKY MOBILE BOTTOM ACTION BAR ================= -->
+  <div class="md:hidden fixed bottom-0 left-0 right-0 z-50 glass-plum border-t border-rosegold-500/30 px-4 py-2.5 flex items-center justify-between gap-3 shadow-2xl backdrop-blur-xl">
+    
+    <a href="https://wa.me/918240633379?text=Hello%20Babumoshai,%20I%20would%20like%20to%20reserve%20a%20table%20/%20inquire%20for%20a%20banquet." target="_blank" rel="noopener noreferrer"
+       class="flex-1 py-2.5 rounded-xl bg-emerald-600 active:bg-emerald-500 text-white font-medium text-xs tracking-wider uppercase text-center flex items-center justify-center gap-1.5 shadow-lg">
+      <i class="bi bi-whatsapp"></i>
+      <span>WhatsApp</span>
+    </a>
+
+    <a href="tel:+918240633379" 
+       class="flex-1 py-2.5 rounded-xl glass-dark active:bg-plum-800 text-rosegold-200 font-medium text-xs tracking-wider uppercase text-center border border-rosegold-500/30 flex items-center justify-center gap-1.5">
+      <i class="bi bi-telephone-fill text-rosegold-400"></i>
+      <span>Call</span>
+    </a>
+
+    <a href="https://maps.google.com/?q=Babumoshai+Restaurant+Garia+Kolkata" target="_blank" rel="noopener noreferrer"
+       class="py-2.5 px-3.5 rounded-xl glass-dark active:bg-plum-800 text-champagne-400 font-medium text-xs text-center border border-rosegold-500/30 flex items-center justify-center">
+      <i class="bi bi-geo-alt-fill"></i>
+    </a>
+
+  </div>
+
+  <!-- Space filler so mobile sticky bar doesn't cover footer content -->
+  <div class="h-16 md:hidden"></div>
+
+  <!-- ================= GSAP SCROLL-CAMERA SCRIPT ================= -->
+  <script>
+    // Tab switching logic for menu
+    function switchTab(tabId) {
+      document.querySelectorAll('.menu-tab-content').forEach(el => {
+        el.classList.add('hidden');
+      });
+      document.querySelectorAll('.menu-tab-btn').forEach(btn => {
+        btn.classList.remove('bg-rosegold-500', 'text-midnight-950', 'font-semibold');
+        btn.classList.add('glass-plum', 'text-rosegold-200');
+      });
+
+      const activeContent = document.getElementById('content-' + tabId);
+      if (activeContent) activeContent.classList.remove('hidden');
+
+      const activeBtn = document.getElementById('tab-' + tabId);
+      if (activeBtn) {
+        activeBtn.classList.remove('glass-plum', 'text-rosegold-200');
+        activeBtn.classList.add('bg-rosegold-500', 'text-midnight-950', 'font-semibold');
+      }
+    }
+
+    // GSAP ScrollTrigger Setup
+    window.addEventListener('DOMContentLoaded', () => {
+      gsap.registerPlugin(ScrollTrigger);
+
+      const video = document.getElementById('scrubVideo');
+      const progressBar = document.getElementById('heroProgressBar');
+      const progressText = document.getElementById('scrubProgressText');
+
+      function initScrollTrack() {
+        if (!video) return;
+
+        // Ensure video is muted and playsinline
+        video.muted = true;
+        video.playsInline = true;
+
+        const videoDuration = video.duration || 18;
+
+        // Main ScrollTrigger pinned to #heroPinTrack
+        ScrollTrigger.create({
+          trigger: "#heroPinTrack",
+          start: "top top",
+          end: "bottom bottom",
+          scrub: 0.5,
+          onUpdate: (self) => {
+            const p = self.progress;
+
+            // 1. Scrub video currentTime safely
+            if (video.readyState >= 1 && !isNaN(videoDuration) && videoDuration > 0) {
+              const targetTime = p * videoDuration;
+              if (Math.abs(video.currentTime - targetTime) > 0.04) {
+                video.currentTime = targetTime;
+              }
+            }
+
+            // 2. Update HUD progress bar & text
+            const pct = Math.round(p * 100);
+            if (progressBar) progressBar.style.width = pct + '%';
+            if (progressText) progressText.innerText = `SCROLL CAMERA: ${pct}%`;
+
+            // 3. Station Interpolation Windows
+            // Station 1: 0.00 to 0.22 (peak at 0.10)
+            // Station 2: 0.25 to 0.55 (peak at 0.40)
+            // Station 3: 0.58 to 0.80 (peak at 0.69)
+            // Station 4: 0.82 to 1.00 (peak at 0.91)
+            const stations = [
+              { el: document.getElementById('station1'), in: 0.00, peak: 0.10, out: 0.22 },
+              { el: document.getElementById('station2'), in: 0.25, peak: 0.40, out: 0.55 },
+              { el: document.getElementById('station3'), in: 0.58, peak: 0.69, out: 0.80 },
+              { el: document.getElementById('station4'), in: 0.82, peak: 0.91, out: 1.00 },
+            ];
+
+            stations.forEach((st) => {
+              if (!st.el) return;
+              if (p < st.in || p > st.out) {
+                st.el.style.opacity = '0';
+                st.el.style.pointerEvents = 'none';
+                st.el.style.transform = p < st.in ? 'translateY(30px) scale(0.97)' : 'translateY(-30px) scale(0.97)';
+              } else {
+                let opacity = 1;
+                if (p < st.peak) {
+                  opacity = (p - st.in) / (st.peak - st.in);
+                } else {
+                  opacity = (st.out - p) / (st.out - st.peak);
+                }
+                opacity = Math.max(0, Math.min(1, opacity));
+                st.el.style.opacity = opacity;
+                st.el.style.pointerEvents = opacity > 0.4 ? 'auto' : 'none';
+                st.el.style.transform = `translateY(${(1 - opacity) * 20}px) scale(${0.97 + opacity * 0.03})`;
+              }
+            });
+          }
+        });
+      }
+
+      if (video) {
+        if (video.readyState >= 1) {
+          initScrollTrack();
+        } else {
+          video.addEventListener('loadedmetadata', initScrollTrack, { once: true });
+          // Fallback timer if metadata takes time
+          setTimeout(initScrollTrack, 500);
+        }
+      }
+
+      // Header scroll background elevation
+      const header = document.getElementById('mainHeader');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 80) {
+          header.classList.add('py-1');
+        } else {
+          header.classList.remove('py-1');
+        }
+      });
+    });
+  </script>
 
 </body>
 </html>
