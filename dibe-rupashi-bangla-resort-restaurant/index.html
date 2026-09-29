@@ -3,186 +3,505 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Dibe Rupashi Bangla Resort & Restaurant | Premium Digital Experience by LocalPulse AI</title>
-  <meta name="description" content="A custom-built, high-converting mobile experience for Dibe Rupashi Bangla Resort & Restaurant, Village Manipur, P.O. Fatapukur, P.S. Rajganj, District Jalpaiguri, West Bengal 735134 (Near Panikouri Toll Plaza). Powered by LocalPulse AI.">
+  <title>Dibe Rupashi Bangla Resort & Restaurant | NH-27, North Bengal</title>
+  <meta name="description" content="North Bengal's iconic 4.7★ heritage resort on NH-27. Authentic rural Bengali thali spreads, swimming pool, private cottages, and banquet lawns.">
+  
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Eczar:wght@500;600;700;800&family=Public+Sans:wght@300;400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
   <style>
     :root {
-      --primary: #B85D2A;
-      --primary-dark: #8C3B1B;
-      --dark: #1a1a1a;
-      --cream: #FAF8F5;
-      --sand: #ECE5CE;
+      --saffron-bengal: #CF7530;
+      --forest-green: #2E7D32;
+      --terracotta-rich: #C05F3C;
+      --village-cream: #FAF0E6;
+      --dark-jungle: #0D160E;
     }
-    body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--cream); color: #262420; }
-    .font-editorial { font-family: 'Playfair Display', serif; }
-    .gradient-hero { background: linear-gradient(135deg, #1a1a1a 0%, #2d1810 50%, #1a1a1a 100%); }
-    .glow-btn {
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      box-shadow: 0 10px 30px -5px rgba(184,93,42,0.4);
-      transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+
+    body {
+      font-family: 'Public Sans', sans-serif;
+      background-color: var(--dark-jungle);
+      color: #EFE7DA;
+      overflow-x: hidden;
     }
-    .glow-btn:hover { transform: translateY(-2px); box-shadow: 0 15px 40px -5px rgba(184,93,42,0.5); }
-    .card-hover { transition: all 0.3s ease; }
-    .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-    .stat-card { background: rgba(255,255,255,0.7); backdrop-filter: blur(10px); }
-    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-    .float { animation: float 3s ease-in-out infinite; }
+
+    .font-eczar { font-family: 'Eczar', serif; }
+    .font-rural-mono { font-family: 'Courier Prime', monospace; }
+
+    .glass-resort {
+      background: rgba(13, 22, 14, 0.82);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(207, 117, 48, 0.28);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6);
+    }
+
+    .saffron-btn {
+      background: linear-gradient(135deg, #CF7530 0%, #A65215 100%);
+      color: #FAF0E6;
+      font-weight: 700;
+      box-shadow: 0 10px 25px -5px rgba(207, 117, 48, 0.45);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .saffron-btn:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 15px 35px -5px rgba(207, 117, 48, 0.65);
+      background: linear-gradient(135deg, #E68B48 0%, #CF7530 100%);
+    }
+
+    @keyframes filmScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .filmstrip-track {
+      display: flex;
+      width: max-content;
+      animation: filmScroll 28s linear infinite;
+    }
+    .filmstrip-container:hover .filmstrip-track {
+      animation-play-state: paused;
+    }
   </style>
 </head>
-<body class="antialiased">
+<body class="antialiased selection:bg-[#CF7530] selection:text-white">
 
-  <!-- Hero Section -->
-  <section class="gradient-hero min-h-screen flex items-center justify-center relative overflow-hidden">
-    <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 20% 50%, rgba(184,93,42,0.3) 0%, transparent 50%), radial-gradient(circle at 80% 50%, rgba(184,93,42,0.2) 0%, transparent 50%);"></div>
-    <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
-      <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-5 py-2 mb-8">
-        <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-        <span class="text-white/80 text-sm font-medium tracking-wide">CUSTOM PREVIEW — BUILT FOR DIBE RUPASHI BANGLA RESORT & RESTAURANT</span>
+  <!-- Fixed Top Header -->
+  <nav class="fixed top-0 left-0 right-0 z-50 px-6 py-4 flex justify-between items-center bg-gradient-to-b from-black/85 to-transparent pointer-events-none">
+    <div class="flex items-center gap-3 pointer-events-auto">
+      <div class="w-10 h-10 rounded-full bg-[#CF7530]/20 border border-[#CF7530]/40 flex items-center justify-center text-[#CF7530]">
+        <i class="bi bi-flower1 text-lg"></i>
       </div>
-      <h1 class="font-editorial text-5xl md:text-7xl text-white font-bold leading-tight mb-6">
-        Dibe Rupashi Bangla Resort & Restaurant
-      </h1>
-      <p class="text-white/70 text-lg md:text-xl max-w-2xl mx-auto mb-4">
-        Village Manipur, P.O. Fatapukur, P.S. Rajganj, District Jalpaiguri, West Bengal 735134 (Near Panikouri Toll Plaza)
-      </p>
-      <p class="text-white/50 text-base max-w-xl mx-auto mb-10">
-        This is what your restaurant's digital presence could look like — built in 48 hours by LocalPulse AI.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <div>
+        <span class="font-eczar font-bold text-sm tracking-wide text-white block">DIBE RUPASHI BANGLA</span>
+        <span class="text-[10px] text-[#CF7530] font-rural-mono uppercase">NH-27 · JALPAIGURI CORRIDOR · 4.7★</span>
+      </div>
+    </div>
+    
+    <div class="flex items-center gap-3 pointer-events-auto">
+      <span class="hidden md:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#2E7D32]/30 border border-[#2E7D32]/50 text-emerald-300 text-xs font-rural-mono">
+        <i class="bi bi-star-fill text-amber-400"></i> 4.7★ Rated Heritage Resort
+      </span>
+      <a href="https://wa.me/918918374878?text=Namaskar%2C%20inquiring%20about%20weekend%20cottage%20stay%20and%20heritage%20thali%20booking%20at%20Dibe%20Rupashi%20Bangla." 
+         target="_blank"
+         class="saffron-btn px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase inline-flex items-center gap-2">
+        <i class="bi bi-whatsapp"></i> Reserve Stay
+      </a>
+    </div>
+  </nav>
+
+  <!-- ========================================== -->
+  <!-- 🎥 GSAP SCROLL-CAMERA TRACK HERO (360vh)   -->
+  <!-- ========================================== -->
+  <section id="camera-track-container" class="relative w-full h-[360vh] bg-black">
+    <div id="camera-viewport" class="sticky top-0 w-full h-screen overflow-hidden flex items-center justify-center">
+      
+      <!-- Video Element -->
+      <video id="walkthroughVideo" 
+             class="absolute inset-0 w-full h-full object-cover opacity-75 filter brightness-[0.88] contrast-[1.12]"
+             src="assets/hero_walkthrough.mp4" 
+             poster="assets/hero_poster.webp" 
+             playsinline 
+             muted 
+             preload="auto">
+      </video>
+
+      <!-- Atmospheric Overlays -->
+      <div class="absolute inset-0 bg-gradient-to-t from-black via-black/25 to-black/75 pointer-events-none"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_40%,rgba(13,22,14,0.85)_100%)] pointer-events-none"></div>
+
+      <!-- Telemetry Corner Overlays -->
+      <div class="absolute top-20 left-6 text-[11px] font-rural-mono text-[#CF7530]/80 pointer-events-none">
+        <span class="block">LOCATION: NH-27 HIGHWAY CORRIDOR</span>
+        <span class="text-white/40 block">VILLAGE RETREAT: NORTH BENGAL</span>
+      </div>
+      <div class="absolute top-20 right-6 text-[11px] font-rural-mono text-[#CF7530]/80 text-right pointer-events-none">
+        <span class="block">HERITAGE RATING: 4.7★ GOOGLE</span>
+        <span class="text-white/40 block">CAMERA TRACK: ACTIVE</span>
+      </div>
+
+      <!-- Station 1: Rural Bengal Sanctuary (0% - 22%) -->
+      <div id="station-1" class="absolute z-20 text-center max-w-4xl px-6 flex flex-col items-center">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#2E7D32]/30 border border-[#2E7D32]/50 text-emerald-300 font-rural-mono text-xs uppercase mb-4 tracking-wider">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          North Bengal's 4.7★ Heritage Oasis
+        </div>
+        <h1 class="font-eczar text-4xl sm:text-6xl md:text-7xl font-bold text-white tracking-wide leading-tight drop-shadow-2xl">
+          DIBE RUPASHI BANGLA
+        </h1>
+        <p class="font-eczar text-[#CF7530] text-lg sm:text-2xl mt-2 tracking-wide font-semibold">
+          Authentic Village Banquets · Highway Resort Retreat
+        </p>
+        <p class="text-white/70 max-w-xl text-sm sm:text-base mt-4 font-light leading-relaxed">
+          Where rustic village charm meets modern comfort. North Bengal's answer to Mother's Hut — complete with authentic clay-pot feasts, azure swimming pool, and private cottages.
+        </p>
+        <div class="mt-8 flex items-center gap-3 text-white/50 text-xs font-rural-mono animate-bounce">
+          <i class="bi bi-chevron-double-down text-[#CF7530]"></i> SCROLL TO EXPLORE THE RESORT
+        </div>
+      </div>
+
+      <!-- Station 2: The Royal Bengali Thali Feast (25% - 55%) -->
+      <div id="station-2" class="absolute z-20 text-center max-w-4xl px-6 flex flex-col items-center opacity-0 scale-95 pointer-events-none">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-950/80 border border-amber-500/40 text-amber-200 font-rural-mono text-xs uppercase mb-4 tracking-wider">
+          <i class="bi bi-egg-fried text-[#CF7530]"></i> TIMELESS RURAL FLAVORS
+        </div>
+        <h2 class="font-eczar text-3xl sm:text-5xl md:text-6xl font-bold text-[#CF7530] tracking-tight leading-tight">
+          THE RUPASHI THALI
+        </h2>
+        <p class="text-white text-base sm:text-xl mt-2 font-medium">
+          Pure Desi Ghee, Freshwater Ilish & Country Chicken Kassa
+        </p>
+        <div class="glass-resort p-6 rounded-2xl max-w-lg mt-6 text-left">
+          <p class="text-white/80 text-sm leading-relaxed">
+            Feast like village royalty. Steaming Gobindobhog rice served on traditional banana leaves and brass plates, surrounded by 12 authentic seasonal bowls cooked on wood embers.
+          </p>
+          <div class="mt-4 flex items-center justify-between text-xs font-rural-mono text-[#CF7530]">
+            <span>● 100% Authentic Recipes</span>
+            <span>● Highway Drive-In</span>
+            <span>● Fresh Local Catch</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Station 3: Resort Cottages & Azure Pool (58% - 80%) -->
+      <div id="station-3" class="absolute z-20 text-center max-w-4xl px-6 flex flex-col items-center opacity-0 scale-95 pointer-events-none">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#2E7D32]/40 border border-[#2E7D32]/60 text-emerald-200 font-rural-mono text-xs uppercase mb-4 tracking-wider">
+          <i class="bi bi-water text-[#CF7530]"></i> POOL & COTTAGE ESCAPE
+        </div>
+        <h2 class="font-eczar text-3xl sm:text-5xl md:text-6xl font-bold text-white tracking-tight">
+          WEEKEND TRANQUILITY
+        </h2>
+        <p class="text-[#CF7530] text-base sm:text-xl mt-2 font-medium">
+          Private Air-Conditioned Cottages & Sparkling Swimming Pool
+        </p>
+        <p class="text-white/70 max-w-lg text-sm mt-4 leading-relaxed">
+          The ultimate stopover between Siliguri and Dooars. Cool off in the pool, relax under coconut canopies, and host private garden parties up to 300 guests.
+        </p>
+      </div>
+
+      <!-- Station 4: Instant Direct Booking (82% - 100%) -->
+      <div id="station-4" class="absolute z-20 text-center max-w-4xl px-6 flex flex-col items-center opacity-0 scale-95 pointer-events-none">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#CF7530]/20 border border-[#CF7530]/50 text-[#CF7530] font-rural-mono text-xs uppercase mb-4 tracking-wider">
+          <i class="bi bi-calendar-check-fill text-[#CF7530]"></i> FAST TRACK RESERVATIONS
+        </div>
+        <h2 class="font-eczar text-3xl sm:text-5xl md:text-6xl font-bold text-[#CF7530] tracking-tight">
+          BOOK YOUR WEEKEND RETREAT
+        </h2>
+        <p class="text-white/80 max-w-xl text-sm sm:text-base mt-4 font-light">
+          Reserve your cottage or family thali banquet directly on WhatsApp before your highway road trip.
+        </p>
+        <div class="mt-8 flex flex-col sm:flex-row gap-4">
+          <a href="https://wa.me/918918374878?text=Hi%2C%20we%20would%20like%20to%20reserve%20a%20cottage%20and%20family%20thali%20at%20Dibe%20Rupashi%20Bangla." 
+             target="_blank"
+             class="saffron-btn px-8 py-3.5 rounded-full text-xs font-bold tracking-widest uppercase">
+            <i class="bi bi-whatsapp"></i> Inquire via WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <!-- Scroller Progress Bar -->
+      <div class="absolute bottom-6 left-12 right-12 h-1 bg-white/10 rounded-full overflow-hidden">
+        <div id="cameraProgressBar" class="h-full bg-gradient-to-r from-[#2E7D32] to-[#CF7530] w-0 transition-all duration-75"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 🥘 CULINARY SHOWCASE GRID                  -->
+  <!-- ========================================== -->
+  <section class="py-24 px-6 relative bg-gradient-to-b from-black via-[#141F15] to-[#0D160E] border-t border-[#CF7530]/25">
+    <div class="max-w-6xl mx-auto">
+      
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-16">
+        <div>
+          <span class="font-rural-mono text-[#CF7530] text-xs tracking-widest uppercase block mb-2">HERITAGE COUNTRYSIDE RECIPES</span>
+          <h2 class="font-eczar text-4xl md:text-5xl font-bold text-white">Rural Bengal Culinary Delights</h2>
+          <p class="text-white/60 text-base mt-2 max-w-xl">
+            Prepared with fresh local produce, mustard oil, and time-honored Bengali kitchen traditions.
+          </p>
+        </div>
+        <div class="glass-resort p-4 rounded-xl">
+          <span class="text-xs font-rural-mono text-[#CF7530] block">4.7★ RATING · 670+ REVIEWS</span>
+          <span class="text-xs text-white/50 block">NH-27 Highway Corridor, North Bengal</span>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
         
-        <a href="tel:" class="bg-white/10 backdrop-blur-md border border-white/30 text-white px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center gap-3 hover:bg-white/20 transition-all">
-          <i class="bi bi-telephone-fill"></i> Call Now
+        <div class="glass-resort rounded-3xl p-6 border border-[#CF7530]/30 hover:border-[#CF7530] transition-all duration-300 group">
+          <div class="h-56 rounded-2xl overflow-hidden relative mb-6">
+            <img src="assets/shot_feast.jpg" alt="Rupashi Feast" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-3 left-3 bg-black/70 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-rural-mono text-[#CF7530]">
+              THE GRAND SPREAD
+            </div>
+          </div>
+          <h3 class="font-eczar text-xl font-bold text-white mb-2">Grand Rural Feast Thali</h3>
+          <p class="text-white/60 text-sm leading-relaxed mb-4">
+            Shukto, Bhaja platter, Chitol Macher Muitha, Kosha Mangsho, Payesh, and Mishti Paan served with utmost traditional warmth.
+          </p>
+          <div class="text-[#CF7530] font-rural-mono text-xs">● Unlimited Gobindobhog Rice</div>
+        </div>
+
+        <div class="glass-resort rounded-3xl p-6 border border-[#CF7530]/30 hover:border-[#CF7530] transition-all duration-300 group">
+          <div class="h-56 rounded-2xl overflow-hidden relative mb-6">
+            <img src="assets/shot_02.jpg" alt="Resort Poolside" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-3 left-3 bg-black/70 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-rural-mono text-[#CF7530]">
+              POOL & LAWNS
+            </div>
+          </div>
+          <h3 class="font-eczar text-xl font-bold text-white mb-2">Azure Swimming Pool</h3>
+          <p class="text-white/60 text-sm leading-relaxed mb-4">
+            Clean crystal-clear swimming pool with poolside lounge recliners and beverage counter, ideal for hot highway afternoons.
+          </p>
+          <div class="text-[#CF7530] font-rural-mono text-xs">● Complimentary for Guests</div>
+        </div>
+
+        <div class="glass-resort rounded-3xl p-6 border border-[#CF7530]/30 hover:border-[#CF7530] transition-all duration-300 group">
+          <div class="h-56 rounded-2xl overflow-hidden relative mb-6">
+            <img src="assets/shot_03.jpg" alt="Resort Cottages" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-3 left-3 bg-black/70 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-rural-mono text-[#CF7530]">
+              PRIVATE COTTAGES
+            </div>
+          </div>
+          <h3 class="font-eczar text-xl font-bold text-white mb-2">Village-Themed Cottages</h3>
+          <p class="text-white/60 text-sm leading-relaxed mb-4">
+            Air-conditioned terracotta cottages with modern amenities, wooden balconies overlooking green fields, and 24/7 power backup.
+          </p>
+          <div class="text-[#CF7530] font-rural-mono text-xs">● Weekend Family Packages</div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 🎞️ FILM STRIP MARQUEE REEL                -->
+  <!-- ========================================== -->
+  <section class="py-16 bg-black border-y border-white/10 overflow-hidden">
+    <div class="text-center mb-8">
+      <span class="text-xs font-rural-mono text-[#CF7530] uppercase tracking-widest">RESORT MOMENTS FROM NH-27</span>
+    </div>
+
+    <div class="filmstrip-container w-full overflow-hidden">
+      <div class="filmstrip-track flex gap-6 items-center">
+        <div class="w-80 h-48 rounded-xl overflow-hidden flex-shrink-0 border border-[#CF7530]/30">
+          <img src="assets/shot_01.jpg" class="w-full h-full object-cover">
+        </div>
+        <div class="w-80 h-48 rounded-xl overflow-hidden flex-shrink-0 border border-[#CF7530]/30">
+          <img src="assets/shot_02.jpg" class="w-full h-full object-cover">
+        </div>
+        <div class="w-80 h-48 rounded-xl overflow-hidden flex-shrink-0 border border-[#CF7530]/30">
+          <img src="assets/shot_03.jpg" class="w-full h-full object-cover">
+        </div>
+        <div class="w-80 h-48 rounded-xl overflow-hidden flex-shrink-0 border border-[#CF7530]/30">
+          <img src="assets/shot_04.jpg" class="w-full h-full object-cover">
+        </div>
+        <div class="w-80 h-48 rounded-xl overflow-hidden flex-shrink-0 border border-[#CF7530]/30">
+          <img src="assets/shot_feast.jpg" class="w-full h-full object-cover">
+        </div>
+
+        <!-- Loop duplicates -->
+        <div class="w-80 h-48 rounded-xl overflow-hidden flex-shrink-0 border border-[#CF7530]/30">
+          <img src="assets/shot_01.jpg" class="w-full h-full object-cover">
+        </div>
+        <div class="w-80 h-48 rounded-xl overflow-hidden flex-shrink-0 border border-[#CF7530]/30">
+          <img src="assets/shot_02.jpg" class="w-full h-full object-cover">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 🗺️ LOCATION & HIGHWAY TRANSIT              -->
+  <!-- ========================================== -->
+  <section class="py-24 px-6 bg-[#101911] border-t border-[#CF7530]/20">
+    <div class="max-w-5xl mx-auto text-center">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#CF7530]/20 border border-[#CF7530]/40 text-[#CF7530] font-rural-mono text-xs uppercase mb-4">
+        <i class="bi bi-geo-alt-fill"></i> NH-27 HIGHWAY ARTERY
+      </div>
+      <h2 class="font-eczar text-3xl sm:text-5xl font-bold text-white mb-6">
+        Convenient Transit on the Dooars Highway
+      </h2>
+      <p class="text-white/60 text-base max-w-2xl mx-auto mb-12">
+        Right on NH-27, serving travelers between Siliguri, Jalpaiguri, Mainaguri, and the wildlife sanctuaries of Dooars.
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-6 text-left mb-12">
+        <div class="glass-resort p-6 rounded-2xl">
+          <div class="text-[#CF7530] font-eczar text-2xl font-bold mb-1">4.7★</div>
+          <div class="font-rural-mono text-white text-xs uppercase font-semibold">HIGHEST RATED ON NH-27</div>
+          <div class="text-white/50 text-xs mt-2">670+ glowing reviews for food, pool, and service.</div>
+        </div>
+        <div class="glass-resort p-6 rounded-2xl">
+          <div class="text-[#CF7530] font-eczar text-2xl font-bold mb-1">300 PAX</div>
+          <div class="font-rural-mono text-white text-xs uppercase font-semibold">BANQUET LAWN & HALL</div>
+          <div class="text-white/50 text-xs mt-2">Ideal for destination celebrations and retreats.</div>
+        </div>
+        <div class="glass-resort p-6 rounded-2xl">
+          <div class="text-[#CF7530] font-eczar text-2xl font-bold mb-1">DOOARS</div>
+          <div class="font-rural-mono text-white text-xs uppercase font-semibold">GATEWAY PITSTOP</div>
+          <div class="text-white/50 text-xs mt-2">Smooth 4-lane highway drive with expansive parking.</div>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="https://maps.google.com/?q=Dibe+Rupashi+Bangla+Resort+Jalpaiguri" target="_blank" class="saffron-btn px-8 py-4 rounded-full text-xs font-bold tracking-widest uppercase inline-flex items-center justify-center gap-2">
+          <i class="bi bi-compass-fill text-lg"></i> Launch Google Maps Navigation
+        </a>
+        <a href="tel:+918918374878" class="px-8 py-4 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs font-bold tracking-widest uppercase inline-flex items-center justify-center gap-2 transition">
+          <i class="bi bi-telephone-fill"></i> Call Front Desk: +91 89183 74878
         </a>
       </div>
     </div>
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/40 animate-bounce">
-      <i class="bi bi-chevron-double-down text-2xl"></i>
-    </div>
   </section>
 
-  <!-- What We'd Build Section -->
-  <section class="py-20 px-6">
-    <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-16">
-        <span class="text-sm font-bold tracking-[0.2em] uppercase" style="color: var(--primary);">What Your Guests Would Experience</span>
-        <h2 class="font-editorial text-4xl md:text-5xl font-bold mt-4 mb-6">A Digital Experience<br>Worthy of Your Kitchen</h2>
-        <p class="text-gray-500 text-lg max-w-2xl mx-auto">Every feature below is designed to convert highway travelers and local foodies into paying guests — in one tap.</p>
+  <!-- ========================================== -->
+  <!-- 💼 PITCH MEMO / LOCALPULSE AI BANNER       -->
+  <!-- ========================================== -->
+  <section class="py-16 px-6 bg-black border-t border-[#CF7530]/30">
+    <div class="max-w-4xl mx-auto rounded-3xl p-8 md:p-12 border-2 border-[#CF7530]/60 bg-gradient-to-br from-[#1C281D] to-black shadow-2xl relative overflow-hidden">
+      
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-8 border-b border-white/10 pb-6">
+        <div>
+          <span class="text-xs font-rural-mono text-[#CF7530] tracking-widest uppercase">STRATEGIC DIGITAL BRIEF FOR</span>
+          <h3 class="font-eczar text-2xl md:text-3xl font-bold text-white mt-1">Board of Directors</h3>
+          <p class="text-white/50 text-xs font-rural-mono mt-1">Dibe Resorts Pvt. Ltd. · NH-27 Corridor</p>
+        </div>
+        <div class="px-4 py-2 rounded-xl bg-[#CF7530]/20 border border-[#CF7530]/40 text-[#CF7530] font-rural-mono text-xs">
+          CUSTOM ENGINE BY LOCALPULSE AI
+        </div>
       </div>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(184,93,42,0.1);">
-            <i class="bi bi-phone text-2xl" style="color: var(--primary);"></i>
-          </div>
-          <h3 class="font-bold text-xl mb-3">Mobile-First Design</h3>
-          <p class="text-gray-500">85% of your customers search on phones. A lightning-fast mobile experience with sticky booking bar and one-tap WhatsApp reservation.</p>
+
+      <div class="text-white/80 text-sm leading-relaxed space-y-4 mb-8">
+        <p>
+          <strong>North Bengal's Culinary Flagship:</strong> With a stellar 4.7★ rating, Dibe Rupashi Bangla is effectively North Bengal's equivalent of Mother's Hut. Your authentic Bengali feasts and swimming pool resort grounds have unmatched organic customer love.
+        </p>
+        <p>
+          However, your digital presence doesn't capture the magic. You need a fast, interactive <strong>video-driven mobile booking portal</strong> that captures highway travelers and family weekend retreats directly on WhatsApp.
+        </p>
+        <p class="text-[#CF7530] font-medium">
+          We can deploy this exact interactive platform on your domain within 48 hours for a flat one-time setup of ₹24,000 ($299), including 5 custom 60fps video reels. Reference our Mother's Hut flagship upgrade: https://samya666.github.io/mothers-hut-redesign/
+        </p>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-white/10">
+        <div class="text-xs font-rural-mono text-white/60">
+          Built by <strong class="text-white">Samya</strong> (LocalPulse AI) · Phone/WA: <strong class="text-[#CF7530]">+91 8617625059</strong>
         </div>
-        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(184,93,42,0.1);">
-            <i class="bi bi-camera-reels text-2xl" style="color: var(--primary);"></i>
-          </div>
-          <h3 class="font-bold text-xl mb-3">5 Custom Video Reels</h3>
-          <p class="text-gray-500">High-retention 9:16 vertical videos of your signature dishes, ambiance, and chef specials — ready for Instagram, YouTube Shorts & Google Maps.</p>
-        </div>
-        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(184,93,42,0.1);">
-            <i class="bi bi-robot text-2xl" style="color: var(--primary);"></i>
-          </div>
-          <h3 class="font-bold text-xl mb-3">AI Digital Concierge</h3>
-          <p class="text-gray-500">A 24/7 AI assistant trained on your exact menu, pricing, and FAQs — answers customer questions instantly on WhatsApp.</p>
-        </div>
-        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(184,93,42,0.1);">
-            <i class="bi bi-calendar-event text-2xl" style="color: var(--primary);"></i>
-          </div>
-          <h3 class="font-bold text-xl mb-3">Banquet Booking Funnel</h3>
-          <p class="text-gray-500">Direct inquiry forms for weddings, birthday parties, and corporate events — no more lost leads from missed calls.</p>
-        </div>
-        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(184,93,42,0.1);">
-            <i class="bi bi-geo-alt text-2xl" style="color: var(--primary);"></i>
-          </div>
-          <h3 class="font-bold text-xl mb-3">GPS Navigation</h3>
-          <p class="text-gray-500">One-tap Google Maps routing for highway travelers. Integrated with your exact pin location and landmark references.</p>
-        </div>
-        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(184,93,42,0.1);">
-            <i class="bi bi-graph-up-arrow text-2xl" style="color: var(--primary);"></i>
-          </div>
-          <h3 class="font-bold text-xl mb-3">SEO & Google Boost</h3>
-          <p class="text-gray-500">Schema markup, local SEO optimization, and Google Business integration so you rank #1 for "Dibe Rupashi Bangla Resort & Restaurant" and nearby food searches.</p>
-        </div>
+        <a href="https://wa.me/918617625059?text=Hi%20Samya%2C%20I%20reviewed%20the%20Dibe%20Rupashi%20Bangla%20interactive%20walkthrough.%20Let%27s%20discuss%20launching%20this."
+           target="_blank"
+           class="saffron-btn px-6 py-3 rounded-full text-xs font-bold tracking-wider uppercase inline-flex items-center gap-2">
+          <i class="bi bi-whatsapp"></i> WhatsApp Samya to Launch
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- Social Proof / Reference -->
-  <section class="py-20 px-6" style="background: var(--dark);">
-    <div class="max-w-4xl mx-auto text-center">
-      <span class="text-sm font-bold tracking-[0.2em] uppercase text-amber-400">See What We've Already Built</span>
-      <h2 class="font-editorial text-4xl md:text-5xl font-bold text-white mt-4 mb-6">Our Reference Project</h2>
-      <p class="text-white/60 text-lg mb-10">We built this complete digital experience for Mother's Hut, Krishnanagar — the 50,000 sq ft women-powered dining landmark on NH-12.</p>
-      <a href="https://samya666.github.io/mothers-hut-redesign/" target="_blank" class="glow-btn text-white px-10 py-5 rounded-full font-bold text-lg inline-flex items-center gap-3">
-        <i class="bi bi-box-arrow-up-right"></i> View Mother's Hut Experience
-      </a>
-      <div class="grid grid-cols-3 gap-6 mt-16">
-        <div class="stat-card rounded-2xl p-6">
-          <div class="text-3xl font-bold text-white">2.5K</div>
-          <div class="text-white/50 text-sm mt-1">Video Walkthrough</div>
-        </div>
-        <div class="stat-card rounded-2xl p-6">
-          <div class="text-3xl font-bold text-white">10</div>
-          <div class="text-white/50 text-sm mt-1">Themed Dining Zones</div>
-        </div>
-        <div class="stat-card rounded-2xl p-6">
-          <div class="text-3xl font-bold text-white">48h</div>
-          <div class="text-white/50 text-sm mt-1">Delivery Time</div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- Sticky Bottom Mobile Quick Actions -->
+  <div class="fixed bottom-4 left-4 right-4 z-40 md:hidden flex gap-2">
+    <a href="https://wa.me/918918374878?text=Namaskar%2C%20inquiring%20about%20stay%20and%20thali." target="_blank" class="flex-1 saffron-btn py-3 rounded-xl text-center font-bold text-xs shadow-xl flex items-center justify-center gap-2">
+      <i class="bi bi-whatsapp text-sm"></i> WhatsApp Stay
+    </a>
+    <a href="tel:+918918374878" class="px-5 py-3 rounded-xl bg-black/80 backdrop-blur-md border border-white/20 text-white font-bold text-xs flex items-center justify-center">
+      <i class="bi bi-telephone-fill"></i>
+    </a>
+    <a href="https://maps.google.com/?q=Dibe+Rupashi+Bangla+Resort+Jalpaiguri" target="_blank" class="px-5 py-3 rounded-xl bg-black/80 backdrop-blur-md border border-white/20 text-white font-bold text-xs flex items-center justify-center">
+      <i class="bi bi-geo-alt-fill text-[#CF7530]"></i>
+    </a>
+  </div>
 
-  <!-- Pricing CTA -->
-  <section class="py-20 px-6">
-    <div class="max-w-3xl mx-auto text-center">
-      <span class="text-sm font-bold tracking-[0.2em] uppercase" style="color: var(--primary);">Simple, Transparent Pricing</span>
-      <h2 class="font-editorial text-4xl md:text-5xl font-bold mt-4 mb-6">Get All Of This<br>For ₹24,000</h2>
-      <div class="bg-white rounded-3xl p-10 border border-gray-100 shadow-xl mb-10">
-        <ul class="text-left space-y-4 text-lg text-gray-700 mb-8">
-          <li class="flex items-start gap-3"><i class="bi bi-check-circle-fill text-green-500 mt-1"></i> Complete mobile-first website with your branding</li>
-          <li class="flex items-start gap-3"><i class="bi bi-check-circle-fill text-green-500 mt-1"></i> 5 custom 9:16 video reels (Instagram/YouTube ready)</li>
-          <li class="flex items-start gap-3"><i class="bi bi-check-circle-fill text-green-500 mt-1"></i> AI digital concierge (WhatsApp integration)</li>
-          <li class="flex items-start gap-3"><i class="bi bi-check-circle-fill text-green-500 mt-1"></i> WhatsApp one-tap booking & banquet inquiry form</li>
-          <li class="flex items-start gap-3"><i class="bi bi-check-circle-fill text-green-500 mt-1"></i> Google Maps SEO optimization</li>
-          <li class="flex items-start gap-3"><i class="bi bi-check-circle-fill text-green-500 mt-1"></i> Delivered in 48 hours</li>
-        </ul>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="https://wa.me/+918617625059?text=Hi%20Samya%2C%20I%20saw%20the%20LocalPulse%20AI%20demo%20for%20Dibe%20Rupashi%20Bangla%20Resort%20%26%20Restaurant.%20I%20am%20interested%20in%20getting%20this%20for%20my%20restaurant." 
-             target="_blank" class="glow-btn text-white px-8 py-4 rounded-full font-bold text-lg inline-flex items-center gap-3">
-            <i class="bi bi-whatsapp text-xl"></i> Get Started — WhatsApp Samya
-          </a>
-        </div>
-        <p class="text-gray-400 text-sm mt-4">Or call: +91 8617625059 | Email: samya.pegusus@gmail.com</p>
-      </div>
-    </div>
-  </section>
+  <!-- GSAP Scrub Engine -->
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
 
-  <!-- Footer -->
-  <footer class="py-8 px-6 border-t border-gray-200">
-    <div class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-      <div class="text-gray-400 text-sm">
-        Custom preview by <strong class="text-gray-600">LocalPulse AI</strong> · Built for Dibe Rupashi Bangla Resort & Restaurant
-      </div>
-      <div class="flex items-center gap-4 text-gray-400">
-        <a href="mailto:samya.pegusus@gmail.com" class="hover:text-gray-600 transition"><i class="bi bi-envelope-fill"></i></a>
-        <a href="https://wa.me/+918617625059" target="_blank" class="hover:text-gray-600 transition"><i class="bi bi-whatsapp"></i></a>
-        <a href="tel:+91 8617625059" class="hover:text-gray-600 transition"><i class="bi bi-telephone-fill"></i></a>
-      </div>
-    </div>
-  </footer>
+    const video = document.getElementById('walkthroughVideo');
+    const station1 = document.getElementById('station-1');
+    const station2 = document.getElementById('station-2');
+    const station3 = document.getElementById('station-3');
+    const station4 = document.getElementById('station-4');
+    const progressBar = document.getElementById('cameraProgressBar');
+
+    let videoDuration = 22.0;
+
+    video.addEventListener('loadedmetadata', () => {
+      videoDuration = video.duration || 22.0;
+      initScrollAnimation();
+    });
+
+    if (video.readyState >= 1) {
+      videoDuration = video.duration || 22.0;
+      initScrollAnimation();
+    } else {
+      setTimeout(initScrollAnimation, 500);
+    }
+
+    function initScrollAnimation() {
+      ScrollTrigger.create({
+        trigger: "#camera-track-container",
+        start: "top top",
+        end: "bottom bottom",
+        scrub: 0.15,
+        onUpdate: (self) => {
+          const progress = self.progress;
+
+          if (video.readyState >= 2 && videoDuration) {
+            video.currentTime = Math.min(videoDuration - 0.05, Math.max(0, progress * videoDuration));
+          }
+
+          if (progressBar) {
+            progressBar.style.width = (progress * 100) + '%';
+          }
+
+          if (progress < 0.22) {
+            const op = gsap.utils.clamp(0, 1, (0.20 - progress) / 0.12);
+            gsap.set(station1, { opacity: op, scale: 1 - progress * 0.15, y: -progress * 50, pointerEvents: op > 0.5 ? 'auto' : 'none' });
+          } else {
+            gsap.set(station1, { opacity: 0, pointerEvents: 'none' });
+          }
+
+          if (progress >= 0.22 && progress < 0.60) {
+            let op = 0;
+            if (progress >= 0.22 && progress <= 0.38) op = (progress - 0.22) / 0.14;
+            else if (progress > 0.38 && progress <= 0.50) op = 1;
+            else if (progress > 0.50) op = (0.60 - progress) / 0.10;
+            op = gsap.utils.clamp(0, 1, op);
+            const scale = gsap.utils.interpolate(0.94, 1.02, (progress - 0.22) / 0.38);
+            gsap.set(station2, { opacity: op, scale: scale, pointerEvents: op > 0.5 ? 'auto' : 'none' });
+          } else {
+            gsap.set(station2, { opacity: 0, pointerEvents: 'none' });
+          }
+
+          if (progress >= 0.60 && progress < 0.84) {
+            let op = 0;
+            if (progress >= 0.60 && progress <= 0.70) op = (progress - 0.60) / 0.10;
+            else if (progress > 0.70 && progress <= 0.78) op = 1;
+            else if (progress > 0.78) op = (0.84 - progress) / 0.06;
+            op = gsap.utils.clamp(0, 1, op);
+            gsap.set(station3, { opacity: op, scale: 1, pointerEvents: op > 0.5 ? 'auto' : 'none' });
+          } else {
+            gsap.set(station3, { opacity: 0, pointerEvents: 'none' });
+          }
+
+          if (progress >= 0.84) {
+            const op = gsap.utils.clamp(0, 1, (progress - 0.84) / 0.10);
+            gsap.set(station4, { opacity: op, scale: 1, pointerEvents: op > 0.5 ? 'auto' : 'none' });
+          } else {
+            gsap.set(station4, { opacity: 0, pointerEvents: 'none' });
+          }
+        }
+      });
+    }
+  </script>
 
 </body>
 </html>

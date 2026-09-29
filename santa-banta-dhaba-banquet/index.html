@@ -3,186 +3,510 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Santa Banta Dhaba & Banquet | Premium Digital Experience by LocalPulse AI</title>
-  <meta name="description" content="A custom-built, high-converting mobile experience for Santa Banta Dhaba & Banquet, Jeevandeep Commercial Complex, 1st Floor, Beside Honda Showroom, Salugara, Sevoke Road / BSF Road, Siliguri, West Bengal 734008. Powered by LocalPulse AI.">
+  <title>Santa Banta Dhaba & Banquet | Sevoke Road, Siliguri</title>
+  <meta name="description" content="Legendary highway dining & banquet venue on Sevoke Road / NH-10 Siliguri. Over 7,000 verified Google reviews. Gateway to Sikkim & Darjeeling.">
+  
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,500;0,700;0,800;1,600&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
   <style>
     :root {
-      --primary: #B85D2A;
-      --primary-dark: #8C3B1B;
-      --dark: #1a1a1a;
-      --cream: #FAF8F5;
-      --sand: #ECE5CE;
+      --olive-dark: #1C2314;
+      --olive-base: #283618;
+      --rust-accent: #BC6C25;
+      --amber-gold: #DDA15E;
+      --dhaba-cream: #FEFAE0;
+      --charcoal-bg: #0F120B;
     }
-    body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--cream); color: #262420; }
-    .font-editorial { font-family: 'Playfair Display', serif; }
-    .gradient-hero { background: linear-gradient(135deg, #1a1a1a 0%, #2d1810 50%, #1a1a1a 100%); }
-    .glow-btn {
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      box-shadow: 0 10px 30px -5px rgba(184,93,42,0.4);
-      transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--charcoal-bg);
+      color: #EDE8D0;
+      overflow-x: hidden;
     }
-    .glow-btn:hover { transform: translateY(-2px); box-shadow: 0 15px 40px -5px rgba(184,93,42,0.5); }
-    .card-hover { transition: all 0.3s ease; }
-    .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-    .stat-card { background: rgba(255,255,255,0.7); backdrop-filter: blur(10px); }
-    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-    .float { animation: float 3s ease-in-out infinite; }
+
+    .font-bitter { font-family: 'Bitter', serif; }
+    .font-mono-coord { font-family: 'IBM Plex Mono', monospace; }
+
+    .glass-dhaba {
+      background: rgba(28, 35, 20, 0.82);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(221, 161, 94, 0.25);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.55);
+    }
+
+    .rust-btn {
+      background: linear-gradient(135deg, #BC6C25 0%, #8A4612 100%);
+      color: #FEFAE0;
+      font-weight: 700;
+      box-shadow: 0 10px 25px -5px rgba(188, 108, 37, 0.45);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .rust-btn:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 15px 35px -5px rgba(221, 161, 94, 0.6);
+      background: linear-gradient(135deg, #DDA15E 0%, #BC6C25 100%);
+      color: #1C2314;
+    }
+
+    @keyframes filmScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .filmstrip-track {
+      display: flex;
+      width: max-content;
+      animation: filmScroll 30s linear infinite;
+    }
+    .filmstrip-container:hover .filmstrip-track {
+      animation-play-state: paused;
+    }
   </style>
 </head>
-<body class="antialiased">
+<body class="antialiased selection:bg-amber-600 selection:text-white">
 
-  <!-- Hero Section -->
-  <section class="gradient-hero min-h-screen flex items-center justify-center relative overflow-hidden">
-    <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 20% 50%, rgba(184,93,42,0.3) 0%, transparent 50%), radial-gradient(circle at 80% 50%, rgba(184,93,42,0.2) 0%, transparent 50%);"></div>
-    <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
-      <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-5 py-2 mb-8">
-        <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-        <span class="text-white/80 text-sm font-medium tracking-wide">CUSTOM PREVIEW — BUILT FOR SANTA BANTA DHABA & BANQUET</span>
+  <!-- Fixed Top Header -->
+  <nav class="fixed top-0 left-0 right-0 z-50 px-6 py-4 flex justify-between items-center bg-gradient-to-b from-black/85 to-transparent pointer-events-none">
+    <div class="flex items-center gap-3 pointer-events-auto">
+      <div class="w-10 h-10 rounded-full bg-[#BC6C25]/20 border border-[#DDA15E]/40 flex items-center justify-center text-[#DDA15E]">
+        <i class="bi bi-fire text-lg"></i>
       </div>
-      <h1 class="font-editorial text-5xl md:text-7xl text-white font-bold leading-tight mb-6">
-        Santa Banta Dhaba & Banquet
-      </h1>
-      <p class="text-white/70 text-lg md:text-xl max-w-2xl mx-auto mb-4">
-        Jeevandeep Commercial Complex, 1st Floor, Beside Honda Showroom, Salugara, Sevoke Road / BSF Road, Siliguri, West Bengal 734008
-      </p>
-      <p class="text-white/50 text-base max-w-xl mx-auto mb-10">
-        This is what your restaurant's digital presence could look like — built in 48 hours by LocalPulse AI.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <div>
+        <span class="font-bitter font-bold text-sm tracking-wide text-white block">SANTA BANTA DHABA</span>
+        <span class="text-[10px] text-[#DDA15E] font-mono-coord uppercase">SEVOKE ROAD · NH-10 · SILIGURI</span>
+      </div>
+    </div>
+    
+    <div class="flex items-center gap-3 pointer-events-auto">
+      <span class="hidden md:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-500/40 text-emerald-300 text-xs font-mono-coord">
+        <i class="bi bi-star-fill text-amber-400"></i> 7,000+ Reviews · 4.5★
+      </span>
+      <a href="https://wa.me/919593300477?text=Namaskar%20Avishek%20Ji%2C%20inquiring%20about%20table%20reservation%20and%20banquet%20booking%20at%20Santa%20Banta%20Dhaba." 
+         target="_blank"
+         class="rust-btn px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase inline-flex items-center gap-2">
+        <i class="bi bi-whatsapp"></i> Reserve Table
+      </a>
+    </div>
+  </nav>
+
+  <!-- ========================================== -->
+  <!-- 🎥 GSAP SCROLL-CAMERA TRACK HERO (360vh)   -->
+  <!-- ========================================== -->
+  <section id="camera-track-container" class="relative w-full h-[360vh] bg-black">
+    <div id="camera-viewport" class="sticky top-0 w-full h-screen overflow-hidden flex items-center justify-center">
+      
+      <!-- Video Element -->
+      <video id="walkthroughVideo" 
+             class="absolute inset-0 w-full h-full object-cover opacity-75 filter brightness-[0.88] contrast-[1.1]"
+             src="assets/hero_walkthrough.mp4" 
+             poster="assets/hero_poster.webp" 
+             playsinline 
+             muted 
+             preload="auto">
+      </video>
+
+      <!-- Atmospheric Overlays -->
+      <div class="absolute inset-0 bg-gradient-to-t from-black via-black/25 to-black/75 pointer-events-none"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_45%,rgba(15,18,11,0.85)_100%)] pointer-events-none"></div>
+
+      <!-- Telemetry Corner Overlays -->
+      <div class="absolute top-20 left-6 text-[11px] font-mono-coord text-[#DDA15E]/80 pointer-events-none">
+        <span class="block">GATEWAY: SILIGURI // SEVOKE RD</span>
+        <span class="text-white/40 block">CORRIDOR: NH-10 SIKKIM HIGHWAY</span>
+      </div>
+      <div class="absolute top-20 right-6 text-[11px] font-mono-coord text-[#DDA15E]/80 text-right pointer-events-none">
+        <span class="block">REPUTATION: 7,000+ GOOGLE REVIEWS</span>
+        <span class="text-white/40 block">CAMERA TRACK: ACTIVE</span>
+      </div>
+
+      <!-- Station 1: Gateway Landmark (0% - 22%) -->
+      <div id="station-1" class="absolute z-20 text-center max-w-4xl px-6 flex flex-col items-center">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#BC6C25]/20 border border-[#BC6C25]/40 text-[#DDA15E] font-mono-coord text-xs uppercase mb-4 tracking-wider">
+          <span class="w-2 h-2 rounded-full bg-[#DDA15E] animate-ping"></span>
+          Sevoke Road Highway Landmark · Siliguri
+        </div>
+        <h1 class="font-bitter text-4xl sm:text-6xl md:text-7xl font-extrabold text-white tracking-tight leading-tight drop-shadow-2xl">
+          SANTA BANTA DHABA
+        </h1>
+        <p class="font-bitter text-[#DDA15E] text-lg sm:text-2xl mt-2 tracking-wide font-semibold">
+          & AC BANQUETS · 200+ COVERS
+        </p>
+        <p class="text-white/70 max-w-xl text-sm sm:text-base mt-4 font-light leading-relaxed">
+          The legendary culinary stop on the gateway to Sikkim & Darjeeling. Famous clay-oven tandoor, royal butter chicken, and warm highway hospitality.
+        </p>
+        <div class="mt-8 flex items-center gap-3 text-white/50 text-xs font-mono-coord animate-bounce">
+          <i class="bi bi-chevron-double-down text-[#DDA15E]"></i> SCROLL TO EXPLORE THE VENUE
+        </div>
+      </div>
+
+      <!-- Station 2: Signature Clay Tandoor (25% - 55%) -->
+      <div id="station-2" class="absolute z-20 text-center max-w-4xl px-6 flex flex-col items-center opacity-0 scale-95 pointer-events-none">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-950/80 border border-amber-500/40 text-amber-200 font-mono-coord text-xs uppercase mb-4 tracking-wider">
+          <i class="bi bi-fire text-[#DDA15E]"></i> WOOD-FIRED CLAY TANDOOR
+        </div>
+        <h2 class="font-bitter text-3xl sm:text-5xl md:text-6xl font-bold text-[#DDA15E] tracking-tight leading-tight">
+          SMOKY PERFECTION
+        </h2>
+        <p class="text-white text-base sm:text-xl mt-2 font-medium">
+          Freshly Baked Naan, Sizzling Kebabs & Rich Dal Makhani
+        </p>
+        <div class="glass-dhaba p-6 rounded-2xl max-w-lg mt-6 text-left">
+          <p class="text-white/80 text-sm leading-relaxed">
+            Every traveler driving toward the hills stops for the aroma of our traditional tandoor. Served piping hot straight from the embers with real farmhouse butter.
+          </p>
+          <div class="mt-4 flex items-center justify-between text-xs font-mono-coord text-[#DDA15E]">
+            <span>● 200+ Seating Capacity</span>
+            <span>● Highway Drive-In</span>
+            <span>● Fresh Clay Ovens</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Station 3: AC Banquets & Family Dining (58% - 80%) -->
+      <div id="station-3" class="absolute z-20 text-center max-w-4xl px-6 flex flex-col items-center opacity-0 scale-95 pointer-events-none">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-950/80 border border-emerald-500/40 text-emerald-200 font-mono-coord text-xs uppercase mb-4 tracking-wider">
+          <i class="bi bi-people-fill text-[#DDA15E]"></i> PRIVATE BANQUET & FAMILY HALL
+        </div>
+        <h2 class="font-bitter text-3xl sm:text-5xl md:text-6xl font-bold text-white tracking-tight">
+          HOST IN LUXURY
+        </h2>
+        <p class="text-[#DDA15E] text-base sm:text-xl mt-2 font-medium">
+          Weddings, Anniversaries, Corporate Meets & Highway Gatherings
+        </p>
+        <p class="text-white/70 max-w-lg text-sm mt-4 leading-relaxed">
+          Air-conditioned banquet facility catering up to 350+ guests with dedicated buffet lines, sound setup, and ample parking on Sevoke Road.
+        </p>
+      </div>
+
+      <!-- Station 4: Instant Direct Booking (82% - 100%) -->
+      <div id="station-4" class="absolute z-20 text-center max-w-4xl px-6 flex flex-col items-center opacity-0 scale-95 pointer-events-none">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#BC6C25]/20 border border-[#BC6C25]/50 text-[#DDA15E] font-mono-coord text-xs uppercase mb-4 tracking-wider">
+          <i class="bi bi-lightning-charge-fill text-[#DDA15E]"></i> DIRECT FROM HIGHWAY
+        </div>
+        <h2 class="font-bitter text-3xl sm:text-5xl md:text-6xl font-bold text-[#DDA15E] tracking-tight">
+          PRE-ORDER BEFORE ARRIVAL
+        </h2>
+        <p class="text-white/80 max-w-xl text-sm sm:text-base mt-4 font-light">
+          Save 25 minutes of wait time while cruising down Sevoke Road. One tap on WhatsApp notifies the kitchen to fire your order right as you pull into the lot.
+        </p>
+        <div class="mt-8 flex flex-col sm:flex-row gap-4">
+          <a href="https://wa.me/919593300477?text=Hi%20Avishek%20Ji%2C%20we%20are%20driving%20on%20Sevoke%20Road%20and%20would%20like%20to%20reserve%20a%20table%20in%20advance." 
+             target="_blank"
+             class="rust-btn px-8 py-3.5 rounded-full text-xs font-bold tracking-widest uppercase">
+            <i class="bi bi-whatsapp"></i> WhatsApp Kitchen Pre-Order
+          </a>
+        </div>
+      </div>
+
+      <!-- Scroller Progress Bar -->
+      <div class="absolute bottom-6 left-12 right-12 h-1 bg-white/10 rounded-full overflow-hidden">
+        <div id="cameraProgressBar" class="h-full bg-gradient-to-r from-[#BC6C25] to-[#DDA15E] w-0 transition-all duration-75"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 🥘 CULINARY SHOWCASE GRID                  -->
+  <!-- ========================================== -->
+  <section class="py-24 px-6 relative bg-gradient-to-b from-black via-[#141A0E] to-[#0F120B] border-t border-[#BC6C25]/25">
+    <div class="max-w-6xl mx-auto">
+      
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-16">
+        <div>
+          <span class="font-mono-coord text-[#DDA15E] text-xs tracking-widest uppercase block mb-2">TIMELESS HIGHWAY RECIPES</span>
+          <h2 class="font-bitter text-4xl md:text-5xl font-bold text-white">Signature North Indian Delicacies</h2>
+          <p class="text-white/60 text-base mt-2 max-w-xl">
+            Cooked with authentic Punjabi techniques, stone-ground spices, and pure desi ghee on Sevoke Road.
+          </p>
+        </div>
+        <div class="glass-dhaba p-4 rounded-xl">
+          <span class="text-xs font-mono-coord text-[#DDA15E] block">OPEN 11:00 AM – 11:30 PM DAILY</span>
+          <span class="text-xs text-white/50 block">Sevoke Road / NH-10 Highway Gateway</span>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
         
-        <a href="tel:" class="bg-white/10 backdrop-blur-md border border-white/30 text-white px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center gap-3 hover:bg-white/20 transition-all">
-          <i class="bi bi-telephone-fill"></i> Call Now
+        <div class="glass-dhaba rounded-3xl p-6 border border-[#BC6C25]/30 hover:border-[#DDA15E] transition-all duration-300 group">
+          <div class="h-56 rounded-2xl overflow-hidden relative mb-6">
+            <img src="assets/food_160.jpg" alt="Butter Chicken Special" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-3 left-3 bg-black/70 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-mono-coord text-[#DDA15E]">
+              CHEF RECOMMENDATION
+            </div>
+          </div>
+          <h3 class="font-bitter text-xl font-bold text-white mb-2">Original Murgh Makhani</h3>
+          <p class="text-white/60 text-sm leading-relaxed mb-4">
+            Charcoal-grilled chicken simmered in a velvety tomato, cashew, and fenugreek gravy finished with a generous dollop of country butter.
+          </p>
+          <div class="text-[#DDA15E] font-mono-coord text-xs">● Served with Garlic Butter Naan</div>
+        </div>
+
+        <div class="glass-dhaba rounded-3xl p-6 border border-[#BC6C25]/30 hover:border-[#DDA15E] transition-all duration-300 group">
+          <div class="h-56 rounded-2xl overflow-hidden relative mb-6">
+            <img src="assets/food_190.jpg" alt="Dal Makhani" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-3 left-3 bg-black/70 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-mono-coord text-[#DDA15E]">
+              12-HOUR SLOW COOKED
+            </div>
+          </div>
+          <h3 class="font-bitter text-xl font-bold text-white mb-2">Amritsari Dal Makhani</h3>
+          <p class="text-white/60 text-sm leading-relaxed mb-4">
+            Black lentils and red kidney beans simmered overnight over slow charcoal embers with fresh ginger, garlic, and rich churned butter.
+          </p>
+          <div class="text-[#DDA15E] font-mono-coord text-xs">● The Highway Classic</div>
+        </div>
+
+        <div class="glass-dhaba rounded-3xl p-6 border border-[#BC6C25]/30 hover:border-[#DDA15E] transition-all duration-300 group">
+          <div class="h-56 rounded-2xl overflow-hidden relative mb-6">
+            <img src="assets/walk_40.jpg" alt="Dining Hall Ambiance" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-3 left-3 bg-black/70 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-mono-coord text-[#DDA15E]">
+              FAMILY & GROUP DINING
+            </div>
+          </div>
+          <h3 class="font-bitter text-xl font-bold text-white mb-2">Spacious 200+ Cover Hall</h3>
+          <p class="text-white/60 text-sm leading-relaxed mb-4">
+            Wide family tables, dedicated AC sections, and speedy service capable of seating touring bus parties and road-trip convoys with ease.
+          </p>
+          <div class="text-[#DDA15E] font-mono-coord text-xs">● Ample Car & Bus Parking</div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 🎞️ FILM STRIP MARQUEE REEL                -->
+  <!-- ========================================== -->
+  <section class="py-16 bg-black border-y border-white/10 overflow-hidden">
+    <div class="text-center mb-8">
+      <span class="text-xs font-mono-coord text-[#DDA15E] uppercase tracking-widest">GLIMPSES FROM SEVOKE ROAD</span>
+    </div>
+
+    <div class="filmstrip-container w-full overflow-hidden">
+      <div class="filmstrip-track flex gap-6 items-center">
+        <div class="w-80 h-48 rounded-xl overflow-hidden flex-shrink-0 border border-[#BC6C25]/30">
+          <img src="assets/walk_26.jpg" class="w-full h-full object-cover">
+        </div>
+        <div class="w-80 h-48 rounded-xl overflow-hidden flex-shrink-0 border border-[#BC6C25]/30">
+          <img src="assets/food_175.jpg" class="w-full h-full object-cover">
+        </div>
+        <div class="w-80 h-48 rounded-xl overflow-hidden flex-shrink-0 border border-[#BC6C25]/30">
+          <img src="assets/walk_40.jpg" class="w-full h-full object-cover">
+        </div>
+        <div class="w-80 h-48 rounded-xl overflow-hidden flex-shrink-0 border border-[#BC6C25]/30">
+          <img src="assets/food_160.jpg" class="w-full h-full object-cover">
+        </div>
+        <div class="w-80 h-48 rounded-xl overflow-hidden flex-shrink-0 border border-[#BC6C25]/30">
+          <img src="assets/food_190.jpg" class="w-full h-full object-cover">
+        </div>
+
+        <!-- Loop duplicates -->
+        <div class="w-80 h-48 rounded-xl overflow-hidden flex-shrink-0 border border-[#BC6C25]/30">
+          <img src="assets/walk_26.jpg" class="w-full h-full object-cover">
+        </div>
+        <div class="w-80 h-48 rounded-xl overflow-hidden flex-shrink-0 border border-[#BC6C25]/30">
+          <img src="assets/food_175.jpg" class="w-full h-full object-cover">
+        </div>
+        <div class="w-80 h-48 rounded-xl overflow-hidden flex-shrink-0 border border-[#BC6C25]/30">
+          <img src="assets/walk_40.jpg" class="w-full h-full object-cover">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 🗺️ HIGHWAY LOCATION & TRANSIT              -->
+  <!-- ========================================== -->
+  <section class="py-24 px-6 bg-[#10140C] border-t border-[#BC6C25]/20">
+    <div class="max-w-5xl mx-auto text-center">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#BC6C25]/20 border border-[#BC6C25]/40 text-[#DDA15E] font-mono-coord text-xs uppercase mb-4">
+        <i class="bi bi-geo-alt-fill"></i> SIKKIM / DARJEELING ROAD CORRIDOR
+      </div>
+      <h2 class="font-bitter text-3xl sm:text-5xl font-bold text-white mb-6">
+        The Essential Pitstop on Sevoke Road
+      </h2>
+      <p class="text-white/60 text-base max-w-2xl mx-auto mb-12">
+        Situated directly on NH-10 / Sevoke Road, making it the most convenient family dining destination before heading up into Kalimpong, Gangtok, or Darjeeling.
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-6 text-left mb-12">
+        <div class="glass-dhaba p-6 rounded-2xl">
+          <div class="text-[#DDA15E] font-bitter text-2xl font-bold mb-1">15 MINS</div>
+          <div class="font-mono-coord text-white text-xs uppercase font-semibold">FROM SILIGURI JUNCTION</div>
+          <div class="text-white/50 text-xs mt-2">Smooth drive straight up Sevoke Road arterial corridor.</div>
+        </div>
+        <div class="glass-dhaba p-6 rounded-2xl">
+          <div class="text-[#DDA15E] font-bitter text-2xl font-bold mb-1">GATEWAY</div>
+          <div class="font-mono-coord text-white text-xs uppercase font-semibold">TO SIKKIM & CORONATION BRIDGE</div>
+          <div class="text-white/50 text-xs mt-2">The prime dining junction before hitting hill climbs.</div>
+        </div>
+        <div class="glass-dhaba p-6 rounded-2xl">
+          <div class="text-[#DDA15E] font-bitter text-2xl font-bold mb-1">7,000+</div>
+          <div class="font-mono-coord text-white text-xs uppercase font-semibold">GOOGLE REVIEWS (4.5★)</div>
+          <div class="text-white/50 text-xs mt-2">One of North Bengal's most heavily recommended highway stops.</div>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="https://maps.google.com/?q=Santa+Banta+Dhaba+Sevoke+Road+Siliguri" target="_blank" class="rust-btn px-8 py-4 rounded-full text-xs font-bold tracking-widest uppercase inline-flex items-center justify-center gap-2">
+          <i class="bi bi-compass-fill text-lg"></i> Launch Google Maps Navigation
+        </a>
+        <a href="tel:+919593300477" class="px-8 py-4 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs font-bold tracking-widest uppercase inline-flex items-center justify-center gap-2 transition">
+          <i class="bi bi-telephone-fill"></i> Call Front Desk: +91 95933 00477
         </a>
       </div>
     </div>
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/40 animate-bounce">
-      <i class="bi bi-chevron-double-down text-2xl"></i>
-    </div>
   </section>
 
-  <!-- What We'd Build Section -->
-  <section class="py-20 px-6">
-    <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-16">
-        <span class="text-sm font-bold tracking-[0.2em] uppercase" style="color: var(--primary);">What Your Guests Would Experience</span>
-        <h2 class="font-editorial text-4xl md:text-5xl font-bold mt-4 mb-6">A Digital Experience<br>Worthy of Your Kitchen</h2>
-        <p class="text-gray-500 text-lg max-w-2xl mx-auto">Every feature below is designed to convert highway travelers and local foodies into paying guests — in one tap.</p>
+  <!-- ========================================== -->
+  <!-- 💼 PITCH MEMO / LOCALPULSE AI BANNER       -->
+  <!-- ========================================== -->
+  <section class="py-16 px-6 bg-black border-t border-[#BC6C25]/30">
+    <div class="max-w-4xl mx-auto rounded-3xl p-8 md:p-12 border-2 border-[#BC6C25]/60 bg-gradient-to-br from-[#1C2314] to-black shadow-2xl relative overflow-hidden">
+      
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-8 border-b border-white/10 pb-6">
+        <div>
+          <span class="text-xs font-mono-coord text-[#DDA15E] tracking-widest uppercase">STRATEGIC DIGITAL BRIEF FOR</span>
+          <h3 class="font-bitter text-2xl md:text-3xl font-bold text-white mt-1">Avishek Dutta & Management</h3>
+          <p class="text-white/50 text-xs font-mono-coord mt-1">Santa Banta Dhaba & Banquet · Sevoke Road</p>
+        </div>
+        <div class="px-4 py-2 rounded-xl bg-[#BC6C25]/20 border border-[#BC6C25]/40 text-[#DDA15E] font-mono-coord text-xs">
+          CUSTOM ENGINE BY LOCALPULSE AI
+        </div>
       </div>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(184,93,42,0.1);">
-            <i class="bi bi-phone text-2xl" style="color: var(--primary);"></i>
-          </div>
-          <h3 class="font-bold text-xl mb-3">Mobile-First Design</h3>
-          <p class="text-gray-500">85% of your customers search on phones. A lightning-fast mobile experience with sticky booking bar and one-tap WhatsApp reservation.</p>
+
+      <div class="text-white/80 text-sm leading-relaxed space-y-4 mb-8">
+        <p>
+          <strong>The 7,000-Review Opportunity:</strong> Santa Banta Dhaba has an incredible 7,000+ Google reviews with a 4.5★ rating. That makes you one of the most reputable culinary landmarks in all of North Bengal.
+        </p>
+        <p>
+          However, without a dedicated, interactive mobile website, you are leaving lucrative <strong>private banquet bookings, wedding receptions, and direct highway pre-orders</strong> on the table.
+        </p>
+        <p class="text-[#DDA15E] font-medium">
+          We can deploy this exact interactive platform on your domain within 48 hours for a flat one-time setup of ₹24,000 ($299), including 5 custom 60fps video reels.
+        </p>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-white/10">
+        <div class="text-xs font-mono-coord text-white/60">
+          Built by <strong class="text-white">Samya</strong> (LocalPulse AI) · Phone/WA: <strong class="text-[#DDA15E]">+91 8617625059</strong>
         </div>
-        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(184,93,42,0.1);">
-            <i class="bi bi-camera-reels text-2xl" style="color: var(--primary);"></i>
-          </div>
-          <h3 class="font-bold text-xl mb-3">5 Custom Video Reels</h3>
-          <p class="text-gray-500">High-retention 9:16 vertical videos of your signature dishes, ambiance, and chef specials — ready for Instagram, YouTube Shorts & Google Maps.</p>
-        </div>
-        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(184,93,42,0.1);">
-            <i class="bi bi-robot text-2xl" style="color: var(--primary);"></i>
-          </div>
-          <h3 class="font-bold text-xl mb-3">AI Digital Concierge</h3>
-          <p class="text-gray-500">A 24/7 AI assistant trained on your exact menu, pricing, and FAQs — answers customer questions instantly on WhatsApp.</p>
-        </div>
-        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(184,93,42,0.1);">
-            <i class="bi bi-calendar-event text-2xl" style="color: var(--primary);"></i>
-          </div>
-          <h3 class="font-bold text-xl mb-3">Banquet Booking Funnel</h3>
-          <p class="text-gray-500">Direct inquiry forms for weddings, birthday parties, and corporate events — no more lost leads from missed calls.</p>
-        </div>
-        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(184,93,42,0.1);">
-            <i class="bi bi-geo-alt text-2xl" style="color: var(--primary);"></i>
-          </div>
-          <h3 class="font-bold text-xl mb-3">GPS Navigation</h3>
-          <p class="text-gray-500">One-tap Google Maps routing for highway travelers. Integrated with your exact pin location and landmark references.</p>
-        </div>
-        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(184,93,42,0.1);">
-            <i class="bi bi-graph-up-arrow text-2xl" style="color: var(--primary);"></i>
-          </div>
-          <h3 class="font-bold text-xl mb-3">SEO & Google Boost</h3>
-          <p class="text-gray-500">Schema markup, local SEO optimization, and Google Business integration so you rank #1 for "Santa Banta Dhaba & Banquet" and nearby food searches.</p>
-        </div>
+        <a href="https://wa.me/918617625059?text=Hi%20Samya%2C%20I%20reviewed%20the%20Santa%20Banta%20Dhaba%20interactive%20walkthrough.%20Let%27s%20discuss%20launching%20this."
+           target="_blank"
+           class="rust-btn px-6 py-3 rounded-full text-xs font-bold tracking-wider uppercase inline-flex items-center gap-2">
+          <i class="bi bi-whatsapp"></i> WhatsApp Samya to Launch
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- Social Proof / Reference -->
-  <section class="py-20 px-6" style="background: var(--dark);">
-    <div class="max-w-4xl mx-auto text-center">
-      <span class="text-sm font-bold tracking-[0.2em] uppercase text-amber-400">See What We've Already Built</span>
-      <h2 class="font-editorial text-4xl md:text-5xl font-bold text-white mt-4 mb-6">Our Reference Project</h2>
-      <p class="text-white/60 text-lg mb-10">We built this complete digital experience for Mother's Hut, Krishnanagar — the 50,000 sq ft women-powered dining landmark on NH-12.</p>
-      <a href="https://samya666.github.io/mothers-hut-redesign/" target="_blank" class="glow-btn text-white px-10 py-5 rounded-full font-bold text-lg inline-flex items-center gap-3">
-        <i class="bi bi-box-arrow-up-right"></i> View Mother's Hut Experience
-      </a>
-      <div class="grid grid-cols-3 gap-6 mt-16">
-        <div class="stat-card rounded-2xl p-6">
-          <div class="text-3xl font-bold text-white">2.5K</div>
-          <div class="text-white/50 text-sm mt-1">Video Walkthrough</div>
-        </div>
-        <div class="stat-card rounded-2xl p-6">
-          <div class="text-3xl font-bold text-white">10</div>
-          <div class="text-white/50 text-sm mt-1">Themed Dining Zones</div>
-        </div>
-        <div class="stat-card rounded-2xl p-6">
-          <div class="text-3xl font-bold text-white">48h</div>
-          <div class="text-white/50 text-sm mt-1">Delivery Time</div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- Sticky Bottom Mobile Quick Actions -->
+  <div class="fixed bottom-4 left-4 right-4 z-40 md:hidden flex gap-2">
+    <a href="https://wa.me/919593300477?text=Namaskar%2C%20inquiring%20about%20table%20reservation." target="_blank" class="flex-1 rust-btn py-3 rounded-xl text-center font-bold text-xs shadow-xl flex items-center justify-center gap-2">
+      <i class="bi bi-whatsapp text-sm"></i> WhatsApp Table
+    </a>
+    <a href="tel:+919593300477" class="px-5 py-3 rounded-xl bg-black/80 backdrop-blur-md border border-white/20 text-white font-bold text-xs flex items-center justify-center">
+      <i class="bi bi-telephone-fill"></i>
+    </a>
+    <a href="https://maps.google.com/?q=Santa+Banta+Dhaba+Sevoke+Road+Siliguri" target="_blank" class="px-5 py-3 rounded-xl bg-black/80 backdrop-blur-md border border-white/20 text-white font-bold text-xs flex items-center justify-center">
+      <i class="bi bi-geo-alt-fill text-[#DDA15E]"></i>
+    </a>
+  </div>
 
-  <!-- Pricing CTA -->
-  <section class="py-20 px-6">
-    <div class="max-w-3xl mx-auto text-center">
-      <span class="text-sm font-bold tracking-[0.2em] uppercase" style="color: var(--primary);">Simple, Transparent Pricing</span>
-      <h2 class="font-editorial text-4xl md:text-5xl font-bold mt-4 mb-6">Get All Of This<br>For ₹24,000</h2>
-      <div class="bg-white rounded-3xl p-10 border border-gray-100 shadow-xl mb-10">
-        <ul class="text-left space-y-4 text-lg text-gray-700 mb-8">
-          <li class="flex items-start gap-3"><i class="bi bi-check-circle-fill text-green-500 mt-1"></i> Complete mobile-first website with your branding</li>
-          <li class="flex items-start gap-3"><i class="bi bi-check-circle-fill text-green-500 mt-1"></i> 5 custom 9:16 video reels (Instagram/YouTube ready)</li>
-          <li class="flex items-start gap-3"><i class="bi bi-check-circle-fill text-green-500 mt-1"></i> AI digital concierge (WhatsApp integration)</li>
-          <li class="flex items-start gap-3"><i class="bi bi-check-circle-fill text-green-500 mt-1"></i> WhatsApp one-tap booking & banquet inquiry form</li>
-          <li class="flex items-start gap-3"><i class="bi bi-check-circle-fill text-green-500 mt-1"></i> Google Maps SEO optimization</li>
-          <li class="flex items-start gap-3"><i class="bi bi-check-circle-fill text-green-500 mt-1"></i> Delivered in 48 hours</li>
-        </ul>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="https://wa.me/+918617625059?text=Hi%20Samya%2C%20I%20saw%20the%20LocalPulse%20AI%20demo%20for%20Santa%20Banta%20Dhaba%20%26%20Banquet.%20I%20am%20interested%20in%20getting%20this%20for%20my%20restaurant." 
-             target="_blank" class="glow-btn text-white px-8 py-4 rounded-full font-bold text-lg inline-flex items-center gap-3">
-            <i class="bi bi-whatsapp text-xl"></i> Get Started — WhatsApp Samya
-          </a>
-        </div>
-        <p class="text-gray-400 text-sm mt-4">Or call: +91 8617625059 | Email: samya.pegusus@gmail.com</p>
-      </div>
-    </div>
-  </section>
+  <!-- GSAP Scrub Engine -->
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
 
-  <!-- Footer -->
-  <footer class="py-8 px-6 border-t border-gray-200">
-    <div class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-      <div class="text-gray-400 text-sm">
-        Custom preview by <strong class="text-gray-600">LocalPulse AI</strong> · Built for Santa Banta Dhaba & Banquet
-      </div>
-      <div class="flex items-center gap-4 text-gray-400">
-        <a href="mailto:samya.pegusus@gmail.com" class="hover:text-gray-600 transition"><i class="bi bi-envelope-fill"></i></a>
-        <a href="https://wa.me/+918617625059" target="_blank" class="hover:text-gray-600 transition"><i class="bi bi-whatsapp"></i></a>
-        <a href="tel:+91 8617625059" class="hover:text-gray-600 transition"><i class="bi bi-telephone-fill"></i></a>
-      </div>
-    </div>
-  </footer>
+    const video = document.getElementById('walkthroughVideo');
+    const station1 = document.getElementById('station-1');
+    const station2 = document.getElementById('station-2');
+    const station3 = document.getElementById('station-3');
+    const station4 = document.getElementById('station-4');
+    const progressBar = document.getElementById('cameraProgressBar');
+
+    let videoDuration = 23.0;
+
+    video.addEventListener('loadedmetadata', () => {
+      videoDuration = video.duration || 23.0;
+      initScrollAnimation();
+    });
+
+    if (video.readyState >= 1) {
+      videoDuration = video.duration || 23.0;
+      initScrollAnimation();
+    } else {
+      setTimeout(initScrollAnimation, 500);
+    }
+
+    function initScrollAnimation() {
+      ScrollTrigger.create({
+        trigger: "#camera-track-container",
+        start: "top top",
+        end: "bottom bottom",
+        scrub: 0.15,
+        onUpdate: (self) => {
+          const progress = self.progress;
+
+          if (video.readyState >= 2 && videoDuration) {
+            video.currentTime = Math.min(videoDuration - 0.05, Math.max(0, progress * videoDuration));
+          }
+
+          if (progressBar) {
+            progressBar.style.width = (progress * 100) + '%';
+          }
+
+          if (progress < 0.22) {
+            const op = gsap.utils.clamp(0, 1, (0.20 - progress) / 0.12);
+            gsap.set(station1, { opacity: op, scale: 1 - progress * 0.15, y: -progress * 50, pointerEvents: op > 0.5 ? 'auto' : 'none' });
+          } else {
+            gsap.set(station1, { opacity: 0, pointerEvents: 'none' });
+          }
+
+          if (progress >= 0.22 && progress < 0.60) {
+            let op = 0;
+            if (progress >= 0.22 && progress <= 0.38) op = (progress - 0.22) / 0.14;
+            else if (progress > 0.38 && progress <= 0.50) op = 1;
+            else if (progress > 0.50) op = (0.60 - progress) / 0.10;
+            op = gsap.utils.clamp(0, 1, op);
+            const scale = gsap.utils.interpolate(0.94, 1.02, (progress - 0.22) / 0.38);
+            gsap.set(station2, { opacity: op, scale: scale, pointerEvents: op > 0.5 ? 'auto' : 'none' });
+          } else {
+            gsap.set(station2, { opacity: 0, pointerEvents: 'none' });
+          }
+
+          if (progress >= 0.60 && progress < 0.84) {
+            let op = 0;
+            if (progress >= 0.60 && progress <= 0.70) op = (progress - 0.60) / 0.10;
+            else if (progress > 0.70 && progress <= 0.78) op = 1;
+            else if (progress > 0.78) op = (0.84 - progress) / 0.06;
+            op = gsap.utils.clamp(0, 1, op);
+            gsap.set(station3, { opacity: op, scale: 1, pointerEvents: op > 0.5 ? 'auto' : 'none' });
+          } else {
+            gsap.set(station3, { opacity: 0, pointerEvents: 'none' });
+          }
+
+          if (progress >= 0.84) {
+            const op = gsap.utils.clamp(0, 1, (progress - 0.84) / 0.10);
+            gsap.set(station4, { opacity: op, scale: 1, pointerEvents: op > 0.5 ? 'auto' : 'none' });
+          } else {
+            gsap.set(station4, { opacity: 0, pointerEvents: 'none' });
+          }
+        }
+      });
+    }
+  </script>
 
 </body>
 </html>

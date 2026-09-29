@@ -2,187 +2,1254 @@
 <html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Saraikhana Cottage Dhaba | Premium Digital Experience by LocalPulse AI</title>
-  <meta name="description" content="A custom-built, high-converting mobile experience for Saraikhana Cottage Dhaba, {'address': 'NH-12 (formerly NH-34), Birohi, Shitalatala, Chakdah, Nadia, West Bengal 741248', 'landmark': 'Near Birohi Shitalatala, NH-12 Highway Hub', 'city_zone': 'Birohi / Chakdah (NH-12 Dhaba Belt)'}. Powered by LocalPulse AI.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saraikhana Cottage Dhaba | Authentic Highway Dining & Thatched Pods on NH-12, Birohi</title>
+  <meta name="description" content="Experience legendary highway dining at Saraikhana Cottage Dhaba, NH-12 Birohi, Chakdah. Famous Mutton Thali, fragrant Basanti Pulao, Tandoori Festival, and rustic individual thatched cottage dining pods.">
+
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brick: {
+              DEFAULT: '#CB4335',
+              dark: '#922B21',
+              light: '#E74C3C',
+              glow: '#E67E22'
+            },
+            bamboo: {
+              DEFAULT: '#C4A35A',
+              dark: '#9A7D35',
+              light: '#E5D193',
+              amber: '#D4AC0D'
+            },
+            thatch: {
+              DEFAULT: '#F5F0DC',
+              dark: '#E2D9B8',
+              light: '#FAF7EC'
+            },
+            dhaba: {
+              bg: '#120F0C',
+              surface: '#1A1511',
+              card: '#241D17',
+              border: '#3D3126',
+              borderLight: '#594736'
+            }
+          },
+          fontFamily: {
+            cardo: ['Cardo', 'Georgia', 'serif'],
+            assistant: ['Assistant', 'sans-serif'],
+            mono: ['"Ubuntu Mono"', 'monospace']
+          },
+          keyframes: {
+            marquee: {
+              '0%': { transform: 'translateX(0%)' },
+              '100%': { transform: 'translateX(-50%)' }
+            },
+            pulseSubtle: {
+              '0%, 100%': { opacity: 1, transform: 'scale(1)' },
+              '50%': { opacity: 0.85, transform: 'scale(1.02)' }
+            }
+          },
+          animation: {
+            marquee: 'marquee 28s linear infinite',
+            pulseSubtle: 'pulseSubtle 3s ease-in-out infinite'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts: Cardo + Assistant + Ubuntu Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&family=Cardo:ital,wght@0,400;0,700;1,400&family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap Icons CDN -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- GSAP 3 & ScrollTrigger CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
   <style>
-    :root {
-      --primary: #B85D2A;
-      --primary-dark: #8C3B1B;
-      --dark: #1a1a1a;
-      --cream: #FAF8F5;
-      --sand: #ECE5CE;
+    body {
+      background-color: #120F0C;
+      color: #F5F0DC;
+      font-family: 'Assistant', sans-serif;
+      overflow-x: hidden;
     }
-    body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--cream); color: #262420; }
-    .font-editorial { font-family: 'Playfair Display', serif; }
-    .gradient-hero { background: linear-gradient(135deg, #1a1a1a 0%, #2d1810 50%, #1a1a1a 100%); }
-    .glow-btn {
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      box-shadow: 0 10px 30px -5px rgba(184,93,42,0.4);
-      transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+    h1, h2, h3, .font-rustic {
+      font-family: 'Cardo', Georgia, serif;
     }
-    .glow-btn:hover { transform: translateY(-2px); box-shadow: 0 15px 40px -5px rgba(184,93,42,0.5); }
-    .card-hover { transition: all 0.3s ease; }
-    .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-    .stat-card { background: rgba(255,255,255,0.7); backdrop-filter: blur(10px); }
-    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-    .float { animation: float 3s ease-in-out infinite; }
+    .font-coords {
+      font-family: 'Ubuntu Mono', monospace;
+    }
+    /* Ambient Glow & Textures */
+    .glow-brick {
+      box-shadow: 0 0 35px -5px rgba(203, 67, 53, 0.45);
+    }
+    .glow-bamboo {
+      box-shadow: 0 0 30px -5px rgba(196, 163, 90, 0.35);
+    }
+    .wood-texture {
+      background-image: radial-gradient(rgba(196, 163, 90, 0.08) 1px, transparent 0);
+      background-size: 24px 24px;
+    }
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #120F0C;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #3D3126;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #C4A35A;
+    }
+    /* Hide video controls */
+    video::-webkit-media-controls {
+      display: none !important;
+    }
+    .marquee-container:hover .marquee-track {
+      animation-play-state: paused;
+    }
   </style>
 </head>
-<body class="antialiased">
+<body class="selection:bg-brick selection:text-white">
 
-  <!-- Hero Section -->
-  <section class="gradient-hero min-h-screen flex items-center justify-center relative overflow-hidden">
-    <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 20% 50%, rgba(184,93,42,0.3) 0%, transparent 50%), radial-gradient(circle at 80% 50%, rgba(184,93,42,0.2) 0%, transparent 50%);"></div>
-    <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
-      <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-5 py-2 mb-8">
-        <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-        <span class="text-white/80 text-sm font-medium tracking-wide">CUSTOM PREVIEW — BUILT FOR SARAIKHANA COTTAGE DHABA</span>
-      </div>
-      <h1 class="font-editorial text-5xl md:text-7xl text-white font-bold leading-tight mb-6">
-        Saraikhana Cottage Dhaba
-      </h1>
-      <p class="text-white/70 text-lg md:text-xl max-w-2xl mx-auto mb-4">
-        {'address': 'NH-12 (formerly NH-34), Birohi, Shitalatala, Chakdah, Nadia, West Bengal 741248', 'landmark': 'Near Birohi Shitalatala, NH-12 Highway Hub', 'city_zone': 'Birohi / Chakdah (NH-12 Dhaba Belt)'}
-      </p>
-      <p class="text-white/50 text-base max-w-xl mx-auto mb-10">
-        This is what your restaurant's digital presence could look like — built in 48 hours by LocalPulse AI.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href='https://wa.me/918972373733' target='_blank' class='glow-btn text-white px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center gap-3'><i class='bi bi-whatsapp text-2xl'></i> Book via WhatsApp</a>
-        <a href="tel:+91 89723 73733" class="bg-white/10 backdrop-blur-md border border-white/30 text-white px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center gap-3 hover:bg-white/20 transition-all">
-          <i class="bi bi-telephone-fill"></i> Call Now
+  <!-- FIXED TOP NAVIGATION -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-dhaba-bg/85 backdrop-blur-md border-b border-dhaba-border/60 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand & Highway Coordinates -->
+      <a href="#hero" class="flex items-center gap-3.5 group">
+        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-brick to-brick-dark p-0.5 shadow-lg group-hover:shadow-brick/30 transition-all">
+          <div class="w-full h-full bg-dhaba-surface rounded-[10px] flex items-center justify-center border border-bamboo/30">
+            <i class="bi bi-house-door-fill text-xl text-bamboo group-hover:scale-110 transition-transform"></i>
+          </div>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-xl sm:text-2xl font-bold tracking-tight text-white font-rustic group-hover:text-bamboo transition-colors">
+              SARAIKHANA
+            </span>
+            <span class="text-[11px] uppercase tracking-wider font-semibold px-2 py-0.5 rounded-full bg-brick/20 text-brick-light border border-brick/40">
+              Cottage Dhaba
+            </span>
+          </div>
+          <div class="flex items-center gap-2 text-xs text-thatch/70 font-coords">
+            <span><i class="bi bi-geo-alt-fill text-brick-light mr-1"></i>NH-12, Birohi, Chakdah</span>
+            <span class="hidden md:inline">•</span>
+            <span class="hidden md:inline text-bamboo"><i class="bi bi-star-fill text-amber-400 mr-0.5"></i> 4.1★ (800+ Reviews)</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Quick Nav Links & CTA Buttons -->
+      <div class="flex items-center gap-3 sm:gap-4">
+        <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-thatch/80">
+          <a href="#cameraTrack" class="hover:text-bamboo transition-colors">Experience</a>
+          <a href="#menu" class="hover:text-bamboo transition-colors">Specialties</a>
+          <a href="#cottages" class="hover:text-bamboo transition-colors">Cottage Pods</a>
+          <a href="#location" class="hover:text-bamboo transition-colors">Pitstop GPS</a>
+          <a href="#pitchMemo" class="hover:text-brick-light transition-colors font-mono text-xs px-2.5 py-1 bg-brick/10 border border-brick/30 rounded">Memo for Owner</a>
+        </nav>
+
+        <a href="tel:+918972373733" class="hidden sm:inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-dhaba-card hover:bg-dhaba-border border border-dhaba-borderLight text-xs font-semibold text-thatch transition-all">
+          <i class="bi bi-telephone-fill text-bamboo"></i>
+          <span>+91 89723 73733</span>
+        </a>
+
+        <a href="https://wa.me/918972373733?text=Hello%20Saraikhana%20Cottage%20Dhaba!%20I%20am%20driving%20on%20NH-12%20and%20would%20like%20to%20reserve%20a%20cottage%20table." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 rounded-lg bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white text-xs sm:text-sm font-bold tracking-wide shadow-lg shadow-emerald-950/40 hover:shadow-emerald-700/30 transition-all hover:scale-[1.02] active:scale-[0.98]">
+          <i class="bi bi-whatsapp text-sm sm:text-base"></i>
+          <span>Book Pod / Pre-Order</span>
         </a>
       </div>
-    </div>
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/40 animate-bounce">
-      <i class="bi bi-chevron-double-down text-2xl"></i>
-    </div>
-  </section>
 
-  <!-- What We'd Build Section -->
-  <section class="py-20 px-6">
-    <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-16">
-        <span class="text-sm font-bold tracking-[0.2em] uppercase" style="color: var(--primary);">What Your Guests Would Experience</span>
-        <h2 class="font-editorial text-4xl md:text-5xl font-bold mt-4 mb-6">A Digital Experience<br>Worthy of Your Kitchen</h2>
-        <p class="text-gray-500 text-lg max-w-2xl mx-auto">Every feature below is designed to convert highway travelers and local foodies into paying guests — in one tap.</p>
+    </div>
+  </header>
+
+  <!-- HIGHWAY TICKER BANNER -->
+  <div class="pt-20 bg-gradient-to-r from-brick-dark/60 via-dhaba-surface to-dhaba-bg border-b border-dhaba-border/60">
+    <div class="max-w-7xl mx-auto px-4 py-2 flex flex-wrap items-center justify-between text-xs text-thatch/80 font-coords gap-y-1">
+      <div class="flex items-center gap-3">
+        <span class="inline-flex items-center gap-1 text-amber-400 font-bold">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+          OPEN 24/7 ON NH-12
+        </span>
+        <span class="hidden sm:inline text-dhaba-borderLight">|</span>
+        <span class="hidden sm:inline">Kolkata → Siliguri Express Corridor</span>
       </div>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(184,93,42,0.1);">
-            <i class="bi bi-phone text-2xl" style="color: var(--primary);"></i>
-          </div>
-          <h3 class="font-bold text-xl mb-3">Mobile-First Design</h3>
-          <p class="text-gray-500">85% of your customers search on phones. A lightning-fast mobile experience with sticky booking bar and one-tap WhatsApp reservation.</p>
-        </div>
-        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(184,93,42,0.1);">
-            <i class="bi bi-camera-reels text-2xl" style="color: var(--primary);"></i>
-          </div>
-          <h3 class="font-bold text-xl mb-3">5 Custom Video Reels</h3>
-          <p class="text-gray-500">High-retention 9:16 vertical videos of your signature dishes, ambiance, and chef specials — ready for Instagram, YouTube Shorts & Google Maps.</p>
-        </div>
-        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(184,93,42,0.1);">
-            <i class="bi bi-robot text-2xl" style="color: var(--primary);"></i>
-          </div>
-          <h3 class="font-bold text-xl mb-3">AI Digital Concierge</h3>
-          <p class="text-gray-500">A 24/7 AI assistant trained on your exact menu, pricing, and FAQs — answers customer questions instantly on WhatsApp.</p>
-        </div>
-        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(184,93,42,0.1);">
-            <i class="bi bi-calendar-event text-2xl" style="color: var(--primary);"></i>
-          </div>
-          <h3 class="font-bold text-xl mb-3">Banquet Booking Funnel</h3>
-          <p class="text-gray-500">Direct inquiry forms for weddings, birthday parties, and corporate events — no more lost leads from missed calls.</p>
-        </div>
-        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(184,93,42,0.1);">
-            <i class="bi bi-geo-alt text-2xl" style="color: var(--primary);"></i>
-          </div>
-          <h3 class="font-bold text-xl mb-3">GPS Navigation</h3>
-          <p class="text-gray-500">One-tap Google Maps routing for highway travelers. Integrated with your exact pin location and landmark references.</p>
-        </div>
-        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(184,93,42,0.1);">
-            <i class="bi bi-graph-up-arrow text-2xl" style="color: var(--primary);"></i>
-          </div>
-          <h3 class="font-bold text-xl mb-3">SEO & Google Boost</h3>
-          <p class="text-gray-500">Schema markup, local SEO optimization, and Google Business integration so you rank #1 for "Saraikhana Cottage Dhaba" and nearby food searches.</p>
-        </div>
+      <div class="flex items-center gap-4 text-[11px]">
+        <span><i class="bi bi-geo-fill text-brick-light mr-1"></i>22.9912° N, 88.5284° E</span>
+        <span class="hidden md:inline"><i class="bi bi-shield-check text-emerald-400 mr-1"></i>Gated Car Parking</span>
+        <span><i class="bi bi-fire text-amber-500 mr-1"></i>Famous Mutton & Tandoori</span>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- Social Proof / Reference -->
-  <section class="py-20 px-6" style="background: var(--dark);">
-    <div class="max-w-4xl mx-auto text-center">
-      <span class="text-sm font-bold tracking-[0.2em] uppercase text-amber-400">See What We've Already Built</span>
-      <h2 class="font-editorial text-4xl md:text-5xl font-bold text-white mt-4 mb-6">Our Reference Project</h2>
-      <p class="text-white/60 text-lg mb-10">We built this complete digital experience for Mother's Hut, Krishnanagar — the 50,000 sq ft women-powered dining landmark on NH-12.</p>
-      <a href="https://samya666.github.io/mothers-hut-redesign/" target="_blank" class="glow-btn text-white px-10 py-5 rounded-full font-bold text-lg inline-flex items-center gap-3">
-        <i class="bi bi-box-arrow-up-right"></i> View Mother's Hut Experience
-      </a>
-      <div class="grid grid-cols-3 gap-6 mt-16">
-        <div class="stat-card rounded-2xl p-6">
-          <div class="text-3xl font-bold text-white">2.5K</div>
-          <div class="text-white/50 text-sm mt-1">Video Walkthrough</div>
-        </div>
-        <div class="stat-card rounded-2xl p-6">
-          <div class="text-3xl font-bold text-white">10</div>
-          <div class="text-white/50 text-sm mt-1">Themed Dining Zones</div>
-        </div>
-        <div class="stat-card rounded-2xl p-6">
-          <div class="text-3xl font-bold text-white">48h</div>
-          <div class="text-white/50 text-sm mt-1">Delivery Time</div>
-        </div>
+  <!-- SECTION 1: GSAP SCROLL-CAMERA TRACK HERO (360vh Pin Container) -->
+  <section id="cameraTrack" class="relative w-full h-[360vh] bg-dhaba-bg">
+    
+    <!-- STICKY PINNED VIEWPORT -->
+    <div id="stickyViewport" class="sticky top-0 w-full h-screen overflow-hidden flex items-center justify-center">
+      
+      <!-- BACKGROUND VIDEO (SCRUBBED VIA GSAP) -->
+      <video
+        id="heroVideo"
+        class="absolute inset-0 w-full h-full object-cover object-center filter brightness-[0.78] contrast-[1.08]"
+        src="assets/hero_walkthrough.mp4"
+        poster="assets/hero_poster.webp"
+        playsinline
+        muted
+        preload="auto"
+      ></video>
+
+      <!-- DARK GRADIENT OVERLAYS FOR MAXIMUM LEGIBILITY -->
+      <div class="absolute inset-0 bg-gradient-to-t from-dhaba-bg via-dhaba-bg/40 to-dhaba-bg/70 pointer-events-none"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-dhaba-bg/30 to-dhaba-bg/90 pointer-events-none"></div>
+
+      <!-- WATERMARK / AMBIENT BADGE -->
+      <div class="absolute top-24 left-6 md:left-12 pointer-events-none z-10 flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-[11px] font-coords text-thatch/80">
+        <i class="bi bi-camera-reels-fill text-brick-light animate-pulse"></i>
+        <span>AUTHENTIC VENUE FOOTAGE • NH-12 BIROHI</span>
       </div>
-    </div>
-  </section>
 
-  <!-- Pricing CTA -->
-  <section class="py-20 px-6">
-    <div class="max-w-3xl mx-auto text-center">
-      <span class="text-sm font-bold tracking-[0.2em] uppercase" style="color: var(--primary);">Simple, Transparent Pricing</span>
-      <h2 class="font-editorial text-4xl md:text-5xl font-bold mt-4 mb-6">Get All Of This<br>For ₹24,000</h2>
-      <div class="bg-white rounded-3xl p-10 border border-gray-100 shadow-xl mb-10">
-        <ul class="text-left space-y-4 text-lg text-gray-700 mb-8">
-          <li class="flex items-start gap-3"><i class="bi bi-check-circle-fill text-green-500 mt-1"></i> Complete mobile-first website with your branding</li>
-          <li class="flex items-start gap-3"><i class="bi bi-check-circle-fill text-green-500 mt-1"></i> 5 custom 9:16 video reels (Instagram/YouTube ready)</li>
-          <li class="flex items-start gap-3"><i class="bi bi-check-circle-fill text-green-500 mt-1"></i> AI digital concierge (WhatsApp integration)</li>
-          <li class="flex items-start gap-3"><i class="bi bi-check-circle-fill text-green-500 mt-1"></i> WhatsApp one-tap booking & banquet inquiry form</li>
-          <li class="flex items-start gap-3"><i class="bi bi-check-circle-fill text-green-500 mt-1"></i> Google Maps SEO optimization</li>
-          <li class="flex items-start gap-3"><i class="bi bi-check-circle-fill text-green-500 mt-1"></i> Delivered in 48 hours</li>
-        </ul>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="https://wa.me/+918617625059?text=Hi%20Samya%2C%20I%20saw%20the%20LocalPulse%20AI%20demo%20for%20Saraikhana%20Cottage%20Dhaba.%20I%20am%20interested%20in%20getting%20this%20for%20my%20restaurant." 
-             target="_blank" class="glow-btn text-white px-8 py-4 rounded-full font-bold text-lg inline-flex items-center gap-3">
-            <i class="bi bi-whatsapp text-xl"></i> Get Started — WhatsApp Samya
+      <!-- CAMERA TRACK PROGRESS INDICATOR (TOP-RIGHT) -->
+      <div class="absolute top-24 right-6 md:right-12 z-10 hidden sm:flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-black/50 backdrop-blur-md border border-bamboo/20 text-xs font-coords text-bamboo-light">
+        <i class="bi bi-signpost-2-fill text-bamboo"></i>
+        <span id="scrollPercentText">0% Walkthrough</span>
+      </div>
+
+      <!-- CONTENT STATIONS (FADED IN/OUT AT DIFFERENT SCROLL POINTS) -->
+      <div class="relative z-20 w-full max-w-5xl mx-auto px-6 text-center flex flex-col items-center justify-center min-h-[60vh]">
+        
+        <!-- STATION 1: GRAND WELCOME (0% - 22%) -->
+        <div id="station1" class="station-content transition-all duration-300 max-w-3xl">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brick/20 border border-brick/40 text-brick-light font-coords text-xs sm:text-sm tracking-wider uppercase mb-5 backdrop-blur-sm">
+            <i class="bi bi-compass text-bamboo"></i> NH-12 • Birohi • Chakdah Highway Landmark
+          </div>
+          <h1 class="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white mb-6 leading-tight drop-shadow-2xl">
+            Where Rustic Cottages Meet <span class="text-transparent bg-clip-text bg-gradient-to-r from-bamboo to-amber-300">Legendary Highway Feasts</span>
+          </h1>
+          <p class="text-base sm:text-xl text-thatch/90 mb-8 max-w-2xl mx-auto leading-relaxed drop-shadow">
+            Steep into the unmistakable fragrance of slow-cooked Bengal mutton curry, charcoal-fired tandoori, and private thatched dining pods on the Kolkata–Siliguri highway.
+          </p>
+          <div class="flex flex-wrap items-center justify-center gap-4">
+            <a href="https://wa.me/918972373733?text=Hello%20Saraikhana!%20We%20are%20on%20our%20way%20on%20NH-12.%20Please%20reserve%20a%20cottage%20table%20for%20us." target="_blank" rel="noopener noreferrer" class="px-7 py-3.5 rounded-xl bg-brick hover:bg-brick-light text-white font-bold text-sm tracking-wide shadow-xl shadow-brick/40 hover:scale-105 transition-all flex items-center gap-2.5">
+              <i class="bi bi-whatsapp text-lg"></i>
+              <span>Reserve a Cottage Pod</span>
+            </a>
+            <a href="#menu" class="px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/15 backdrop-blur-md border border-white/20 text-white font-medium text-sm transition-all flex items-center gap-2">
+              <i class="bi bi-arrow-down-circle"></i>
+              <span>Explore Highway Menu</span>
+            </a>
+          </div>
+          <div class="mt-8 flex items-center justify-center gap-6 text-xs text-thatch/70 font-coords">
+            <span><i class="bi bi-check-circle-fill text-emerald-400 mr-1.5"></i>800+ Google Reviews</span>
+            <span><i class="bi bi-check-circle-fill text-emerald-400 mr-1.5"></i>4.1★ Highway Rating</span>
+            <span><i class="bi bi-check-circle-fill text-emerald-400 mr-1.5"></i>Safe Car Parking</span>
+          </div>
+        </div>
+
+        <!-- STATION 2: SIGNATURE EXPERIENCE / USP (25% - 55%) -->
+        <div id="station2" class="station-content opacity-0 transition-all duration-300 max-w-3xl absolute">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/20 border border-amber-400/40 text-amber-300 font-coords text-xs sm:text-sm tracking-wider uppercase mb-5 backdrop-blur-sm">
+            <i class="bi bi-trophy-fill text-amber-400"></i> Birohi's Most Renowned Culinary Landmark
+          </div>
+          <h2 class="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-6 leading-tight drop-shadow-2xl">
+            The Famous <span class="text-transparent bg-clip-text bg-gradient-to-r from-brick-light via-amber-400 to-bamboo">Mutton Handi & Basanti Pulao</span>
+          </h2>
+          <p class="text-base sm:text-lg text-thatch/90 mb-8 max-w-2xl mx-auto leading-relaxed drop-shadow">
+            Rich, melt-in-the-mouth mutton pieces simmered in copper handis with traditional whole spices, paired with fragrant, golden Bengali Basanti Pulao garnished with cashews and raisins.
+          </p>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 max-w-xl mx-auto mb-8 font-coords text-xs">
+            <div class="p-3 rounded-lg bg-black/40 border border-white/10 backdrop-blur-sm">
+              <div class="text-bamboo font-bold text-base">Pure Goat Mutton</div>
+              <div class="text-thatch/60">Cooked fresh daily</div>
+            </div>
+            <div class="p-3 rounded-lg bg-black/40 border border-white/10 backdrop-blur-sm">
+              <div class="text-bamboo font-bold text-base">Basanti Pulao</div>
+              <div class="text-thatch/60">Sweet aromatic ghee rice</div>
+            </div>
+            <div class="p-3 rounded-lg bg-black/40 border border-white/10 backdrop-blur-sm col-span-2 sm:col-span-1">
+              <div class="text-bamboo font-bold text-base">Earthen Handi</div>
+              <div class="text-thatch/60">Slow-braised flavor</div>
+            </div>
+          </div>
+          <a href="https://wa.me/918972373733?text=I%20would%20like%20to%20pre-order%20the%20Mutton%20Thali%20and%20Basanti%20Pulao%20at%20Saraikhana%20Cottage%20Dhaba." target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-bold text-sm tracking-wide shadow-xl shadow-amber-900/40 inline-flex items-center gap-2">
+            <i class="bi bi-bag-check-fill"></i>
+            <span>Pre-Order Mutton Handi Feast</span>
           </a>
         </div>
-        <p class="text-gray-400 text-sm mt-4">Or call: +91 8617625059 | Email: samya.pegusus@gmail.com</p>
+
+        <!-- STATION 3: THATCHED PODS & TANDOORI FESTIVAL (58% - 80%) -->
+        <div id="station3" class="station-content opacity-0 transition-all duration-300 max-w-3xl absolute">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 font-coords text-xs sm:text-sm tracking-wider uppercase mb-5 backdrop-blur-sm">
+            <i class="bi bi-stars text-emerald-400"></i> Rustic Village Architecture & Open Skies
+          </div>
+          <h2 class="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-6 leading-tight drop-shadow-2xl">
+            Individual <span class="text-transparent bg-clip-text bg-gradient-to-r from-bamboo via-thatch to-amber-200">Thatched Dining Pods</span> & Live Tandoor
+          </h2>
+          <p class="text-base sm:text-lg text-thatch/90 mb-8 max-w-2xl mx-auto leading-relaxed drop-shadow">
+            Step away from crowded highway diners. Enjoy intimate family meals inside individual bamboo huts illuminated by rustic hanging lanterns, or in our spacious AC glass hall.
+          </p>
+          <div class="flex flex-wrap items-center justify-center gap-4 text-xs font-coords text-thatch/80 mb-8">
+            <span class="px-3 py-1.5 rounded-md bg-black/40 border border-white/10"><i class="bi bi-tree text-bamboo mr-1"></i>Open-Air Courtyard</span>
+            <span class="px-3 py-1.5 rounded-md bg-black/40 border border-white/10"><i class="bi bi-snow text-sky-400 mr-1"></i>AC Family Cabins</span>
+            <span class="px-3 py-1.5 rounded-md bg-black/40 border border-white/10"><i class="bi bi-cup-hot text-amber-400 mr-1"></i>Matka Tea Counter</span>
+          </div>
+          <a href="#cottages" class="px-6 py-3 rounded-xl bg-bamboo-dark hover:bg-bamboo text-white font-bold text-sm tracking-wide shadow-xl inline-flex items-center gap-2">
+            <i class="bi bi-eye"></i>
+            <span>View Cottage Options</span>
+          </a>
+        </div>
+
+        <!-- STATION 4: FINAL CTA & HIGHWAY PITSTOP (82% - 100%) -->
+        <div id="station4" class="station-content opacity-0 transition-all duration-300 max-w-3xl absolute">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brick/20 border border-brick/40 text-brick-light font-coords text-xs sm:text-sm tracking-wider uppercase mb-5 backdrop-blur-sm">
+            <i class="bi bi-pin-map-fill text-brick-light"></i> Plan Your Highway Pitstop
+          </div>
+          <h2 class="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-6 leading-tight drop-shadow-2xl">
+            Your Ultimate Road-Trip Haven on <span class="text-bamboo">NH-12</span>
+          </h2>
+          <p class="text-base sm:text-lg text-thatch/90 mb-8 max-w-2xl mx-auto leading-relaxed drop-shadow">
+            Whether you're cruising out of Kolkata, heading towards Mayapur, Murshidabad, or driving through the night to North Bengal — Saraikhana Cottage Dhaba has your hot table waiting.
+          </p>
+          <div class="flex flex-wrap items-center justify-center gap-4">
+            <a href="https://wa.me/918972373733?text=Hi%20Saraikhana!%20We%20are%20reaching%20Birohi%20soon.%20Can%20we%20reserve%20a%20pod%20now?" target="_blank" rel="noopener noreferrer" class="px-8 py-4 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-extrabold text-base tracking-wide shadow-2xl shadow-emerald-950/60 hover:scale-105 transition-all flex items-center gap-2.5">
+              <i class="bi bi-whatsapp text-xl"></i>
+              <span>Quick WhatsApp Reservation</span>
+            </a>
+            <a href="https://maps.app.goo.gl/UV3VRqDJqfui3xJd9" target="_blank" rel="noopener noreferrer" class="px-6 py-4 rounded-xl bg-white/10 hover:bg-white/15 backdrop-blur-md border border-white/20 text-white font-medium text-sm transition-all flex items-center gap-2">
+              <i class="bi bi-geo-alt-fill text-brick-light text-lg"></i>
+              <span>Navigate via Google Maps</span>
+            </a>
+          </div>
+          <p class="mt-6 text-xs text-thatch/60 font-coords">Direct Highway Access • Zero Detour • Clean Washrooms</p>
+        </div>
+
+      </div>
+
+      <!-- BOTTOM PROGRESS TRACK BAR -->
+      <div class="absolute bottom-6 left-6 right-6 z-20 max-w-4xl mx-auto">
+        <div class="flex items-center justify-between text-[11px] font-coords text-thatch/60 mb-2">
+          <span><i class="bi bi-arrow-down mr-1"></i>SCROLL TO TOUR VENUE</span>
+          <div class="flex gap-4">
+            <span class="hover:text-white transition-colors cursor-pointer" onclick="scrollToStation(0.1)">1. Highway Gate</span>
+            <span class="hover:text-white transition-colors cursor-pointer" onclick="scrollToStation(0.4)">2. Mutton Feast</span>
+            <span class="hover:text-white transition-colors cursor-pointer" onclick="scrollToStation(0.7)">3. Thatched Pods</span>
+            <span class="hover:text-white transition-colors cursor-pointer" onclick="scrollToStation(0.95)">4. Pre-Book</span>
+          </div>
+        </div>
+        <div class="w-full h-1.5 bg-white/10 rounded-full overflow-hidden backdrop-blur-sm">
+          <div id="scrollProgressBar" class="h-full bg-gradient-to-r from-brick via-amber-400 to-bamboo w-0 rounded-full transition-all duration-75"></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 2: ROAD-TRIPPER FAST STATS BAR -->
+  <section class="relative z-30 bg-dhaba-surface border-y border-dhaba-border/80 py-8 wood-texture">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        
+        <div class="p-4 rounded-xl bg-dhaba-card/80 border border-dhaba-border">
+          <div class="text-3xl sm:text-4xl font-bold text-bamboo font-rustic mb-1">800+</div>
+          <div class="text-xs uppercase tracking-wider text-thatch/70 font-semibold mb-1">Google Reviews</div>
+          <div class="flex items-center justify-center gap-1 text-amber-400 text-xs">
+            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+            <span class="text-white ml-1 font-coords">4.1 / 5.0</span>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-xl bg-dhaba-card/80 border border-dhaba-border">
+          <div class="text-3xl sm:text-4xl font-bold text-brick-light font-rustic mb-1">NH-12</div>
+          <div class="text-xs uppercase tracking-wider text-thatch/70 font-semibold mb-1">Prime Highway Front</div>
+          <div class="text-xs text-thatch/60 font-coords">Birohi, Nadia (Zero Detour)</div>
+        </div>
+
+        <div class="p-4 rounded-xl bg-dhaba-card/80 border border-dhaba-border">
+          <div class="text-3xl sm:text-4xl font-bold text-amber-400 font-rustic mb-1">24/7</div>
+          <div class="text-xs uppercase tracking-wider text-thatch/70 font-semibold mb-1">Highway Dining</div>
+          <div class="text-xs text-emerald-400 font-coords"><i class="bi bi-check2 mr-1"></i>Hot Meals Day & Night</div>
+        </div>
+
+        <div class="p-4 rounded-xl bg-dhaba-card/80 border border-dhaba-border">
+          <div class="text-3xl sm:text-4xl font-bold text-bamboo-light font-rustic mb-1">20+</div>
+          <div class="text-xs uppercase tracking-wider text-thatch/70 font-semibold mb-1">Cottage Pods & AC Hall</div>
+          <div class="text-xs text-thatch/60 font-coords">Individual Family Huts</div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="py-8 px-6 border-t border-gray-200">
-    <div class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-      <div class="text-gray-400 text-sm">
-        Custom preview by <strong class="text-gray-600">LocalPulse AI</strong> · Built for Saraikhana Cottage Dhaba
+  <!-- SECTION 3: SIGNATURE EXPERIENCES & SPECIALTIES GRID -->
+  <section id="menu" class="py-24 bg-dhaba-bg relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-brick/15 text-brick-light border border-brick/30 font-coords text-xs uppercase tracking-wider mb-4">
+          <i class="bi bi-fire text-amber-400"></i> Culinary Crown of NH-12
+        </span>
+        <h2 class="text-3xl sm:text-5xl font-bold text-white mb-5 font-rustic">
+          Signature Highway Specialties
+        </h2>
+        <p class="text-base sm:text-lg text-thatch/80 leading-relaxed">
+          Saraikhana Cottage Dhaba is celebrated across Bengal for its uncompromising authenticity — hand-ground spices, clay handi slow-cooking, and traditional village recipes served hot to road-trippers.
+        </p>
       </div>
-      <div class="flex items-center gap-4 text-gray-400">
-        <a href="mailto:samya.pegusus@gmail.com" class="hover:text-gray-600 transition"><i class="bi bi-envelope-fill"></i></a>
-        <a href="https://wa.me/+918617625059" target="_blank" class="hover:text-gray-600 transition"><i class="bi bi-whatsapp"></i></a>
-        <a href="tel:+91 8617625059" class="hover:text-gray-600 transition"><i class="bi bi-telephone-fill"></i></a>
+
+      <!-- Feature Cards Grid (3 Columns) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- CARD 1: MUTTON THALI & BASANTI PULAO -->
+        <div class="group rounded-2xl bg-dhaba-card border border-dhaba-border hover:border-bamboo/50 overflow-hidden shadow-xl transition-all duration-300 hover:-translate-y-1.5">
+          <div class="relative h-64 overflow-hidden">
+            <img src="assets/shot_05.jpg" alt="Saraikhana Famous Mutton Thali and Basanti Pulao" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-dhaba-card via-transparent to-black/30"></div>
+            <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-brick text-white text-xs font-bold tracking-wide uppercase shadow">
+              Dhaba Signature #1
+            </span>
+            <span class="absolute bottom-4 right-4 px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-sm text-bamboo text-xs font-coords">
+              <i class="bi bi-fire mr-1 text-amber-400"></i>Slow-Cooked Handi
+            </span>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-2xl font-bold text-white font-rustic group-hover:text-bamboo transition-colors">
+                Birohi Mutton Thali
+              </h3>
+              <span class="text-sm font-bold text-amber-400 font-coords">₹280 - ₹340</span>
+            </div>
+            <p class="text-sm text-thatch/75 leading-relaxed mb-5">
+              The dish that made Saraikhana a highway legend: luscious tender goat meat braised with whole garam masala in rich Bengali gravy, served alongside fragrant Basanti Pulao topped with cashews and cherries.
+            </p>
+            <div class="flex items-center justify-between pt-4 border-t border-dhaba-border text-xs">
+              <span class="text-thatch/60 font-coords"><i class="bi bi-check-circle text-emerald-400 mr-1"></i>Available Daily</span>
+              <a href="https://wa.me/918972373733?text=I%20want%20to%20order%20the%20famous%20Mutton%20Thali%20at%20Saraikhana%20Cottage%20Dhaba" target="_blank" rel="noopener noreferrer" class="text-bamboo hover:text-white font-bold inline-flex items-center gap-1 group/btn">
+                Pre-Order <i class="bi bi-arrow-right group-hover/btn:translate-x-1 transition-transform"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 2: TANDOORI FESTIVAL -->
+        <div class="group rounded-2xl bg-dhaba-card border border-dhaba-border hover:border-brick/50 overflow-hidden shadow-xl transition-all duration-300 hover:-translate-y-1.5">
+          <div class="relative h-64 overflow-hidden">
+            <img src="assets/shot_04.jpg" alt="Highway Tandoori Festival Chicken and Kebabs" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-dhaba-card via-transparent to-black/30"></div>
+            <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-amber-600 text-white text-xs font-bold tracking-wide uppercase shadow">
+              Live Tandoor
+            </span>
+            <span class="absolute bottom-4 right-4 px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-sm text-amber-300 text-xs font-coords">
+              <i class="bi bi-lightning-charge-fill mr-1 text-amber-400"></i>Smoky Kiln-Fired
+            </span>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-2xl font-bold text-white font-rustic group-hover:text-amber-400 transition-colors">
+                Highway Tandoori Festival
+              </h3>
+              <span class="text-sm font-bold text-amber-400 font-coords">From ₹220</span>
+            </div>
+            <p class="text-sm text-thatch/75 leading-relaxed mb-5">
+              Smoky whole tandoori chicken, afghani tangdi, malai tikka, and crisp butter garlic naans fresh off the clay oven. Squeezed with fresh lime and served with spicy mint chutney.
+            </p>
+            <div class="flex items-center justify-between pt-4 border-t border-dhaba-border text-xs">
+              <span class="text-thatch/60 font-coords"><i class="bi bi-fire text-amber-400 mr-1"></i>Evenings & Nights</span>
+              <a href="https://wa.me/918972373733?text=I%20want%20to%20order%20the%20Tandoori%20Platter%20at%20Saraikhana%20Cottage%20Dhaba" target="_blank" rel="noopener noreferrer" class="text-amber-400 hover:text-white font-bold inline-flex items-center gap-1 group/btn">
+                Pre-Order <i class="bi bi-arrow-right group-hover/btn:translate-x-1 transition-transform"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 3: THATCHED COTTAGES & BAMBOO DINING PODS -->
+        <div id="cottages" class="group rounded-2xl bg-dhaba-card border border-dhaba-border hover:border-bamboo/50 overflow-hidden shadow-xl transition-all duration-300 hover:-translate-y-1.5">
+          <div class="relative h-64 overflow-hidden">
+            <img src="assets/shot_02.jpg" alt="Thatched Cottage Bamboo Dining Pods" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-dhaba-card via-transparent to-black/30"></div>
+            <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-emerald-700 text-white text-xs font-bold tracking-wide uppercase shadow">
+              Private Pods
+            </span>
+            <span class="absolute bottom-4 right-4 px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-sm text-emerald-300 text-xs font-coords">
+              <i class="bi bi-people-fill mr-1"></i>Family & Couples
+            </span>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-2xl font-bold text-white font-rustic group-hover:text-bamboo transition-colors">
+                Thatched Bamboo Pods
+              </h3>
+              <span class="text-sm font-bold text-emerald-400 font-coords">Free Seating</span>
+            </div>
+            <p class="text-sm text-thatch/75 leading-relaxed mb-5">
+              Experience Bengal village-style dining in private thatched huts. Bamboo banisters, polished wooden furniture, and gentle kerosene lanterns under open starlit highway skies.
+            </p>
+            <div class="flex items-center justify-between pt-4 border-t border-dhaba-border text-xs">
+              <span class="text-thatch/60 font-coords"><i class="bi bi-moon-stars text-bamboo mr-1"></i>Night Ambiance</span>
+              <a href="https://wa.me/918972373733?text=Can%20I%20reserve%20a%20Thatched%20Cottage%20Pod%20at%20Saraikhana%20for%20tonight?" target="_blank" rel="noopener noreferrer" class="text-bamboo hover:text-white font-bold inline-flex items-center gap-1 group/btn">
+                Reserve Pod <i class="bi bi-arrow-right group-hover/btn:translate-x-1 transition-transform"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 4: AC GLASS FAMILY CABIN -->
+        <div class="group rounded-2xl bg-dhaba-card border border-dhaba-border hover:border-sky-500/50 overflow-hidden shadow-xl transition-all duration-300 hover:-translate-y-1.5">
+          <div class="relative h-64 overflow-hidden">
+            <img src="assets/shot_03.jpg" alt="Air Conditioned Glass Cottage Hall" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-dhaba-card via-transparent to-black/30"></div>
+            <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-sky-700 text-white text-xs font-bold tracking-wide uppercase shadow">
+              Climate Controlled
+            </span>
+            <span class="absolute bottom-4 right-4 px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-sm text-sky-300 text-xs font-coords">
+              <i class="bi bi-snow mr-1"></i>Chilled AC Cabins
+            </span>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-2xl font-bold text-white font-rustic group-hover:text-sky-300 transition-colors">
+                AC Family Glass Halls
+              </h3>
+              <span class="text-sm font-bold text-sky-400 font-coords">Large Groups</span>
+            </div>
+            <p class="text-sm text-thatch/75 leading-relaxed mb-5">
+              Travelling during sweltering Bengal afternoons or in formal wear? Relax in our full air-conditioned wooden-paneled hall featuring scenic garden views and fast service.
+            </p>
+            <div class="flex items-center justify-between pt-4 border-t border-dhaba-border text-xs">
+              <span class="text-thatch/60 font-coords"><i class="bi bi-shield-check text-sky-400 mr-1"></i>Comfort First</span>
+              <a href="https://wa.me/918972373733?text=I%20want%20to%20reserve%20an%20AC%20Cabin%20table%20for%20my%20family%20at%20Saraikhana" target="_blank" rel="noopener noreferrer" class="text-sky-400 hover:text-white font-bold inline-flex items-center gap-1 group/btn">
+                Book AC Table <i class="bi bi-arrow-right group-hover/btn:translate-x-1 transition-transform"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 5: MATKA CHAI & SNACK EXPRESS -->
+        <div class="group rounded-2xl bg-dhaba-card border border-dhaba-border hover:border-amber-500/50 overflow-hidden shadow-xl transition-all duration-300 hover:-translate-y-1.5">
+          <div class="relative h-64 overflow-hidden">
+            <img src="assets/shot_06.jpg" alt="Highway Matka Chai and Fresh Snacks" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-dhaba-card via-transparent to-black/30"></div>
+            <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-amber-700 text-white text-xs font-bold tracking-wide uppercase shadow">
+              Pitstop Express
+            </span>
+            <span class="absolute bottom-4 right-4 px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-sm text-amber-200 text-xs font-coords">
+              <i class="bi bi-cup-hot-fill mr-1 text-amber-400"></i>Earthen Clay Cups
+            </span>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-2xl font-bold text-white font-rustic group-hover:text-amber-300 transition-colors">
+                Matka Chai & Quick Bites
+              </h3>
+              <span class="text-sm font-bold text-amber-400 font-coords">From ₹25</span>
+            </div>
+            <p class="text-sm text-thatch/75 leading-relaxed mb-5">
+              Short on time during your drive? Pull up to our highway tea counter for piping-hot ginger cardamom tea in terracotta bhar cups, chicken pakoras, fresh egg rolls, and cold lassi.
+            </p>
+            <div class="flex items-center justify-between pt-4 border-t border-dhaba-border text-xs">
+              <span class="text-thatch/60 font-coords"><i class="bi bi-stopwatch text-amber-400 mr-1"></i>Under 5 Mins</span>
+              <a href="#location" class="text-amber-400 hover:text-white font-bold inline-flex items-center gap-1 group/btn">
+                Get Directions <i class="bi bi-arrow-right group-hover/btn:translate-x-1 transition-transform"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 6: 24/7 HIGHWAY HAVEN & PARKING -->
+        <div class="group rounded-2xl bg-dhaba-card border border-dhaba-border hover:border-brick/50 overflow-hidden shadow-xl transition-all duration-300 hover:-translate-y-1.5">
+          <div class="relative h-64 overflow-hidden">
+            <img src="assets/shot_01.jpg" alt="Saraikhana Cottage Dhaba Exterior Night View NH-12" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-dhaba-card via-transparent to-black/30"></div>
+            <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-brick text-white text-xs font-bold tracking-wide uppercase shadow">
+              Zero Detour
+            </span>
+            <span class="absolute bottom-4 right-4 px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-sm text-brick-light text-xs font-coords">
+              <i class="bi bi-p-circle-fill mr-1"></i>Spacious Parking
+            </span>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-2xl font-bold text-white font-rustic group-hover:text-brick-light transition-colors">
+                Safe Night Drive Haven
+              </h3>
+              <span class="text-sm font-bold text-emerald-400 font-coords">Open All Night</span>
+            </div>
+            <p class="text-sm text-thatch/75 leading-relaxed mb-5">
+              Right along NH-12 with well-lit driveway, floodlit parking accommodating 40+ sedans, SUVs and bikes, security staff, and pristine clean washrooms for families and tourers.
+            </p>
+            <div class="flex items-center justify-between pt-4 border-t border-dhaba-border text-xs">
+              <span class="text-thatch/60 font-coords"><i class="bi bi-shield-lock-fill text-emerald-400 mr-1"></i>24/7 Security</span>
+              <a href="https://maps.app.goo.gl/UV3VRqDJqfui3xJd9" target="_blank" rel="noopener noreferrer" class="text-brick-light hover:text-white font-bold inline-flex items-center gap-1 group/btn">
+                Maps Route <i class="bi bi-arrow-right group-hover/btn:translate-x-1 transition-transform"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
       </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 4: FILMSTRIP MARQUEE (INFINITE PHOTO STRIP) -->
+  <section class="py-12 bg-dhaba-surface border-y border-dhaba-border/80 overflow-hidden marquee-container">
+    <div class="max-w-7xl mx-auto px-4 mb-6 flex items-center justify-between">
+      <div class="flex items-center gap-2 text-xs font-coords text-bamboo uppercase tracking-wider">
+        <i class="bi bi-film"></i> Live Visual Diary • Saraikhana Cottage Dhaba
+      </div>
+      <div class="text-xs text-thatch/50 font-coords hidden sm:inline">
+        Hover to pause photo stream
+      </div>
+    </div>
+
+    <!-- Scrolling Track -->
+    <div class="flex w-max gap-5 marquee-track animate-marquee">
+      <!-- Item 1 -->
+      <div class="w-80 h-52 rounded-xl overflow-hidden border border-dhaba-border flex-shrink-0 relative group">
+        <img src="assets/shot_01.jpg" alt="Saraikhana Dhaba Facade" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
+          <span class="text-xs font-coords text-white">NH-12 Roadside Entrance</span>
+        </div>
+      </div>
+      <!-- Item 2 -->
+      <div class="w-80 h-52 rounded-xl overflow-hidden border border-dhaba-border flex-shrink-0 relative group">
+        <img src="assets/shot_02.jpg" alt="Thatched Bamboo Pods" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
+          <span class="text-xs font-coords text-white">Village-Style Thatched Dining Huts</span>
+        </div>
+      </div>
+      <!-- Item 3 -->
+      <div class="w-80 h-52 rounded-xl overflow-hidden border border-dhaba-border flex-shrink-0 relative group">
+        <img src="assets/shot_05.jpg" alt="Basanti Pulao and Mutton" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
+          <span class="text-xs font-coords text-white">Golden Basanti Pulao & Mutton</span>
+        </div>
+      </div>
+      <!-- Item 4 -->
+      <div class="w-80 h-52 rounded-xl overflow-hidden border border-dhaba-border flex-shrink-0 relative group">
+        <img src="assets/shot_04.jpg" alt="Tandoori Chicken Festival" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
+          <span class="text-xs font-coords text-white">Sizzling Charcoal Tandoor</span>
+        </div>
+      </div>
+      <!-- Item 5 -->
+      <div class="w-80 h-52 rounded-xl overflow-hidden border border-dhaba-border flex-shrink-0 relative group">
+        <img src="assets/shot_03.jpg" alt="AC Wooden Cabin" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
+          <span class="text-xs font-coords text-white">Glass AC Family Dining Cabin</span>
+        </div>
+      </div>
+      <!-- Item 6 -->
+      <div class="w-80 h-52 rounded-xl overflow-hidden border border-dhaba-border flex-shrink-0 relative group">
+        <img src="assets/shot_06.jpg" alt="Clay Matka Chai" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
+          <span class="text-xs font-coords text-white">Authentic Earthen Matka Chai</span>
+        </div>
+      </div>
+      <!-- Item 7 -->
+      <div class="w-80 h-52 rounded-xl overflow-hidden border border-dhaba-border flex-shrink-0 relative group">
+        <img src="assets/hero_thumb.webp" alt="Saraikhana Dhaba Collage" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
+          <span class="text-xs font-coords text-white">Top Rated Dhaba on NH12</span>
+        </div>
+      </div>
+
+      <!-- DUPLICATE SET FOR SEAMLESS LOOP -->
+      <div class="w-80 h-52 rounded-xl overflow-hidden border border-dhaba-border flex-shrink-0 relative group">
+        <img src="assets/shot_01.jpg" alt="Saraikhana Dhaba Facade" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
+          <span class="text-xs font-coords text-white">NH-12 Roadside Entrance</span>
+        </div>
+      </div>
+      <div class="w-80 h-52 rounded-xl overflow-hidden border border-dhaba-border flex-shrink-0 relative group">
+        <img src="assets/shot_02.jpg" alt="Thatched Bamboo Pods" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
+          <span class="text-xs font-coords text-white">Village-Style Thatched Dining Huts</span>
+        </div>
+      </div>
+      <div class="w-80 h-52 rounded-xl overflow-hidden border border-dhaba-border flex-shrink-0 relative group">
+        <img src="assets/shot_05.jpg" alt="Basanti Pulao and Mutton" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
+          <span class="text-xs font-coords text-white">Golden Basanti Pulao & Mutton</span>
+        </div>
+      </div>
+      <div class="w-80 h-52 rounded-xl overflow-hidden border border-dhaba-border flex-shrink-0 relative group">
+        <img src="assets/shot_04.jpg" alt="Tandoori Chicken Festival" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
+          <span class="text-xs font-coords text-white">Sizzling Charcoal Tandoor</span>
+        </div>
+      </div>
+      <div class="w-80 h-52 rounded-xl overflow-hidden border border-dhaba-border flex-shrink-0 relative group">
+        <img src="assets/shot_03.jpg" alt="AC Wooden Cabin" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
+          <span class="text-xs font-coords text-white">Glass AC Family Dining Cabin</span>
+        </div>
+      </div>
+      <div class="w-80 h-52 rounded-xl overflow-hidden border border-dhaba-border flex-shrink-0 relative group">
+        <img src="assets/shot_06.jpg" alt="Clay Matka Chai" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
+          <span class="text-xs font-coords text-white">Authentic Earthen Matka Chai</span>
+        </div>
+      </div>
+      <div class="w-80 h-52 rounded-xl overflow-hidden border border-dhaba-border flex-shrink-0 relative group">
+        <img src="assets/hero_thumb.webp" alt="Saraikhana Dhaba Collage" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
+          <span class="text-xs font-coords text-white">Top Rated Dhaba on NH12</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: INTERACTIVE PRE-ORDER & POD RESERVATION ENGINE -->
+  <section class="py-20 bg-dhaba-bg relative">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      
+      <div class="rounded-3xl bg-dhaba-surface border border-bamboo/30 p-8 sm:p-12 shadow-2xl relative overflow-hidden">
+        
+        <!-- Decorative Ambient Glows -->
+        <div class="absolute -top-24 -right-24 w-64 h-64 bg-brick/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-24 -left-24 w-64 h-64 bg-bamboo/15 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="text-center max-w-2xl mx-auto mb-10 relative z-10">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-xs font-coords uppercase tracking-wider mb-3">
+            <i class="bi bi-clock-history"></i> Zero Waiting Time on the Highway
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-bold text-white font-rustic mb-3">
+            Pre-Book Table & Meal on WhatsApp
+          </h2>
+          <p class="text-sm text-thatch/80">
+            Tell us when you expect to reach Birohi on NH-12. Your private cottage pod will be reserved and piping-hot food ready as soon as you step out of your car.
+          </p>
+        </div>
+
+        <form id="reservationForm" class="space-y-6 relative z-10" onsubmit="event.preventDefault(); submitBooking();">
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <!-- Group Size -->
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-thatch/80 mb-2 font-coords">Group / Travellers</label>
+              <select id="groupSize" class="w-full px-4 py-3 rounded-xl bg-dhaba-card border border-dhaba-border text-white text-sm focus:border-bamboo focus:outline-none transition-colors">
+                <option value="Couple (2 People)">Couple (2 People)</option>
+                <option value="Family / Small Group (3 - 5 People)" selected>Family / Small Group (3 - 5 People)</option>
+                <option value="Large Family Group (6 - 10 People)">Large Family Group (6 - 10 People)</option>
+                <option value="Biker / Tourer Squad (8 - 15 People)">Biker / Tourer Squad (8 - 15 People)</option>
+                <option value="Bus / Corporate Group (15+ People)">Bus / Corporate Group (15+ People)</option>
+              </select>
+            </div>
+
+            <!-- Seating Preference -->
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-thatch/80 mb-2 font-coords">Seating Preference</label>
+              <select id="seatingType" class="w-full px-4 py-3 rounded-xl bg-dhaba-card border border-dhaba-border text-white text-sm focus:border-bamboo focus:outline-none transition-colors">
+                <option value="Thatched Bamboo Cottage Pod" selected>Thatched Bamboo Cottage Pod (Rustic)</option>
+                <option value="Air Conditioned Glass Cabin">Air Conditioned Glass Cabin (Cool Comfort)</option>
+                <option value="Open Air Courtyard Verandah">Open Air Courtyard Verandah</option>
+                <option value="Quick Highway Tea & Snack Table">Quick Highway Tea & Snack Table</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <!-- Estimated Arrival Time -->
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-thatch/80 mb-2 font-coords">Estimated ETA at Birohi</label>
+              <select id="etaTime" class="w-full px-4 py-3 rounded-xl bg-dhaba-card border border-dhaba-border text-white text-sm focus:border-bamboo focus:outline-none transition-colors">
+                <option value="In 30 - 45 Minutes" selected>In 30 - 45 Minutes (Already on NH-12)</option>
+                <option value="In 1 - 2 Hours (Leaving Kolkata / Airport)">In 1 - 2 Hours (Leaving Kolkata / Airport)</option>
+                <option value="Tonight for Dinner (8 PM - 11 PM)">Tonight for Dinner (8 PM - 11 PM)</option>
+                <option value="Late Night Drive (Midnight - 4 AM)">Late Night Drive (Midnight - 4 AM)</option>
+                <option value="Tomorrow Afternoon / Lunch">Tomorrow Afternoon / Lunch</option>
+              </select>
+            </div>
+
+            <!-- Main Dish Selection -->
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-thatch/80 mb-2 font-coords">Meal Pre-Order</label>
+              <select id="mealChoice" class="w-full px-4 py-3 rounded-xl bg-dhaba-card border border-dhaba-border text-white text-sm focus:border-bamboo focus:outline-none transition-colors">
+                <option value="Famous Mutton Thali + Basanti Pulao Special" selected>Famous Mutton Thali + Basanti Pulao Special</option>
+                <option value="Tandoori Chicken Platter + Garlic Naans">Tandoori Chicken Platter + Garlic Naans</option>
+                <option value="Traditional Bengali Fish Thali">Traditional Bengali Fish Thali (Katla / Rohu)</option>
+                <option value="Chicken Handi Curry + Roti Combo">Chicken Handi Curry + Roti Combo</option>
+                <option value="Vegetarian Highway Paneer & Dal Tadka Thali">Vegetarian Highway Paneer & Dal Tadka Thali</option>
+                <option value="Decide at Venue (Just Hold the Pod)">Decide at Venue (Just Hold the Pod)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Special Note -->
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-thatch/80 mb-2 font-coords">Your Name / Vehicle Number (Optional)</label>
+            <input type="text" id="guestDetails" placeholder="e.g. Subhajit Roy (WB 02...)" class="w-full px-4 py-3 rounded-xl bg-dhaba-card border border-dhaba-border text-white text-sm placeholder-thatch/30 focus:border-bamboo focus:outline-none transition-colors">
+          </div>
+
+          <!-- Submit Button -->
+          <div class="pt-4 text-center">
+            <button type="submit" class="w-full sm:w-auto px-10 py-4 rounded-xl bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-base tracking-wide shadow-xl shadow-emerald-950/60 transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-3 mx-auto">
+              <i class="bi bi-whatsapp text-xl"></i>
+              <span>Send Pre-Booking to Saraikhana Management</span>
+            </button>
+            <p class="text-[11px] text-thatch/50 font-coords mt-3">
+              Direct connection with Managing Proprietor desk • No booking fee required
+            </p>
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 6: HIGHWAY GPS, ROUTE & LANDMARKS -->
+  <section id="location" class="py-24 bg-dhaba-surface border-t border-dhaba-border relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left: Route Distances & Directions -->
+        <div class="lg:col-span-6 space-y-6">
+          <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-brick/15 text-brick-light border border-brick/30 font-coords text-xs uppercase tracking-wider">
+            <i class="bi bi-signpost-split-fill text-brick-light"></i> Highway Pitstop Navigator
+          </span>
+          <h2 class="text-3xl sm:text-5xl font-bold text-white font-rustic leading-tight">
+            Seamless Highway Access on <span class="text-bamboo">NH-12 (Old NH-34)</span>
+          </h2>
+          <p class="text-base text-thatch/80 leading-relaxed">
+            Located right on the main bypass at Birohi, Shitalatala, Chakdah. Saraikhana Cottage Dhaba requires zero tricky diversions or back-alley driving. Pull straight into our wide frontage, park comfortably, and enjoy.
+          </p>
+
+          <!-- Highway Distances Table -->
+          <div class="rounded-xl bg-dhaba-card border border-dhaba-border p-5 space-y-3 font-coords text-xs">
+            <div class="text-bamboo font-bold uppercase tracking-wider text-[11px] mb-2">Distance From Key Highway Junctions:</div>
+            
+            <div class="flex items-center justify-between pb-2 border-b border-dhaba-border/60">
+              <span class="text-thatch/90"><i class="bi bi-geo-alt text-brick-light mr-1.5"></i>Kolkata Airport (CCU) / Barasat</span>
+              <span class="font-bold text-white">~48 km (65 mins)</span>
+            </div>
+            
+            <div class="flex items-center justify-between pb-2 border-b border-dhaba-border/60">
+              <span class="text-thatch/90"><i class="bi bi-geo-alt text-brick-light mr-1.5"></i>Kalyani Expressway Crossing</span>
+              <span class="font-bold text-white">~22 km (25 mins)</span>
+            </div>
+
+            <div class="flex items-center justify-between pb-2 border-b border-dhaba-border/60">
+              <span class="text-thatch/90"><i class="bi bi-geo-alt text-brick-light mr-1.5"></i>Ranaghat Bypass</span>
+              <span class="font-bold text-white">~26 km (30 mins)</span>
+            </div>
+
+            <div class="flex items-center justify-between">
+              <span class="text-thatch/90"><i class="bi bi-geo-alt text-brick-light mr-1.5"></i>Krishnanagar (Mother's Hut stretch)</span>
+              <span class="font-bold text-white">~52 km (55 mins)</span>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="flex flex-wrap gap-4 pt-2">
+            <a href="https://maps.app.goo.gl/UV3VRqDJqfui3xJd9" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 rounded-xl bg-brick hover:bg-brick-light text-white font-bold text-sm tracking-wide shadow-lg shadow-brick/30 transition-all flex items-center gap-2">
+              <i class="bi bi-google"></i>
+              <span>Open in Google Maps</span>
+            </a>
+            <a href="tel:+918972373733" class="px-6 py-3.5 rounded-xl bg-dhaba-card hover:bg-dhaba-border border border-dhaba-borderLight text-white font-semibold text-sm transition-all flex items-center gap-2">
+              <i class="bi bi-telephone-outbound text-bamboo"></i>
+              <span>Call Reception</span>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Right: Location Card with Visual Graphic -->
+        <div class="lg:col-span-6">
+          <div class="rounded-2xl bg-dhaba-card border border-dhaba-border p-6 shadow-2xl relative overflow-hidden">
+            <div class="h-64 sm:h-72 rounded-xl overflow-hidden relative mb-6">
+              <img src="assets/shot_01.jpg" alt="Saraikhana Dhaba Location on NH12" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-dhaba-card via-black/30 to-transparent"></div>
+              <div class="absolute top-4 left-4 px-3 py-1.5 rounded-lg bg-black/70 backdrop-blur-sm border border-white/10 font-coords text-xs text-white">
+                <i class="bi bi-broadcast text-emerald-400 mr-1.5 animate-pulse"></i>Live Location Beacon
+              </div>
+              <div class="absolute bottom-4 left-4 right-4">
+                <p class="text-sm font-bold text-white font-rustic drop-shadow">Saraikhana Cottage Dhaba, Shitalatala, Birohi</p>
+                <p class="text-xs text-bamboo font-coords">Post: Birohi, PS: Chakdah, Dist: Nadia, PIN: 741248</p>
+              </div>
+            </div>
+
+            <!-- Features Checklist -->
+            <div class="grid grid-cols-2 gap-3 text-xs font-coords text-thatch/80">
+              <div class="p-2.5 rounded-lg bg-dhaba-bg border border-dhaba-border flex items-center gap-2">
+                <i class="bi bi-car-front-fill text-bamboo text-base"></i>
+                <span>40+ Vehicle Parking</span>
+              </div>
+              <div class="p-2.5 rounded-lg bg-dhaba-bg border border-dhaba-border flex items-center gap-2">
+                <i class="bi bi-gender-ambiguous text-emerald-400 text-base"></i>
+                <span>Clean Restrooms</span>
+              </div>
+              <div class="p-2.5 rounded-lg bg-dhaba-bg border border-dhaba-border flex items-center gap-2">
+                <i class="bi bi-snow text-sky-400 text-base"></i>
+                <span>AC Cabins Available</span>
+              </div>
+              <div class="p-2.5 rounded-lg bg-dhaba-bg border border-dhaba-border flex items-center gap-2">
+                <i class="bi bi-clock-fill text-amber-400 text-base"></i>
+                <span>Open Till 3:30 AM+</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 7: REAL GOOGLE REVIEWS & TESTIMONIALS -->
+  <section class="py-20 bg-dhaba-bg border-t border-dhaba-border/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <div class="flex items-center justify-center gap-1 text-amber-400 text-lg mb-2">
+          <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white font-rustic mb-2">
+          Loved by 800+ Highway Travellers
+        </h2>
+        <p class="text-sm text-thatch/70 font-coords">Verified Reviews from NH-12 Road-Trippers & Food Vloggers</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <div class="p-6 rounded-2xl bg-dhaba-card border border-dhaba-border flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-amber-400 text-xs mb-3">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+            </div>
+            <p class="text-sm text-thatch/90 italic leading-relaxed mb-4">
+              "The mutton here is unmatched on NH-12! Soft, juicy, and perfectly spiced. Sitting in the thatched cottage pod with family felt like a weekend holiday resort while driving back to Kolkata."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-3 border-t border-dhaba-border text-xs">
+            <div class="w-8 h-8 rounded-full bg-brick flex items-center justify-center font-bold text-white">A</div>
+            <div>
+              <div class="font-bold text-white">Ankan Banerjee</div>
+              <div class="text-[11px] text-thatch/50 font-coords">Kolkata → Siliguri Drive</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-dhaba-card border border-dhaba-border flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-amber-400 text-xs mb-3">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+            </div>
+            <p class="text-sm text-thatch/90 italic leading-relaxed mb-4">
+              "RideNBite's review brought us here and it exceeded every expectation. Basanti Pulao with Mutton Kasha in copper handi was top class. The open bamboo seating at night has incredible vibes."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-3 border-t border-dhaba-border text-xs">
+            <div class="w-8 h-8 rounded-full bg-bamboo flex items-center justify-center font-bold text-dhaba-bg">S</div>
+            <div>
+              <div class="font-bold text-white">Suman Chakraborty</div>
+              <div class="text-[11px] text-thatch/50 font-coords">Local Guide • 45 Reviews</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-dhaba-card border border-dhaba-border flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-amber-400 text-xs mb-3">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+            </div>
+            <p class="text-sm text-thatch/90 italic leading-relaxed mb-4">
+              "Best late-night highway stop between Kalyani and Ranaghat. We arrived past midnight, yet got piping hot tandoori chicken, crisp naans, and matka chai in 10 minutes. Safe parking too!"
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-3 border-t border-dhaba-border text-xs">
+            <div class="w-8 h-8 rounded-full bg-emerald-600 flex items-center justify-center font-bold text-white">P</div>
+            <div>
+              <div class="font-bold text-white">Priyanka Sen</div>
+              <div class="text-[11px] text-thatch/50 font-coords">Family Road Trip</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 8: LOCALPULSE AI BESPOKE PITCH MEMO (FOR OWNER/MANAGEMENT) -->
+  <section id="pitchMemo" class="py-24 bg-gradient-to-b from-dhaba-bg via-dhaba-surface to-dhaba-bg border-t-2 border-brick/40 relative">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      
+      <!-- Pitch Header Card -->
+      <div class="p-8 sm:p-12 rounded-3xl bg-dhaba-card border-2 border-brick/30 shadow-2xl relative overflow-hidden">
+        
+        <!-- Ribbon / Tag -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brick text-white text-xs font-bold font-coords uppercase tracking-wider mb-6">
+          <i class="bi bi-send-check-fill"></i> Confidential Executive Memo
+        </div>
+
+        <!-- Addressee -->
+        <div class="border-b border-dhaba-border pb-6 mb-6">
+          <div class="text-xs font-coords text-bamboo uppercase tracking-widest mb-1">Addressed to:</div>
+          <h2 class="text-2xl sm:text-3xl font-bold text-white font-rustic">
+            The Managing Proprietor & Leadership Team
+          </h2>
+          <div class="text-sm text-thatch/70 font-coords mt-1">
+            Saraikhana Cottage Dhaba • NH-12, Birohi, Chakdah, Nadia
+          </div>
+        </div>
+
+        <!-- Memo Body -->
+        <div class="space-y-5 text-sm sm:text-base text-thatch/90 leading-relaxed font-sans">
+          
+          <p>
+            Dear Managing Proprietor,
+          </p>
+
+          <p>
+            You have created something truly extraordinary at Birohi on NH-12. With <strong class="text-white">800+ Google Reviews (4.1★)</strong>, the famous slow-cooked mutton handi, Basanti Pulao, and your signature <strong class="text-bamboo">individual thatched cottage dining pods</strong>, Saraikhana is already a favorite for those who know it.
+          </p>
+
+          <p class="p-4 rounded-xl bg-brick/10 border-l-4 border-brick text-thatch">
+            <strong class="text-brick-light font-semibold">The Critical Blindspot:</strong> Every single day, thousands of high-spending mobile travelers — tech families from Kolkata, weekend tourists heading to Mayapur and Murshidabad, and corporate commuters — zoom past your dhaba at 80 km/h because <strong class="text-white">you are digitally invisible on search</strong>. You currently rely only on a basic Facebook page, while commuters search Google Maps and mobile browsers for <em>"best highway cottage restaurant near me"</em>.
+          </p>
+
+          <p>
+            Your thatched cottage dining pods deserve <strong class="text-white">cinematic video storytelling</strong>, instant 1-click WhatsApp pre-orders so food is ready when drivers pull in, and an unmistakable premium digital presence that commands double the weekend crowd.
+          </p>
+
+          <!-- Case Study Reference to Mother's Hut -->
+          <div class="p-5 rounded-2xl bg-dhaba-surface border border-bamboo/30 my-6">
+            <div class="flex items-center gap-2 text-xs font-coords text-amber-400 uppercase tracking-wider mb-2">
+              <i class="bi bi-check2-circle text-emerald-400"></i> Proven Track Record on NH-12
+            </div>
+            <h4 class="text-lg font-bold text-white font-rustic mb-1">
+              See How We Upgraded Mother's Hut (NH-12, Krishnanagar)
+            </h4>
+            <p class="text-xs sm:text-sm text-thatch/80 mb-3">
+              We engineered a bespoke GSAP scroll-track showcase for Mother's Hut along the same highway corridor, converting road-trippers into booked tables before they even reach the town limits.
+            </p>
+            <a href="https://samya666.github.io/mothers-hut-redesign/" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-bamboo hover:text-white underline inline-flex items-center gap-1 font-coords">
+              View Mother's Hut Live Redesign <i class="bi bi-box-arrow-up-right"></i>
+            </a>
+          </div>
+
+          <h3 class="text-xl font-bold text-white font-rustic pt-2">
+            What LocalPulse AI Will Deploy For Saraikhana:
+          </h3>
+
+          <ul class="space-y-2.5 text-xs sm:text-sm text-thatch/85 font-sans">
+            <li class="flex items-start gap-2.5">
+              <i class="bi bi-check-circle-fill text-emerald-400 mt-1 flex-shrink-0"></i>
+              <span><strong>Interactive GSAP Scroll Engine:</strong> Showcase your authentic Sony-captured drone & cottage walkthroughs directly on the mobile landing page.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i class="bi bi-check-circle-fill text-emerald-400 mt-1 flex-shrink-0"></i>
+              <span><strong>Highway Pre-Order WhatsApp Bot:</strong> Commuters 30 minutes away pre-order Mutton Thali & Tandoori, eliminating kitchen waiting time and locking in sales.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i class="bi bi-check-circle-fill text-emerald-400 mt-1 flex-shrink-0"></i>
+              <span><strong>NH-12 Local SEO Dominance:</strong> Outrank every generic highway dhaba for keywords like <em>"Best dhaba near Chakdah"</em>, <em>"Birohi cottage restaurant"</em>, and <em>"NH12 mutton dhaba"</em>.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i class="bi bi-check-circle-fill text-emerald-400 mt-1 flex-shrink-0"></i>
+              <span><strong>Zero Commission:</strong> No Swiggy/Zomato commission cuts. You own 100% of the customer relationship and data.</span>
+            </li>
+          </ul>
+
+          <div class="pt-6 border-t border-dhaba-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+            <div>
+              <div class="text-sm font-bold text-white">Samya Pegusus</div>
+              <div class="text-xs text-bamboo font-coords">Founder, LocalPulse AI</div>
+              <div class="text-xs text-thatch/60 font-coords mt-0.5">West Bengal Restaurant Digital Growth Partner</div>
+            </div>
+
+            <div class="flex flex-wrap gap-3">
+              <a href="https://wa.me/918617625059?text=Hi%20Samya,%20I%20am%20the%20Managing%20Proprietor%20of%20Saraikhana%20Cottage%20Dhaba.%20I%20saw%20your%20interactive%20demo%20and%20would%20like%20to%20discuss%20activating%20it." target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm tracking-wide shadow-lg inline-flex items-center gap-2">
+                <i class="bi bi-whatsapp"></i>
+                <span>Chat with Samya (+91 8617625059)</span>
+              </a>
+              <a href="mailto:samya.pegusus@gmail.com?subject=Saraikhana%20Cottage%20Dhaba%20-%20LocalPulse%20AI%20Deployment" class="px-4 py-2.5 rounded-xl bg-dhaba-surface hover:bg-dhaba-border border border-dhaba-borderLight text-xs sm:text-sm font-semibold text-thatch inline-flex items-center gap-2">
+                <i class="bi bi-envelope-fill text-brick-light"></i>
+                <span>samya.pegusus@gmail.com</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-dhaba-bg border-t border-dhaba-border py-12 pb-28 md:pb-12 text-thatch/70 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-dhaba-border/60">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-lg bg-brick flex items-center justify-center text-white">
+            <i class="bi bi-house-door-fill text-lg"></i>
+          </div>
+          <div>
+            <div class="text-base font-bold text-white font-rustic">SARAIKHANA COTTAGE DHABA</div>
+            <div class="text-[11px] font-coords text-thatch/60">NH-12, Birohi, Shitalatala, Chakdah, Nadia, WB 741248</div>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-6 font-coords text-xs">
+          <span><i class="bi bi-telephone-fill text-bamboo mr-1"></i>+91 89723 73733</span>
+          <span><i class="bi bi-telephone-fill text-bamboo mr-1"></i>+91 79802 97624</span>
+          <span><i class="bi bi-clock-fill text-emerald-400 mr-1"></i>Open 24/7 (Hot Kitchen till 3:30 AM)</span>
+        </div>
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] font-coords">
+        <div>
+          © 2026 Saraikhana Cottage Dhaba. All authentic footage & imagery courtesy of RideNBite.
+        </div>
+        <div class="flex items-center gap-2">
+          <span>Bespoke Interactive Experience by</span>
+          <span class="text-bamboo font-bold">LocalPulse AI</span>
+        </div>
+      </div>
+
     </div>
   </footer>
 
+  <!-- STICKY MOBILE BOTTOM BAR -->
+  <div class="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-dhaba-bg/95 backdrop-blur-lg border-t border-dhaba-border/80 px-3 py-2.5 flex items-center justify-between gap-2 shadow-2xl">
+    
+    <a href="https://wa.me/918972373733?text=Hello%20Saraikhana!%20I%20am%20on%20NH-12%20and%20want%20to%20book%20a%20cottage%20table." target="_blank" rel="noopener noreferrer" class="flex-1 py-2.5 px-3 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow">
+      <i class="bi bi-whatsapp text-sm"></i>
+      <span>WhatsApp</span>
+    </a>
+
+    <a href="tel:+918972373733" class="flex-1 py-2.5 px-3 rounded-lg bg-dhaba-card border border-dhaba-borderLight text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow">
+      <i class="bi bi-telephone-fill text-bamboo text-sm"></i>
+      <span>Call</span>
+    </a>
+
+    <a href="https://maps.app.goo.gl/UV3VRqDJqfui3xJd9" target="_blank" rel="noopener noreferrer" class="flex-1 py-2.5 px-3 rounded-lg bg-brick hover:bg-brick-light text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow">
+      <i class="bi bi-geo-alt-fill text-sm"></i>
+      <span>Maps GPS</span>
+    </a>
+
+  </div>
+
+  <!-- JAVASCRIPT: GSAP SCROLLTRIGGER SCRUBBING & INTERACTION -->
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    const video = document.getElementById('heroVideo');
+    const track = document.getElementById('cameraTrack');
+    const progressBar = document.getElementById('scrollProgressBar');
+    const progressText = document.getElementById('scrollPercentText');
+    let scrubTimeline = null;
+
+    function initGSAPScrub() {
+      if (scrubTimeline) return; // Prevent duplicate init
+      if (!video || !track) return;
+
+      const duration = (video.duration && !isNaN(video.duration) && video.duration > 0) ? video.duration : 20.0;
+
+      // Master Timeline pinned over 360vh
+      scrubTimeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: track,
+          start: "top top",
+          end: "+=260%", // total scroll travel
+          scrub: 0.6,
+          pin: "#stickyViewport",
+          anticipatePin: 1,
+          onUpdate: (self) => {
+            const progress = self.progress;
+            
+            // Update visual progress bars
+            if (progressBar) progressBar.style.width = (progress * 100).toFixed(1) + '%';
+            if (progressText) progressText.innerText = Math.round(progress * 100) + '% Walkthrough';
+
+            // Scrub video currentTime smoothly
+            if (video.duration && !isNaN(video.duration)) {
+              const targetTime = progress * video.duration;
+              if (Math.abs(video.currentTime - targetTime) > 0.05) {
+                video.currentTime = targetTime;
+              }
+            }
+          }
+        }
+      });
+
+      // STATION 1: (0% - 22%)
+      scrubTimeline
+        .to("#station1", { opacity: 1, y: 0, duration: 0.1 }, 0)
+        .to("#station1", { opacity: 0, y: -25, duration: 0.08, pointerEvents: 'none' }, 0.20)
+
+      // STATION 2: (25% - 55%)
+        .fromTo("#station2", { opacity: 0, y: 30, pointerEvents: 'none' }, { opacity: 1, y: 0, pointerEvents: 'auto', duration: 0.08 }, 0.25)
+        .to("#station2", { opacity: 0, y: -25, duration: 0.08, pointerEvents: 'none' }, 0.52)
+
+      // STATION 3: (58% - 80%)
+        .fromTo("#station3", { opacity: 0, y: 30, pointerEvents: 'none' }, { opacity: 1, y: 0, pointerEvents: 'auto', duration: 0.08 }, 0.56)
+        .to("#station3", { opacity: 0, y: -25, duration: 0.08, pointerEvents: 'none' }, 0.78)
+
+      // STATION 4: (82% - 100%)
+        .fromTo("#station4", { opacity: 0, y: 30, pointerEvents: 'none' }, { opacity: 1, y: 0, pointerEvents: 'auto', duration: 0.08 }, 0.82)
+        .to("#station4", { opacity: 1, y: 0, pointerEvents: 'auto', duration: 0.18 }, 0.90);
+    }
+
+    // Video readiness check
+    if (video.readyState >= 2) {
+      initGSAPScrub();
+    } else {
+      video.addEventListener('loadeddata', initGSAPScrub, { once: true });
+      video.addEventListener('canplay', initGSAPScrub, { once: true });
+      // Fallback timer
+      setTimeout(initGSAPScrub, 1200);
+    }
+
+    // Scroll directly to station percentage
+    function scrollToStation(targetPercent) {
+      if (!track) return;
+      const trackTop = track.offsetTop;
+      const totalScrollHeight = window.innerHeight * 2.6; // +=260%
+      const targetScroll = trackTop + (totalScrollHeight * targetPercent);
+      window.scrollTo({ top: targetScroll, behavior: 'smooth' });
+    }
+
+    // Pre-order form submit to WhatsApp
+    function submitBooking() {
+      const group = document.getElementById('groupSize').value;
+      const seating = document.getElementById('seatingType').value;
+      const eta = document.getElementById('etaTime').value;
+      const meal = document.getElementById('mealChoice').value;
+      const guest = document.getElementById('guestDetails').value.trim() || 'Highway Guest';
+
+      const message = `*HIGHWAY PITSTOP BOOKING - SARAIKHANA COTTAGE DHABA*%0A` +
+        `----------------------------------------%0A` +
+        `*Guest:* ${encodeURIComponent(guest)}%0A` +
+        `*Group:* ${encodeURIComponent(group)}%0A` +
+        `*Seating:* ${encodeURIComponent(seating)}%0A` +
+        `*ETA:* ${encodeURIComponent(eta)}%0A` +
+        `*Meal Pre-Order:* ${encodeURIComponent(meal)}%0A` +
+        `----------------------------------------%0A` +
+        `_Sent via Saraikhana Digital Highway Portal (NH-12 Birohi)_`;
+
+      const waUrl = `https://wa.me/918972373733?text=${message}`;
+      window.open(waUrl, '_blank');
+    }
+  </script>
 </body>
 </html>

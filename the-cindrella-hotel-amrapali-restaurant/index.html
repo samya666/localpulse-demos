@@ -2,187 +2,1430 @@
 <html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>The Cindrella Hotel & Amrapali Restaurant | Premium Digital Experience by LocalPulse AI</title>
-  <meta name="description" content="A custom-built, high-converting mobile experience for The Cindrella Hotel & Amrapali Restaurant, 3rd Mile, Sevoke Road, Ward 42, Salugara, Siliguri, West Bengal 734008. Powered by LocalPulse AI.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Cindrella Hotel & Amrapali Restaurant | Siliguri's Premier 4-Star Wedding Resort & Dining Landmark</title>
+  <meta name="description" content="Experience The Cindrella Hotel & Amrapali Restaurant on Sevoke Road, Siliguri. 17,000 sq ft royal wedding lawns, 1,200 guest capacity, multi-cuisine fine dining, rooftop bar, and luxury suites.">
+
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Bodoni Moda (Luxury Serif), Poppins (Modern Body), JetBrains Mono (Coordinates & Stats) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,700;0,6..96,800;0,6..96,900;1,6..96,400;1,6..96,600&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- GSAP 3 & ScrollTrigger -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            midnight: {
+              DEFAULT: '#0C2340',
+              deep: '#061322',
+              dark: '#030810',
+              card: '#0F2B4E',
+              border: '#1E3F66',
+            },
+            champagne: {
+              DEFAULT: '#F7E7CE',
+              light: '#FFF5E6',
+              gold: '#E5C287',
+              dark: '#C89D56',
+            },
+            silver: {
+              DEFAULT: '#C0C0C0',
+              light: '#E2E8F0',
+              muted: '#94A3B8',
+            }
+          },
+          fontFamily: {
+            serif: ['"Bodoni Moda"', 'serif'],
+            sans: ['Poppins', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
   <style>
     :root {
-      --primary: #B85D2A;
-      --primary-dark: #8C3B1B;
-      --dark: #1a1a1a;
-      --cream: #FAF8F5;
-      --sand: #ECE5CE;
+      --midnight: #0C2340;
+      --midnight-deep: #061322;
+      --champagne: #F7E7CE;
+      --champagne-gold: #E5C287;
+      --silver: #C0C0C0;
     }
-    body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--cream); color: #262420; }
-    .font-editorial { font-family: 'Playfair Display', serif; }
-    .gradient-hero { background: linear-gradient(135deg, #1a1a1a 0%, #2d1810 50%, #1a1a1a 100%); }
-    .glow-btn {
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      box-shadow: 0 10px 30px -5px rgba(184,93,42,0.4);
-      transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+
+    body {
+      background-color: #061322;
+      color: #F7E7CE;
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+      selection-background-color: #E5C287;
     }
-    .glow-btn:hover { transform: translateY(-2px); box-shadow: 0 15px 40px -5px rgba(184,93,42,0.5); }
-    .card-hover { transition: all 0.3s ease; }
-    .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-    .stat-card { background: rgba(255,255,255,0.7); backdrop-filter: blur(10px); }
-    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-    .float { animation: float 3s ease-in-out infinite; }
+
+    ::selection {
+      background: #E5C287;
+      color: #061322;
+    }
+
+    .font-luxury {
+      font-family: 'Bodoni Moda', serif;
+    }
+
+    /* Glass Effect */
+    .glass-navy {
+      background: rgba(12, 35, 64, 0.78);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(247, 231, 206, 0.18);
+    }
+
+    .glass-navy-glow {
+      background: rgba(15, 43, 78, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(229, 194, 135, 0.35);
+      box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.5), 0 0 25px rgba(229, 194, 135, 0.15);
+    }
+
+    /* Luxury Gold Buttons */
+    .btn-gold {
+      background: linear-gradient(135deg, #F7E7CE 0%, #E5C287 50%, #C89D56 100%);
+      color: #061322;
+      box-shadow: 0 10px 25px -5px rgba(229, 194, 135, 0.35);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 32px -5px rgba(229, 194, 135, 0.55);
+      filter: brightness(1.06);
+    }
+
+    .btn-outline-gold {
+      background: transparent;
+      border: 1px solid rgba(229, 194, 135, 0.45);
+      color: #F7E7CE;
+      transition: all 0.3s ease;
+    }
+
+    .btn-outline-gold:hover {
+      border-color: #E5C287;
+      background: rgba(229, 194, 135, 0.1);
+      color: #FFF5E6;
+      transform: translateY(-2px);
+    }
+
+    /* Card Hover Animations */
+    .venue-card {
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .venue-card:hover {
+      transform: translateY(-7px);
+      border-color: rgba(229, 194, 135, 0.6);
+      box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.7), 0 0 20px rgba(229, 194, 135, 0.2);
+    }
+
+    /* Infinite Filmstrip Animation */
+    @keyframes marqueeScroll {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marqueeScroll 45s linear infinite;
+    }
+
+    .marquee-track:hover {
+      animation-play-state: paused;
+    }
+
+    /* Film Sprocket Perforation Graphic */
+    .film-sprocket-border {
+      background-image: repeating-linear-gradient(
+        90deg,
+        rgba(229, 194, 135, 0.5) 0px,
+        rgba(229, 194, 135, 0.5) 12px,
+        transparent 12px,
+        transparent 22px
+      );
+      height: 6px;
+      opacity: 0.7;
+    }
+
+    /* Custom Luxury Scrollbar */
+    ::-webkit-scrollbar {
+      width: 7px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #030810;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #C89D56;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #E5C287;
+    }
   </style>
 </head>
-<body class="antialiased">
+<body class="antialiased text-champagne bg-midnight-deep selection:bg-champagne-gold selection:text-midnight-dark">
 
-  <!-- Hero Section -->
-  <section class="gradient-hero min-h-screen flex items-center justify-center relative overflow-hidden">
-    <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 20% 50%, rgba(184,93,42,0.3) 0%, transparent 50%), radial-gradient(circle at 80% 50%, rgba(184,93,42,0.2) 0%, transparent 50%);"></div>
-    <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
-      <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-5 py-2 mb-8">
-        <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-        <span class="text-white/80 text-sm font-medium tracking-wide">CUSTOM PREVIEW — BUILT FOR THE CINDRELLA HOTEL & AMRAPALI RESTAURANT</span>
-      </div>
-      <h1 class="font-editorial text-5xl md:text-7xl text-white font-bold leading-tight mb-6">
-        The Cindrella Hotel & Amrapali Restaurant
-      </h1>
-      <p class="text-white/70 text-lg md:text-xl max-w-2xl mx-auto mb-4">
-        3rd Mile, Sevoke Road, Ward 42, Salugara, Siliguri, West Bengal 734008
-      </p>
-      <p class="text-white/50 text-base max-w-xl mx-auto mb-10">
-        This is what your restaurant's digital presence could look like — built in 48 hours by LocalPulse AI.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        
-        <a href="tel:" class="bg-white/10 backdrop-blur-md border border-white/30 text-white px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center gap-3 hover:bg-white/20 transition-all">
-          <i class="bi bi-telephone-fill"></i> Call Now
+  <!-- ========================================== -->
+  <!-- 1. FIXED TOP NAVIGATION                   -->
+  <!-- ========================================== -->
+  <header class="fixed top-0 left-0 right-0 z-50 glass-navy border-b border-champagne/15 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo & Identity -->
+      <a href="#camera-track-container" class="flex items-center gap-3.5 group">
+        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-champagne-light via-champagne-gold to-champagne-dark p-0.5 shadow-lg group-hover:scale-105 transition-transform flex items-center justify-center">
+          <div class="w-full h-full bg-midnight-deep rounded-[10px] flex items-center justify-center">
+            <span class="font-luxury font-black text-2xl text-champagne-gold tracking-tight">C</span>
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <div class="flex items-center gap-2">
+            <span class="font-luxury font-bold text-lg sm:text-xl tracking-wider text-white group-hover:text-champagne-gold transition-colors">
+              THE CINDRELLA
+            </span>
+            <span class="text-[10px] uppercase tracking-widest px-2 py-0.5 rounded-full bg-champagne-gold/15 text-champagne-gold font-mono border border-champagne-gold/30">
+              4-Star Hotel & Resort
+            </span>
+          </div>
+          <span class="text-[11px] text-silver font-mono flex items-center gap-1.5">
+            <i class="bi bi-geo-alt-fill text-champagne-gold text-xs"></i> 3rd Mile, Sevoke Road • Amrapali Restaurant
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden lg:flex items-center gap-7 text-xs uppercase tracking-widest font-mono text-silver">
+        <a href="#camera-track-container" class="hover:text-champagne-gold transition-colors">360° Tour</a>
+        <a href="#wedding-lawns" class="hover:text-champagne-gold transition-colors">17K Lawns</a>
+        <a href="#amrapali-dining" class="hover:text-champagne-gold transition-colors">Amrapali Dining</a>
+        <a href="#banquet-calculator" class="hover:text-champagne-gold transition-colors">Banquet Calculator</a>
+        <a href="#location-access" class="hover:text-champagne-gold transition-colors">Route & GPS</a>
+        <a href="#executive-pitch" class="text-champagne-gold font-semibold hover:text-white transition-colors flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Pitch Memo
+        </a>
+      </nav>
+
+      <!-- Action CTAs -->
+      <div class="flex items-center gap-3">
+        <a href="tel:+919832022717" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-champagne/25 hover:border-champagne-gold text-xs font-mono text-champagne hover:text-white transition-all">
+          <i class="bi bi-telephone-fill text-champagne-gold"></i> +91 98320 22717
+        </a>
+        <a href="https://wa.me/919832022717?text=Hello%20The%20Cindrella%20Hotel%2C%20I%20would%20like%20to%20inquire%20about%20Wedding%20Lawns%20and%20Amrapali%20Restaurant%20reservations." 
+           target="_blank" 
+           class="btn-gold px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold tracking-wide inline-flex items-center gap-2">
+          <i class="bi bi-whatsapp text-base"></i>
+          <span>Book Wedding / Dine</span>
         </a>
       </div>
-    </div>
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/40 animate-bounce">
-      <i class="bi bi-chevron-double-down text-2xl"></i>
-    </div>
-  </section>
 
-  <!-- What We'd Build Section -->
-  <section class="py-20 px-6">
-    <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-16">
-        <span class="text-sm font-bold tracking-[0.2em] uppercase" style="color: var(--primary);">What Your Guests Would Experience</span>
-        <h2 class="font-editorial text-4xl md:text-5xl font-bold mt-4 mb-6">A Digital Experience<br>Worthy of Your Kitchen</h2>
-        <p class="text-gray-500 text-lg max-w-2xl mx-auto">Every feature below is designed to convert highway travelers and local foodies into paying guests — in one tap.</p>
-      </div>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(184,93,42,0.1);">
-            <i class="bi bi-phone text-2xl" style="color: var(--primary);"></i>
-          </div>
-          <h3 class="font-bold text-xl mb-3">Mobile-First Design</h3>
-          <p class="text-gray-500">85% of your customers search on phones. A lightning-fast mobile experience with sticky booking bar and one-tap WhatsApp reservation.</p>
-        </div>
-        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(184,93,42,0.1);">
-            <i class="bi bi-camera-reels text-2xl" style="color: var(--primary);"></i>
-          </div>
-          <h3 class="font-bold text-xl mb-3">5 Custom Video Reels</h3>
-          <p class="text-gray-500">High-retention 9:16 vertical videos of your signature dishes, ambiance, and chef specials — ready for Instagram, YouTube Shorts & Google Maps.</p>
-        </div>
-        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(184,93,42,0.1);">
-            <i class="bi bi-robot text-2xl" style="color: var(--primary);"></i>
-          </div>
-          <h3 class="font-bold text-xl mb-3">AI Digital Concierge</h3>
-          <p class="text-gray-500">A 24/7 AI assistant trained on your exact menu, pricing, and FAQs — answers customer questions instantly on WhatsApp.</p>
-        </div>
-        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(184,93,42,0.1);">
-            <i class="bi bi-calendar-event text-2xl" style="color: var(--primary);"></i>
-          </div>
-          <h3 class="font-bold text-xl mb-3">Banquet Booking Funnel</h3>
-          <p class="text-gray-500">Direct inquiry forms for weddings, birthday parties, and corporate events — no more lost leads from missed calls.</p>
-        </div>
-        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(184,93,42,0.1);">
-            <i class="bi bi-geo-alt text-2xl" style="color: var(--primary);"></i>
-          </div>
-          <h3 class="font-bold text-xl mb-3">GPS Navigation</h3>
-          <p class="text-gray-500">One-tap Google Maps routing for highway travelers. Integrated with your exact pin location and landmark references.</p>
-        </div>
-        <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: rgba(184,93,42,0.1);">
-            <i class="bi bi-graph-up-arrow text-2xl" style="color: var(--primary);"></i>
-          </div>
-          <h3 class="font-bold text-xl mb-3">SEO & Google Boost</h3>
-          <p class="text-gray-500">Schema markup, local SEO optimization, and Google Business integration so you rank #1 for "The Cindrella Hotel & Amrapali Restaurant" and nearby food searches.</p>
-        </div>
-      </div>
     </div>
-  </section>
+  </header>
 
-  <!-- Social Proof / Reference -->
-  <section class="py-20 px-6" style="background: var(--dark);">
-    <div class="max-w-4xl mx-auto text-center">
-      <span class="text-sm font-bold tracking-[0.2em] uppercase text-amber-400">See What We've Already Built</span>
-      <h2 class="font-editorial text-4xl md:text-5xl font-bold text-white mt-4 mb-6">Our Reference Project</h2>
-      <p class="text-white/60 text-lg mb-10">We built this complete digital experience for Mother's Hut, Krishnanagar — the 50,000 sq ft women-powered dining landmark on NH-12.</p>
-      <a href="https://samya666.github.io/mothers-hut-redesign/" target="_blank" class="glow-btn text-white px-10 py-5 rounded-full font-bold text-lg inline-flex items-center gap-3">
-        <i class="bi bi-box-arrow-up-right"></i> View Mother's Hut Experience
-      </a>
-      <div class="grid grid-cols-3 gap-6 mt-16">
-        <div class="stat-card rounded-2xl p-6">
-          <div class="text-3xl font-bold text-white">2.5K</div>
-          <div class="text-white/50 text-sm mt-1">Video Walkthrough</div>
+  <!-- ========================================== -->
+  <!-- 2. GSAP SCROLL-CAMERA TRACK HERO (360vh)   -->
+  <!-- ========================================== -->
+  <section id="camera-track-container" class="relative w-full h-[360vh] bg-midnight-dark">
+    
+    <!-- Sticky Fullscreen Viewport -->
+    <div id="camera-viewport" class="sticky top-0 w-full h-screen overflow-hidden flex items-center justify-center">
+
+      <!-- Short-GOP 720p Scrubbing Video Element -->
+      <video id="walkthroughVideo"
+             class="absolute inset-0 w-full h-full object-cover filter brightness-[0.78] contrast-[1.08] saturate-[1.1]"
+             src="assets/hero_walkthrough.mp4"
+             poster="assets/hero_poster.webp"
+             playsinline
+             muted
+             preload="auto">
+      </video>
+
+      <!-- Cinematic Luxury Overlays & Vignette -->
+      <div class="absolute inset-0 bg-gradient-to-t from-midnight-deep via-midnight-deep/45 to-midnight-dark/85 pointer-events-none"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(3,8,16,0.92)_100%)] pointer-events-none"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-midnight-deep/80 via-transparent to-midnight-deep/80 pointer-events-none"></div>
+
+      <!-- Telemetry Corner HUD Overlays (Technical Coordinates & Status) -->
+      <div class="absolute top-24 left-4 sm:left-8 text-[10px] sm:text-xs font-mono text-champagne-gold/90 pointer-events-none z-30">
+        <div class="flex items-center gap-2 mb-1">
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+          <span class="tracking-widest uppercase font-semibold text-white">LIVE VENUE CAMERA TRACK // 720p 60FPS</span>
         </div>
-        <div class="stat-card rounded-2xl p-6">
-          <div class="text-3xl font-bold text-white">10</div>
-          <div class="text-white/50 text-sm mt-1">Themed Dining Zones</div>
-        </div>
-        <div class="stat-card rounded-2xl p-6">
-          <div class="text-3xl font-bold text-white">48h</div>
-          <div class="text-white/50 text-sm mt-1">Delivery Time</div>
-        </div>
+        <span class="text-silver/80 block">COORDINATES: 26.7451° N, 88.4526° E // SEVOKE ROAD NH-10</span>
+        <span class="text-champagne-gold/75 block">DESTINATION: 17,000 SQ. FT. CELEBRATION LAWNS</span>
       </div>
-    </div>
-  </section>
 
-  <!-- Pricing CTA -->
-  <section class="py-20 px-6">
-    <div class="max-w-3xl mx-auto text-center">
-      <span class="text-sm font-bold tracking-[0.2em] uppercase" style="color: var(--primary);">Simple, Transparent Pricing</span>
-      <h2 class="font-editorial text-4xl md:text-5xl font-bold mt-4 mb-6">Get All Of This<br>For ₹24,000</h2>
-      <div class="bg-white rounded-3xl p-10 border border-gray-100 shadow-xl mb-10">
-        <ul class="text-left space-y-4 text-lg text-gray-700 mb-8">
-          <li class="flex items-start gap-3"><i class="bi bi-check-circle-fill text-green-500 mt-1"></i> Complete mobile-first website with your branding</li>
-          <li class="flex items-start gap-3"><i class="bi bi-check-circle-fill text-green-500 mt-1"></i> 5 custom 9:16 video reels (Instagram/YouTube ready)</li>
-          <li class="flex items-start gap-3"><i class="bi bi-check-circle-fill text-green-500 mt-1"></i> AI digital concierge (WhatsApp integration)</li>
-          <li class="flex items-start gap-3"><i class="bi bi-check-circle-fill text-green-500 mt-1"></i> WhatsApp one-tap booking & banquet inquiry form</li>
-          <li class="flex items-start gap-3"><i class="bi bi-check-circle-fill text-green-500 mt-1"></i> Google Maps SEO optimization</li>
-          <li class="flex items-start gap-3"><i class="bi bi-check-circle-fill text-green-500 mt-1"></i> Delivered in 48 hours</li>
-        </ul>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="https://wa.me/+918617625059?text=Hi%20Samya%2C%20I%20saw%20the%20LocalPulse%20AI%20demo%20for%20The%20Cindrella%20Hotel%20%26%20Amrapali%20Restaurant.%20I%20am%20interested%20in%20getting%20this%20for%20my%20restaurant." 
-             target="_blank" class="glow-btn text-white px-8 py-4 rounded-full font-bold text-lg inline-flex items-center gap-3">
-            <i class="bi bi-whatsapp text-xl"></i> Get Started — WhatsApp Samya
+      <div class="absolute top-24 right-4 sm:right-8 text-[10px] sm:text-xs font-mono text-right pointer-events-none z-30">
+        <span class="text-champagne-light block font-semibold">4-STAR LUXURY RESORT</span>
+        <span class="text-silver/80 block">SEATING CAPACITY: 1,200+ GUESTS</span>
+        <span class="text-champagne-gold block">AMRAPALI RESTAURANT & ROOFTOP BAR</span>
+      </div>
+
+      <!-- Station 1: Grand Hero Title (0% - 22%) -->
+      <div id="station-1" class="absolute z-20 text-center max-w-5xl px-6 flex flex-col items-center">
+        <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-midnight/80 border border-champagne-gold/40 text-champagne-gold font-mono text-xs uppercase mb-6 tracking-widest backdrop-blur-md shadow-lg">
+          <i class="bi bi-gem text-champagne-gold text-xs"></i>
+          North Bengal's Premier Wedding Destination • 4-Star Hospitality
+        </div>
+        
+        <h1 class="font-luxury text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white tracking-tight leading-none drop-shadow-[0_15px_35px_rgba(0,0,0,0.9)]">
+          THE CINDRELLA HOTEL
+        </h1>
+        
+        <div class="mt-3 mb-5 flex items-center justify-center gap-4">
+          <span class="h-px w-12 sm:w-24 bg-gradient-to-r from-transparent via-champagne-gold to-champagne-light"></span>
+          <span class="font-luxury italic text-xl sm:text-3xl text-champagne-gold font-medium tracking-wide">& Amrapali Restaurant</span>
+          <span class="h-px w-12 sm:w-24 bg-gradient-to-l from-transparent via-champagne-gold to-champagne-light"></span>
+        </div>
+
+        <p class="font-sans text-silver-light text-sm sm:text-lg max-w-2xl leading-relaxed font-light">
+          Where regal luxury meets fairytale celebrations. Siliguri's sprawling 17,000 sq ft wedding lawn, central AC banquet ballrooms, and iconic multi-cuisine fine dining on Sevoke Road.
+        </p>
+
+        <div class="mt-8 flex flex-col sm:flex-row items-center gap-4">
+          <a href="https://wa.me/919832022717?text=Hi%20The%20Cindrella%20Hotel%2C%20I%20want%20to%20reserve%20wedding%20dates%20at%20your%20lawns." 
+             target="_blank" 
+             class="btn-gold px-8 py-3.5 rounded-full text-midnight-dark font-bold text-sm inline-flex items-center gap-2.5">
+            <i class="bi bi-calendar2-heart-fill text-midnight text-base"></i> Lock Wedding Dates
           </a>
+          <span class="text-xs font-mono text-silver flex items-center gap-2">
+            <i class="bi bi-arrow-down-circle text-champagne-gold text-base animate-bounce"></i> Scroll down to tour the lawns
+          </span>
         </div>
-        <p class="text-gray-400 text-sm mt-4">Or call: +91 8617625059 | Email: samya.pegusus@gmail.com</p>
       </div>
+
+      <!-- Station 2: Signature Wedding Lawns USP (25% - 55%) -->
+      <div id="station-2" class="absolute z-20 text-center max-w-4xl px-6 flex flex-col items-center opacity-0 scale-95 pointer-events-none">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-midnight/80 border border-champagne-gold/50 text-champagne-gold font-mono text-xs uppercase mb-4 tracking-wider backdrop-blur-md">
+          <i class="bi bi-stars text-champagne-gold"></i> Signature 17,000 Sq. Ft. Royal Lawns
+        </div>
+        
+        <h2 class="font-luxury text-3xl sm:text-5xl md:text-6xl font-bold text-white leading-tight">
+          1,200 Guest Capacity Under The Open Sky
+        </h2>
+        
+        <p class="font-sans text-champagne-gold text-base sm:text-xl mt-3 font-normal">
+          Siliguri's largest integrated lawn & banquet infrastructure for Destination Weddings
+        </p>
+
+        <div class="glass-navy-glow p-6 sm:p-8 rounded-3xl max-w-2xl mt-6 text-left shadow-2xl">
+          <p class="text-silver-light text-xs sm:text-sm leading-relaxed">
+            From regal floral entrance aisles and hydraulic Varmala stages to 100+ car valet parking and plush poolside cocktail decks. Host Sangeet, Mehendi, Haldi, and grand Wedding Receptions without compromising on guest comfort or grandeur.
+          </p>
+          <div class="grid grid-cols-3 gap-3 mt-5 pt-5 border-t border-champagne/15 text-center font-mono">
+            <div class="bg-midnight/70 p-3 rounded-xl border border-champagne/10">
+              <span class="block text-champagne-gold font-bold text-base sm:text-lg">17,000</span>
+              <span class="text-[10px] text-silver uppercase tracking-wider">Sq. Ft. Lawns</span>
+            </div>
+            <div class="bg-midnight/70 p-3 rounded-xl border border-champagne/10">
+              <span class="block text-champagne-gold font-bold text-base sm:text-lg">1,200+</span>
+              <span class="text-[10px] text-silver uppercase tracking-wider">Pax Capacity</span>
+            </div>
+            <div class="bg-midnight/70 p-3 rounded-xl border border-champagne/10">
+              <span class="block text-champagne-gold font-bold text-base sm:text-lg">43+</span>
+              <span class="text-[10px] text-silver uppercase tracking-wider">Luxury Suites</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Station 3: Amrapali Restaurant & Imperial Ballrooms (58% - 80%) -->
+      <div id="station-3" class="absolute z-20 text-center max-w-4xl px-6 flex flex-col items-center opacity-0 scale-95 pointer-events-none">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-midnight/80 border border-champagne-gold/50 text-champagne-gold font-mono text-xs uppercase mb-4 tracking-wider backdrop-blur-md">
+          <i class="bi bi-cup-hot-fill text-champagne-gold"></i> Amrapali Fine Dining & Central AC Ballrooms
+        </div>
+        
+        <h2 class="font-luxury text-3xl sm:text-5xl md:text-6xl font-bold text-white leading-tight">
+          Gastronomic Heritage & AC Banquets
+        </h2>
+        
+        <p class="font-sans text-champagne-gold text-base sm:text-xl mt-3 font-normal">
+          Mughlai, North Indian, Oriental, Bengali & Continental Excellence
+        </p>
+
+        <div class="glass-navy-glow p-6 sm:p-8 rounded-3xl max-w-2xl mt-6 text-left shadow-2xl">
+          <p class="text-silver-light text-xs sm:text-sm leading-relaxed">
+            The legendary Amrapali Restaurant caters to families, highway travelers, and banquet celebrations alike. Combined with our fully air-conditioned Imperial, Senate, and Regent conference suites, every gathering is treated to gourmet mastery and 4-star hospitality.
+          </p>
+          <div class="flex flex-wrap items-center justify-between gap-3 mt-5 pt-4 border-t border-champagne/15 font-mono text-xs text-silver">
+            <span class="flex items-center gap-1.5"><i class="bi bi-shield-check text-emerald-400"></i> FSSAI Certified</span>
+            <span class="flex items-center gap-1.5"><i class="bi bi-snow text-cyan-300"></i> 100% Central AC</span>
+            <span class="flex items-center gap-1.5 text-champagne-gold"><i class="bi bi-star-fill text-amber-400"></i> 2,500+ Google Reviews (4.0★)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Station 4: Booking & WhatsApp Consultation (82% - 100%) -->
+      <div id="station-4" class="absolute z-20 text-center max-w-4xl px-6 flex flex-col items-center opacity-0 scale-95 pointer-events-none">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/20 border border-emerald-400/50 text-emerald-300 font-mono text-xs uppercase mb-4 tracking-wider backdrop-blur-md">
+          <i class="bi bi-calendar-check-fill text-emerald-400"></i> Direct VIP Booking Desk
+        </div>
+        
+        <h2 class="font-luxury text-3xl sm:text-5xl md:text-6xl font-bold text-white leading-tight">
+          Plan Your Dream Event in 60 Seconds
+        </h2>
+        
+        <p class="font-sans text-silver-light text-base sm:text-xl mt-3 max-w-xl">
+          Lock auspicious wedding dates, calculate custom banquet packages, or reserve a table at Amrapali directly via WhatsApp.
+        </p>
+
+        <div class="glass-navy-glow p-6 sm:p-8 rounded-3xl max-w-xl mt-6 w-full shadow-2xl text-center">
+          <div class="flex flex-col sm:flex-row gap-3 justify-center mb-5">
+            <a href="https://wa.me/919832022717?text=Hello%20Vivek%20Baid%20ji%20%26%20Cindrella%20Team%2C%20I%20want%20to%20inquire%20about%20booking%20the%2017%2C000%20sq%20ft%20Wedding%20Lawn." 
+               target="_blank" 
+               class="btn-gold px-7 py-3.5 rounded-xl font-bold text-sm inline-flex items-center justify-center gap-2 flex-1">
+              <i class="bi bi-whatsapp text-lg"></i> Inquire Wedding Package
+            </a>
+            <a href="tel:+919832429988" 
+               class="btn-outline-gold px-6 py-3.5 rounded-xl font-semibold text-sm inline-flex items-center justify-center gap-2">
+              <i class="bi bi-telephone-outbound-fill text-champagne-gold"></i> Call Management
+            </a>
+          </div>
+
+          <div class="flex items-center justify-center gap-4 text-xs font-mono text-silver/80">
+            <span><i class="bi bi-clock-history text-champagne-gold"></i> Instant Response</span>
+            <span>•</span>
+            <span><i class="bi bi-file-earmark-pdf-fill text-rose-400"></i> Wedding Menu Brochure</span>
+            <span>•</span>
+            <span><i class="bi bi-check-circle-fill text-emerald-400"></i> Best Price Direct</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scrubbing Viewport Bottom Progress Bar -->
+      <div class="absolute bottom-0 left-0 right-0 h-1.5 bg-midnight-dark/80 z-40">
+        <div id="cameraProgressBar" class="h-full bg-gradient-to-r from-champagne-gold via-champagne-light to-champagne-dark w-0 transition-all duration-75"></div>
+      </div>
+
+      <!-- Quick Scroll Indicator -->
+      <div class="absolute bottom-4 left-1/2 -translate-x-1/2 text-silver/50 text-[11px] font-mono pointer-events-none flex items-center gap-2 z-30">
+        <span>SCROLL TO EXPLORE VENUE</span>
+        <i class="bi bi-chevron-down animate-bounce text-champagne-gold"></i>
+      </div>
+
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="py-8 px-6 border-t border-gray-200">
-    <div class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-      <div class="text-gray-400 text-sm">
-        Custom preview by <strong class="text-gray-600">LocalPulse AI</strong> · Built for The Cindrella Hotel & Amrapali Restaurant
+  <!-- ========================================== -->
+  <!-- 3. INTERACTIVE BANQUET & WEDDING CALCULATOR -->
+  <!-- ========================================== -->
+  <section id="banquet-calculator" class="py-24 px-4 sm:px-6 lg:px-8 bg-midnight-deep relative border-t border-champagne/15">
+    <div class="max-w-5xl mx-auto">
+      
+      <!-- Section Header -->
+      <div class="text-center mb-14">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-midnight/80 border border-champagne-gold/30 text-champagne-gold text-xs font-mono uppercase tracking-wider mb-3">
+          <i class="bi bi-calculator-fill text-champagne-gold"></i> Instant Banquet Estimator
+        </div>
+        <h2 class="font-luxury text-3xl sm:text-5xl font-bold text-white">
+          Calculate Your Wedding & Banquet Package
+        </h2>
+        <p class="text-silver mt-3 text-sm sm:text-base max-w-2xl mx-auto">
+          Choose your guest count, catering plan, and celebration style. Get an instant ballpark quote ready to share with our management team on WhatsApp.
+        </p>
       </div>
-      <div class="flex items-center gap-4 text-gray-400">
-        <a href="mailto:samya.pegusus@gmail.com" class="hover:text-gray-600 transition"><i class="bi bi-envelope-fill"></i></a>
-        <a href="https://wa.me/+918617625059" target="_blank" class="hover:text-gray-600 transition"><i class="bi bi-whatsapp"></i></a>
-        <a href="tel:+91 8617625059" class="hover:text-gray-600 transition"><i class="bi bi-telephone-fill"></i></a>
+
+      <!-- Calculator Card -->
+      <div class="glass-navy-glow p-6 sm:p-10 rounded-3xl border border-champagne-gold/30 shadow-2xl">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          
+          <!-- Controls (Left 7 cols) -->
+          <div class="lg:col-span-7 space-y-6">
+            
+            <!-- Event Type Selector -->
+            <div>
+              <label class="block text-xs font-mono uppercase tracking-wider text-champagne-gold mb-2 font-semibold">1. Select Event Type</label>
+              <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+                <button type="button" onclick="setEventType('wedding', 1.0, this)" class="calc-btn active px-3.5 py-2.5 rounded-xl border border-champagne-gold bg-champagne-gold/20 text-white text-xs font-medium text-left transition-all">
+                  <i class="bi bi-heart-fill text-rose-400 block mb-1"></i> Grand Wedding
+                </button>
+                <button type="button" onclick="setEventType('sangeet', 0.85, this)" class="calc-btn px-3.5 py-2.5 rounded-xl border border-champagne/20 bg-midnight/60 text-silver text-xs font-medium text-left hover:border-champagne-gold/50 transition-all">
+                  <i class="bi bi-music-note-beamed text-amber-400 block mb-1"></i> Sangeet / Mehendi
+                </button>
+                <button type="button" onclick="setEventType('corporate', 0.75, this)" class="calc-btn px-3.5 py-2.5 rounded-xl border border-champagne/20 bg-midnight/60 text-silver text-xs font-medium text-left hover:border-champagne-gold/50 transition-all">
+                  <i class="bi bi-briefcase-fill text-cyan-400 block mb-1"></i> Corporate Summit
+                </button>
+              </div>
+            </div>
+
+            <!-- Guest Count Slider -->
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <label class="text-xs font-mono uppercase tracking-wider text-champagne-gold font-semibold">2. Guest Capacity</label>
+                <span id="guestCountDisplay" class="font-mono text-base font-bold text-champagne-light bg-midnight px-3 py-1 rounded-lg border border-champagne/20">
+                  450 Guests
+                </span>
+              </div>
+              <input type="range" id="guestRange" min="100" max="1200" step="25" value="450" oninput="updateCalculator()" class="w-full h-2 bg-midnight rounded-lg appearance-none cursor-pointer accent-champagne-gold">
+              <div class="flex justify-between text-[10px] font-mono text-silver/60 mt-1">
+                <span>100 (Intimate)</span>
+                <span>450 (Mid-Lawn)</span>
+                <span>800 (Grand)</span>
+                <span>1,200 (Full 17K Lawn)</span>
+              </div>
+            </div>
+
+            <!-- Catering Spread Selector -->
+            <div>
+              <label class="block text-xs font-mono uppercase tracking-wider text-champagne-gold mb-2 font-semibold">3. Catering Tier (Amrapali Banquet Kitchen)</label>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                <label class="flex items-center gap-2.5 p-3 rounded-xl border border-champagne/25 bg-midnight/60 cursor-pointer hover:border-champagne-gold/60 transition-all">
+                  <input type="radio" name="cateringTier" value="950" onchange="updateCalculator()" checked class="accent-champagne-gold">
+                  <div class="text-left">
+                    <span class="block text-xs font-bold text-white">Royal Veg</span>
+                    <span class="block text-[10px] font-mono text-champagne-gold">₹950 / plate</span>
+                  </div>
+                </label>
+                <label class="flex items-center gap-2.5 p-3 rounded-xl border border-champagne/25 bg-midnight/60 cursor-pointer hover:border-champagne-gold/60 transition-all">
+                  <input type="radio" name="cateringTier" value="1250" onchange="updateCalculator()" class="accent-champagne-gold">
+                  <div class="text-left">
+                    <span class="block text-xs font-bold text-white">Classic Non-Veg</span>
+                    <span class="block text-[10px] font-mono text-champagne-gold">₹1,250 / plate</span>
+                  </div>
+                </label>
+                <label class="flex items-center gap-2.5 p-3 rounded-xl border border-champagne/25 bg-midnight/60 cursor-pointer hover:border-champagne-gold/60 transition-all">
+                  <input type="radio" name="cateringTier" value="1650" onchange="updateCalculator()" class="accent-champagne-gold">
+                  <div class="text-left">
+                    <span class="block text-xs font-bold text-white">Imperial Multi-Cuisine</span>
+                    <span class="block text-[10px] font-mono text-champagne-gold">₹1,650 / plate</span>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <!-- Venue Space Recommendation -->
+            <div class="p-3.5 rounded-xl bg-midnight/80 border border-champagne/15 flex items-center justify-between text-xs">
+              <span class="text-silver font-mono">Recommended Venue Space:</span>
+              <span id="venueSpaceRecommendation" class="text-champagne-gold font-bold font-mono">
+                17,000 Sq.Ft Lawn + Imperial Ballroom
+              </span>
+            </div>
+
+          </div>
+
+          <!-- Estimate Output Card (Right 5 cols) -->
+          <div class="lg:col-span-5 bg-midnight-card/90 rounded-2xl p-6 sm:p-7 border border-champagne-gold/40 text-center flex flex-col justify-between h-full shadow-xl">
+            <div>
+              <span class="text-[11px] font-mono uppercase tracking-widest text-silver/80 block mb-1">Estimated Ballpark Investment</span>
+              <div id="totalEstimateDisplay" class="font-luxury text-3xl sm:text-4xl lg:text-5xl font-extrabold text-champagne-light my-2">
+                ₹5,82,500*
+              </div>
+              <span class="text-[10px] font-mono text-silver/60 block mb-4">*Includes venue, food spread & basic infrastructure setup. Taxes extra.</span>
+
+              <div class="space-y-2 text-left border-t border-b border-champagne/15 py-4 my-4 text-xs font-mono">
+                <div class="flex justify-between text-silver">
+                  <span>Guest Count:</span>
+                  <span id="summaryGuests" class="text-white font-semibold">450 pax</span>
+                </div>
+                <div class="flex justify-between text-silver">
+                  <span>Per Plate Plan:</span>
+                  <span id="summaryTier" class="text-white font-semibold">Royal Veg (₹950)</span>
+                </div>
+                <div class="flex justify-between text-silver">
+                  <span>Lawn Setup:</span>
+                  <span class="text-emerald-400 font-semibold">Complimentary valets & lawns</span>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <a id="calcWhatsAppLink" 
+                 href="https://wa.me/919832022717" 
+                 target="_blank" 
+                 class="btn-gold w-full py-3.5 rounded-xl font-bold text-sm inline-flex items-center justify-center gap-2">
+                <i class="bi bi-whatsapp text-lg"></i> Send Quote To Vivek Baid
+              </a>
+              <span class="text-[10px] font-mono text-silver/70 block mt-2">
+                Pre-fills your exact guest count & date request on WhatsApp
+              </span>
+            </div>
+
+          </div>
+
+        </div>
       </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 4. FEATURE CARDS GRID (3 COLUMNS)         -->
+  <!-- ========================================== -->
+  <section id="wedding-lawns" class="py-24 px-4 sm:px-6 lg:px-8 bg-midnight-deep relative">
+    <div class="max-w-7xl mx-auto">
+      
+      <!-- Section Header -->
+      <div class="text-center mb-16">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-midnight/80 border border-champagne-gold/30 text-champagne-gold text-xs font-mono uppercase tracking-wider mb-3">
+          <i class="bi bi-building text-champagne-gold"></i> 4-Star Resort Infrastructure
+        </div>
+        <h2 class="font-luxury text-3xl sm:text-5xl font-bold text-white">
+          Every Dimension of Royal Celebrations
+        </h2>
+        <p class="text-silver mt-3 text-sm sm:text-base max-w-2xl mx-auto">
+          Authentic venue spaces captured on Sevoke Road — crafted to turn life's milestone moments into regal memories.
+        </p>
+      </div>
+
+      <!-- 6 Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Card 1: 17,000 Sq.Ft Wedding Lawns -->
+        <div class="venue-card glass-navy rounded-3xl overflow-hidden border border-champagne/15 flex flex-col">
+          <div class="relative h-64 overflow-hidden group">
+            <img src="assets/shot_09.jpg" alt="17,000 sq ft Wedding Lawns at The Cindrella Hotel" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute top-4 left-4 bg-midnight-dark/85 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-mono text-champagne-gold border border-champagne-gold/30">
+              <i class="bi bi-geo-alt-fill text-rose-400"></i> Main Celebration Lawn
+            </div>
+            <div class="absolute bottom-4 right-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded-lg text-xs font-mono text-white">
+              1,200 Capacity
+            </div>
+          </div>
+          <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-luxury text-2xl font-bold text-white mb-2">17,000 Sq. Ft. Wedding Lawns</h3>
+              <p class="text-silver text-xs sm:text-sm leading-relaxed mb-4">
+                The premier outdoor lawn destination in Siliguri. Accommodates 1,200+ guests with carpeted aisles, illuminated canopy trusses, and panoramic Himalayan foothills breeze.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-champagne/10 flex items-center justify-between text-xs font-mono text-champagne-gold">
+              <span>Open-Air Varmala Stage</span>
+              <a href="https://wa.me/919832022717?text=Hi%20The%20Cindrella%20Hotel%2C%20tell%20me%20more%20about%20the%2017%2C000%20sq%20ft%20Wedding%20Lawn." class="hover:underline flex items-center gap-1">Inquire <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Royal Floral Aisles & Lighting -->
+        <div class="venue-card glass-navy rounded-3xl overflow-hidden border border-champagne/15 flex flex-col">
+          <div class="relative h-64 overflow-hidden group">
+            <img src="assets/shot_06.jpg" alt="Royal floral ceiling canopy aisle" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute top-4 left-4 bg-midnight-dark/85 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-mono text-champagne-gold border border-champagne-gold/30">
+              <i class="bi bi-flower1 text-pink-400"></i> Floral Canopy Aisle
+            </div>
+            <div class="absolute bottom-4 right-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded-lg text-xs font-mono text-white">
+              Fairytale Grand Entry
+            </div>
+          </div>
+          <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-luxury text-2xl font-bold text-white mb-2">Grand Floral Walkways</h3>
+              <p class="text-silver text-xs sm:text-sm leading-relaxed mb-4">
+                Bespoke flower-draped ceiling tunnels, hanging crystal chandeliers, and warm uplighting that deliver breathtaking bridal entries and viral wedding video frames.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-champagne/10 flex items-center justify-between text-xs font-mono text-champagne-gold">
+              <span>Signature Bridal Walkway</span>
+              <a href="https://wa.me/919832022717?text=Hi%20The%20Cindrella%20Hotel%2C%20I%20want%20to%20know%20about%20your%20wedding%20decor%20and%20walkways." class="hover:underline flex items-center gap-1">Inquire <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Luxury Banquet Buffets -->
+        <div class="venue-card glass-navy rounded-3xl overflow-hidden border border-champagne/15 flex flex-col">
+          <div class="relative h-64 overflow-hidden group">
+            <img src="assets/shot_08.jpg" alt="Luxury banquet buffet counters" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute top-4 left-4 bg-midnight-dark/85 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-mono text-champagne-gold border border-champagne-gold/30">
+              <i class="bi bi-cup-straw text-amber-400"></i> Amrapali Culinary Spread
+            </div>
+            <div class="absolute bottom-4 right-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded-lg text-xs font-mono text-white">
+              Live Gourmet Counters
+            </div>
+          </div>
+          <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-luxury text-2xl font-bold text-white mb-2">Imperial Banquet Feasts</h3>
+              <p class="text-silver text-xs sm:text-sm leading-relaxed mb-4">
+                Handcrafted buffet layouts featuring carved gold facades, multi-cuisine live barbecue grills, chaat stations, and royal copper chafing dishes curated by master chefs.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-champagne/10 flex items-center justify-between text-xs font-mono text-champagne-gold">
+              <span>Live Stalls & Dessert Bars</span>
+              <a href="https://wa.me/919832022717?text=Hi%20The%20Cindrella%20Hotel%2C%20please%20share%20your%20wedding%20banquet%20menu%20options." class="hover:underline flex items-center gap-1">Inquire <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4: Haldi & Mehendi Setups -->
+        <div class="venue-card glass-navy rounded-3xl overflow-hidden border border-champagne/15 flex flex-col">
+          <div class="relative h-64 overflow-hidden group">
+            <img src="assets/shot_01.jpg" alt="Haldi floral setup at The Cindrella Hotel" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute top-4 left-4 bg-midnight-dark/85 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-mono text-champagne-gold border border-champagne-gold/30">
+              <i class="bi bi-sun-fill text-yellow-400"></i> Haldi & Poolside Deck
+            </div>
+            <div class="absolute bottom-4 right-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded-lg text-xs font-mono text-white">
+              Traditional Marigold Urli
+            </div>
+          </div>
+          <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-luxury text-2xl font-bold text-white mb-2">Haldi & Mehendi Courtyard</h3>
+              <p class="text-silver text-xs sm:text-sm leading-relaxed mb-4">
+                Vibrant yellow and marigold themed open-air canopies with twin brass urlis for auspicious pre-wedding ceremonies, dhol beats, and sunny pool courtyard memories.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-champagne/10 flex items-center justify-between text-xs font-mono text-champagne-gold">
+              <span>Daytime Ceremonies</span>
+              <a href="https://wa.me/919832022717?text=Hi%20The%20Cindrella%20Hotel%2C%20I%20am%20planning%20a%20Haldi%20and%20Mehendi%20event." class="hover:underline flex items-center gap-1">Inquire <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5: Themed Cultural Decor & Sangeet -->
+        <div class="venue-card glass-navy rounded-3xl overflow-hidden border border-champagne/15 flex flex-col">
+          <div class="relative h-64 overflow-hidden group">
+            <img src="assets/shot_04.jpg" alt="Traditional Rajasthani folk themed banquet decor" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute top-4 left-4 bg-midnight-dark/85 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-mono text-champagne-gold border border-champagne-gold/30">
+              <i class="bi bi-palette-fill text-purple-400"></i> Themed Sangeet Night
+            </div>
+            <div class="absolute bottom-4 right-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded-lg text-xs font-mono text-white">
+              Heritage Folk Elegance
+            </div>
+          </div>
+          <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-luxury text-2xl font-bold text-white mb-2">Themed Banquet Concepts</h3>
+              <p class="text-silver text-xs sm:text-sm leading-relaxed mb-4">
+                Customized traditional motifs, folk musician backdrops, vibrant puppet art, and heritage Rajasthani and Bengali design installations in our air-conditioned halls.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-champagne/10 flex items-center justify-between text-xs font-mono text-champagne-gold">
+              <span>Custom Production</span>
+              <a href="https://wa.me/919832022717?text=Hi%20The%20Cindrella%20Hotel%2C%20I%20want%20to%20discuss%20themed%20wedding%20decor." class="hover:underline flex items-center gap-1">Inquire <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6: 43+ Executive Rooms & Suites -->
+        <div class="venue-card glass-navy rounded-3xl overflow-hidden border border-champagne/15 flex flex-col">
+          <div class="relative h-64 overflow-hidden group">
+            <img src="assets/shot_03.jpg" alt="Grand Stage and Evening Lawns" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute top-4 left-4 bg-midnight-dark/85 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-mono text-champagne-gold border border-champagne-gold/30">
+              <i class="bi bi-moon-stars-fill text-indigo-400"></i> Destination Wedding Stay
+            </div>
+            <div class="absolute bottom-4 right-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded-lg text-xs font-mono text-white">
+              4-Star Accommodation
+            </div>
+          </div>
+          <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-luxury text-2xl font-bold text-white mb-2">Resort Stay & Executive Suites</h3>
+              <p class="text-silver text-xs sm:text-sm leading-relaxed mb-4">
+                Keep both the bride's and groom's families under one luxurious roof. 43+ executive rooms, presidential suites, 24-hour room service, and swimming pool access.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-champagne/10 flex items-center justify-between text-xs font-mono text-champagne-gold">
+              <span>Full Hotel Buyouts Available</span>
+              <a href="https://wa.me/919832022717?text=Hi%20The%20Cindrella%20Hotel%2C%20I%20need%20room%20blocks%20for%20a%20wedding." class="hover:underline flex items-center gap-1">Inquire <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 5. FILMSTRIP MARQUEE                      -->
+  <!-- ========================================== -->
+  <section class="py-16 bg-midnight-dark overflow-hidden border-y border-champagne/20">
+    <div class="max-w-7xl mx-auto px-4 mb-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>
+        <span class="text-xs font-mono uppercase tracking-widest text-champagne-gold block">AUTHENTIC VENUE ARCHIVE</span>
+        <h3 class="font-luxury text-2xl sm:text-3xl font-bold text-white">Behind The Lens at The Cindrella Hotel</h3>
+      </div>
+      <div class="text-xs font-mono text-silver/70 flex items-center gap-2">
+        <i class="bi bi-pause-circle text-champagne-gold"></i> Hover or touch to pause filmstrip
+      </div>
+    </div>
+
+    <!-- Film Sprocket Top -->
+    <div class="film-sprocket-border mb-3"></div>
+
+    <!-- Marquee Track -->
+    <div class="marquee-track flex gap-5 py-2">
+      <!-- Image 1 -->
+      <div class="relative w-80 h-52 sm:w-96 sm:h-60 rounded-2xl overflow-hidden border border-champagne/25 flex-shrink-0 group">
+        <img src="assets/shot_02.jpg" alt="Floral Entrance Walkway" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+        <span class="absolute bottom-3 left-4 text-xs font-mono text-champagne-light">Floral Entrance Walkway</span>
+      </div>
+
+      <!-- Image 2 -->
+      <div class="relative w-80 h-52 sm:w-96 sm:h-60 rounded-2xl overflow-hidden border border-champagne/25 flex-shrink-0 group">
+        <img src="assets/shot_03.jpg" alt="Grand Royal Stage" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+        <span class="absolute bottom-3 left-4 text-xs font-mono text-champagne-light">17K Sq.Ft Stage & Lighting</span>
+      </div>
+
+      <!-- Image 3 -->
+      <div class="relative w-80 h-52 sm:w-96 sm:h-60 rounded-2xl overflow-hidden border border-champagne/25 flex-shrink-0 group">
+        <img src="assets/shot_06.jpg" alt="White Floral Ceiling Canopy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+        <span class="absolute bottom-3 left-4 text-xs font-mono text-champagne-light">White Floral Canopy Aisle</span>
+      </div>
+
+      <!-- Image 4 -->
+      <div class="relative w-80 h-52 sm:w-96 sm:h-60 rounded-2xl overflow-hidden border border-champagne/25 flex-shrink-0 group">
+        <img src="assets/shot_08.jpg" alt="Luxury Buffet Spread" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+        <span class="absolute bottom-3 left-4 text-xs font-mono text-champagne-light">Amrapali Banquet Buffet</span>
+      </div>
+
+      <!-- Image 5 -->
+      <div class="relative w-80 h-52 sm:w-96 sm:h-60 rounded-2xl overflow-hidden border border-champagne/25 flex-shrink-0 group">
+        <img src="assets/shot_09.jpg" alt="17K Sq Ft Lawn Setup" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+        <span class="absolute bottom-3 left-4 text-xs font-mono text-champagne-light">1,200 Pax Seating Layout</span>
+      </div>
+
+      <!-- Image 6 -->
+      <div class="relative w-80 h-52 sm:w-96 sm:h-60 rounded-2xl overflow-hidden border border-champagne/25 flex-shrink-0 group">
+        <img src="assets/shot_01.jpg" alt="Haldi & Floral Setup" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+        <span class="absolute bottom-3 left-4 text-xs font-mono text-champagne-light">Haldi & Mehendi Courtyard</span>
+      </div>
+
+      <!-- Image 7 -->
+      <div class="relative w-80 h-52 sm:w-96 sm:h-60 rounded-2xl overflow-hidden border border-champagne/25 flex-shrink-0 group">
+        <img src="assets/shot_07.jpg" alt="Sangeet Welcoming Foyer" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+        <span class="absolute bottom-3 left-4 text-xs font-mono text-champagne-light">Sangeet Welcoming Foyer</span>
+      </div>
+
+      <!-- Image 8 -->
+      <div class="relative w-80 h-52 sm:w-96 sm:h-60 rounded-2xl overflow-hidden border border-champagne/25 flex-shrink-0 group">
+        <img src="assets/shot_04.jpg" alt="Traditional Folk Decor" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+        <span class="absolute bottom-3 left-4 text-xs font-mono text-champagne-light">Folk Art & Banquet Styling</span>
+      </div>
+
+      <!-- Image 9 -->
+      <div class="relative w-80 h-52 sm:w-96 sm:h-60 rounded-2xl overflow-hidden border border-champagne/25 flex-shrink-0 group">
+        <img src="assets/shot_05.jpg" alt="Banquet Entryway" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+        <span class="absolute bottom-3 left-4 text-xs font-mono text-champagne-light">Imperial Hall Entrance</span>
+      </div>
+
+      <!-- Duplicate Set for Seamless Infinite Loop -->
+      <div class="relative w-80 h-52 sm:w-96 sm:h-60 rounded-2xl overflow-hidden border border-champagne/25 flex-shrink-0 group">
+        <img src="assets/shot_02.jpg" alt="Floral Entrance Walkway" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+        <span class="absolute bottom-3 left-4 text-xs font-mono text-champagne-light">Floral Entrance Walkway</span>
+      </div>
+      <div class="relative w-80 h-52 sm:w-96 sm:h-60 rounded-2xl overflow-hidden border border-champagne/25 flex-shrink-0 group">
+        <img src="assets/shot_03.jpg" alt="Grand Royal Stage" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+        <span class="absolute bottom-3 left-4 text-xs font-mono text-champagne-light">17K Sq.Ft Stage & Lighting</span>
+      </div>
+      <div class="relative w-80 h-52 sm:w-96 sm:h-60 rounded-2xl overflow-hidden border border-champagne/25 flex-shrink-0 group">
+        <img src="assets/shot_06.jpg" alt="White Floral Ceiling Canopy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+        <span class="absolute bottom-3 left-4 text-xs font-mono text-champagne-light">White Floral Canopy Aisle</span>
+      </div>
+      <div class="relative w-80 h-52 sm:w-96 sm:h-60 rounded-2xl overflow-hidden border border-champagne/25 flex-shrink-0 group">
+        <img src="assets/shot_08.jpg" alt="Luxury Buffet Spread" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+        <span class="absolute bottom-3 left-4 text-xs font-mono text-champagne-light">Amrapali Banquet Buffet</span>
+      </div>
+      <div class="relative w-80 h-52 sm:w-96 sm:h-60 rounded-2xl overflow-hidden border border-champagne/25 flex-shrink-0 group">
+        <img src="assets/shot_09.jpg" alt="17K Sq Ft Lawn Setup" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+        <span class="absolute bottom-3 left-4 text-xs font-mono text-champagne-light">1,200 Pax Seating Layout</span>
+      </div>
+    </div>
+
+    <!-- Film Sprocket Bottom -->
+    <div class="film-sprocket-border mt-3"></div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 6. AMRAPALI RESTAURANT CULINARY SHOWCASE   -->
+  <!-- ========================================== -->
+  <section id="amrapali-dining" class="py-24 px-4 sm:px-6 lg:px-8 bg-midnight-deep relative">
+    <div class="max-w-7xl mx-auto">
+      
+      <div class="text-center mb-16">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-midnight/80 border border-champagne-gold/30 text-champagne-gold text-xs font-mono uppercase tracking-wider mb-3">
+          <i class="bi bi-award-fill text-champagne-gold"></i> Fine Dining Excellence
+        </div>
+        <h2 class="font-luxury text-3xl sm:text-5xl font-bold text-white">
+          Amrapali Multi-Cuisine Restaurant
+        </h2>
+        <p class="text-silver mt-3 text-sm sm:text-base max-w-2xl mx-auto">
+          From North Indian royal dum pukht to sizzling Oriental platters and authentic Bengali feasts — Siliguri's cherished family dining table.
+        </p>
+      </div>
+
+      <!-- Dish Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Dish 1 -->
+        <div class="glass-navy p-6 rounded-2xl border border-champagne/15 hover:border-champagne-gold/50 transition-all group">
+          <div class="w-12 h-12 rounded-xl bg-champagne-gold/15 flex items-center justify-center text-champagne-gold mb-4 group-hover:scale-110 transition-transform">
+            <i class="bi bi-fire text-2xl"></i>
+          </div>
+          <span class="text-[10px] font-mono uppercase tracking-wider text-rose-400 block mb-1">Chef's Signature</span>
+          <h4 class="font-luxury text-xl font-bold text-white mb-2">Peshawari Murgh Tikka</h4>
+          <p class="text-silver text-xs leading-relaxed">
+            Succulent chicken thigh marinated in crushed royal spices, hung curd, and mustard oil, roasted to smoky perfection in clay tandoors.
+          </p>
+        </div>
+
+        <!-- Dish 2 -->
+        <div class="glass-navy p-6 rounded-2xl border border-champagne/15 hover:border-champagne-gold/50 transition-all group">
+          <div class="w-12 h-12 rounded-xl bg-champagne-gold/15 flex items-center justify-center text-champagne-gold mb-4 group-hover:scale-110 transition-transform">
+            <i class="bi bi-egg-fried text-2xl"></i>
+          </div>
+          <span class="text-[10px] font-mono uppercase tracking-wider text-amber-400 block mb-1">Amrapali Special</span>
+          <h4 class="font-luxury text-xl font-bold text-white mb-2">Dum Biryani Nizami</h4>
+          <p class="text-silver text-xs leading-relaxed">
+            Long-grain fragrant basmati layered with tender saffron meat, caramelized onions, and kewra water sealed with dough under slow steam.
+          </p>
+        </div>
+
+        <!-- Dish 3 -->
+        <div class="glass-navy p-6 rounded-2xl border border-champagne/15 hover:border-champagne-gold/50 transition-all group">
+          <div class="w-12 h-12 rounded-xl bg-champagne-gold/15 flex items-center justify-center text-champagne-gold mb-4 group-hover:scale-110 transition-transform">
+            <i class="bi bi-snow2 text-2xl"></i>
+          </div>
+          <span class="text-[10px] font-mono uppercase tracking-wider text-emerald-400 block mb-1">Vegetarian Delight</span>
+          <h4 class="font-luxury text-xl font-bold text-white mb-2">Paneer Lababdar</h4>
+          <p class="text-silver text-xs leading-relaxed">
+            Fresh cottage cheese cubes folded into a rich tomato, cashew nut, and butter gravy seasoned with kasuri methi and cream.
+          </p>
+        </div>
+
+        <!-- Dish 4 -->
+        <div class="glass-navy p-6 rounded-2xl border border-champagne/15 hover:border-champagne-gold/50 transition-all group">
+          <div class="w-12 h-12 rounded-xl bg-champagne-gold/15 flex items-center justify-center text-champagne-gold mb-4 group-hover:scale-110 transition-transform">
+            <i class="bi bi-cup text-2xl"></i>
+          </div>
+          <span class="text-[10px] font-mono uppercase tracking-wider text-purple-400 block mb-1">Sweet Finish</span>
+          <h4 class="font-luxury text-xl font-bold text-white mb-2">Royal Kulfi Falooda</h4>
+          <p class="text-silver text-xs leading-relaxed">
+            House-churned malai kulfi topped with fragrant rose syrup, sabja seeds, silky falooda vermicelli, and toasted pistachios.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Action Row -->
+      <div class="mt-12 text-center">
+        <a href="https://wa.me/919832022717?text=Hi%20Amrapali%20Restaurant%2C%20I%20would%20like%20to%20reserve%20a%20table%20for%20lunch%2Fdinner." 
+           target="_blank" 
+           class="btn-outline-gold px-8 py-3.5 rounded-full text-xs sm:text-sm font-mono tracking-wider inline-flex items-center gap-2">
+          <i class="bi bi-table text-champagne-gold"></i> Reserve Table at Amrapali Restaurant
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 7. LOCATION & GPS SECTION                 -->
+  <!-- ========================================== -->
+  <section id="location-access" class="py-24 px-4 sm:px-6 lg:px-8 bg-midnight relative border-t border-champagne/15">
+    <div class="max-w-7xl mx-auto">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        
+        <!-- Left: Text & Landmarks (7 cols) -->
+        <div class="lg:col-span-7">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-midnight-card border border-champagne-gold/30 text-champagne-gold text-xs font-mono uppercase tracking-wider mb-4">
+            <i class="bi bi-pin-map-fill text-champagne-gold"></i> Strategic Highway Location
+          </div>
+          <h2 class="font-luxury text-3xl sm:text-5xl font-bold text-white leading-tight mb-4">
+            Directly on Sevoke Road (NH-10), Siliguri
+          </h2>
+          <p class="text-silver text-sm sm:text-base leading-relaxed mb-6 font-light">
+            Conveniently situated on Siliguri’s primary arterial corridor, The Cindrella Hotel provides effortless access for destination wedding guests arriving via Bagdogra Airport, NJP railway terminal, or highway travelers transiting to Sikkim, Darjeeling, and Bhutan.
+          </p>
+
+          <!-- Address Badge -->
+          <div class="p-4 rounded-2xl bg-midnight-deep/90 border border-champagne/20 mb-8 flex items-start gap-3">
+            <i class="bi bi-geo-alt-fill text-champagne-gold text-2xl mt-0.5"></i>
+            <div>
+              <span class="block text-white font-semibold text-sm">The Cindrella Hotel & Amrapali Restaurant</span>
+              <span class="block text-silver text-xs mt-0.5">3rd Mile, Sevoke Road / NH-10, Salugara, Ward 42, Siliguri, West Bengal 734008</span>
+              <span class="block text-champagne-gold font-mono text-[11px] mt-1">GPS: 26.7451° N, 88.4526° E • Landmark: Near Salugara Monastery Gate</span>
+            </div>
+          </div>
+
+          <!-- Distance Metrics Grid -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
+            <div class="p-3.5 rounded-xl bg-midnight-card border border-champagne/10 text-center">
+              <span class="text-champagne-gold font-bold text-xl block font-mono">18 km</span>
+              <span class="text-[11px] text-silver block mt-0.5">Bagdogra (IXB)</span>
+              <span class="text-[9px] text-silver/60 block font-mono">~35 mins</span>
+            </div>
+            <div class="p-3.5 rounded-xl bg-midnight-card border border-champagne/10 text-center">
+              <span class="text-champagne-gold font-bold text-xl block font-mono">11 km</span>
+              <span class="text-[11px] text-silver block mt-0.5">NJP Railway Stn</span>
+              <span class="text-[9px] text-silver/60 block font-mono">~25 mins</span>
+            </div>
+            <div class="p-3.5 rounded-xl bg-midnight-card border border-champagne/10 text-center">
+              <span class="text-champagne-gold font-bold text-xl block font-mono">6.5 km</span>
+              <span class="text-[11px] text-silver block mt-0.5">Siliguri Junction</span>
+              <span class="text-[9px] text-silver/60 block font-mono">~15 mins</span>
+            </div>
+            <div class="p-3.5 rounded-xl bg-midnight-card border border-champagne/10 text-center">
+              <span class="text-champagne-gold font-bold text-xl block font-mono">100+</span>
+              <span class="text-[11px] text-silver block mt-0.5">Secure Car Parks</span>
+              <span class="text-[9px] text-silver/60 block font-mono">Free Valet</span>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-4">
+            <a href="https://maps.google.com/?q=The+Cindrella+Hotel+Sevoke+Road+Siliguri" 
+               target="_blank" 
+               class="btn-gold px-6 py-3 rounded-xl text-xs sm:text-sm font-semibold inline-flex items-center gap-2">
+              <i class="bi bi-compass-fill"></i> Open in Google Maps
+            </a>
+            <a href="https://wa.me/919832022717?text=Hi%20The%20Cindrella%20Hotel%2C%20please%20send%20me%20your%20exact%20location%20pin." 
+               target="_blank" 
+               class="btn-outline-gold px-6 py-3 rounded-xl text-xs sm:text-sm font-semibold inline-flex items-center gap-2">
+              <i class="bi bi-whatsapp"></i> Get WhatsApp Pin
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Right: Interactive Map Simulation Frame (5 cols) -->
+        <div class="lg:col-span-5">
+          <div class="glass-navy-glow p-5 rounded-3xl border border-champagne-gold/30 shadow-2xl relative overflow-hidden">
+            <div class="relative h-80 rounded-2xl overflow-hidden border border-champagne/15 bg-midnight-deep flex items-center justify-center">
+              <img src="assets/shot_03.jpg" alt="Cindrella Hotel Map Preview" class="w-full h-full object-cover filter brightness-50 contrast-125">
+              
+              <div class="absolute inset-0 bg-gradient-to-t from-midnight-dark via-midnight-dark/40 to-transparent"></div>
+
+              <!-- Map Pin Graphic Overlay -->
+              <div class="absolute text-center z-10 px-4">
+                <div class="w-14 h-14 rounded-full bg-champagne-gold/90 text-midnight-dark flex items-center justify-center text-2xl mx-auto shadow-2xl animate-bounce">
+                  <i class="bi bi-geo-alt-fill"></i>
+                </div>
+                <span class="font-luxury font-bold text-lg text-white block mt-2">The Cindrella Hotel</span>
+                <span class="text-xs font-mono text-champagne-gold block">Sevoke Road / NH-10 Corridor</span>
+                <a href="https://maps.google.com/?q=The+Cindrella+Hotel+Sevoke+Road+Siliguri" 
+                   target="_blank" 
+                   class="mt-4 inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white/20 hover:bg-white/30 text-white text-xs font-mono backdrop-blur-md transition-all">
+                  Navigate Live via GPS <i class="bi bi-arrow-up-right"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Route Summary Pill -->
+            <div class="mt-4 p-3 rounded-xl bg-midnight/80 border border-champagne/10 flex items-center justify-between text-xs font-mono">
+              <span class="text-silver">Highway Status:</span>
+              <span class="text-emerald-400 font-semibold flex items-center gap-1">
+                <i class="bi bi-check-circle-fill"></i> Wide 4-Lane NH-10 Access
+              </span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 8. LOCALPULSE AI PITCH MEMO               -->
+  <!-- ========================================== -->
+  <section id="executive-pitch" class="py-24 px-4 sm:px-6 lg:px-8 bg-midnight-dark relative border-t border-champagne-gold/25">
+    <div class="max-w-4xl mx-auto">
+      
+      <!-- Memo Badge -->
+      <div class="text-center mb-10">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/15 border border-emerald-400/40 text-emerald-300 font-mono text-xs uppercase tracking-widest mb-4">
+          <i class="bi bi-lightning-charge-fill text-emerald-400"></i> LocalPulse AI Strategic Audit
+        </div>
+        <h2 class="font-luxury text-3xl sm:text-5xl font-bold text-white">
+          Confidential Digital Growth Memo
+        </h2>
+        <span class="text-silver font-mono text-xs block mt-2">
+          Prepared exclusively for Vivek Baid & Sangita Devi Baid • Cindrella Hotels Ltd
+        </span>
+      </div>
+
+      <!-- Formal Letterhead Document -->
+      <div class="glass-navy-glow p-8 sm:p-12 rounded-3xl border border-champagne-gold/40 shadow-2xl relative">
+        
+        <!-- Document Meta Header -->
+        <div class="border-b border-champagne/20 pb-6 mb-8 flex flex-col sm:flex-row justify-between gap-4 font-mono text-xs text-silver">
+          <div>
+            <span class="block text-silver/60">TO:</span>
+            <span class="text-white font-bold text-sm">Mr. Vivek Baid (Managing Director)</span>
+            <span class="text-white font-medium">Mrs. Sangita Devi Baid (Chairperson)</span>
+            <span class="text-champagne-gold">The Cindrella Hotel & Amrapali Restaurant</span>
+          </div>
+          <div>
+            <span class="block text-silver/60">FROM:</span>
+            <span class="text-white font-bold text-sm">Samya (Founder, LocalPulse AI)</span>
+            <span class="text-emerald-400">samya.pegusus@gmail.com</span>
+            <span class="text-champagne-gold">+91 86176 25059 (WhatsApp Direct)</span>
+          </div>
+        </div>
+
+        <!-- Memo Content -->
+        <div class="space-y-6 text-silver text-sm sm:text-base leading-relaxed font-light">
+          
+          <p>
+            <strong class="text-white font-semibold">Respected Vivek Baid ji & Management Team,</strong>
+          </p>
+
+          <p>
+            The Cindrella Hotel is indisputably one of Siliguri’s original hospitality icons. With over <strong class="text-white font-medium">2,500+ Google Reviews (4.0★)</strong> and an extraordinary <strong class="text-champagne-gold font-medium">17,000 sq. ft. wedding lawn accommodating 1,200 guests</strong>, you possess an asset that very few properties in North Bengal can ever replicate.
+          </p>
+
+          <!-- Core Bottleneck Callout Box -->
+          <div class="p-5 sm:p-6 rounded-2xl bg-midnight-deep/90 border-l-4 border-rose-500 text-silver text-xs sm:text-sm">
+            <span class="font-bold text-white text-sm block mb-1.5 flex items-center gap-2">
+              <i class="bi bi-exclamation-triangle-fill text-rose-400"></i> The Critical Opportunity Gap:
+            </span>
+            Siliguri has become the prime destination wedding hub for high-net-worth families across North Bengal, Sikkim, Assam, Bihar, and Nepal. Over <strong class="text-white">88% of wedding decisions begin on mobile screens</strong> by the bride, groom, and family elders.
+            Your current web presence reflects a desktop era — it has <strong class="text-rose-300">no 360° lawn walkthroughs, no instant banquet cost calculators, and no one-tap WhatsApp funnel</strong>. High-budget wedding planners searching on Instagram and Google are bouncing to newer properties simply because they cannot feel the grandeur of your 17K lawn before visiting in person.
+          </div>
+
+          <h3 class="font-luxury text-xl font-bold text-white pt-2">
+            How This Bespoke Scroll-Camera Engine Transforms Bookings:
+          </h3>
+
+          <ul class="space-y-3 pl-2 text-xs sm:text-sm">
+            <li class="flex items-start gap-3">
+              <i class="bi bi-check2-circle text-emerald-400 text-lg flex-shrink-0 mt-0.5"></i>
+              <span><strong class="text-white">Cinema-Grade Video Walkthrough:</strong> As visitors scroll, they are taken on a silky 60fps camera glide directly through your wedding aisles, grand stage, and Amrapali restaurant without needing to click clumsy links.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="bi bi-check2-circle text-emerald-400 text-lg flex-shrink-0 mt-0.5"></i>
+              <span><strong class="text-white">WhatsApp Banquet Calculator:</strong> Prospective clients adjust guest counts (100 to 1,200) and catering tiers, then tap once to transmit a pre-formatted inquiry directly to your events team on WhatsApp (+91 98320 22717).</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="bi bi-check2-circle text-emerald-400 text-lg flex-shrink-0 mt-0.5"></i>
+              <span><strong class="text-white">Zero App Installation:</strong> Loads in under 1.2 seconds on 4G/5G mobile browsers, engineered with pure CDN performance and native GPU acceleration.</span>
+            </li>
+          </ul>
+
+          <!-- Reference Project Box -->
+          <div class="p-5 sm:p-6 rounded-2xl bg-midnight/80 border border-champagne-gold/30 mt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>
+              <span class="text-[10px] font-mono uppercase tracking-widest text-champagne-gold block">LIVE PROVEN REFERENCE</span>
+              <h4 class="font-luxury font-bold text-lg text-white">Mother's Hut (NH-12 Landmark Redesign)</h4>
+              <p class="text-silver/80 text-xs mt-1">
+                See how we revolutionized the digital presence of the 50,000 sq. ft. gastronomic landmark with video scrubbing and AI concierge.
+              </p>
+            </div>
+            <a href="https://samya666.github.io/mothers-hut-redesign/" 
+               target="_blank" 
+               class="btn-outline-gold px-5 py-2.5 rounded-xl text-xs font-mono whitespace-nowrap inline-flex items-center gap-1.5 flex-shrink-0">
+              <span>View Live Project</span> <i class="bi bi-box-arrow-up-right"></i>
+            </a>
+          </div>
+
+          <p class="pt-2">
+            We can deploy this exact custom portal for <strong class="text-white">The Cindrella Hotel & Amrapali Restaurant within 48 hours</strong>, connected to your custom domain, with zero technical hassle for your staff.
+          </p>
+
+          <p>
+            I would welcome a 10-minute briefing with you, Vivek ji, or your sales leadership to review date availability funnels and live banquet conversion tracking.
+          </p>
+
+        </div>
+
+        <!-- Founder Signature & Call to Action -->
+        <div class="mt-8 pt-6 border-t border-champagne/20 flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-full bg-champagne-gold/20 border border-champagne-gold/40 flex items-center justify-center font-luxury font-bold text-xl text-champagne-gold">
+              S
+            </div>
+            <div>
+              <span class="font-bold text-white block text-sm">Samya</span>
+              <span class="text-silver text-xs block">Founder & Lead Engineer, LocalPulse AI</span>
+              <span class="text-emerald-400 font-mono text-[11px] block">WhatsApp: +91 8617625059 • samya.pegusus@gmail.com</span>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3 w-full sm:w-auto">
+            <a href="https://wa.me/918617625059?text=Hello%20Samya%2C%20this%20is%20Vivek%20Baid%20from%20The%20Cindrella%20Hotel.%20I%20reviewed%20your%20interactive%20demo%20and%20would%20like%20to%20discuss." 
+               target="_blank" 
+               class="btn-gold px-6 py-3 rounded-xl font-bold text-xs sm:text-sm text-center flex-1 sm:flex-initial inline-flex items-center justify-center gap-2">
+              <i class="bi bi-chat-dots-fill"></i> Connect with Samya on WhatsApp
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 9. FOOTER                                 -->
+  <!-- ========================================== -->
+  <footer class="py-12 px-4 sm:px-6 lg:px-8 bg-midnight-dark border-t border-champagne/10 pb-28 md:pb-12 text-silver text-xs">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      
+      <!-- Brand -->
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-lg bg-champagne-gold/15 flex items-center justify-center text-champagne-gold font-luxury font-bold">
+          C
+        </div>
+        <div>
+          <span class="font-luxury font-bold text-white text-sm block">THE CINDRELLA HOTEL & AMRAPALI RESTAURANT</span>
+          <span class="text-[11px] text-silver/60">3rd Mile, Sevoke Road (NH-10), Salugara, Siliguri 734008</span>
+        </div>
+      </div>
+
+      <!-- Links -->
+      <div class="flex flex-wrap items-center justify-center gap-6 font-mono text-[11px] text-silver/80">
+        <a href="#camera-track-container" class="hover:text-champagne-gold">Top</a>
+        <a href="#banquet-calculator" class="hover:text-champagne-gold">Banquet Calculator</a>
+        <a href="#wedding-lawns" class="hover:text-champagne-gold">17K Lawns</a>
+        <a href="#amrapali-dining" class="hover:text-champagne-gold">Amrapali Restaurant</a>
+        <a href="tel:+919832022717" class="hover:text-champagne-gold">+91 98320 22717</a>
+      </div>
+
+      <!-- Powered By LocalPulse AI -->
+      <div class="text-right text-[11px] font-mono text-silver/60">
+        <span>Concept Crafted by <span class="text-champagne-gold font-semibold">LocalPulse AI</span></span>
+        <span class="block">Turnkey Hospitality Conversion Portals</span>
+      </div>
+
     </div>
   </footer>
 
+  <!-- ========================================== -->
+  <!-- 10. STICKY MOBILE BOTTOM BAR (3 BUTTONS)   -->
+  <!-- ========================================== -->
+  <aside class="fixed bottom-0 left-0 right-0 z-50 md:hidden glass-navy border-t border-champagne/20 p-3 grid grid-cols-3 gap-2">
+    <!-- WhatsApp -->
+    <a href="https://wa.me/919832022717?text=Hi%20The%20Cindrella%20Hotel%2C%20I%20want%20to%20inquire%20about%20Wedding%20Lawns%20and%20Amrapali%20Restaurant." 
+       target="_blank" 
+       class="btn-gold py-2.5 rounded-xl font-bold text-xs flex items-center justify-center gap-1.5 shadow-lg">
+      <i class="bi bi-whatsapp text-sm"></i> WhatsApp
+    </a>
+
+    <!-- Call -->
+    <a href="tel:+919832022717" 
+       class="btn-outline-gold py-2.5 rounded-xl font-mono text-xs flex items-center justify-center gap-1.5 bg-midnight/80">
+      <i class="bi bi-telephone-fill text-champagne-gold text-xs"></i> Call Hotel
+    </a>
+
+    <!-- Maps -->
+    <a href="https://maps.google.com/?q=The+Cindrella+Hotel+Sevoke+Road+Siliguri" 
+       target="_blank" 
+       class="px-3 py-2.5 rounded-xl bg-midnight/80 border border-champagne/30 text-silver font-mono text-xs flex items-center justify-center gap-1.5">
+      <i class="bi bi-compass-fill text-champagne-gold"></i> Maps
+    </a>
+  </aside>
+
+  <!-- ========================================== -->
+  <!-- 11. GSAP SCROLLTRIGGER ENGINE & SCRIPTS   -->
+  <!-- ========================================== -->
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    const video = document.getElementById('walkthroughVideo');
+    const station1 = document.getElementById('station-1');
+    const station2 = document.getElementById('station-2');
+    const station3 = document.getElementById('station-3');
+    const station4 = document.getElementById('station-4');
+    const progressBar = document.getElementById('cameraProgressBar');
+
+    let videoDuration = 22.0;
+
+    // Detect video duration once metadata is loaded
+    video.addEventListener('loadedmetadata', () => {
+      if (video.duration && !isNaN(video.duration)) {
+        videoDuration = video.duration;
+      }
+      initScrollTrack();
+    });
+
+    if (video.readyState >= 1) {
+      if (video.duration && !isNaN(video.duration)) {
+        videoDuration = video.duration;
+      }
+      initScrollTrack();
+    } else {
+      setTimeout(initScrollTrack, 350);
+    }
+
+    function initScrollTrack() {
+      // Main ScrollTrigger pinned scrub
+      ScrollTrigger.create({
+        trigger: "#camera-track-container",
+        start: "top top",
+        end: "bottom bottom",
+        scrub: 0.15, // Butter smooth physics
+        onUpdate: (self) => {
+          const progress = self.progress;
+
+          // Scrub video playback time
+          if (video.readyState >= 2 && videoDuration) {
+            video.currentTime = Math.min(videoDuration - 0.05, Math.max(0, progress * videoDuration));
+          }
+
+          // Update Viewport Progress Bar
+          if (progressBar) {
+            progressBar.style.width = (progress * 100) + '%';
+          }
+
+          // Station 1: Grand Hero Title (0 to 0.23)
+          if (progress < 0.24) {
+            const op = gsap.utils.clamp(0, 1, (0.22 - progress) / 0.12);
+            gsap.set(station1, {
+              opacity: op,
+              scale: 1 - progress * 0.18,
+              y: -progress * 60,
+              pointerEvents: op > 0.3 ? 'auto' : 'none'
+            });
+          } else {
+            gsap.set(station1, { opacity: 0, pointerEvents: 'none' });
+          }
+
+          // Station 2: Signature 17,000 Sq Ft Lawns (0.24 to 0.57)
+          if (progress >= 0.24 && progress < 0.58) {
+            let op = 0;
+            if (progress >= 0.24 && progress <= 0.36) {
+              op = (progress - 0.24) / 0.12;
+            } else if (progress > 0.36 && progress <= 0.48) {
+              op = 1;
+            } else if (progress > 0.48) {
+              op = (0.58 - progress) / 0.10;
+            }
+            op = gsap.utils.clamp(0, 1, op);
+            const sc = gsap.utils.interpolate(0.92, 1.02, (progress - 0.24) / 0.34);
+            gsap.set(station2, {
+              opacity: op,
+              scale: sc,
+              pointerEvents: op > 0.3 ? 'auto' : 'none'
+            });
+          } else {
+            gsap.set(station2, { opacity: 0, pointerEvents: 'none' });
+          }
+
+          // Station 3: Amrapali Restaurant & Central AC Ballrooms (0.58 to 0.82)
+          if (progress >= 0.58 && progress < 0.83) {
+            let op = 0;
+            if (progress >= 0.58 && progress <= 0.68) {
+              op = (progress - 0.58) / 0.10;
+            } else if (progress > 0.68 && progress <= 0.77) {
+              op = 1;
+            } else if (progress > 0.77) {
+              op = (0.83 - progress) / 0.06;
+            }
+            op = gsap.utils.clamp(0, 1, op);
+            gsap.set(station3, {
+              opacity: op,
+              scale: 1,
+              pointerEvents: op > 0.3 ? 'auto' : 'none'
+            });
+          } else {
+            gsap.set(station3, { opacity: 0, pointerEvents: 'none' });
+          }
+
+          // Station 4: VIP Booking & WhatsApp Consultation Desk (0.83 to 1.0)
+          if (progress >= 0.83) {
+            const op = gsap.utils.clamp(0, 1, (progress - 0.83) / 0.10);
+            gsap.set(station4, {
+              opacity: op,
+              scale: 1,
+              pointerEvents: op > 0.3 ? 'auto' : 'none'
+            });
+          } else {
+            gsap.set(station4, { opacity: 0, pointerEvents: 'none' });
+          }
+        }
+      });
+    }
+
+    // Window resize handler
+    window.addEventListener('resize', () => {
+      ScrollTrigger.refresh();
+    });
+
+    /* ==========================================================================
+       12. BANQUET CALCULATOR LOGIC
+       ========================================================================== */
+    let currentEventType = 'wedding';
+    let currentEventMultiplier = 1.0;
+
+    function setEventType(type, multiplier, btnEl) {
+      currentEventType = type;
+      currentEventMultiplier = multiplier;
+
+      // Update button visual states
+      document.querySelectorAll('.calc-btn').forEach(btn => {
+        btn.classList.remove('active', 'border-champagne-gold', 'bg-champagne-gold/20', 'text-white');
+        btn.classList.add('border-champagne/20', 'bg-midnight/60', 'text-silver');
+      });
+
+      btnEl.classList.remove('border-champagne/20', 'bg-midnight/60', 'text-silver');
+      btnEl.classList.add('active', 'border-champagne-gold', 'bg-champagne-gold/20', 'text-white');
+
+      updateCalculator();
+    }
+
+    function updateCalculator() {
+      const guestSlider = document.getElementById('guestRange');
+      const guests = parseInt(guestSlider.value, 10);
+      document.getElementById('guestCountDisplay').innerText = guests + ' Guests';
+      document.getElementById('summaryGuests').innerText = guests + ' pax';
+
+      // Get selected catering rate
+      const tierRadio = document.querySelector('input[name="cateringTier"]:checked');
+      const plateRate = parseInt(tierRadio.value, 10);
+
+      let tierName = "Royal Veg";
+      if (plateRate === 1250) tierName = "Classic Non-Veg";
+      if (plateRate === 1650) tierName = "Imperial Multi-Cuisine";
+
+      document.getElementById('summaryTier').innerText = `${tierName} (₹${plateRate.toLocaleString('en-IN')})`;
+
+      // Venue recommendation based on capacity
+      const venueRec = document.getElementById('venueSpaceRecommendation');
+      if (guests <= 200) {
+        venueRec.innerText = "Regent / Senate AC Ballroom";
+      } else if (guests <= 500) {
+        venueRec.innerText = "Imperial AC Ballroom + Poolside Deck";
+      } else {
+        venueRec.innerText = "Full 17,000 Sq.Ft Lawn + Imperial Ballroom";
+      }
+
+      // Calculation Formula: (Guests * Plate Rate * Event Multiplier) + Base Setup Cost
+      let baseSetup = 150000;
+      if (guests < 300) baseSetup = 90000;
+      else if (guests > 750) baseSetup = 220000;
+
+      const totalEstimate = Math.round((guests * plateRate * currentEventMultiplier) + baseSetup);
+      document.getElementById('totalEstimateDisplay').innerText = '₹' + totalEstimate.toLocaleString('en-IN') + '*';
+
+      // Update WhatsApp Link with Pre-filled payload
+      const waLink = document.getElementById('calcWhatsAppLink');
+      const waText = `Hello Vivek Baid ji & Cindrella Events Team,%0A%0AI used the Banquet Estimator on your website for a tentative event:%0A• *Event Type:* ${currentEventType.toUpperCase()}%0A• *Guest Count:* ${guests} Guests%0A• *Catering Tier:* ${tierName} (₹${plateRate}/plate)%0A• *Estimated Budget:* ~₹${totalEstimate.toLocaleString('en-IN')}%0A• *Recommended Venue:* ${venueRec.innerText}%0A%0APlease let me know available dates and formal quotation!`;
+      waLink.href = `https://wa.me/919832022717?text=${waText}`;
+    }
+
+    // Initialize calculator
+    updateCalculator();
+  </script>
 </body>
 </html>
